@@ -1,9 +1,6 @@
 ---
-title: Homework 1: Linux-Git Command Line
+title: "Homework 1: Linux-Git CLI"
 ---
-# Assignment 1: Linux and Git
-
-#### IT&C 210A
 
 ***
 
