@@ -1,0 +1,447 @@
+﻿/* ==== Declare Constants ==== */
+:root {
+    --clr_accent1: #8A1515; /* Directory, Subtitle, Heading 1 (burgundy) */
+    --clr_accent2: #085170; /* Title, Heading 2 (dark turquoise)*/
+    --clr_link: #18577e; /* (blue) */
+    --clr_link_visited: #278DCC;
+    --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
+    --clr_code_bg: #C0C0C0; /* (light gray) */
+    --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
+}
+
+/* ==== Import Fonts ==== */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKWyV9hrIqM.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v15/mem6YaGs126MiZpBA-UFUK0Zdc0.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKWiUNhrIqM.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN8rsOUuhp.woff2) format('woff2');
+}
+
+/* ==== CSS Reset ==== */
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Images */
+img {
+    border-style: none;
+}
+
+/* ==== Body Defaults ==== */
+body {
+    margin: 0;
+    color: black;
+    font-family: 'Open Sans', 'Arial', Helvetica, sans-serif;
+    font-size: 100%; /* For pages, we allow sensitivity to browser font size settings */
+    line-height: 1.4;
+    background: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%);
+}
+/* All other font sizes should be relative to the base (e.g. 1.5em or 150%) */
+
+/* Main frame for pages - should sit just inside body */
+#frame {
+    max-width: 55em;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+/* Manage floating layout */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ==== Header including site title and main menu ==== */
+
+header {
+    margin-bottom: 0.5em;
+}
+header::after {
+    /* Keeps float items from overflowing the block */
+    content: "";
+    clear: both;
+    display: table;
+    /* Border rule */
+    background-image: var(--gradient_hr);
+    height: 2px;
+    width: 100%;
+    margin-top: 1em;
+}
+
+/* siteblock should be a DIV that frames up the sitetitle and sitesubtitle */
+div.siteblock {
+    float: left;
+    margin-bottom: 0.2em;
+}
+/* Site title or logo */
+.siteblock h1 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.6em;
+    letter-spacing: -0.03em;
+    font-weight: 300;
+    color: black;
+    font-style: normal;
+    font-variant: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+}
+/* Site subtitle or slogan */
+.siteblock h2 {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: black;
+    font-style: normal;
+    font-variant: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* Manage Links in the siteblock */
+.siteblock a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.siteblock a:hover {
+    background-color: var(--clr_link_hover_bg);
+    color: inherit;
+    text-decoration: inherit;
+}
+.siteblock a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* ==== Main Menu ==== */
+
+/* menu should be a div that frames up the main menu */
+nav {
+    float: right;
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    color: var(--clr_accent1);
+}
+nav li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+nav li a:hover {
+    background-color: var(--clr_link_hover_bg);
+    color: inherit;
+    text-decoration: inherit;
+}
+nav li a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* ==== Footer ==== */
+footer {
+    text-align: center;
+}
+footer::before {
+    /* Border rule */
+    content: "";
+    display: table;
+    background-image: var(--gradient_hr);
+    height: 2px;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+footer::after {
+    /* Keep float items from overflowing the block */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ==== Main Section - where articles appear */
+main {
+    /* Nothing here - inherits setup from the frame. */
+}
+
+/* ==== General text formatting ==== */
+
+/* Core document/content. Comes after the header and before the footer. */
+article {
+    /* This particular stylesheet doesn't modify anything in the article space. Placeholder only. */
+    /* Other styles may have a background within which the article sits. */
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 3em;
+    margin-bottom: 1em;
+}
+
+ol {
+    list-style: decimal;
+    margin-left: 3em;
+    margin-bottom: 1em;
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+blockquote {
+    quotes: none;
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+q {
+    quotes: '“' '”'
+}
+
+/* Links */
+a {
+    text-decoration: underline;
+    color: var(--clr_link);
+}
+a:hover {
+    background-color: var(--clr_link_hover_bg);
+}
+a:visited, .linkvisited {
+    color: var(--clr_link_visited);
+}
+
+/* Page or document Title */
+.title {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--clr_accent2);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: 1;
+}
+
+.subtitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--clr_accent1);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: 1;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.0em;
+    font-weight: normal;
+    color: var(--clr_accent1);
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--clr_accent2);
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--clr_accent2);
+    margin-top: 0.2em;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h6 {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 h:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h5 a:hover, h6 a:hover {
+    color: var(--clr_link);
+    text-decoration: underline;
+}
+
+/* horizontal rule */
+hr {
+    border: 0;
+    height: 2px;
+    background-image: var(--gradient_hr);
+    width: 100%;
+}
+
+/* code blocks */
+code {
+    font: 0.9em "Lucida Console", Monaco, monospace;
+    color: black;
+    background-color: var(--clr_code_bg);
+    padding: 0 3px 0 3px;
+}
+
+pre {
+    font: 0.9em "Lucida Console", Monaco, monospace;
+    color: black;
+    background-color: var(--clr_code_bg);
+    padding: 8px;
+    border-width: 1px;
+    border-style: ridge;
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 1em;
+}
+
+pre code {
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+    padding: 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 0 1em 0;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th, table td {
+    border: 1px solid black;
+    padding: 6px 13px;
+}
+
+/* Layout Tables (have no borders, padding, or margins) */
+table.layout {
+    margin: 0;
+}
+
+table.layout th, table.layout td {
+    border: 0 none white;
+    padding: 0;
+}
+
+/* === Special Icon List Just for BrandtRedd.org === */
+div.iconlist {
+    margin-left: 2em;
+}
+div.iconlist img {
+    width: 1em;
+    height: auto;
+    margin-right: 1em;
+}

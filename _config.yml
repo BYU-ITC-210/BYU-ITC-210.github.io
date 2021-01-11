@@ -1,0 +1,54 @@
+timezone: America/Denver
+encoding: utf-8
+markdown: kramdown
+exclude:
+  - README.md
+  - LICENSE
+  - docker-compose.yml
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - template-bare.html
+  - template-layout.html
+  - template.md
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+sass:
+  sass_dir: _sass  
+
+
+
+timezone: America/Los_Angeles
+encoding: utf-8
+markdown: kramdown
+#domain: www.matchmakeredlabs.net
+layout: default
+exclude:
+  - README.md
+  - LICENSE
+  - docker-compose.yml
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "cards"
+    values:
+      layout: "card"
+collections:
+  cards:
+    output: true
+    permalink: /cards/:path.html
+sass:
+  sass_dir: _sass
