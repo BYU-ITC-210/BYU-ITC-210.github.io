@@ -2,8 +2,6 @@
 title: Setting Up the Live Server
 ---
 
-# Setting up the Live Server
-
 On your Production Environments, you'll need a server set up in order to see your website. Find out your personal IP address
 for your server (This can be found in the "Content" tab on learning suite). It will take the form `192.168.90.11`, but the last two digits may differ. For the rest of these instructions, it will be referred to as `192.168.90.<your ip>`. Replace it with your IP address.
 
