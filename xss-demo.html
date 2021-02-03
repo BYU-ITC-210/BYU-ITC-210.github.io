@@ -1,0 +1,11 @@
+---
+title: XSS Demo
+---
+<h1>Your name is: <span id='name'></span></h1>
+<script>
+    {
+        let query = new URLSearchParams(window.location.search);
+        document.getElementById('name').textContent = query.get("name");
+
+    }           
+</script>
