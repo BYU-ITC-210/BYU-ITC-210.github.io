@@ -52,7 +52,6 @@ Browse to [https://itc.byu.edu](https://itc.byu.edu) and select the request for 
 <div class="question">Which request method (HTTP verb) was used?</div>
 <div class="question">What is the IP address of the server?</div>
 <div class="question">Which port on the server was accessed?</div>
-<div>
 <div class="question">Is the port the one you would expect it to be? Why?</div>
 </p>
 
