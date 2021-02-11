@@ -436,12 +436,8 @@ table.layout th, table.layout td {
     padding: 0;
 }
 
-/* === Special Icon List Just for BrandtRedd.org === */
-div.iconlist {
-    margin-left: 2em;
-}
-div.iconlist img {
-    width: 1em;
-    height: auto;
-    margin-right: 1em;
+/* === Special classes for IT210 === */
+.question {
+    color: darkred;
+    font-style: italic;
 }
