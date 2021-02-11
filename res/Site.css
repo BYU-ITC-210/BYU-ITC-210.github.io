@@ -440,4 +440,5 @@ table.layout th, table.layout td {
 .question {
     color: darkred;
     font-style: italic;
+    margin-bottom: 0.5em;
 }
