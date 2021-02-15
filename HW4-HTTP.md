@@ -1,5 +1,5 @@
 ---
-title: "Homework 4: HTTP Network Traffic Analysis
+title: "Homework 4: HTTP Network Traffic Analysis"
 ---
 
 *50 points possible*
@@ -33,8 +33,8 @@ Get into your web browser's developer tools, select the Network tab, and start r
 
 * Open your browser (Edge or Chrome)
 * Open developer tools (upper-right menu ➜ More Tools ➜ Developer Tools, or F12, or right-click ➜ Inspect)
-* Select the Network tab. (It may be hidden behind the »)
-* Make sure the filter is set to All
+* Select the Network tab. (It may be hidden behind the `»` symbol.)
+* Make sure the filter is set to `All`.
 * Recording should start automatically. See that the dot at the left of the button bar is red (and not black).
 * It should look like this:
 
@@ -45,12 +45,12 @@ Get into your web browser's developer tools, select the Network tab, and start r
 Browse to [https://itc.byu.edu](https://itc.byu.edu) and select the request for the page itself. Look in the `general` section of the report.
 
 * The page may be in your cache if you've visited the site recently. To be sure to view the full HTTP transaction, click the clear button next to the record button (to clear your capture) and then refresh the page.
-* The page request (for the HTML) should be the first one in the list. Its name should be "itc.byu.edu". Click on that one to view the detail.
+* The page request (for the HTML) should be the first one in the list. Its name should be "itc.byu.edu". Click on that name to view the detail. Then click on the `headers` tab to the right to view the request and response details.
 
 <p>
 <div class="question">What URL was requested?</div>
 <div class="question">Which request method (HTTP verb) was used?</div>
-<div class="question">What is the IP address of the server?</div>
+<div class="question">What is the IP address of the server? (Remote address.)</div>
 <div class="question">Which port on the server was accessed?</div>
 <div class="question">Is the port the one you would expect it to be? Why?</div>
 </p>
@@ -60,10 +60,11 @@ Browse to [https://itc.byu.edu](https://itc.byu.edu) and select the request for 
 Click on "view source" next to `Request Headers` to see the raw HTTP request.
 
 <p>
+<div class="question">What version of the HTTP protocol is your browser using?</div>
 <div class="question">What is the host?</div>
 <div class="question">What "User-Agent" information does your browser send with the HTTP request?</div>
-<div class="question">Can your browser handle files from the server that have been gzip-ed? (Look in the “Accept-Encoding:” header to find out.)</div>
-<div class="question">Was a cookie sent to the server?</div>
+<div class="question">Can your browser handle files from the server that have been gzip compressed? (Look in the `Accept-Encoding` header to find out.)</div>
+<div class="question">What is the preferred language for the user of this browser? (Hint: check the `Accept-Language` header.)</div>
 </p>
 
 ### 4. View the response  details
@@ -71,18 +72,19 @@ Click on "view source" next to `Request Headers` to see the raw HTTP request.
 Click on "view source" next to `Response Headers` to see the raw HTTP response.
 
 <p>
-<div class="question">What status did you receive?</div>
+<div class="question">What status number did you receive?</div>
 <div class="question">Explain what the number means.</div>
-<div class="question">What type of server is BYU using IT using?</div>
+<div class="question">What type of server is BYU IT&C using?</div>
 <div class="question">What content-type is the response body in?</div>
+<div class="question">Did the server compress the response? (Hint: See the `Content-Encoding` header.)
 </p>
 
 ### 5. Other request/responses
 
 <p>
 <div class="question">How many more requests does the browser make just to render this page (roughly)?</div>
-<div class="question">Do the resources come from the same or different servers?</div>
-<div class="question">Does the page use JavaScript? (Hint, use the filter buttons.)</div>
+<div class="question">Do the resources come from the same or from different servers?</div>
+<div class="question">Does the page use any JavaScript? (Hint, use the filter buttons.)</div>
 <div class="question">Does the page use CSS? (Hint, use the filter buttons.)</div>
 <div class="question">Does it appear that the page has traffic analytics? Explain.</div>
 </p>
