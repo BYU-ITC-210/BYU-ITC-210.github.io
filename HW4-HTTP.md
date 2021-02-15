@@ -63,8 +63,8 @@ Click on "view source" next to `Request Headers` to see the raw HTTP request.
 <div class="question">What version of the HTTP protocol is your browser using?</div>
 <div class="question">What is the host?</div>
 <div class="question">What "User-Agent" information does your browser send with the HTTP request?</div>
-<div class="question">Can your browser handle files from the server that have been gzip compressed? (Look in the `Accept-Encoding` header to find out.)</div>
-<div class="question">What is the preferred language for the user of this browser? (Hint: check the `Accept-Language` header.)</div>
+<div class="question">Can your browser handle files from the server that have been gzip compressed? (Look in the <code>Accept-Encoding</code> header to find out.)</div>
+<div class="question">What is the preferred language for the user of this browser? (Hint: check the <code>Accept-Language</code> header.)</div>
 </p>
 
 ### 4. View the response  details
@@ -75,8 +75,8 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <div class="question">What status number did you receive?</div>
 <div class="question">Explain what the number means.</div>
 <div class="question">What type of server is BYU IT&C using?</div>
-<div class="question">What content-type is the response body in?</div>
-<div class="question">Did the server compress the response? (Hint: See the `Content-Encoding` header.)
+<div class="question">What <code>Content-Type</code> is the response body in?</div>
+<div class="question">Did the server compress the response? (Hint: See the <code>Content-Encoding</code> header.)</div>
 </p>
 
 ### 5. Other request/responses
