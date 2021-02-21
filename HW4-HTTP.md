@@ -44,7 +44,7 @@ Get into your web browser's developer tools, select the Network tab, and start r
 
 Browse to [https://itc.byu.edu](https://itc.byu.edu) and select the request for the page itself. Look in the `general` section of the report.
 
-* The page may be in your cache if you've visited the site recently. To be sure to view the full HTTP transaction, click the clear button next to the record button (to clear your capture) and then refresh the page.
+* The page may be in your cache if you've visited the site recently. To be sure to view the full HTTP transaction, click the clear button next to the record button (to clear your capture) and then force-refresh the page. (`ctrl-F5` or hold `ctrl` and click the refresh button).
 * The page request (for the HTML) should be the first one in the list. Its name should be "itc.byu.edu". Click on that name to view the detail. Then click on the `headers` tab to the right to view the request and response details.
 
 <p>
@@ -86,5 +86,5 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <div class="question">Do the resources come from the same or from different servers?</div>
 <div class="question">Does the page use any JavaScript? (Hint, use the filter buttons.)</div>
 <div class="question">Does the page use CSS? (Hint, use the filter buttons.)</div>
-<div class="question">Does it appear that the page has traffic analytics? Explain.</div>
+<div class="question">How many images (approximately) appear on the page? (Hint, use the filter buttons.)</div>
 </p>
