@@ -99,4 +99,4 @@ Does the page use CSS?
 
 
 -----
-Does it appear that the page has traffic analytics? Explain.
+How many images (approximately) appear on the page?
