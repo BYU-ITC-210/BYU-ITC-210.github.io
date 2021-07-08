@@ -118,7 +118,7 @@ The labels should be "`Sort by date`" and "`Filter completed tasks`".
 
 Once you have written this page, save it to `index.html` and open it in your browser. Make sure that clicking on the labels next to the `Sort` and `Filter` checkboxes causes the corresponding boxes to change. (The "[id](https://www.w3schools.com/htmL/html_id.asp)" attribute on each checkbox should match the "[for](https://www.w3schools.com/tags/att_label_for.asp)" attribute on each label.)
 
-At this point, your page should look something like this (with different tasks, of course).
+At this point, your page should look something like this (with different tasks, of course):
 
 ![example](1b_ss0.png)
 
@@ -351,7 +351,7 @@ Follow [these instructions](https://gist.github.com/210TAs/660cd61f0210fdd0645be
 > Note: TAs cannot help you with extra credit!
 
 - [ ] 10 Points - Use a style framework such as [Bootstrap](https://getbootstrap.com/), [Tailwind](https://tailwindcss.com/), [Foundation](https://get.foundation/), [Water.css](https://watercss.kognise.dev/), [MVP.css](https://andybrewer.github.io/mvp/) or similar.
-- [] 10 Points - Site is fully responsive and looks equally good on a PC and on a phone. (Note: Responsive design principles are addressed later in this course.)
+- [ ] 10 Points - Site is fully responsive and looks equally good on a PC and on a phone. (Note: Responsive design principles are addressed later in this course.)
 
 # Writeup Questions
 
