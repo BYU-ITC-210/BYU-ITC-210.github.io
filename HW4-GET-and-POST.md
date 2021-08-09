@@ -141,5 +141,5 @@ Answer the following questions on the answer sheet:
 
 <p>
 <div class="question">What is the data format of the form submission this time?</div>
-<div class="question">Is the data different or just its encoding?
+<div class="question">Is the data different or just its encoding?</div>
 </p>
