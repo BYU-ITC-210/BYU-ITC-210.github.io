@@ -1,0 +1,79 @@
+BYU IT&C 210A Homework 4: HTTP Network Traffic Analysis
+ANSWER SHEET
+
+Please write or paste your answers in the lines after each question.
+40 points possible. 2 points per question.
+
+=============================
+1. Create an HTML page with a simple form
+
+(No questions for this section.)
+
+=============================
+2. Set the form action
+
+(No questions for this section.)
+
+
+=============================
+3. Enter someting into the form and view the results
+
+-----
+Which HTTP verb (GET, POST, PUT, etc.) was used?
+
+
+-----
+Where are your form responses passed to the server?
+
+
+-----
+Suppose you weren't using a service that echoes the request back. Would you be
+able to see your form responses anywhere in the browser? (Hint: Look in your
+browser address bar.)
+
+
+=============================
+4. View the response details
+
+
+-----
+What status number did you receive?
+
+
+-----
+Explain what the number means.
+
+
+-----
+What type of server is BYU IT&C using?
+
+
+-----
+What <code>Content-Type</code> is the response body in?
+
+
+-----
+Did the server compress the response?
+
+
+=============================
+5. Other request/responses
+
+-----
+How many more requests does the browser make just to render this page (roughly)?
+
+
+-----
+Do the resources come from the same or from different servers?
+
+
+-----
+Does the page use any JavaScript?
+
+
+-----
+Does the page use CSS?
+
+
+-----
+How many images (approximately) appear on the page?

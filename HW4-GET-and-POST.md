@@ -25,7 +25,7 @@ title: "Homework 4: HTML Forms, GET and POST"
 
 ## Steps: Do the Following
 
-### 1. Create an HTML Page with a simple form
+### 1. Create an HTML page with a simple form
 
 * Open VS code (or your favorite text editor) and create a new HTML document called `form.html`.
 * Give the page a title, some introductory text, and a form with multiple input elements.
@@ -96,7 +96,7 @@ Answer the following questions on the answer sheet:
 <div class="question">Suppose you weren't using a service that echoes the request back. Would you be able to see your form responses anywhere in the browser? (Hint: Look in your browser address bar.)</div>
 </p>
 
-### 3. Change the Form method to "post"
+### 4. Change the Form method to "post"
 
 * In your page, set the `method` attribute on the `<form>` element to `post`.
 
@@ -120,7 +120,7 @@ Answer the following questions on the answer sheet:
 <div class="question">What is the data format of the form submission? (Hint: see the <code>Content-Type</code> header.)</div>
 </p>
 
-### 4. Change the Form encoding to "multipart/form-data"
+### 5. Change the Form encoding to "multipart/form-data"
 
 * In your page, set the `enctype` attribute on the `<form>` element to `multipart/form-data`.
 
