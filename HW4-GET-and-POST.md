@@ -117,7 +117,7 @@ Answer the following questions on the answer sheet:
 <div class="question">Which HTTP verb was used this time?</div>
 <div class="question">Where are your form responses passed to the server this time?</div>
 <div class="question">Suppose you weren't using a service that echoes the request back. Would you be able to see your form responses anywhere in the browser?</div>
-<div class="question">What is the data format of the form submission? (Hint: see the `Content-Type` header.)</div>
+<div class="question">What is the data format of the form submission? (Hint: see the <code>Content-Type</code> header.)</div>
 </p>
 
 ### 4. Change the Form encoding to "multipart/form-data"
@@ -141,5 +141,5 @@ Answer the following questions on the answer sheet:
 
 <p>
 <div class="question">What is the data format of the form submission this time?</div>
-<div class="question">Is the data different or just its encoding?</div>
+<div class="question">Are the data different or just the encoding?</div>
 </p>
