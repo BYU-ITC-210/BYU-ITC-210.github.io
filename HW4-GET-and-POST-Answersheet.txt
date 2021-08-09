@@ -1,8 +1,13 @@
-BYU IT&C 210A Homework 4: HTTP Network Traffic Analysis
+BYU IT&C 210A Homework 4: HTML Forms, GET and POST"
 ANSWER SHEET
 
+Your Name:
+
+
+-----
+
 Please write or paste your answers in the lines after each question.
-40 points possible. 2 points per question.
+27 points possible. 9 questions. 3 points per question.
 
 =============================
 1. Create an HTML page with a simple form
@@ -28,52 +33,36 @@ Where are your form responses passed to the server?
 
 -----
 Suppose you weren't using a service that echoes the request back. Would you be
-able to see your form responses anywhere in the browser? (Hint: Look in your
-browser address bar.)
+able to see your form responses anywhere in the browser?
 
 
 =============================
-4. View the response details
+4. Change the Form method to “post”
+
+-----
+Which HTTP verb was used this time?
 
 
 -----
-What status number did you receive?
+Where are your form responses passed to the server this time?
 
 
 -----
-Explain what the number means.
+Suppose you weren't using a service that echoes the request back.
+Would you be able to see your form responses anywhere in the browser?
 
 
 -----
-What type of server is BYU IT&C using?
-
-
------
-What <code>Content-Type</code> is the response body in?
-
-
------
-Did the server compress the response?
+What is the data format of the form submission?
 
 
 =============================
-5. Other request/responses
+5. Change the Form encoding to “multipart/form-data”
 
 -----
-How many more requests does the browser make just to render this page (roughly)?
-
-
------
-Do the resources come from the same or from different servers?
+What is the data format of the form submission this time?
 
 
 -----
-Does the page use any JavaScript?
+Are the data different or just the encoding?
 
-
------
-Does the page use CSS?
-
-
------
-How many images (approximately) appear on the page?

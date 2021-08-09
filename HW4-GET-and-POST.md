@@ -2,7 +2,7 @@
 title: "Homework 4: HTML Forms, GET and POST"
 ---
 
-*40 points possible. 4 points per question.*
+*27 points possible. 9 questions. 4 points per question.*
 
 ## Objectives
 
