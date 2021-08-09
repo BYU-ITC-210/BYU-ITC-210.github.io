@@ -62,7 +62,7 @@ Here's a simple example.
 
 ### 2. Set the form action
 
-The URL, `https://echo.dicax.org`, is a handy tool that echoes everything in any HTTP request directly back to the caller.
+The URL, `https://echo.dicax.org`, is a handy tool that echoes everything in any HTTP request it receives directly back to the caller.
 
 * In your page, set the `action` attribute on the `<form>` element to `https://echo.dicax.org`.
 
@@ -82,13 +82,10 @@ The URL, `https://echo.dicax.org`, is a handy tool that echoes everything in any
 
 Look at the request (that was echoed to your browser):
 
-The first line of an HTTP request starts with the verb, followed by the path and query string of the URL, followed by the HTTP version (typically "HTTP/1.1)
-
-Next are the headers, one header per line. Each header has a name followed by a colon followed by the header value.
-
-Next is a blank line.
-
-After the blank line are the body contents. GET requests do not have a body, most other requests (such as PUT and POST) do.
+* The first line of an HTTP request starts with the verb, followed by the path and query string of the URL, followed by the HTTP version (typically "HTTP/1.1).
+* Next are the headers, one header per line. Each header has a name followed by a colon followed by the header value.
+* Next is a blank line.
+* After the blank line are the body contents. GET requests do not have a body, most other requests (such as PUT and POST) do.
 
 #### Answer Questions
 Answer the following questions on the answer sheet:
@@ -120,13 +117,12 @@ Answer the following questions on the answer sheet:
 <div class="question">Which HTTP verb was used this time?</div>
 <div class="question">Where are your form responses passed to the server this time?</div>
 <div class="question">Suppose you weren't using a service that echoes the request back. Would you be able to see your form responses anywhere in the browser?</div>
-<div class="question">What is the data format of the form submission? (Hint: see the `Content-Type` header.)
+<div class="question">What is the data format of the form submission? (Hint: see the `Content-Type` header.)</div>
 </p>
 
 ### 4. Change the Form encoding to "multipart/form-data"
 
 * In your page, set the `enctype` attribute on the `<form>` element to `multipart/form-data`.
-
 
 ```html
   <form action="https://echo.dicax.org" method="post"
