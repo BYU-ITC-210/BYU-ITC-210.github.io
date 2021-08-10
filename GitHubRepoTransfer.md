@@ -12,7 +12,9 @@ Here is how to do that.
 3. Scroll to the bottom of the settings page, to the section titled **"Danger Zone"**
 4. Click the `Tranfer` button next to the **"Transfer Ownership"** title.
 5. Under **"New owner's GitHub username or organization name"** type your username and type the full path to the repository to confirm.
+
     ![Transfer Sample](images/GitHub-Transfer.png)
+
 6. Click, `"I understand, transfer this repository."`
 
 For for information, see [Transferring a repository](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/transferring-a-repository) in the GitHub docs.
