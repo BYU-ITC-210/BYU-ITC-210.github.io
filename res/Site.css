@@ -274,7 +274,9 @@ strong, b {
 
 blockquote {
     quotes: none;
-    margin-left: 5em;
+    border-left: darkred solid 0.25em;
+    margin-left: 2em;
+    padding-left: 1em;
     margin-bottom: 1em;
 }
 
