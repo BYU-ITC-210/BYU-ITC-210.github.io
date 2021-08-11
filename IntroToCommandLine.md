@@ -186,4 +186,4 @@ In Linux, sometimes you want to go to a program and then execute the program. If
 * groups 
 * adduser 
 * usermod 
-* The operands: | and >
+* The operands: `|` and `>`
