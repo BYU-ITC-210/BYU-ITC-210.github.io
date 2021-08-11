@@ -30,7 +30,7 @@ To complete this assignment you will need to do the following:
 ### CSS Locations
 
 1. Float the image to the right-hand side using *inline* CSS. **[2 points]**
-2. Use embedded CSS within the HTML `<head>` of the page to fix the position of the page `<header>` so that it stays at the top of the browser view even if the user scrolls through the page. You may need to add more text to make the page scrollable; [lipsum.com](https://lipsum.com) is a good choice. **[2 points]**
+2. Use embedded CSS within the HTML `<head>` of the page to fix the position of the page `<header>` so that it stays at the top of the browser view even if the user scrolls through the page. You may need to add more text to make the page scrollable; [lipsum.com](https://lipsum.com) is a good source of filler text. **[2 points]**
 3. Link to an external CSS page that includes the rest of the CSS code (see points below) **[2 points for linking to the external file correctly]**
 
 ### External CSS
@@ -42,7 +42,7 @@ Use an external CSS file to implement at least the following 14 CSS properties (
 3. 1 property that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[2 points]**
 4. 1 CSS transition **[2 points]**
 5. 1 different font **[2 points]**
-6. Make image(s) bigger on hover **[2 point]**
+6. Make image(s) bigger on hover **[2 points]**
 7. Any other 7 CSS properties you’d like (please list them on your HTML page) **[14 points]**
 
 ### Validate your code

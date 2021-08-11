@@ -412,6 +412,16 @@ pre code {
     padding: 0;
 }
 
+kbd {
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    border: black solid 1px;
+    border-radius: 0.3em;
+    padding: 0 0.2em;
+    background-color: #424242;
+    color: white; 
+}
+
 /* Tables */
 table {
     border-collapse: collapse;

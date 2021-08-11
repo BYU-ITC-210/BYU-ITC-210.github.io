@@ -1,13 +1,11 @@
-BYU IT&C 210A Homework 4: HTML Forms, GET and POST"
+BYU IT&C 210A Homework 3: HTML Forms, GET and POST"
 ANSWER SHEET
 
 Your Name:
+Date:
 
-
------
-
-Please write or paste your answers in the lines after each question.
-27 points possible. 9 questions. 3 points per question.
+Please write or paste your answers between the lines after each question.
+9 questions. 3 points per question. 27 points possible. 
 
 =============================
 1. Create an HTML page with a simple form
@@ -21,48 +19,58 @@ Please write or paste your answers in the lines after each question.
 
 
 =============================
-3. Enter someting into the form and view the results
+3. Enter something into the form and view the results
 
------
 Which HTTP verb (GET, POST, PUT, etc.) was used?
-
+-----
 
 -----
+
 Where are your form responses passed to the server?
-
+-----
 
 -----
+
 Suppose you weren't using a service that echoes the request back. Would you be
 able to see your form responses anywhere in the browser?
+-----
+
+-----
 
 
 =============================
 4. Change the Form method to “post”
 
------
 Which HTTP verb was used this time?
-
+-----
 
 -----
+
 Where are your form responses passed to the server this time?
-
+-----
 
 -----
+
 Suppose you weren't using a service that echoes the request back.
 Would you be able to see your form responses anywhere in the browser?
-
+-----
 
 -----
-What is the data format of the form submission?
 
+What is the data format of the form submission?
+-----
+
+-----
 
 =============================
 5. Change the Form encoding to “multipart/form-data”
 
------
 What is the data format of the form submission this time?
-
+-----
 
 -----
-Are the data different or just the encoding?
 
+Are the data different or just the encoding?
+-----
+
+-----

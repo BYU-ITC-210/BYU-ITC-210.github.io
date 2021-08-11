@@ -1,0 +1,170 @@
+BYU IT&C 210A Homework 1: Linux-Git CLI
+ANSWER SHEET
+
+Your Name:
+Date:
+
+Please write or paste your answers between the lines after each question.
+28 questions. 1 point per question. 28 points possible.
+
+Here's an example of a question with the correct answer:
+
+1. Print the word, "Hello"
+-----
+$ echo Hello
+-----
+
+=============================
+1.1 Finding Help
+
+1. Open the manual for ps
+-----
+$
+-----
+
+2. Search for manual entries contining the word 'transfer'
+-----
+$
+-----
+
+3. Print the current directory
+$
+-----
+
+4. Print the current IP address
+$
+-----
+
+=============================
+1.2 File and Directory Manipulation
+
+1. Make a directory called your_first_name
+-----
+$
+-----
+
+2. Navigate into the new directory.
+-----
+$
+-----
+
+3. Create two files...
+-----
+$
+$
+-----
+
+4. Create another directory (inside the first) called subdir.
+-----
+$
+-----
+
+5. Copy your_last_name.txt and call it your_last_name_2.txt.
+-----
+$
+-----
+
+6. Move your_last_name_2.txt into the subdir directory.
+-----
+$
+-----
+
+7. Rename your_last_name_2.txt to your_last_name_3.txt.
+-----
+$
+-----
+
+=============================
+1.3 File Permissions
+
+1. List all of the files in the your_first_name directory with permission details.
+-----
+$
+-----
+
+2. Remove all permissions for others on your_last_name.txt.
+-----
+$
+-----
+
+3. Change the owner of your_middle_name.txt to root.
+-----
+$
+-----
+
+=============================
+1.4 File Manipulation
+
+1. Add the string 'hello' to your_last_name.txt.
+-----
+$
+-----
+
+2. Add the contents of your_last_name.txt to your_last_name_3.txt (in the subdir directory).
+-----
+$
+-----
+
+3. Print the contents of your_last_name.txt to the console.
+-----
+$
+-----
+
+=============================
+2 Git Command Line
+
+1. Create a new GitHub repository... (Past the URL here)
+-----
+https://
+-----
+
+2. Initialize a new git repository...
+-----
+$
+-----
+
+3. Create one README.md file on your computer...
+-----
+$
+-----
+
+4. Add the file...
+-----
+$
+-----
+
+5. Commit changes to your repository...
+-----
+$
+-----
+
+6. Change the name of the current branch to "main"...
+-----
+$
+-----
+
+7. Add your GitHub URL as a remote origin for your git repo.
+-----
+$
+-----
+
+8. Push your commit to your "main" branch on GitHub.
+-----
+$
+-----
+
+9. Modify the README.md by adding your name to the file.
+-----
+(Answer is optional for this question)
+-----
+
+10. Commit changes to your repository...
+-----
+$
+$
+-----
+
+11. Push your newest commit to your 'main' branch on GitHub.
+-----
+$
+-----

@@ -1,5 +1,5 @@
 ---
-title: "Homework 4: HTML Forms, GET and POST"
+title: "Homework 3: HTML Forms, GET and POST"
 ---
 
 *27 points possible. 9 questions. 4 points per question.*
@@ -19,7 +19,7 @@ title: "Homework 4: HTML Forms, GET and POST"
 ## How to Complete and Submit the Homework
 *Please follow these instructions*
 
-1. Download the [answersheet](HW4-GET-and-POST-Answersheet.txt){: download="HW4-GET-and-POST-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW3-GET-and-POST-Answersheet.txt){: download="HW3-GET-and-POST-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
 3. Submit your answer sheet to LearningSuite for grading.
 
@@ -47,11 +47,11 @@ Here's a simple example.
   </div>
   <form>
     <label for="name">What is your name:</label>
-    <input type="text" id="name"/><br/>
+    <input type="text" id="name" name="name"/><br/>
     <label for="quest">What is your quest:</label>
-    <input type="text" id="quest"/><br/>
+    <input type="text" id="quest" name="quest"/><br/>
     <label for="color">What is your favorite color:</label>
-    <input type="text" id="color"/><br/>
+    <input type="text" id="color" name="color"/><br/>
     <input type="submit"/>
   </form>
 </body>
