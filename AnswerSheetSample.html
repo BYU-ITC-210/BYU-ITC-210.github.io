@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Answer Sheet Sample</title>
+        <style>
+            .answer {
+                border: 1px solid black;
+                min-width: 5em;
+                min-height: 3em;
+                padding: 0.25em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Answer Sheet Sample</h1>
+
+        <div>
+            Click to save:
+            <button onclick="saveThisPage()">Save</button>
+        </div>
+
+        <hr/>
+
+        <div>
+            <p>Enter your answer here:</p>
+            <p class="answer" contenteditable="true">
+            </p>
+        </div>
+
+        <script>
+            function saveThisPage()
+            {
+                var content = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+                var myBlob = new Blob([content], {type: 'text/html'});
+                var anchor = document.createElement("a");
+                anchor.download = "AnswerSheetSample.html";
+                anchor.href = window.URL.createObjectURL(myBlob);
+                anchor.click();
+            }
+        </script>
+    </body>
+</html>
