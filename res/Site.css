@@ -258,6 +258,10 @@ ul {
     margin-bottom: 1em;
 }
 
+ul ul {
+    list-style: circle;
+}
+
 ol {
     list-style: decimal;
     margin-left: 3em;
