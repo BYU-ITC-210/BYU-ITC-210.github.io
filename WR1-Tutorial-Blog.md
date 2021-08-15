@@ -22,6 +22,17 @@ __Step 2:__ Write a blog post approximately 1,500 words (e.g., about 3-4 single 
 * __Tutorial:__ The actual steps that those completing the tutorial will need to take, _along with explanatory text_ (why you are recommending what you’re recommending), commented code snippets and/or screen shots to walk them through the process. It should not assume any knowledge of the topic at hand, but can assume a basic understanding of “clients” and “servers”. All code should be carefully explained in readable English to people with only a basic understanding of programming. Explanations of why you are doing things is essential, not just the steps to perform them. _Discuss any unexpected or potential implications of the approach taken and any tips and/or warnings._
 * __Additional Resources:__ An _annotated_ list of 4-7 high quality resources (e.g., websites, books, videos, documentation…) related to the topic at hand should be provided with hyperlinks and brief annotations explaining what they are and why they might be useful (e.g., “[http://madeupCGIwebsite.html](about:blank): This CGI website is an excellent resource for understanding the history of CGI and best practices for implementing it. All examples use Perl. It is at the level of an intermediate programmer. The section describing... is particularly good, while the section describing... is a bit outdated.”)
 
+## Submitting Your Blog
+
+You must submit your blog post in LearingSuite in one of the following formats:
+* __.pdf__ (Save to this if you write it in Microsoft Word or Apple Pages)
+* __.md__ (MarkDown)
+* __.html__
+* __URL Link__ to your post on an cloud drive site such as Google Docs, OneDrive, Box.Com, iCloud, etc. If you use this option, be sure to set read permissions to "Everyone with this link."
+* __URL Link__ to your live post on a public site. (See Extra Credit below.)
+
+> Note: You may write the post in your favorite word processor like Microsoft Word, Apple Pages, or some such. But please save to .pdf format before submitting. Pretty much any word processor can do that. In this class we emphasize using web-compatible formats.
+
 ## Grading Rubric
 
 Your assignment will be graded based on the following:
@@ -43,3 +54,5 @@ Your assignment will be graded based on the following:
     * Introduction (12 points)
     * Tutorial Content (30 points)
     * Additional Resources (8 points)
+* Extra credit (10 points)
+    * Publish your blog post on a public website. This could be an [article on LinkedIn](https://www.linkedin.com/help/linkedin/answer/47538/publish-articles-on-linkedin?lang=en), a comprehensive answer on [StackOverflow](https://stackoverflow.com/), a [GitHub Gist](https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists), a post on your own blog, or a helpful article on numerous other blogging or content management systems.
