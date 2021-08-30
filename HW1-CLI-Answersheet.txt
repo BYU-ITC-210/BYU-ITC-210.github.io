@@ -22,7 +22,7 @@ $ echo Hello
 $
 -----
 
-2. Search for manual entries contining the word 'transfer'
+2. Search for manual entries containing the word 'transfer'
 -----
 $
 -----
