@@ -87,7 +87,7 @@ We won't write modules in this class and we won't use modules until IT&C 210B.
 Variables, even global ones, have the lifetime of a single page.
 
 <table>
-<tr><th>Keyword</th><th>Scope</th><th>Hoisting</th><th>Can Change Value</th><th>Can be Redeclared</th></th>
+<tr><th>Keyword</th><th>Scope</th><th>Hoisting</th><th>Can Change Value</th><th>Can be Redeclared</th></tr>
 <tr><td>var</td><td>Function</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>let</td><td>Block</td><td>No</td><td>Yes</td><td>No</td></tr>
 <tr><td>var</td><td>Function</td><td>No</td><td>No</td><td>No</td></tr>
