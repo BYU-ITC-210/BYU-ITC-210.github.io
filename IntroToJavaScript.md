@@ -90,7 +90,7 @@ Variables, even global ones, have the lifetime of a single page.
 <tr><th>Keyword</th><th>Scope</th><th>Hoisting</th><th>Can Change Value</th><th>Can be Redeclared</th></tr>
 <tr><td>var</td><td>Function</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>let</td><td>Block</td><td>No</td><td>Yes</td><td>No</td></tr>
-<tr><td>var</td><td>Function</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td>const</td><td>Function</td><td>No</td><td>No</td><td>No</td></tr>
 </table>
 
 This works:
@@ -259,6 +259,14 @@ myObject.changeColor = function() {
     }
 }
 ```
+
+## Global Objects
+The browser defines several global objects. The most important are:
+
+* [window](https://www.w3schools.com/js/js_window.asp): The browser window in which your page is displayed.
+* [document](https://www.w3schools.com/js/js_htmldom_document.asp): The HTML document represented by your page.
+
+Each of these has properties, methods and events that are useful to access from JavaScript.
 
 ## Events
 
