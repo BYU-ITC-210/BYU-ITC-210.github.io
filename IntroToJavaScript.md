@@ -7,7 +7,7 @@ It's primary use is as a browser-side language for web applications. Using [Node
 
 ## JavaScript is _NOT:_
 
-* [JQuery](https://en.wikipedia.org/wiki/JQuery) - which is a popular JavaScirpt library.
+* [JQuery](https://en.wikipedia.org/wiki/JQuery) - which is a popular JavaScript library.
 * [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) - which is a popular compiled language from Oracle that shares some syntax but is otherwise entirely different.
 * a replacement for HTML and CSS. The three languages are best used together.
 
