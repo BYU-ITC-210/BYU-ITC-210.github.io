@@ -135,20 +135,22 @@ Any variable can be interpreted as a boolean.
 * Values interpreted as `true`: Everything else: `true` (keyword), 32, "hi", [] (empty array), {} (empty object)
 
 ```js
-function reportFalse(text) {
-    if (text) {
-        console.log(text);
+function reportTrueFalse(x) {
+    if (x) {
+        console.log(x + " (" + typeof(x) + ") true");
     }
-    else {
-        console.log("(false)");
+    else
+    {
+        console.log(x + " (" + typeof(x) + ") false");
     }
 }
 
-reportFalse("");      // reports (false)
-reportFalse("Hello"); // reports Hello
-reportFalse(32);      // reports 32
-reportFalse(false);   // reports (false)
-reportFalse(true);    // reports true
+reportTrueFalse("");
+reportTrueFalse("Hello");
+reportTrueFalse(32);
+reportTrueFalse(false);
+reportTrueFalse(true);
+reportTrueFalse("false");
 ```
 }
 
