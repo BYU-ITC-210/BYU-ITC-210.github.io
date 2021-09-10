@@ -66,6 +66,8 @@ To the `<nav>` section add the following button.
 
 The **inline JavaScript** within the `onclick` attribute connects the onclick event of the button to the corresponding JavaScript function.
 
+Load your page into a browser and click the **Load Article** button.
+
 ## Attaching Events Using Element Properties
 
 Add the following function to the `script` section of your page.
