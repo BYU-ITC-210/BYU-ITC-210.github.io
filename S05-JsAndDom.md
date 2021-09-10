@@ -89,8 +89,8 @@ Then add the following to the script portion:
 {
     let counter = 1;
     for (const num of document.getElementsByClassName("num")) {
-    num.textContent = counter + ".";
-    ++counter;
+        num.textContent = counter + ".";
+        ++counter;
     }
 }
 ```
