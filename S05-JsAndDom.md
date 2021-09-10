@@ -28,7 +28,7 @@ When loaded into the browser it results in a DOM tree like this:
 
 ![The DOM interpreted as a tree diagram](images/DomTree.png)
 
-## Preparation
+## Setup
 
 Create a simple HTML page like this:
 
