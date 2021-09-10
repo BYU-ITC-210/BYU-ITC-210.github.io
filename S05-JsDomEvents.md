@@ -102,7 +102,7 @@ Some events are likely to be used by several different libraries. If you simply 
 
 A good example is the `window.onload` event which is triggered when the document has finished loading.
 
-Event _properties_ like we used for both of the previous methods, start with "on". Wehn using `addEventListener()`, you use the bare event name without "on." So, "onload" becomes to "load", "onclick" becomes "click", and so forth.
+Event _properties_ like we used for both of the previous methods, start with "on". When using `addEventListener()`, you use the bare event name without "on." So, "onload" becomes to "load", "onclick" becomes "click", and so forth.
 
 At the end of your `<script>` element add the following:
 
