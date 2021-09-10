@@ -96,7 +96,9 @@ Just for fun, try using the `onmouseover` event instead of `onclick`. Also try c
 
 ## Attaching Events Using addEventListener()
 
-Some events are likely to be used by several different libraries. For those, it's better to use `addEventListener() because it will add your event handler while preserving all existing handlers.
+Some events are likely to be used by several different libraries. For those, it's better to use `addEventListener()` because it will add your event handler while preserving all existing handlers.
+
+> This is the preferred method for attaching events from JavaScript.
 
 A good example is the `window.onload` event which is triggered when the document has finished loading.
 
