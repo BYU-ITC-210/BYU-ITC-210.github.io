@@ -94,7 +94,7 @@ Notice that when the `+` operator is used with a string, it automatically conver
 
 ## Accessing Elements by Tag Name
 
-Add an empty list the `<main>` part of your page like this:
+Add an empty list the `<main>` element of your page like this:
 
 ```html
 <ul>
@@ -103,7 +103,7 @@ Add an empty list the `<main>` part of your page like this:
     <li>Shirt</li>
 </ul>
 ```
-Then add the following to the script portion:
+Then add the following to the `<script>` element:
 
 ```js
 for (const li of document.getElementsByTagName("li")) {
@@ -119,7 +119,11 @@ document.getElementsByTagName("h1")[0].style.fontStyle = "italic";
 
 ## Adding New Elements to the DOM
 
-You can use innerHTML, but many times it's easier and always safer (due to cross-site scripting attacks) to create the elements in code.
+You can use innerHTML to add full html markup, but many times it's easier and it's always safer to create the elements in code.
+
+> Using innerHTML without caution can make your page vulnerable to [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) attacks which we will discuss later in the semester.
+
+Add the following to your `<script>` element and refresh.
 
 ```js
 {

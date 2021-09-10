@@ -40,7 +40,7 @@ Create a simple HTML page like this:
 
 ## Attaching Events Using Inline JavaScript
 
-To the `<script>` section add the following function
+To the `<script>` element add the following function
 
 ```js
 function loadLorem() {
@@ -58,7 +58,7 @@ function loadLorem() {
 }
 ```
 
-To the `<nav>` section add the following button.
+To the `<nav>` element add the following button.
 
 ```html
 <button onclick="loadLorem()">Load Article</button>
@@ -86,33 +86,33 @@ span.onclick = makeBold;
 
 Refresh the page, click **"Load Article"** and then click on some of the words in the article.
 
-The line you added to the `loadLorem()` function connects the `onclick` event of every span in `<article>` event to the `makeBold()` function.
+The line you added to the `loadLorem` function connects the `onclick` event of every span in `<article>` event to the `makeBold` function.
 
-Notice that you don't use parentheses when making the assignment. That's because you are assigning the function to the event. If you were to put parentheses on the function then you cause the function to be called and set the return value from the function to the event. Since `makeBold` doesn't return anything (and it requires an argument) that wouldn't work.
+> Notice that you don't use parentheses when making the assignment. That's because you are assigning the function to the event. The name _without_ parentheses _references_ the function. _With_ parentheses, the name _calls_ the function. So, if you were to put parentheses on the function then you cause the function to be called immediately and then assign the return value from the function to the event. Since `makeBold` doesn't return anything (and it requires an argument) that wouldn't work.
 
-An event handler receives an argument of type [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event). The `target` property of that event is the element (or other object) that generated the event. In teh case of `makeBold()` that's a handy way to know which element to bold.
+An event handler receives an argument of type [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event). The `target` property of that event is the element (or other object) that generated the event. In the case of `makeBold()` that's a handy way to know which element to bold.
 
 Just for fun, try using the `onmouseover` event instead of `onclick`. Also try changing other style attributes such as the color.
 
 ## Attaching Events Using addEventListener()
 
-Some events are likely to be used by several different libraries. For those, it's better to use `addEventListener()` because it will add your event handler while preserving all existing handlers.
+Some events are likely to be used by several different libraries. If you simply assign an event, you may disconnect an existing handler. So, it's much safer to use `addEventListener()` because the function will add your event handler while preserving all existing handlers.
 
 > This is the preferred method for attaching events from JavaScript.
 
 A good example is the `window.onload` event which is triggered when the document has finished loading.
 
-For most events that start with "on", `addEventListener()` requires that "on" be left out. So, "onload" changes to "load".
+Event _properties_ like we used for both of the previous methods, start with "on". Wehn using `addEventListener()`, you use the bare event name without "on." So, "onload" becomes to "load", "onclick" becomes "click", and so forth.
 
-At the end of your `<script>` section add the following:
+At the end of your `<script>` element add the following:
 
 ```js
 window.addEventListener("load", loadLorem);
 ```
 
-Now you don't have to click "Load Article" to get the random text.
+Refresh, and you'll see the random text appear immediately without you having to click **Load Article**.
 
-Again, when assigning an event handler, leave the parentheses off. Otherwise, it will call the function and assign the return value, _which you don't want_.
+> As with event properties, you leave the parentheses off of the event handler. Otherwise, it will call the function and assign the return value, _which you don't want_.
 
 ## Some Useful Events
 
