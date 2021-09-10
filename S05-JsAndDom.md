@@ -129,3 +129,19 @@ You can use innerHTML, but many times it's easier and always safer (due to cross
     document.body.appendChild(footer);
 }
 ```
+
+## Some Useful HTML DOM Properties
+
+* x.innerHTML - the HTML value of x
+* x.textContent - the plain text value of x
+* x.tagName - the tag name of an element
+* x.parentNode - the parent of a node
+* x.childNodes - the collection of child nodes
+* x.attributes - the collection of attributes of an element
+
+## Some Useful HTML DOM Methods
+* x.getElementById(id)
+* x.getElementsByTagName(name)
+* x.getElementsByClassName(names)
+* x.appendChild(element)
+* x.removeChild(element)
