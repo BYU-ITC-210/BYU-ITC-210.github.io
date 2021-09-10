@@ -74,7 +74,12 @@ Accessing elements by class is a little different than by ID. That's because mor
 Add some text with empty spans to the `<main>` element like this.
 
 ```html
-<p>My favorite foods are <span class='num'></span> Pizza,  <span class='num'></span> Ice Cream, and  <span class='num'></span> Tacos.</p>
+<p>
+    My favorite foods are
+    <span class='num'></span> Pizza,
+    <span class='num'></span> Ice Cream, and
+    <span class='num'></span> Tacos.
+</p>
 ```
 
 Then add the following to the script portion:
