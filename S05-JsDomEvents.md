@@ -123,3 +123,15 @@ Again, when assigning an event handler, leave the parentheses off. Otherwise, it
 * resize
 
 See a full list [here](https://www.w3schools.com/jsref/dom_obj_event.asp)
+
+## Useful Properties of the Event object
+
+The [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event) object, which is passed to event handlers, has its own properties. Some of the most useful are the following.
+
+* `target` - the DOM element that triggered the event.
+* `button` - which mouse button was clicked.
+* `altKey` - was the Alt key held down when the event occurred.
+* `timeStamp` - the time when the event was triggered.
+* `type` - name of the event.
+
+Events also have methods. For example, `preventDefault()` prevents other handlers (including build-in ones) from being called.
