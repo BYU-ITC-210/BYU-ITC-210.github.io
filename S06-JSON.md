@@ -17,9 +17,13 @@ JSON Example:
 }
 ```
 
+JSON is composed of objects, arrays, and values. A JSON object is surrounded by braces: `{` and `}`. A JSON array is surrounded by brackets: `[` and `]`.
+
+In the object above, the main object has a member named `groupName` with the value `The Monkees`. Then it has a member named `members` with the value of an array. Each element in the array has a `firstName` and a `lastName`. Members of an array don't have to follow a consistent format.
+
 ## Setup
 
-Prepare a simple web page for JSON experimentation:
+For this walkthrough, prepare a simple web page for JSON experimentation:
 
 ```html
 <html>
@@ -75,6 +79,8 @@ for (let entry of band.members) {
     addToArticle("Member", entry.firstName);
 }
 ```
+
+Now, load the page into a browser and view the result.
 
 The `addToArticle()` function uses the [DOM](S05-JsAndDom) to add a paragraph to the `<article>` with a name and a value. We'll use it through the rest of this walkthrough to insert information into the page.
 
