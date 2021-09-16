@@ -54,7 +54,7 @@ let band = {
     {"firstName": "Davey", "lastName": "Jones"},
     {"firstName": "Peter", "lastName": "Tork"},
     {"firstName": "Michael", "lastName": "Nesmith"},
-    {"firstName": "Micky", "lastName": "Dolenz"},
+    {"firstName": "Micky", "lastName": "Dolenz"}
   ]
 }
 ```
@@ -128,7 +128,7 @@ Now, create an event handler that will convert the form data into JSON.
 
 ```js
 function submitForm(event) {
-    let formData = new FormData(event.currentTarget);
+    let formData = new FormData(event.target);
     let json = JSON.stringify(Object.fromEntries(formData));
     console.log(json);
     addToArticle("Form", json);
