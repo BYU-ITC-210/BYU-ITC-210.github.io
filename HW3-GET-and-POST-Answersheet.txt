@@ -52,7 +52,7 @@ Where are your form responses passed to the server this time?
 -----
 
 Suppose you weren't using a service that echoes the request back.
-Would you be able to see your form responses anywhere in the browser?
+Would you be able to see your form responses anywhere on the current page or address bar?
 -----
 
 -----
