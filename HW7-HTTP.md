@@ -1,5 +1,5 @@
 ---
-title: "Homework 4: HTTP Network Traffic Analysis"
+title: "Homework 7: HTTP Network Traffic Analysis"
 ---
 
 *40 points possible. 2 points per question.*
@@ -16,12 +16,12 @@ title: "Homework 4: HTTP Network Traffic Analysis"
 * Computer with either Google Chrome or Microsoft Edge web browser. (You can use FireFox but the process of analyzing traffic is a little different).
 * [RFC 2616](https://www.rfc-editor.org/info/rfc2616) The IETF standard that defines HTTP 1.1
 * A [tutorial](http://www.steves-internet-guide.com/http-basics/) on how HTTP works.
-* [Blank Answer Sheet](HW4-HTTP-Answersheet.txt){: download="HW4-HTTP-Answersheet.txt"} text file into which you will insert your answers.
+* [Blank Answer Sheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} text file into which you will insert your answers.
 
 ## How to Complete and Submit the Homework
 *Please follow these instructions*
 
-1. Download the [answersheet](HW4-HTTP-Answersheet.txt){: download="HW4-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
 3. Submit your answer sheet to LearningSuite for grading.
 
@@ -62,7 +62,7 @@ Click on "view source" next to `Request Headers` to see the raw HTTP request.
 <p>
 <div class="question">What version of the HTTP protocol is your browser using?</div>
 <div class="question">What is the host?</div>
-<div class="question">What "User-Agent" information does your browser send with the HTTP request?</div>
+<div class="question">What "User-Agent" information does your browser send with the HTTP request? (paste it into the answer sheet)</div>
 <div class="question">Can your browser handle files from the server that have been gzip compressed? (Look in the <code>Accept-Encoding</code> header to find out.)</div>
 <div class="question">What is the preferred language for the user of this browser? (Hint: check the <code>Accept-Language</code> header.)</div>
 </p>
@@ -82,7 +82,7 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 ### 5. Other request/responses
 
 <p>
-<div class="question">How many more requests does the browser make just to render this page (roughly)?</div>
+<div class="question">How many requests does the browser make just to render this page (roughly)?</div>
 <div class="question">Do the resources come from the same or from different servers?</div>
 <div class="question">Does the page use any JavaScript? (Hint, use the filter buttons.)</div>
 <div class="question">Does the page use CSS? (Hint, use the filter buttons.)</div>

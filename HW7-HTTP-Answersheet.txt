@@ -1,0 +1,131 @@
+BYU IT&C 210A Homework 7: HTTP Network Traffic Analysis
+ANSWER SHEET
+
+40 points possible. 2 points per question.
+
+Please write or paste your answers between the dashed lines after each question.
+
+Here's an example of a question with the correct answer:
+
+What is BYU's mascot?
+-----
+Cosmo the Cougar
+-----
+
+=============================
+1. Make an HTTP request
+
+(No questions for this section.)
+
+=============================
+2. View the general information.
+
+What URL was requested?
+-----
+
+-----
+
+Which request method (HTTP verb) was used?
+-----
+
+-----
+
+What is the IP address of the server? (Remote address.)
+-----
+
+-----
+
+Which port on the server was accessed?
+-----
+
+-----
+
+Is the port the one you would expect it to be? Why?
+-----
+
+-----
+
+=============================
+3. View the request details
+
+What version of the HTTP protocol is your browser using?
+-----
+
+-----
+
+What is the host?
+-----
+
+-----
+
+What "User-Agent" information does your browser send with the HTTP request?
+-----
+
+-----
+
+Can your browser handle files from the server that have been gzip compressed?
+-----
+
+-----
+
+What is the preferred language for the user of this browser?
+-----
+
+-----
+
+=============================
+4. View the response details
+
+
+What status number did you receive?
+-----
+
+-----
+
+Explain what the number means.
+-----
+
+-----
+
+What type of server is BYU IT&C using?
+-----
+
+-----
+
+What Content-Type is the response body in?
+-----
+
+-----
+
+Did the server compress the response?
+-----
+
+-----
+
+=============================
+5. Other request/responses
+
+How many requests does the browser make just to render this page (roughly)?
+-----
+
+-----
+
+Do the resources come from the same or from different servers?
+-----
+
+-----
+
+Does the page use any JavaScript?
+-----
+
+-----
+
+Does the page use CSS?
+-----
+
+-----
+
+How many images (approximately) appear on the page?
+-----
+
+-----
