@@ -2,7 +2,11 @@
 title: "Homework 3: HTML Forms, GET and POST"
 ---
 
-*27 points possible. 9 questions. 4 points per question.*
+***
+
+*27 points possible. 9 questions; 4 points per question.*
+
+***
 
 ## Objectives
 

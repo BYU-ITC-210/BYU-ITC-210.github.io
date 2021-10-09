@@ -1,12 +1,15 @@
 ---
 title: "Homework 4: UML Activity Diagram"
 ---
+***
 
 *30 points possible. 15 points for each UML diagram.*
 
+***
+
 ## Introduction
 
-For this homework you will produce a UML activity diagram _with swimlanes_ that will inform your development of Lab 3 and will be included in the Lab 3 writeup.
+For this homework you will produce two UML activity diagrams _with swimlanes_ that will inform your development of Lab 3 and will be included in the Lab 3 writeup.
 
 ## Objectives
 
@@ -39,13 +42,9 @@ If you choose to use a digital tool, here are some good options:
 
 ## Instructions
 
-Create a UML activity diagram for Lab 3a using correct notation as discussed in class S6 (see slides). Make sure it uses the following swimlanes: "User", "Browser", "Server/PHP", "Database". It should carefully walk through the login and registration portion of the lab.
+Create two UML activity diagrams for Lab 3a using correct notation as discussed in class S6 (see slides). Make sure they both use the following swimlanes: "User", "Browser", "Server/PHP", "Database". They should carefully indicate the login and registration portion of the lab.
 
 You should have one UML for registration and another one for login. Each should include a start and end circle, conditional diamonds (e.g., to show error handling or other logic) with labeled edges, and the key activities that occur at the various stages of the project (e.g., creating session variables, sending data, running queries...).
-
-You may use any drawing tool to create the UML including hand-drawing and taking a scan or photo. Lucidchart.com, Diagrams.net, yEd, Visio, and PowerPoint are all good choices.
-
-Use the button below to upload your UML. Acceptable formats are: .PDF, .JPG (JPEG) or .PNG
 
 ## Submitting your assignment
 

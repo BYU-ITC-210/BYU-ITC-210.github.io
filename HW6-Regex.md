@@ -2,9 +2,13 @@
 title: "Homework 6: Regular Expressions"
 ---
 
+***
+
 *20 points possible. 4 questions, 5 points per question.*
 
-In this exercise you will practice composing regular expressions. In each instance, make sure this is your own work though you may share strategies with your peers.
+***
+
+In this exercise you will practice composing regular expressions. Make sure this is your own work though you may share strategies with your peers.
 
 ### Objectives
 
@@ -24,7 +28,7 @@ In this exercise you will practice composing regular expressions. In each instan
 
 You may use [Visual Studio Code](https://code.visualstudio.com/) or [Regex 101](https://regex101.com) for this exercise.
 
-In **Visual Studio Code**:
+To use **Visual Studio Code**:
 
 1. Open or paste in the text to be searched.
 2. Open the search bar by pressing `Ctrl-F` or selecting `Edit > Find`
@@ -32,7 +36,7 @@ In **Visual Studio Code**:
 4. For this exercise, make sure that Match Case (`Aa`) is turned on and Match Whole Word is turned off. (buttons between the search box and the Regular Expression button)
 5. Enter your regular expression in the search box. The search occurs immediately.
 
-In **Regex 101**:
+To use **Regex 101**:
 
 1. Paste your text to be searched into the **Test String** box.
 2. For this exercise, set the **Flavor** to Python.
@@ -50,7 +54,7 @@ In **Regex 101**:
 
 ## Scenario 1: Usernames
 
-On your site you have a page that allows a user to create a username. The username must start with a capital letter and be followed by only lowercase letters. It must end in exactly two numbers and the whole username must be at least 8 characters long. Write a regex pattern that will check this.
+On your web site you have a page that allows a user to create a username. The username must start with a capital letter and be followed by only lowercase letters. It must end in exactly two numbers and the whole username must be at least 8 characters long. Write a regex pattern that will check this.
 
 Hints:
 * The caret `^` indicates that the match must occur at the beginning of a line. Dollar sign, `$` indicates that the match must occur at the end of a line. So `^Snoopy$` matches a line with only the word "Snoopy", nothing before or after.
@@ -75,7 +79,7 @@ aA23aa88
 
 ## Scenario 2: Recognizing Social Security Numbers
 
-You have recently taken over a website for a government agency. The last webmaster was very irresponsible. Users were required to enter their social security numbers, and the last webmaster stored these in a file named info.txt in plain-text. Write a regular expression to recognize social security numbers whether or not they include the dashes.
+You have recently taken over a website for a government agency. The last webmaster was very irresponsible. Users were required to enter their social security numbers, and the last webmaster stored these in a file named info.txt in plain text. Write a regular expression to recognize social security numbers whether or not they include the dashes.
 
 Hints:
 
@@ -166,7 +170,7 @@ bad_tld@example.co.
 
 ## Scenario 4: Data Cleanup
 
-You receive a set of name in a text file. Some are listed as `Firstname Lastname` and others are listed as `Lastname, Firstname` (note the comma). You need them all to be consistent. Write a regular expression and replacement string that will make all entries `Lastname, Firstname`. It should ignore bad data such as text with numbers or more than two names.
+You receive a set of names in a text file. Some are listed as `Firstname Lastname` and others are listed as `Lastname, Firstname` (note the comma). You need them all to be consistent. Write a regular expression and replacement string that will make all entries `Lastname, Firstname`. It should ignore bad data such as text with numbers or more than two names.
 
 * In **Visual Studio Code** open the Replace bar by selecting `Edit > Replace` or pressing `Ctrl-H`.
 * In **Regex 101** select `Substitution` under `Function`.

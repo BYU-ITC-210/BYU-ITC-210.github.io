@@ -2,7 +2,7 @@
 title: "Homework 7: HTTP Network Traffic Analysis"
 ---
 
-*40 points possible. 2 points per question.*
+*40 points possible. 20 questions; 2 points per question.*
 
 ## Objectives
 

@@ -1,8 +1,11 @@
 ---
 title: "Homework 2: CSS"
 ---
+***
 
 *40 points possible*
+
+***
 
 ## Resources
 
@@ -37,13 +40,13 @@ To complete this assignment you will need to do the following:
 
 Use an external CSS file to implement at least the following 14 CSS properties (you may use more if you would like):
 
-1. 2 different positioning elements other than those specified above (eg. absolute, relative, floating, fixed) **[4 points]**
-2. 1 property that changes an HTML element based on an ID (note that you'll have to add the id to the HTML file) **[2 points]**
-3. 1 property that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[2 points]**
-4. 1 CSS transition **[2 points]**
-5. 1 different font **[2 points]**
-6. Make image(s) bigger on hover **[2 points]**
-7. Any other 7 CSS properties you’d like (please list them on your HTML page) **[14 points]**
+1. 2 different positioning elements other than those specified above (eg. absolute, relative, floating, fixed) **[4 points]**
+2. 1 property that changes an HTML element based on an ID (note that you'll have to add the id to the HTML file) **[2 points]**
+3. 1 property that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[2 points]**
+4. 1 CSS transition **[2 points]**
+5. 1 different font **[2 points]**
+6. Make image(s) bigger on hover **[2 points]**
+7. Any other 7 CSS properties you’d like (please list them on your HTML page) **[14 points]**
 
 ### Validate your code
 

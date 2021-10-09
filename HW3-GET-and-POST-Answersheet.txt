@@ -4,8 +4,9 @@ ANSWER SHEET
 Your Name:
 Date:
 
+27 points possible. 9 questions. 3 points per question. 
+
 Please write or paste your answers between the lines after each question.
-9 questions. 3 points per question. 27 points possible. 
 
 =============================
 1. Create an HTML page with a simple form

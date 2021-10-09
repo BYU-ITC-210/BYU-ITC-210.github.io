@@ -1,8 +1,11 @@
 ---
 title: "Homework 5: UML Sequence Diagrams"
 ---
+***
 
 *30 points possible. 15 points for each UML diagram.*
+
+***
 
 ## Introduction
 

@@ -1,10 +1,12 @@
 BYU IT&C 210B Homework 7: HTTP Network Traffic Analysis
 ANSWER SHEET
 
-20 points possible. 4 questions, 5 points per question.
+Your Name:
+Date:
+
+40 points possible. 20 questions, 2 points per question.
 
 Please write or paste your answers between the dashed lines after each question.
-
 Here's an example of a question with the correct answer:
 
 What is BYU's mascot?

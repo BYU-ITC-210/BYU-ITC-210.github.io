@@ -4,11 +4,11 @@ ANSWER SHEET
 Your Name:
 Date:
 
-Please write or paste your answers between the lines after each question.
-28 questions. 1 point per question. 28 points possible.
+28 points possible. 28 questions; 1 point per question.
 
 Act as if you are entering each command on a Linux machine one after another, especially when changing which directory you are in or are modifying.
 
+Please write or paste your answers between the lines after each question.
 Here's an example of a question with the correct answer:
 
 1. Print the word, "Hello"
