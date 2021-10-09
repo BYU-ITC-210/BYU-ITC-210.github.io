@@ -1,0 +1,51 @@
+BYU IT&C 210B Homework 6: Regular Expressions
+ANSWER SHEET
+
+40 points possible. 2 points per question.
+
+Please write or paste your answers between the dashed lines after each question.
+
+Here's an example of a question with the correct answer:
+
+What is BYU's mascot?
+-----
+Cosmo the Cougar
+-----
+
+=============================
+1. Usernames
+
+Enter the regular expression:
+-----
+
+-----
+
+=============================
+2. Social Security Numbers
+
+Enter the regular expression:
+-----
+
+-----
+
+=============================
+3. Email Addresses
+
+Enter the regular expression:
+-----
+
+-----
+
+=============================
+4. Data Cleanup
+
+
+Enter the regular expression:
+-----
+
+-----
+
+Enter the replacement string:
+-----
+
+-----

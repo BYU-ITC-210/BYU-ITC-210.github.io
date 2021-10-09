@@ -1,7 +1,7 @@
-BYU IT&C 210A Homework 7: HTTP Network Traffic Analysis
+BYU IT&C 210B Homework 7: HTTP Network Traffic Analysis
 ANSWER SHEET
 
-40 points possible. 2 points per question.
+20 points possible. 4 questions, 5 points per question.
 
 Please write or paste your answers between the dashed lines after each question.
 
