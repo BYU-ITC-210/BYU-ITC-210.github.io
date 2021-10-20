@@ -3,8 +3,9 @@ title: C# Introduction - Walkthrough
 ---
 C# is a versatile, compiled language. It is supported by [.NET](https://dotnet.microsoft.com/) (pronounced "dot net"), a rich, open runtime environment. Variations of .NET support all major platforms.
 
-* **.NET Core:** MacOS, Linux, Windows (and more)
-* **.NET Xamarin:** iOS, MacOS, Android, Windows
+* **.NET Core:** Console apps on MacOS, Linux, Windows (and more)
+* **.NET MAUI:** (Coming late 2021) Rich GUI apps for iOS, Android, macOS, and Windows
+* **.NET Xamarin:** iOS, macOS, Android, Windows
 * **Unity:** Games on all major consoles (Xbox, PlayStation, Nintendo), iOS, Android, Windows, and many others.
 * **ASP.NET:** Web applications hosted on Windows or Linux
 * **.NET Nanoframework:** Microcontrollers for embedded systems.
@@ -48,6 +49,10 @@ Similar C and C++, program execution starts with a function called `Main()`. Lik
 The static `Console` class has functions for reading and writing to the console. In this case, we use `WriteLine()` to write the string.
 
 In **Visual Studio** click the "Run" button (Green Arrow) to run the app.
+
+## Memory Management
+
+C# uses a "garbage collected" heap. Like C and C++, you create objects using the `new` keyword. But you don't have to free them. A short time after the last reference to an object goes away the garbage collector, running on a background thread, will free the memory in the heap.
 
 ## Variables and Strings
 
