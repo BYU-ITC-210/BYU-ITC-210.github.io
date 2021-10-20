@@ -86,7 +86,7 @@
             const minutes = 59-now.getMinutes();
             const seconds = 59-now.getSeconds();
             const tenths = 9-Math.floor(now.getMilliseconds() / 100);
-            if (minutes < 20)
+            if (minutes < 40)
             {
                 eleCountdown.textContent = minutes.toString().padStart(2,'0') + ":" + seconds.toString().padStart(2,'0') + "." + tenths.toString();
             }
