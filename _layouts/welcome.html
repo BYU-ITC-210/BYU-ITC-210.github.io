@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ page.title }}</title>
+{% include head.html %}
+<style>
+
+    :root {
+        background-color: black;
+        font-size: 20pt;
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        min-width: 133vh;
+        max-width: 140vh;
+        margin: 0 auto;
+        display: flex;
+        align-items: stretch;
+        height: 100%;
+    }
+
+    .col1, .col2 {
+        flex: 1 1 0;
+        padding: 1em;
+    }
+
+    .vertborder {
+        background-image: linear-gradient(white, #808080, #808080, white);
+        flex: 0 0 0.1in;
+    }
+
+    .title {
+        margin-top: 5rem;
+        font-size: 2rem;
+    }
+
+    .countdown {
+        margin: 5em auto 0 auto;
+        font-family: Consolas, fixed;
+        font-size: 2em;
+        color: white;
+        text-align: center;
+        width: 7em;
+        background-color: black;
+    }
+
+    article {
+        font-size: 16pt;
+    }
+
+    ul {
+        margin-left: 0.5em;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="col1">
+        <div class="title">{{ page.title }}</div>
+        <div class="subtitle">IT&C 210 {{ page.session }}</div>
+        <div class="countdown" id="countdown"></div>       
+    </div>
+    <div class="vertborder">
+    </div>
+    <div class="col2">
+        <h2>Announcements:</h2>
+        <article>
+            {{ content }}
+        </article>
+    </div>
+
+    <script>
+        
+        let eleCountdown = document.getElementById("countdown");
+        let timer;
+
+        function tick()
+        {
+            const now = new Date();
+            const minutes = 59-now.getMinutes();
+            const seconds = 59-now.getSeconds();
+            const tenths = 9-Math.floor(now.getMilliseconds() / 100);
+            if (minutes < 20)
+            {
+                eleCountdown.textContent = minutes.toString().padStart(2,'0') + ":" + seconds.toString().padStart(2,'0') + "." + tenths.toString();
+            }
+            else
+            {
+                eleCountdown.textContent = "00:00.0";
+                window.clearInterval(timer);
+            }
+        }
+
+        timer = window.setInterval(tick, 100);
+
+    </script>
+
+</body>
+
+</html>
