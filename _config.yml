@@ -43,12 +43,10 @@ defaults:
   -
     scope:
       path: ""
-      type: "cards"
+      type: "welcome"
     values:
-      layout: "card"
+      layout: "welcome"
 collections:
-  cards:
+  welcome:
     output: true
-    permalink: /cards/:path.html
-sass:
-  sass_dir: _sass
+    permalink: /welcome/:path.html

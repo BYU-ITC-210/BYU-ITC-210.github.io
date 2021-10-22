@@ -1,5 +1,5 @@
 ---
-title: Model View Controller in C# - Walkthrough
+title: Model View Controller in C# and Razor - Walkthrough
 ---
 [Model View Controller](https://en.wikipedia.org/wiki/Model-view-controller) (MVC) is a [Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern) for developing applications with a Web or GUI user interface.
 
