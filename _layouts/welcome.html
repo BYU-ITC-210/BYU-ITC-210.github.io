@@ -82,10 +82,11 @@
 
         function tick()
         {
-            const now = new Date();
-            const minutes = 59-now.getMinutes();
-            const seconds = 59-now.getSeconds();
-            const tenths = 9-Math.floor(now.getMilliseconds() / 100);
+            let remaining = Math.floor((3600000 - (Date.now() % 3600000)) / 100);
+            const tenths = remaining % 10;
+            remaining = (remaining - tenths) / 10
+            const seconds = remaining % 60;
+            const minutes = (remaining - seconds) / 60;
             if (minutes < 40)
             {
                 eleCountdown.textContent = minutes.toString().padStart(2,'0') + ":" + seconds.toString().padStart(2,'0') + "." + tenths.toString();
