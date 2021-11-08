@@ -14,7 +14,7 @@ In this walkthrough, we will use Regular Expressions in [Visual Studio Code](htt
 
 ## Getting Started
 
-* Download [SampleText.txt](S28-Regex-SampleText.txt){: download="SampleText.txt"})
+* Download [SampleText.txt](Regex-SampleText.txt){: download="SampleText.txt"})
 * Open the file in [Visual Studio Code](https://code.visualstudio.com/)
 * Open the search bar (`Ctrl+F` or `Edit > Find`)
 * Turn on "Use Regular Expression" by clicking the `.*` button on the search bar or by pressing `Alt+R`
