@@ -49,13 +49,34 @@
         background-color: black;
     }
 
+    .quiz {
+        margin: 5em auto 0 auto;
+        border: 2px solid black;
+        padding: 0.1em;
+    }
+
+    .quiz ul {
+        margin-left: 1.5em;
+    }
+
+    .quizpw {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
     article {
         font-size: 16pt;
     }
 
-    ul {
+    .col2 ul {
         margin-left: 0.5em;
     }
+
+
 
 </style>
 </head>
@@ -64,7 +85,16 @@
     <div class="col1">
         <div class="title">{{ page.title }}</div>
         <div class="subtitle">IT&C 210 - {{ page.session }}</div>
-        <div class="countdown" id="countdown"></div>       
+        <div class="countdown" id="countdown"></div>
+        <div class="hidden" id="quiz">
+            <div>Quiz</div>
+            <ul>
+                <li>10 Minutes (though you can continue after we start the lecture)</li>
+                <li>Closed book, closed internet, closed notes, closed neighbor, etc.</li>
+            </ul>
+            <div>Password:</div>
+            <div class="quizpw">{{ page.quiz }}</div>
+        </div>
     </div>
     <div class="vertborder">
     </div>
@@ -99,6 +129,21 @@
         }
 
         timer = window.setInterval(tick, 100);
+
+        function showQuizInfo()
+        {
+            document.getElementById('countdown').className = 'hidden';
+            document.getElementById('quiz').className = 'quiz';
+        }
+
+        function onKeyDown(e)
+        {
+            if (e.keyCode == 81) { // Letter Q
+                showQuizInfo();
+            }
+        }
+
+        document.addEventListener('keydown', onKeyDown);
 
     </script>
 
