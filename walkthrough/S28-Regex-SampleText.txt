@@ -1,0 +1,41 @@
+Character Patterns:
+aaaaaaaa
+bbbbbbbb
+abababab
+
+California License Plates:
+5HKX120
+6VWV984
+9XKZ323
+
+Email addresses
+richard@gmail.com
+fred-miller@hotmail.com
+mark.moran@sniffles.org
+purple alice-b@google.com monkey dishwasher
+
+Names
+Isaac Asimov
+Sir Isaac Newton
+Fred Rogers
+Colonel Sanders
+Robert Heinlein
+George Orwell
+Ewan McGregor
+
+General Authorities
+Russell M. Nelson
+Dallin H. Oaks
+Henry B. Eyring
+M. Russell Ballard
+Jeffrey R. Holland
+Dieter F. Uchtdorf
+David A. Bednar
+Quentin L. Cook
+D. Todd Christofferson
+Neil L. Andersen
+Ronald A. Rasband
+Gary E. Stevenson
+Dale G. Renlund
+Gerrit W. Gong
+Ulisses Soares
