@@ -106,13 +106,16 @@
     </div>
 
     <script>
+
+        // Offset of the bell from UTC in milliseconds.
+        const bellOffset = 16000;
         
         let eleCountdown = document.getElementById("countdown");
         let timer;
 
         function tick()
         {
-            let remaining = Math.floor((3600000 - (Date.now() % 3600000)) / 100);
+            let remaining = Math.floor((3600000 - ((Date.now()-bellOffset) % 3600000)) / 100);
             const tenths = remaining % 10;
             remaining = (remaining - tenths) / 10
             const seconds = remaining % 60;
