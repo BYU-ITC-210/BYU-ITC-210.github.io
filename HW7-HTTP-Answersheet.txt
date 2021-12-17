@@ -4,7 +4,7 @@ ANSWER SHEET
 Your Name:
 Date:
 
-40 points possible. 20 questions, 2 points per question.
+38 points possible. 19 questions, 2 points per question.
 
 Please write or paste your answers between the dashed lines after each question.
 Here's an example of a question with the correct answer:
@@ -85,11 +85,6 @@ What status number did you receive?
 -----
 
 Explain what the number means.
------
-
------
-
-What type of server is BYU IT&C using?
 -----
 
 -----
