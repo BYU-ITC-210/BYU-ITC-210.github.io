@@ -13,7 +13,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 ## Resources
 
-* Computer with either Google Chrome or Microsoft Edge web browser. (You can use FireFox but the process of analyzing traffic is a little different).
+* Computer with either Google Chrome or Microsoft Edge web browser. (You can use Firefox but the process of analyzing traffic is a little different).
 * [RFC 2616](https://www.rfc-editor.org/info/rfc2616) The IETF standard that defines HTTP 1.1
 * A [tutorial](http://www.steves-internet-guide.com/http-basics/) on how HTTP works.
 * [Blank Answer Sheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} text file into which you will insert your answers.

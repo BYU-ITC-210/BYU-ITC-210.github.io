@@ -1,4 +1,4 @@
----
+ ---
 title: "Homework 6: Regular Expressions"
 ---
 
@@ -8,7 +8,7 @@ title: "Homework 6: Regular Expressions"
 
 ***
 
-In this exercise you will practice composing regular expressions. Make sure this is your own work though you may share strategies with your peers.
+In this exercise, you will practice composing regular expressions. Make sure this is your own work though you may share strategies with your peers.
 
 ### Objectives
 
@@ -54,7 +54,7 @@ To use **Regex 101**:
 
 ## Scenario 1: Usernames
 
-On your web site you have a page that allows a user to create a username. The username must start with a capital letter and be followed by only lowercase letters. It must end in exactly two numbers and the whole username must be at least 8 characters long. Write a regex pattern that will check this.
+On your website, you have a page that allows a user to create a username. The username must start with a capital letter and be followed by only lowercase letters. It must end in exactly two numbers and the whole username must be at least 8 characters long. Write a regex pattern that will check this.
 
 Hints:
 * The caret `^` indicates that the match must occur at the beginning of a line. Dollar sign, `$` indicates that the match must occur at the end of a line. So `^Snoopy$` matches a line with only the word "Snoopy", nothing before or after.
@@ -111,9 +111,9 @@ Compose a regular expression that matches all of the valid addresses and none of
 
 Hints:
 
-* Domain names (after the `@`) are composed of two or more names separated by periods. Names are composed letters, numbers, and dashes.
-* Email prefixes (before the `@`) are composed of letters, numbers, underscores, periods and dashes. An underscore, period, or dash must be followed by one or more letters or numbers)
-* Like character classes, subexpressions (see hints to Scenario 2) may be followed by followed by a quantifier such as `*` for zero or more, `+` for one or more, `?` for zero or one, or braces `{}` to indicate a range of repetitions.
+* Domain names (after the `@`) are composed of two or more names separated by periods. Names are composed of letters, numbers, and dashes.
+* Email prefixes (before the `@`) are composed of letters, numbers, underscores, periods, and dashes. An underscore, period, or dash must be followed by one or more letters or numbers)
+* Like character classes, subexpressions (see hints to Scenario 2) may be followed by a quantifier such as `*` for zero or more, `+` for one or more, `?` for zero or one, or braces `{}` to indicate a range of repetitions.
 * You can create a custom character class using characters within brackets. Inside brackets, use dashes to indicate character ranges. For example `[A-Za-z]` will recognize all ASCII letters (whether upper or lower case).
 * Use a backslash to treat a Regex character as a literal. For example use `\.` to match a period.
 * The caret `^` indicates that the match must occur at the beginning of a line. Dollar sign, `$` indicates that the match must occur at the end of a line. So `^Snoopy$` matches a line with only the word "Snoopy", nothing before or after.
@@ -206,3 +206,4 @@ Bond, James
 
 ```
 
+![image](https://user-images.githubusercontent.com/76703677/147514009-88c9e7cf-52c6-4888-bd3a-85c3a3b3e53a.png)
