@@ -53,7 +53,7 @@ macOS is based on the Darwin core which, like Linux, is a Unix-derived operating
 
 Windows includes the classic __DOS Command Line__ and the newer __PowerShell__. But, for this assignment, you will need to install the __Linux Subsystem for Windows 2 (LSW2)__ in order to get a Linux/Unix style command line. We will be using LSW2 and Docker through the rest of the semester so it's definitely worth the effort.
 
-Follow the __Six Manual Installation Steps__ at [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps). __Important:__ As of August 2021 the instructions have a "simplified install" for those using a Windows Insiders preview. Please ignore that part and do the "Manual install" six steps. A future update to Windows will probably incorporate the simplified approach. For the Linux distribution use [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6).
+Follow the __Six Manual Installation Steps__ at [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install). If you are current on your Windows updates (build 21H1 or later) then the simple `wsl --install` command will work. Make sure you run it from an **administrator PowerShell** and that you reboot after the installation completes.
 
 ### Using the CLI
 
