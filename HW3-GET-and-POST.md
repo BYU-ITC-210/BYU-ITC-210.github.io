@@ -96,7 +96,7 @@ Answer the following questions on the answer sheet:
 
 <p>
 <div class="question">Which HTTP verb (GET, POST, PUT, etc.) was used? (Hint: Look at the first line.)</div>
-<div class="question">Where are your form responses passed to the server?</div>
+<div class="question">Where, in the HTTP request, are your form responses passed to the server?</div>
 <div class="question">Suppose you weren't using a service that echoes the request back. Would you be able to see your form responses anywhere in the browser? (Hint: Look in your browser address bar.)</div>
 </p>
 
@@ -119,7 +119,7 @@ Answer the following questions on the answer sheet:
 
 <p>
 <div class="question">Which HTTP verb was used this time?</div>
-<div class="question">Where are your form responses passed to the server this time?</div>
+<div class="question">Where, in the HTTP request, are your form responses passed to the server this time?</div>
 <div class="question">Suppose you weren't using a service that echoes the request back. Would you be able to see your form responses anywhere in the browser?</div>
 <div class="question">What is the data format of the form submission? (Hint: see the <code>Content-Type</code> header.)</div>
 </p>
