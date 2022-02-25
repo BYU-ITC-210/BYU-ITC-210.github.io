@@ -4,7 +4,7 @@ title: C# Introduction - Walkthrough
 C# is a versatile, compiled language. It is supported by [.NET](https://dotnet.microsoft.com/) (pronounced "dot net"), a rich, open runtime environment. Variations of .NET support all major platforms.
 
 * **.NET Core:** Console apps on MacOS, Linux, Windows (and more)
-* **.NET MAUI:** (Coming late 2021) Rich GUI apps for iOS, Android, macOS, and Windows
+* **.NET MAUI:** (Multi-Platfrom Application User Interface) Rich GUI apps for iOS, Android, macOS, and Windows
 * **.NET Xamarin:** iOS, macOS, Android, Windows
 * **Unity:** Games on all major consoles (Xbox, PlayStation, Nintendo), iOS, Android, Windows, and many others.
 * **ASP.NET:** Web applications hosted on Windows or Linux
@@ -101,7 +101,7 @@ namespace ConsoleApp
 }
 ```
 
-The exception will be caught by your IDE debugger and you have an opportunity to examine the variables.
+The null reference exception will be caught by your IDE debugger and you have an opportunity to examine the variables.
 
 ## C++ Operators
 
