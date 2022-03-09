@@ -211,7 +211,7 @@ Or, if Quotes.rest happens to be down (which it has been on occasion), try the j
 # Output
 >>> res.json()['delivery']
 # Output
-
+```
 
 ## Docstrings
 
@@ -224,5 +224,4 @@ def strong(x):
  return x + "!"
 ```
 
-Triple-quotes allow multi-line string constants. It’s traditional to use triple quotes in a Docstring but 
-single or double quotes are also acceptable.
+Triple-quotes allow multi-line string constants. It’s traditional to use triple quotes in a Docstring but single or double quotes are also acceptable.
