@@ -75,7 +75,7 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <p>
 <div class="question">What status number did you receive?</div>
 <div class="question">Explain what the number means.</div>
-<div class="question">What type of server is BYU IT&C using?</div>
+<div class="question">What type of server is BYU IT&C using? (You may have to look at more than one request to find this)</div>
 <div class="question">What <code>Content-Type</code> is the response body in?</div>
 <div class="question">Did the server compress the response? (Hint: See the <code>Content-Encoding</code> header.)</div>
 </p>
