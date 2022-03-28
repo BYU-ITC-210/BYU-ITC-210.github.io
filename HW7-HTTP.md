@@ -2,7 +2,7 @@
 title: "Homework 7: HTTP Network Traffic Analysis"
 ---
 
-*40 points possible. 19 questions; 2 points per question.*
+*40 points possible. 20 questions; 2 points per question.*
 
 ## Objectives
 
@@ -13,7 +13,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 ## Resources
 
-* Computer with either FireFox or Microsoft Edge web browser. (You can use FireFox but the process of analyzing traffic is a little different).
+* Computer with FireFox web browser. (You can use FireFox but the process of analyzing traffic is a little different).
 * [RFC 2616](https://www.rfc-editor.org/info/rfc2616) The IETF standard that defines HTTP 1.1
 * A [tutorial](http://www.steves-internet-guide.com/http-basics/) on how HTTP works.
 * [Blank Answer Sheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} text file into which you will insert your answers.
@@ -32,7 +32,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 Get into your web browser's developer tools, select the Network tab, and start recording.
 
 * Do NOT use Chrome, you will not be able to answer all of the questions using Chrome
-* Open your browser (Edge or FireFox)
+* Open your browser (FireFox)
 * Open developer tools (upper-right menu ➜ More Tools ➜ Developer Tools, or F12, or right-click ➜ Inspect)
 * Select the Network tab. (It may be hidden behind the `»` symbol.)
 * Make sure the filter is set to `All`.
