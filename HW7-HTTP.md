@@ -31,7 +31,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 Get into your web browser's developer tools, select the Network tab, and start recording.
 
-* Open your browser (Edge or Chrome)
+* Open your browser (FireFox)
 * Open developer tools (upper-right menu ➜ More Tools ➜ Developer Tools, or F12, or right-click ➜ Inspect)
 * Select the Network tab. (It may be hidden behind the `»` symbol.)
 * Make sure the filter is set to `All`.
