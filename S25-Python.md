@@ -181,7 +181,7 @@ Using the module
 
 ## Accessing REST APIs 
 
-We’ll be using the Quotes REST API at [https://quotes.rest](https://quotes.rest)
+You can use the Quotes REST API at [https://quotes.rest](https://quotes.rest)
 
 ```
 >>> import requests
@@ -198,6 +198,21 @@ We’ll be using the Quotes REST API at [https://quotes.rest](https://quotes.res
 
 (If `import requests` generates an error, you have not installed the `Requests` module. From the command line (not Python) type `pip install Requests`.
 
+Or, if Quotes.rest happens to be down (which it has been on occasion), try the jokes API. But, be sure to use the safe-mode flag.
+
+```
+>>> import requests
+>>> res = requests.get('https://v2.jokeapi.dev/joke/Any?safe-mode')
+>>> res.status_code
+# Output
+>>> print(res.text)
+# Output
+>>> res.json()['setup']
+# Output
+>>> res.json()['delivery']
+# Output
+```
+
 ## Docstrings
 
 A string constant as the first statement in a function or module provides a description of what that 
@@ -209,5 +224,4 @@ def strong(x):
  return x + "!"
 ```
 
-Triple-quotes allow multi-line string constants. It’s traditional to use triple quotes in a Docstring but 
-single or double quotes are also acceptable.
+Triple-quotes allow multi-line string constants. It’s traditional to use triple quotes in a Docstring but single or double quotes are also acceptable.

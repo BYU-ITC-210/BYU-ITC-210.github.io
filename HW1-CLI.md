@@ -51,13 +51,13 @@ macOS is based on the Darwin core which, like Linux, is a Unix-derived operating
 
 ### Windows
 
-Windows includes the classic __DOS Command Line__ and the newer __PowerShell__. But, for this assignment you will need to install the __Linux Subsystem for Windows 2 (LSW2)__ in order to get a Linux/Unix style command line. We will be using LSW2 and Docker through the rest of the semester so it's definitely worth the effort.
+Windows includes the classic __DOS Command Line__ and the newer __PowerShell__. But, for this assignment, you will need to install the __Linux Subsystem for Windows 2 (LSW2)__ in order to get a Linux/Unix style command line. We will be using LSW2 and Docker through the rest of the semester so it's definitely worth the effort.
 
-Follow the __Six Manual Installation Steps__ at [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps). __Important:__ As of August 2021 the instructions have a "simplified install" for those using a Windows Insiders preview. Please ignore that part and do the "Manual install" six steps. A future update to Windows will probably incorporate the simplified approach. For the Linux distribution use [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6).
+If you are current on your Windows updates (build 21H1 or later) then the simple `wsl --install` command will work. Make sure you run it from an **administrator PowerShell** and that you reboot after the installation completes.
 
 ### Using the CLI
 
-Before this course you should have been exposed to using a command line. But, whether you have or not, you should be able to complete this assignment. Using a command line allows you to perform necessary functions when operating a computer that are not available in the graphical interface.
+Before this course, you should have been exposed to using a command line. But, whether you have or not, you should be able to complete this assignment. Using a command line allows you to perform necessary functions when operating a computer that are not available in the graphical interface.
 
 Here are some resources that may be helpful:
 
@@ -112,9 +112,9 @@ Use other online resources as needed to complete the assignment. For this assign
    > Hint: The `cat` command will print the contents of a file. Consider combining that with a redirection operator.
 4. Print the contents of `your_last_name.txt` to the console.
 
-## Part 2: Git Command Lne
+## Part 2: Git Command Line
 
-Git is a source control system to help manage versions of your projects. GitHub is an online place to store git projects. In this class, we will be using GitHub to as a shared place to move our code to our production environments from our development environments.
+Git is a source control system to help manage versions of your projects. GitHub is an online place to store git projects. In this class, we will be using GitHub as a shared place to move our code to our production environments from our development environments.
 
 After this assignment, you should be familiar with the following commands:
 
@@ -158,6 +158,7 @@ Using git will extend further than usage in this class. In this class, we will u
 8. __Push__ your commit to your `main` branch on GitHub.
 9. Modify the README.md by adding your name to the file. *(If you use an editor, no need to enter anything on the answer sheet.)*
 10. __Commit__ changes to your repository, with a description of what this commit does.
-11. __Push__ your newest commit to your Master branch on Github.
+11. __Push__ your newest commit to your `main` branch on Github.
 
-> Note: The first time you add a new remote origin, you need to use `git remote add origin https://github.com/MyUserName/MyRepo.git` and `git push -u origin master`. After the first time, you only need `git push`, and the remote origin is remembered, and the upstream branch is remembered. The general process after you have saved any changes is add, commit, push: `git add files_that_changed.txt`, `git commit -m 'description of change'`, `git push`.  
+> Note: The first time you add a new remote origin, you need to use `git remote add origin https://github.com/MyUserName/MyRepo.git` and `git push -u origin main`. After the first time, you only need `git push`, and the remote origin is remembered, and the upstream branch is remembered. The general process after you have saved any changes is add, commit, push: `git add files_that_changed.txt`, `git commit -m 'description of change'`, `git push`.  
+![image](https://user-images.githubusercontent.com/76703677/147512959-3cdf9d33-c0e0-49a2-b51b-d1a7584a3fd6.png)

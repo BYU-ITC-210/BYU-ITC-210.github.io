@@ -76,7 +76,15 @@
         margin-left: 0.5em;
     }
 
+    .col2 ul>li>ul {
+        margin-bottom: 0;
+    }
 
+    .col2 img {
+        display: block;
+        max-width: 100%;
+        margin: 1em auto 0 auto;
+    }
 
 </style>
 </head>
@@ -108,7 +116,7 @@
     <script>
 
         // Offset of the bell from UTC in milliseconds.
-        const bellOffset = 16000;
+        const bellOffset = 20000;
         
         let eleCountdown = document.getElementById("countdown");
         let timer;

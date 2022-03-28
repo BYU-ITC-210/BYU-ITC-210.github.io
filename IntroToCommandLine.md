@@ -25,7 +25,7 @@ There are many things here to discuss so lets start by talking about Windows and
 
 ### Absolute and relative paths
 
-An absolute path states exactly where the folder is you want to go from the root of the file system (c:\ for Windows or / for Linux). A relative path states where you want to go from whereever you are currently. (Your current location is usually stated in your command prompt like "tim@timonium:/var/www" or "C:\initpub\webroot").
+An absolute path states exactly where the folder is you want to go from the root of the file system (c:\ for Windows or / for Linux). A relative path states where you want to go from wherever you are currently. (Your current location is usually stated in your command prompt like "tim@timonium:/var/www" or "C:\initpub\webroot").
 
 ### Current and parent directory
 
@@ -61,7 +61,7 @@ For Linux `ifconfig` and Windows `ipconfig` will list the current information fo
 
 ### man/info or -h/--help - Help for a Command
 
-For Linux man or info or for Windows -h or --help will give documentation for how to use a command. Examples:
+For Linux man or info or Windows -h or --help will give documentation for how to use a command. Examples:
 
 ```
 $ man ifconfig 
@@ -78,9 +78,9 @@ $ man -k directory
 
 ### vim or nano - Linux command line text editors
 
-Often you may want to edit a file in Linux from the command line, for instance, when you are using ssh to access a remote computer. `Vim` and `Nano` are two popular editors but you will need some pointers to use them. They are not necessarily easy, but once you have learned one you can see how they are very powerful and useful. `Nano` is more user friendly and you can probably figure out how to use it after a little bit.
+Often you may want to edit a file in Linux from the command line, for instance, when you are using ssh to access a remote computer. `Vim` and `Nano` are two popular editors but you will need some pointers to use them. They are not necessarily easy, but once you have learned one you can see how they are very powerful and useful. `Nano` is more user-friendly and you can probably figure out how to use it after a little bit.
 
-`Vim` is preferred by many but needs some explanation. When you open the file you are in the "command" interface. In this interface you can move the cursor, copy, paste, delete, search ,etc but not edit the text. To get to the "edit" interface you must press `i` and you can edit where the cursor is but not move the cursor. To get back into the command interface you must press esc. To save and exit you need to be in the command interface and press :wq which means command, write, quit respectively. Vim has many other great uses. Find them on Google.
+`Vim` is preferred by many but needs some explanation. When you open the file you are in the "command" interface. In this interface, you can move the cursor, copy, paste, delete, search, etc. but not edit the text. To get to the "edit" interface you must press `i` and you can edit where the cursor is but not move the cursor. To get back into the command interface you must press esc. To save and exit you need to be in the command interface and press :wq which means command, write, quit respectively. Vim has many other great uses. Find them on Google.
 
 ```
 $ vim dir.conf 
@@ -108,7 +108,7 @@ The first example will change the current user's password. It will prompt for th
 
 ### apt-get - Package Manager
 
-In Linux apt-get will use a package manager to install a program. In Linux most programs are in repositories and you just need to download them and install them through a package manager. Synaptic Package Manager is a interface for apt-get. Here is how to install or update something in the command line. (Notice you always have to use sudo for this to work.
+In Linux, apt-get will use a package manager to install a program. In Linux, most programs are in repositories and you just need to download them and install them through a package manager. Synaptic Package Manager is an interface for apt-get. Here is how to install or update something in the command line. (Notice you always have to use sudo for this to work.
 
 ```
 $ sudo apt-get install apache2 
@@ -120,29 +120,29 @@ $ sudo apt-get upgrade
 
 ### chmod - Linux Change Permission
 
-In Linux chmod will change the permissions on a file or folder. Here's some examples:
+In Linux, chmod will change the permissions on a file or folder. Here are some examples:
 
 ```
 $ chmod 664 myFile.txt 
 $ sudo chmod -R 775 /var/www
 ```
 
-This takes a little explaining. The 3 numbers after chmod specify the permissions for the owner, group and everyone respectively. Now think of each number as 3 binary digits (so 110 = 6 or 100 = 4 or 111 = 7). The binary digits represent read, write and execute respectively. Therefore 7 (111) means read, write and execute. 6 (110) represents read and write. 5 (101) represents read and execute. 4 (100) represents read only. So chmod 664 myFile.txt sets the permissions of myFile.txt to read/write for owner and group and read only for everyone else.
+This takes a little explaining. The 3 numbers after chmod specify the permissions for the owner, group, and everyone respectively. Now think of each number as 3 binary digits (so 110 = 6 or 100 = 4 or 111 = 7). The binary digits represent read, write and execute respectively. Therefore 7 (111) means read, write and execute. 6 (110) represents read and write. 5 (101) represents read and execute. 4 (100) represents read-only. So chmod 664 myFile.txt sets the permissions of myFile.txt to read/write for owner and group and read-only for everyone else.
 
 `-R` means recursive (or -r for many other terminal commands). That means this folder and everything within it. Therefore, `sudo chmod -R 775 /var/www` means run this command as root, change permissions recursively to read/write/execute for owner and group and read/execute for everyone else on /var/www. Another important fact to know is a directory needs to be executable or you cannot open the directory.
 
 ### chown - Linux change owner/group
 
-As discussed above, Linux grants permissions based on the owner and group assigned to a file or directory.  Many times the best answer is not to change the permission but, instead, change the owner or group.  Here's some examples:
+As discussed above, Linux grants permissions based on the owner and group assigned to a file or directory.  Many times the best answer is not to change the permission but, instead, change the owner or group.  Here are some examples:
 
 ```
 $ sudo chown tim /var/www
 $ sudo chown -R tim:www-data /var/www
 ```
 
-The first example is changing /var/www to be owned by *tim*.  Usually sudo is required to run chown, after chown you specify the user and then what you want to change the ownership of.  The second example changes everything in /var/www to be owned by *tim* with the group of www-data. `-R` means recursive like chmod.  If you are specifying the group you do `<user>:<group>` with the : between them.  
+The first example is changing /var/www to be owned by *tim*.  Usually, sudo is required to run chown, after chown you specify the user and then what you want to change the ownership of.  The second example changes everything in /var/www to be owned by *tim* with the group of www-data. `-R` means recursive like chmod.  If you are specifying the group you do `<user>:<group>` with the : between them.  
 
-> A note on the www-data group, this is the group the Apache (web server) process belongs to.  You can add yourself to the www-data group if you want to. This is significant because this means if you have permissions of rwxrwxr-x tim www-data then tim and www-data (or Apache) can write to that folder.  If it were rwxrwxr-x tim tim then Apache would not be able to write to that folder (or edit the file).  For this class, Apache needs permissions to write to the things in it's folder. So leave it as rwxrwxr-x tim www-data.
+> A note on the www-data group, this is the group the Apache (webserver) process belongs to.  You can add yourself to the www-data group if you want to. This is significant because this means if you have permissions of rwxrwxr-x tim www-data then tim and www-data (or Apache) can write to that folder.  If it were rwxrwxr-x tim tim then Apache would not be able to write to that folder (or edit the file).  For this class, Apache needs permission to write to the things in its folder. So leave it as rwxrwxr-x tim www-data.
 
 ### ssh - Secure Shell
 
@@ -154,7 +154,7 @@ $ ssh webadmin@192.168.210.210
 $ ssh -p 43224 webadmin@it.et.byu.edu
 ```
 
-The first example shows `tim` logging into `rockncomputer.com`. The second is webadmin logging into the computer at IP address 192.168.120.1 which would be on the local network (due to the 192.168 prefix). The last case indicates the port to use when connecting to ssh instead of using the default (22). In any case it will ask you for a password and then you will see a prompt like `tim@rockncomputer.com:~>` or `webadmin@192.168.120.1:~>` where the `:~` means you are in that user's home directory. To get out just type exit and it will return to the local computer.
+The first example shows `tim` logging into `rockncomputer.com`. The second is webadmin logging into the computer at IP address 192.168.120.1 which would be on the local network (due to the 192.168 prefix). The last case indicates the port to use when connecting to ssh instead of using the default (22). In any case, it will ask you for a password and then you will see a prompt like `tim@rockncomputer.com:~>` or `webadmin@192.168.120.1:~>` where the `:~` means you are in that user's home directory. To get out just type exit and it will return to the local computer.
 
 > "Shell," "Terminal," and "Command Line" all mean pretty much the same thing. (Though there are nuanced differences.)
 
@@ -162,7 +162,7 @@ ssh works on Windows, Mac, and Linux and you frequently use it to bridge between
 
 ### scp - Secure copy
 
-`scp` is a way to use ssh to copy files from and to remote places. This means a file on a local computer can be copied to a remote computer, visa versa, or even copy a file from a remote computer to another remote computer. It is a mix of ssh and cp. Here's how it goes.
+`scp` is a way to use ssh to copy files from and to remote places. This means a file on a local computer can be copied to a remote computer, vice versa, or even copy a file from a remote computer to another remote computer. It is a mix of ssh and cp. Here's how it goes.
 
 ```
 $ scp /var/www/index.html webadmin@192.168.210.210:/var/www/ 
@@ -171,7 +171,7 @@ $ scp -r myfolder/ webadmin@192.168.210.210:~/putHere
 $ scp -P 424242 thisFile webadmin@itrocks.com:~/
 ```
 
-The first example copies the file `/var/www/` from the local computer to the computer at address `192.168.210.210` using username `webadmin` and placing it in `/var/www/`. Notice that it does not specify the name of the file once it is copied, therefore it wil keep the name index.html. The second example copies a file from the remote computer at `192.168.210.210` using username `webadmn` and copies the file `~/stuff.txt` (remember ~ is the home directory). The destination for the file is on the local computer `../notes.txt` (up to the parent directory and name it notes.txt). The third example copies an entire folder from the local computer to the remote computer and names the remote folder `putHere`. The last example specifies a port number for ssh different from default port `22` on the remote computer.
+The first example copies the file `/var/www/` from the local computer to the computer at address `192.168.210.210` using username `webadmin` and placing it in `/var/www/`. Notice that it does not specify the name of the file once it is copied, therefore it will keep the name index.html. The second example copies a file from the remote computer at `192.168.210.210` using username `webadmn` and copies the file `~/stuff.txt` (remember ~ is the home directory). The destination for the file is on the local computer `../notes.txt` (up to the parent directory and name it notes.txt). The third example copies an entire folder from the local computer to the remote computer and names the remote folder `putHere`. The last example specifies a port number for ssh different from default port `22` on the remote computer.
 
 ### ~ - Linux user's home directory
 
@@ -193,3 +193,4 @@ In Linux, sometimes you want to go to a program and then execute the program. If
 * adduser 
 * usermod 
 * The operands: `|` and `>`
+![image](https://user-images.githubusercontent.com/76703677/147512754-2b5d298a-aa3c-44e9-928c-ef659395d090.png)

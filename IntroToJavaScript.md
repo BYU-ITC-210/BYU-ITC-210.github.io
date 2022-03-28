@@ -152,7 +152,6 @@ reportTrueFalse(false);
 reportTrueFalse(true);
 reportTrueFalse("false");
 ```
-}
 
 Javascript performs type conversion when comparing values using `==` or `!=`.
 
