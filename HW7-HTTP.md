@@ -20,7 +20,6 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 ## How to Complete and Submit the Homework
 *Please follow these instructions*
-
 1. Download the [answersheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
 3. Submit your answer sheet to LearningSuite for grading.
@@ -31,8 +30,9 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 Get into your web browser's developer tools, select the Network tab, and start recording.
 
+* Do NOT use Chrome, you will not be able to answer all of the questions using Chrome
 * Open your browser (FireFox)
-* Open developer tools (upper-right menu ➜ More Tools ➜ Developer Tools, or F12, or right-click ➜ Inspect)
+* Open developer tools (upper-right menu ➜ More Tools ➜ Web Developer Tools, or F12, or right-click ➜ Inspect)
 * Select the Network tab. (It may be hidden behind the `»` symbol.)
 * Make sure the filter is set to `All`.
 * Recording should start automatically. See that the dot at the left of the button bar is red (and not black).
@@ -74,7 +74,8 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <p>
 <div class="question">What status number did you receive?</div>
 <div class="question">Explain what the number means.</div>
-<div class="question">What type of server is BYU IT&C using? (You may have to navigate to another page to find this)</div> 
+<div class="question">What type of server is BYU IT&C using? (You may have to look at more than one request to find this)</div>
+
 <div class="question">What <code>Content-Type</code> is the response body in?</div>
 <div class="question">Did the server compress the response? (Hint: See the <code>Content-Encoding</code> header.)</div>
 </p>
