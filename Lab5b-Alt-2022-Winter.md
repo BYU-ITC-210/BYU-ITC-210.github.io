@@ -39,6 +39,9 @@ Specifically:
 
 This doesn't have to be very long 6-10 sentences at most. And, in this case, I'm not grading on spelling or grammar.
 
-Send your story to my email (brandtr@byu.edu or brandt@redd.org) or Direct Message me on slack. 
+Send your story to my email (brandtr@byu.edu or brandt@redd.org) or Direct Message me on slack.
+
+I need this by the last day of class (on or before April 13). I recommend you do it soon while your memories are fresh.
 
 Thank you!
+Prof. Redd
