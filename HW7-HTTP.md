@@ -13,7 +13,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 ## Resources
 
-* Computer with FireFox web browser.
+* Computer with FireFox, Chrome, or Edge web browser. Other Chromium-based web browsers will probably also work.
 * [RFC 2616](https://www.rfc-editor.org/info/rfc2616) The IETF standard that defines HTTP 1.1
 * A [tutorial](http://www.steves-internet-guide.com/http-basics/) on how HTTP works.
 * [Blank Answer Sheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} text file into which you will insert your answers.
@@ -30,22 +30,21 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 Get into your web browser's developer tools, select the Network tab, and start recording.
 
-* Do NOT use Chrome, you will not be able to answer all of the questions using Chrome
-* Open your browser (FireFox)
+* Open your browser (FireFox, Chrome, or Edge.)
 * Open developer tools (upper-right menu ➜ More Tools ➜ Web Developer Tools, or F12, or right-click ➜ Inspect)
 * Select the Network tab. (It may be hidden behind the `»` symbol.)
 * Make sure the filter is set to `All`.
 * Recording should start automatically. See that the dot at the left of the button bar is red (and not black).
-* It should look like this:
+* It should look something like this:
 
 ![Image of the network tab area](images/developer-tools-network.png)
 
 ### 2. View the general information
 
-Browse to [https://itc.byu.edu](https://itc.byu.edu) and select the request for the page itself. Look in the `general` section of the report.
+Browse to [https://www.byu.edu](https://www.byu.edu) and select the request for the page itself. Look in the `general` or `headers` section of the report.
 
 * The page may be in your cache if you've visited the site recently. To be sure to view the full HTTP transaction, click the clear button next to the record button (to clear your capture) and then force-refresh the page. (`ctrl-F5` or hold `ctrl` and click the refresh button).
-* The page request (for the HTML) should be the first one in the list. Its name should be "itc.byu.edu". Click on that name to view the detail. Then click on the `headers` tab to the right to view the request and response details.
+* The page request (for the HTML) should be the first one in the list. Its name should be "www.byu.edu". Click on that name to view the detail. Then click on the `headers` tab to the right to view the request and response details.
 
 <p>
 <div class="question">What URL was requested?</div>
@@ -74,17 +73,15 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <p>
 <div class="question">What status number did you receive?</div>
 <div class="question">Explain what the number means.</div>
-<div class="question">What type of server is BYU IT&C using? (You may have to look at more than one request to find this)</div>
-
 <div class="question">What <code>Content-Type</code> is the response body in?</div>
 <div class="question">Did the server compress the response? (Hint: See the <code>Content-Encoding</code> header.)</div>
-</p>
 
 ### 5. Other request/responses
 
 <p>
 <div class="question">How many requests does the browser make just to render this page (roughly)?</div>
 <div class="question">Do the resources come from the same or from different servers?</div>
+<div class="question">Is BYU using a content delivery network (CDN)? Which one(s)? (Hint: Look at several requests/responses and check the URLs and the <code>Server</code> header.)</div>
 <div class="question">Does the page use any JavaScript? (Hint, use the filter buttons.)</div>
 <div class="question">Does the page use CSS? (Hint, use the filter buttons.)</div>
 <div class="question">How many images (approximately) appear on the page? (Hint, use the filter buttons.)</div>

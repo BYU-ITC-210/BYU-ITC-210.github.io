@@ -89,11 +89,6 @@ Explain what the number means.
 
 -----
 
-What type of server is BYU IT&C using?
------
-
------
-
 What Content-Type is the response body in?
 -----
 
@@ -113,6 +108,11 @@ How many requests does the browser make just to render this page (roughly)?
 -----
 
 Do the resources come from the same or from different servers?
+-----
+
+-----
+
+Is BYU using a content delivery network (CDN)? Which one(s)?
 -----
 
 -----
