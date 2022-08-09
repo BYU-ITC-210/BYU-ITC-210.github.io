@@ -13,7 +13,7 @@ To complete this assignment, first, download the [answer sheet](HW1-CLI-Answersh
 
 For each of the exercises, compose a single CLI command. After verifying that the command works, paste the command used into the answer sheet.
 
-Once you have completed the assignment, upload it to LearningSuite as a txt file for grading.
+Once you have completed the assignment, upload it to LearningSuite as a txt file for grading. The file format MUST be a txt.
 
 Like most assignments in this class, you will likely use web sources to help you find answers. For example, you might use a Google or Bing search to find the right command-line for a particular task.
 
