@@ -1,5 +1,5 @@
 ---
-title: Introduction to JavaScript
+title: Introduction to JavaScript (Walkthrough)
 ---
 JavaScript is syntactically similar to Java or C++ but it is functionally quite different. It is interpreted or Just-In-Time compiled.
 
@@ -10,6 +10,24 @@ It's primary use is as a browser-side language for web applications. Using [Node
 * [JQuery](https://en.wikipedia.org/wiki/JQuery) - which is a popular JavaScript library.
 * [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) - which is a popular compiled language from Oracle that shares some syntax but is otherwise entirely different.
 * a replacement for HTML and CSS. The three languages are best used together.
+
+## Setup
+
+Start with a simple web page to which you will add JavaScript
+
+index.html
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Walkthrough</title>
+    </head>
+    <body>
+        <h1>JavaScript Walkthrough</h1>
+        <p>Hello.</p>
+    </body>
+</html>
+```
 
 ## Basics
 
