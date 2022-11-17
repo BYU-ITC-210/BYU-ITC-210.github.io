@@ -75,6 +75,7 @@ Click on "view source" next to `Response Headers` to see the raw HTTP response.
 <div class="question">Explain what the number means.</div>
 <div class="question">What <code>Content-Type</code> is the response body in?</div>
 <div class="question">Did the server compress the response? (Hint: See the <code>Content-Encoding</code> header.)</div>
+</p>
 
 ### 5. Other request/responses
 
