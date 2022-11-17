@@ -15,12 +15,12 @@ Cosmo the Cougar
 -----
 
 =============================
-1. Make an HTTP request
+1. Set up HTTP monitoring in your browser
 
 (No questions for this section.)
 
 =============================
-2. View the general information.
+2. Make an HTTP request and view the general information
 
 What URL was requested?
 -----

@@ -26,7 +26,7 @@ title: "Homework 7: HTTP Network Traffic Analysis"
 
 ## Steps: Do the Following
 
-### 1. Make an HTTP request
+### 1. Set up HTTP monitoring in your browser
 
 Get into your web browser's developer tools, select the Network tab, and start recording.
 
@@ -39,7 +39,7 @@ Get into your web browser's developer tools, select the Network tab, and start r
 
 ![Image of the network tab area](images/developer-tools-network.png)
 
-### 2. View the general information
+### 2. Make an HTTP request and view the general information
 
 Browse to [https://www.byu.edu](https://www.byu.edu) and select the request for the page itself. Look in the `general` or `headers` section of the report.
 
