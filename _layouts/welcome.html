@@ -93,7 +93,7 @@
     <div class="col1">
         <div class="title">{{ page.title }}</div>
         <div class="subtitle">IT&C 210 - {{ page.session }}</div>
-        <div class="countdown" id="countdown"></div>
+        <div class="countdown" id="countdown" onclick="startCountdown()">Start</div>
         <div class="hidden" id="quiz">
             <div>Quiz</div>
             <ul>
@@ -116,7 +116,7 @@
     <script>
 
         // Offset of the bell from UTC in milliseconds.
-        const bellOffset = 20000;
+        const bellOffset = 0 * 60000;
         
         let eleCountdown = document.getElementById("countdown");
         let timer;
@@ -135,14 +135,20 @@
             else
             {
                 eleCountdown.textContent = "00:00.0";
+                let sound = new Audio('/res/timpani.mp3');
+                sound.play();
                 window.clearInterval(timer);
             }
         }
 
-        timer = window.setInterval(tick, 100);
+        function startCountdown() {
+            let eleCountdown = document.getElementById("countdown");
+            eleCountdown.onclick = undefined;
+            timer = window.setInterval(tick, 100);
+        }
 
-        function showQuizInfo()
-        {
+
+        function showQuizInfo() {
             document.getElementById('countdown').className = 'hidden';
             document.getElementById('quiz').className = 'quiz';
         }
@@ -151,6 +157,9 @@
         {
             if (e.keyCode == 81) { // Letter Q
                 showQuizInfo();
+            }
+            else if (e.keyCode == 82) {
+                startCountdown();
             }
         }
 
