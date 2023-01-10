@@ -193,4 +193,4 @@ In Linux, sometimes you want to go to a program and then execute the program. If
 * adduser 
 * usermod 
 * The operands: `|` and `>`
-![image](https://user-images.githubusercontent.com/76703677/147512754-2b5d298a-aa3c-44e9-928c-ef659395d090.png)
+
