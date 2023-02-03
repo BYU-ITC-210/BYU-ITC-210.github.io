@@ -38,7 +38,7 @@ Let's put this to work. Open `hello.php` from your working directory. It should 
 </head>
 <body>
     <h1>Hi!</h1>
-    <P> my friend!</p>
+    <p> my friend!</p>
 </body>
 </html>
 ```
