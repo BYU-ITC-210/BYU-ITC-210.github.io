@@ -2,7 +2,7 @@
 title: PHP Walkthrough
 ---
 
-PHP is a popular language for developing web applications. As of 2023, there are [more websites built](https://w3techs.com/technologies/overview/programming_language) using PHP than all other frameworks combined. It forms the basis of popular content management systems like WordPress and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
+PHP is a popular language for developing web applications. As of 2023, there are [more websites built](https://w3techs.com/technologies/overview/programming_language) using PHP than all other frameworks combined. It forms the basis of popular content management systems like MediaWiki, WordPress, Moodle, and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
 
 This walkthrough will get you started with the basic features of the PHP language. For more details you can consult [the official PHP Manual](https://www.php.net/manual/en/).
 
@@ -24,7 +24,7 @@ The web server will be on port 4000 and the page you'll be working with is hello
 
 Three basic principles:
 * PHP code is embedded in HTML and interpreted on the server side. The beginning of a PHP code segment is delimited by `<?php` and the end is `?>`.
-* PHP Variables start with `$` and, like most languages, values are assigned to variables using the equals sign. Variables are weakly typed. That is, a variable can take a value of any type. You do not need to declare variables before you use them.
+* PHP Variables start with `$` and, like most languages, values are assigned to variables using the equals sign. Variables are loosely typed. That is, a variable can take a value of any type. You do not need to declare variables before you use them.
 * The `echo` command will write an expression into the HTML being sent to the browser.
 * PHP statements end with a semicolon.
 
