@@ -54,7 +54,7 @@ We will set a variable to the user's name and use it in the HTML. Add PHP code t
 </head>
 <body>
     <h1>Hi!</h1>
-    <P><?php echo $my_name; ?>, my friend!</p>
+    <p><?php echo $my_name; ?>, my friend!</p>
 </body>
 </html>
 ```
@@ -98,6 +98,12 @@ Add this code to your `hello.php` file somewhere in the `<body>`.
 ```
 
 Refresh your page and you'll see that the first string gives the name of the variable while the other two give its value. [Read more about PHP strings here.](https://www.php.net/manual/en/language.types.string.php)
+
+If you send multiple arguments, separated by commas, to the [echo](https://www.php.net/manual/en/function.echo.php) command it will write them out in sequence. This will have the same result as concatenation but it's slightly more efficient.
+
+```
+    <? echo 'Multiple: ', $my_name, '<br/>'; ?>
+```
 
 Notice that we've reduced `<?php` to just `<?`. The syntax was designed to support other scripting languages but it defaults to PHP so we can just leave that part out.
 
@@ -227,6 +233,32 @@ Add the following somewhere in the `<body>`:
         <code><? var_dump($_SERVER); ?></code>
     </pre>
 ```
+
+## Protecting Against XSS Attacks
+
+The [echo](https://www.php.net/manual/en/function.echo.php) command will send the literal text it's provided out to the browser. That means that any HTML tags, including `<script>` in the text will also be output for interpretation by the browser. Thus, if a variable contains something provided by the user, it could become a Cross-Site Scripting (XSS) vulnerability.
+
+In your `variables.php` file, change the value of `my_name` as follows:
+
+```
+$my_name = 'Luna<script>alert("XSS vulnerable!")</script>';
+```
+
+Refresh your page and see the alert pop up. It will appear multiple times - once each time the variable is used in your page.
+
+The [htmlspecialchars()](https://www.php.net/manual/en/function.htmlspecialchars.php) function is built into PHP specifically for purposes like this. It encodes special HTML characters - `<` becomes `&lt;`, `>` becomes `&gt;` and `&` becomes `&amp;`. Sanitize your inputs by surrounding each use of `$my_name` with `htmlspecialchars()`. Here's an example:
+
+```
+    <p><?php echo htmlspecialchars($my_name); ?>, my friend!</p>
+```
+
+For the double-quoted example, you cannot embed `htmlspecialchars()` within the string. Instead, you can either encode the whole string or encode the variable contents before putting the variable in the string. For example:
+```
+    <? $encoded = htmlspecialchars($my_name);
+    echo "Double quoted: $encoded"; ?><br/>
+```
+
+Another option is to use [strip_tags()](https://www.php.net/manual/en/function.strip-tags.php) which removes HTML tags rather than encoding them. Give that a try by changing one instance of `htmlspecialchars()` to `strip_tags()`.
 
 ## Sessions
 
