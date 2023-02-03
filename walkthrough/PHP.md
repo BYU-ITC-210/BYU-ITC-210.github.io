@@ -23,7 +23,7 @@ The web server will be on port 4000 and the page you'll be working with is hello
 ## The Basics
 
 Three basic principles:
-* PHP code is embedded HTML. The beginning of a PHP code segment is delimited by `<?php` and the end is `?>`.
+* PHP code is embedded in HTML and interpreted on the server side. The beginning of a PHP code segment is delimited by `<?php` and the end is `?>`.
 * PHP Variables start with `$` and, like most languages, values are assigned to variables using the equals sign. Variables are weakly typed. That is, a variable can take a value of any type. You do not need to declare variables before you use them.
 * The `echo` command will write an expression into the HTML being sent to the browser.
 * PHP statements end with a semicolon.
@@ -65,7 +65,7 @@ Right-click on the page and select "View page source". Unlike JavaScript, PHP co
 
 ## Includes
 
-The include directive imports another file which is treated as if that text was in the .php file. This can be used to share code and content. For example, an include file could be used to put a common header on every page. In our case we will use it to load data into variables.
+The include directive imports another file which is treated as if that text was in that location of the .php file. This can be used to share code and content. For example, an include file could be used to put a common header on every page. In our case we will use it to load data into variables.
 
 At the beginning of your file, remove `<?php $my_name = "Susan"; ?>` and replace it with `<?php include 'variables.php'; ?>`.
 
@@ -178,7 +178,7 @@ An [associative array](https://www.php.net/manual/en/language.types.array.php) a
 $car = array('make'=>'MINI', 'model'=>'Cooper', 'year'=>2004);
 ```
 
-Now, add the following somewhere in the `<body>` of your `hello.php`.
+Now, add the following somewhere in the `<body>` of your `hello.php` and refresh.
 
 ```
     <p>
@@ -252,15 +252,15 @@ Anywhere in the body of the page add the following:
 
 ```
     <p><?
-    $counter = $_SESSION['counter'];
-    $counter = $counter + 1;
-    echo "You have visited this page $counter times in this session."
+        echo 'You have visited this page ' . $_SESSION['counter'] . ' times in this session.';
     ?></p>
 ```
 
+Refresh to see your new page view counter.
+
 ## Other Useful Stuff
 
-PHP is object oriented with objects, classes, methods, and so forth. In this class we won't be creating our own classes but we will use objects to connect to databases.
+PHP is object oriented with objects, classes, methods, and so forth. In this class we won't be creating our own classes but we will use existing classes and objects to connect to databases.
 
 To call a method on an object *instance* use the `->` operator like this:
 
