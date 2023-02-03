@@ -91,9 +91,9 @@ Add this code to your `hello.php` file somewhere in the `<body>`.
 
 ```
     <p>
-    <? echo 'Single quoted: $my_name' ?><br/>
-    <? echo "Double quoted: $my_name" ?><br/>
-    <? echo 'Concatenated: ' . $my_name ?><br/>
+    <? echo 'Single quoted: $my_name'; ?><br/>
+    <? echo "Double quoted: $my_name"; ?><br/>
+    <? echo 'Concatenated: ' . $my_name; ?><br/>
     </p>
 ```
 
@@ -110,7 +110,7 @@ Add this code to your `hello.php` file somewhere within the `<body>`.
 ```
     <p>
     <? for ($x = 0; $x<20; $x++) { ?>
-        <? echo $x ?>
+        <? echo $x; ?>
         <? if ($x % 2 == 0) { ?>
             <span>is even.</span>
         <? } ?>
@@ -182,9 +182,9 @@ Now, add the following somewhere in the `<body>` of your `hello.php` and refresh
 
 ```
     <p>
-        Make: <? echo $car['make'] ?><br/>
-        Model: <? echo $car['model'] ?><br/>
-        Year: <? echo $car['year'] ?><br/>
+        Make: <? echo $car['make']; ?><br/>
+        Model: <? echo $car['model']; ?><br/>
+        Year: <? echo $car['year']; ?><br/>
     </p>
 ```
 
