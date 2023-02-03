@@ -2,7 +2,7 @@
 title: PHP Walkthrough
 ---
 
-PHP is a popular language for developing web applications. As of 2023, there are more websites built using PHP than all other frameworks combined (see [w3techs.com](https://w3techs.com/technologies/overview/programming_language)). It forms the basis of popular content management systems like WordPress and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
+PHP is a popular language for developing web applications. As of 2023, there are [more websites built](https://w3techs.com/technologies/overview/programming_language) using PHP than all other frameworks combined. It forms the basis of popular content management systems like WordPress and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
 
 This walkthrough will get you started with the basic features of the PHP language. For more details you can consult [the official PHP Manual](https://www.php.net/manual/en/).
 
@@ -10,7 +10,7 @@ This walkthrough will get you started with the basic features of the PHP languag
 
 You will need a server with a PHP interpreter. For this walkthrough you will use a prebuilt Linux Docker container running Apache and PHP. You should already have Docker Desktop installed on your computer. Follow the instructions for your platform. For Windows computers it's best to use Docker Desktop on WSL2.
 
-Create an empty folder for your workspace. Download [PHPWalkthrough.zip](PHPWalkthrough.zip) and unpack it into that folder.
+Create an empty folder for your workspace. Download [PHP-Walkthrough.zip](PHP-Walkthrough.zip) and unpack it into that folder.
 
 Open a command line, change directories to the folder where you unpacked the .zip and enter the following command:
 
@@ -18,23 +18,27 @@ Open a command line, change directories to the folder where you unpacked the .zi
 docker compose up
 ```
 
-The web server will be on port 4000 and the page you'll be working with is hello.php. So, browse to [http://localhost:4000](http://localhost:4000).  You will see a simple starting page.
+The web server will be on port 4000 and the page you'll be working with is hello.php. So, browse to [http://localhost:4000/hello.php](http://localhost:4000/hello.php){:target="_blank"}.  You will see a simple starting page.
 
 ## The Basics
 
 Three basic principles:
 * PHP code is embedded HTML. The beginning of a PHP code segment is delimited by `<?php` and the end is `?>`.
 * PHP Variables start with `$` and, like most languages, values are assigned to variables using the equals sign. Variables are weakly typed. That is, a variable can take a value of any type. You do not need to declare variables before you use them.
-* The `echo` command will write an expression to the output, which is the HTML being sent to the browser.
+* The `echo` command will write an expression into the HTML being sent to the browser.
 * PHP statements end with a semicolon.
 
 Let's put this to work. Open `hello.php` from your working directory. It should look like this:
 
 ```
+<!DOCTYPE html>
 <html>
+    <title>PHP Walkthrough</title>
+<head>
+</head>
 <body>
     <h1>Hi!</h1>
-    <p> my friend!</h1>
+    <P> my friend!</p>
 </body>
 </html>
 ```
@@ -43,21 +47,25 @@ We will set a variable to the user's name and use it in the HTML. Add PHP code t
 
 ```
 <?php $my_name = "Susan"; ?>
+<!DOCTYPE html>
 <html>
+    <title>PHP Walkthrough</title>
+<head>
+</head>
 <body>
     <h1>Hi!</h1>
-    <p><?php echo $my_name ?> my friend!</h1>
+    <P><?php echo $my_name; ?>, my friend!</p>
 </body>
 </html>
 ```
 
 Refresh the page in your browser and you will see that "Susan" has been greeted as a friend.
 
-Right-click on the page and select "View Source". Unlike JavaScript, PHP code executes on the server so you will just see the rendered HTML. You will not see any of the PHP code in what was sent to the browser.
+Right-click on the page and select "View page source". Unlike JavaScript, PHP code executes on the server so you will just see the rendered HTML. You will not see any of the PHP code in what was sent to the browser.
 
 ## Includes
 
-The include directive imports another file which is treated as if that text was in the .php file. This can be used to share code and content. For example, an include file could be used to put a common header on every page.
+The include directive imports another file which is treated as if that text was in the .php file. This can be used to share code and content. For example, an include file could be used to put a common header on every page. In our case we will use it to load data into variables.
 
 At the beginning of your file, remove `<?php $my_name = "Susan"; ?>` and replace it with `<?php include 'variables.php'; ?>`.
 
@@ -115,25 +123,25 @@ Note: As with C and C-related languages, `%` is the [modulo operator](https://ww
 
 Refresh the page and it will list the numbers from 0 to 19 indicating which ones are even.
 
-In this example, all PHP sections are in one line. However, PHP can span multiple lines and you can use `echo` to write HTML directly. the above example could be rewritten like this:
+In this example, each PHP section composes one line. However, PHP can span multiple lines and you can use `echo` to write HTML directly. the above example could be rewritten like this:
 
 ```
     <p><?
     for ($x = 0; $x<20; $x++) {
-        echo $x
+        echo $x;
         if ($x % 2 == 0) {
             echo ' <span>is even.</span>';
         }
-        echo '<br/>'
+        echo '<br/>';
     }
-    </p>
+    ?></p>
 ```
 
 ## Numeric Arrays
 
 A numeric array contains values that are accessed by position. They are declared using the `array()` function.
 
-To your `variables.php` file, add this line:
+To your `variables.php` file, add this line. Make sure it appears between the `<?php` and `?>`:
 
 ```
 $a = array("John", "Paul", "George", "Ringo");
@@ -142,14 +150,14 @@ $a = array("John", "Paul", "George", "Ringo");
 Now let's greet them all. Somewhere in the `<body>` of your `hello.php` file add the following:
 
 ```
-    <p>
-    <? for ($x=0; $x<count($a); $x++) {
-        echo "$a[$x]!<br/>"
-    <? } ?>
-    </p>
+    <p><?
+    for ($x=0; $x<count($a); $x++) {
+        echo "$a[$x]!<br/>";
+    }
+    ?></p>
 ```
 
-Refresh to "[Meet the Beatles!](https://en.wikipedia.org/wiki/Meet_the_Beatles!)".
+Refresh your page to "[Meet the Beatles!](https://en.wikipedia.org/wiki/Meet_the_Beatles!)".
 
 You can use [foreach](https://www.php.net/manual/en/control-structures.foreach.php) instead of a counter to enumerate the contents of a numeric array. Replace the previous code with this:
 
@@ -180,31 +188,25 @@ Now, add the following somewhere in the `<body>` of your `hello.php`.
     </p>
 ```
 
-Technically, PHP doesn't distinguish between numeric and associative arrays. You can access all arrays numerically as the members of an array always are ordered. Its just that numeric arrays usually leave off the key. Some examples are below. For details, see the official [PHP Array Reference](https://www.php.net/manual/en/language.types.array.php).
+Keys to arrays can be of any native type, not just strings. Indeed, a numeric array is simply an array where the keys are all integers and when you add an element to an array without specifying the key, it takes the maximum existing integer key and adds one.For details, see the official [PHP Array Reference](https://www.php.net/manual/en/language.types.array.php).
 
-To demonstrate numerical access, use the following code to access the members of `$car` numerically:
-
-```
-    <p>
-    <? for ($x=0; $x<count($a); $x++) {
-        echo "$a[$x]<br/>";
-    <? } ?>
-    </p>
-```
 
 You can use `foreach` to enumerate an associative array and get both keys and values:
 
 ```
-    <p>
-    <? foreach ($car as $key => $value) {
-    echo "$key: $value <br/>
-    } ?>
-    </p>
+    <p><?
+    foreach ($car as $key => $value) {
+        echo "$key: $value <br/>";
+    }
+    foreach ($a as $key => $value) {
+        echo "$key: $value <br/>";
+    }
+    ?></p>
 ```
 
 ## Superglobal Arrays
 
-PHP sre-defines nine [Superglobal Arrays](https://www.php.net/manual/en/language.variables.superglobals.php) which are associative arrays with special handling or contents:
+PHP pre-defines nine [Superglobal Arrays](https://www.php.net/manual/en/language.variables.superglobals.php) which are associative arrays with special handling or contents:
 
 * **[$GLOBALS](https://www.php.net/manual/en/reserved.variables.globals.php)** Contains all global variables.
 * **[$_SERVER](https://www.php.net/manual/en/reserved.variables.server.php)** Data about the currently running serer.
@@ -221,19 +223,29 @@ The built-in function `var_dump()` is a quick and easy way to output the content
 Add the following somewhere in the `<body>`:
 
 ```
-    <p>
-        <? var_dump($_SERVER); ?>
-    </p>
+    <pre>
+        <code><? var_dump($_SERVER); ?></code>
+    </pre>
 ```
 
 ## Sessions
 
 Values placed in the `$_SESSION` superglobal array will be preserved between pages on the same web application. The session is managed using storage on the server linked to a cookie sent to the browser. We'll discuss the benefits and problems of sessions, in a future class. For sessions to work, you must call `session_start()` at the beginning of the page. This must be among the first operations - before any content is generated.
 
-At the beginning of your `hello.php` page, before even the `include` statement insert the following:
+At the beginning of your `hello.php` page, even before the `include` statement insert the following:
 
 ```
+<?
 begin_session();
+if (!isset($_SESSION['counter']))
+{
+    $_SESSION['counter'] = 1;
+}
+else
+{
+    ++$_SESSION['counter'];
+}
+?>
 ```
 
 Anywhere in the body of the page add the following:
