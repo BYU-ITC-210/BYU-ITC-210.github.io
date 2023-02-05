@@ -2,11 +2,11 @@
 title: SQL Walkthrough
 ---
 
-Structured Query Language (SQL) is a standardized language for creating, updating, and querying relational databases. Variations on SQL are used to query other kinds of databases. SQL has been [standardized](https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/). Nevertheless, different relational databases have their own dialects. In this walkthrough we will use the [MySQL dialect](https://mariadb.com/kb/en/sql-language-structure/) which is common between the [MySQL](https://dev.mysql.com/) and [MariaDB](https://mariadb.org/) database servers.
+Structured Query Language (SQL) is a standardized language for creating, updating, and querying relational databases. Variations on SQL are also used to query other kinds of databases. SQL has been [standardized](https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/). Nevertheless, different relational databases have their own dialects. In this walkthrough we will use the [MySQL dialect](https://mariadb.com/kb/en/sql-language-structure/) which is common between the [MySQL](https://dev.mysql.com/) and [MariaDB](https://mariadb.org/) database servers.
 
 ## A Fragment of History
 
-In this walkthrough, and in the related labs, we will use [MariaDB](https://mariadb.org/), an popular open source relational database server created by [Michael Widenius](https://en.wikipedia.org/wiki/Michael_Widenius) and supported by a robust community of developers. It based on [MySQL](https://en.wikipedia.org/wiki/MySQL). When Oracle acquired MySQL in 2010, Widenius created the MariaDB fork and it has been enhanced considerably since then. MySQL is named after Widenius' daugher, My, whereas, MariaDB is named after Widenius' younger daughter, Maria.
+In this walkthrough, and in the related labs, we will use [MariaDB](https://mariadb.org/), an popular open source relational database server created by [Michael Widenius](https://en.wikipedia.org/wiki/Michael_Widenius) and supported by a robust community of developers. It based on [MySQL](https://en.wikipedia.org/wiki/MySQL) which was also created by Widenius. When Oracle acquired MySQL in 2010, Widenius created the MariaDB fork and it has been enhanced considerably since then. MySQL is named after Widenius' daugher, My, whereas, MariaDB is named after Widenius' younger daughter, Maria.
 
 ## Setup
 
@@ -36,7 +36,7 @@ In **phpMyAdmin**
 
 1. Click on the **Import** tab.
 2. Under **File to import:** click **Choose File**.
-3. Browse to the folder where you unpacked "SQL-Walkthrough.zip" and select "MoviesDb_create_and_fill.sql"
+3. Browse to the folder where you unpacked "SQL-Walkthrough.zip" and select "**MoviesDb_create_and_fill.sql**"
 4. Scroll to the bottom and click **Import**.
 
 You should see a message, "Import has been successfully finished, 476 queries executed. (MoviesDb_create_and_fill.sql)".
@@ -47,7 +47,7 @@ In the left column, you will find a tree view of the database server. Expand the
 
 ## Simple Queries
 
-Before you can enter a query, you must select a database. By browsing the tables, you have done so and "Database: my_movies" should appear at the top of the page. If not, click **my_movies** in the left column to select the database.
+Before you can enter a query, you must select a database. By browsing the tables, you have already done so and "Database: my_movies" should appear at the top of the page. If not, click **my_movies** in the left column to select the database.
 
 Now click the **SQL** tab.
 
@@ -65,7 +65,7 @@ The `FROM` clause indicates which table should be searched for the data.
 
 When you perform a query, it hides the query box to maximize the space you have for the results. Click **Show query box** to get the box back on the screen.
 
-Edit your query to retrieve all contents of the **movie** table.
+On your own, edit your query to retrieve all contents of the **movie** table. (Click **Show query box** edit the query, click **Go**.)
 
 ## Limiting Fields
 
@@ -109,13 +109,13 @@ But that number seems too high. Indeed, it simply returns the count of records t
 SELECT COUNT(DISTINCT birth_city) FROM actor
 ```
 
-What about a list of cities in alphabetical order.
+Other aggregate functions include `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
+
+What about a list of cities in alphabetical order:
 
 ```
 SELECT DISTINCT birth_city FROM actor ORDER BY birth_city
 ```
-
-Other aggregate functions include `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
 
 ## Filtering: The WHERE Clause
 
@@ -185,9 +185,9 @@ GROUP BY name
 ORDER BY Roles DESC, name ASC
 ```
 
-There are two fiels listed in the `ORDER BY`. The second one, `name` will be used when there's a tie on the first field, `Roles`.
+There are two fields listed in the `ORDER BY`. The second one, `name` will be used when there's a tie on the first field, `Roles`.
 
-You can join across all three tables to list the movies that each actor has been in.
+You can join across all three tables to list the movies that each actor has been in:
 
 ```
 SELECT name, title
@@ -231,7 +231,9 @@ Now look again to see the result.
 SELECT name, birth_country FROM actor WHERE birth_city = 'Berlin'
 ```
 
-## Addign data: The INSERT INTO clause
+We have successfully moved Berlin from Germany to Austria - at least in this little database.
+
+## Adding data: The INSERT INTO clause
 
 Now, suppose that former British Prime Minister, Boris Johnson, acts in a movie. We'll need to add him to the database.
 
@@ -240,12 +242,57 @@ INSERT INTO actor(actorid,name,date_of_birth,birth_city,birth_country,gender,eth
 VALUES (9000,'Boris Johnson','1964-06-19','New York City','USA','Male','White')
 ```
 
-Let's look up the data:
+## LIKE and Wildcards
+
+Let's look up Mr. Johnson:
 
 ```
 SELECT * FROM actor WHERE name LIKE 'Boris%'
 ```
 
+This time there is a wildcard in the search. The query could be written, `name = 'Boris Johnson'`. Replacing the `=` with `LIKE` enables wildcards in the string to be matched. The `%` wildcard matches zero to many characters while `_` will match exactly one character. They are similar to `*` and `?` for filename wildcards.
+
 ### Some other queries
 
-Movies sorted by the average height of their actors.
+Movies sorted by the average height of their actors:
+
+```
+SELECT movie.title, AVG(actor.height_inches) AS AvgHeight
+FROM movie
+INNER JOIN role ON movie.movieid = role.movieid
+INNER JOIN actor ON role.actorid = actor.actorid
+GROUP BY movie.title
+ORDER BY AvgHeight
+```
+
+Movies sorted by the average age of their actors on the date the movie was released.
+
+```
+SELECT movie.title, AVG(movie.release_date - actor.date_of_birth)/8766  AS AvgAge
+FROM movie
+INNER JOIN role ON movie.movieid = role.movieid
+INNER JOIN actor ON role.actorid = actor.actorid
+GROUP BY movie.title
+ORDER BY AvgAge
+```
+
+Note that times in MariaDB are stored in hours and fractions of hours. 8766 is 24 hours in a day times 365.25 days in a year (accommodating leap year). Dividing by 8766 converts from hours to years.
+
+All movies (in this database) with Kevin Bacon:
+
+```
+SELECT movie.title
+FROM movie
+INNER JOIN role ON movie.movieid = role.movieid
+INNER JOIN actor ON role.actorid = actor.actorid
+WHERE actor.name = "Kevin Bacon"
+ORDER BY movie.title
+```
+
+## Quotes In SQL
+
+[String literals](https://mariadb.com/kb/en/string-literals/) should be in half quotes. For example, `'a string'`. Special characters should be escaped using a backslash like this, `'John\'s Car'`.
+
+MySQLand MariaDB tolerate double quotes but they are not included in Standard SQL.
+
+[Identifier names](https://mariadb.com/kb/en/identifier-names/) such as table and field names can be quoted using backtick characters like this: <code>`actor`</code> However, so long as the identifier is composed of letters, numbers, the underscore and the dollar sign it doesn't require quotes.
