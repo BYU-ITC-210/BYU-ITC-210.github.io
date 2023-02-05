@@ -20,6 +20,8 @@ docker compose up
 
 The web server will be on port 4000 and the page you'll be working with is hello.php. So, browse to [http://localhost:4000/hello.php](http://localhost:4000/hello.php){:target="_blank"}.  You will see a simple starting page.
 
+Later, when it's time to shut the container down. Return to that command line, press Ctrl-C to stop the server, and enter `docker compose down` to stop the server.
+
 ## The Basics
 
 Three basic principles:
