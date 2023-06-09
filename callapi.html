@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<style>
+.tlnk {
+	text-decoration: underline;
+	color: darkgreen;
+	cursor: pointer;
+}
+	</style>
+</head>
+<body>
+	<h2>Request</h2>
+	<p>
+		<strong>Templates:</strong>
+		<a class="tlnk" onclick="template_login()">Login</a>
+		<a class="tlnk" onclick="template_dump()">Dump</a>
+	</p>
+	<form id="form" onsubmit="sendRequest(event)">
+		<label for="verb">Verb:</label> <select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select><br/>
+		<label for="url">URL:</label> <input id="url" name="url" type="text" /><br/>
+		<label for="token">Authorization: Bearer</label> <input id="token" name="token" type="text" style="width: 32em;" /><br />
+		<textarea id="body" name="body" cols="80" rows="25"></textarea><br/>
+		<button type="submit">Send</button>
+	</form>
+	<hr/>
+	<h2>Response</h2>
+	<div id="resStatus"></div>
+	<pre id="resBody"></pre>
+	<script>
+
+async function sendRequest(e) {
+	e.preventDefault();
+	const form = e.currentTarget;
+	const reqUrl = form.url.value;
+    const verb = form.verb.value
+	const req = {
+		headers: { "Content-Type": "application/json" },
+		method: verb
+	};
+	const token = form.token.value;
+	if (token) {
+		req.headers["Authorization"] = "Bearer " + token;
+	}
+	if (verb == "POST" || verb == "PUT") {
+		req.body = form.body.value;
+	}
+
+	const response = await fetch(reqUrl, req);
+	document.getElementById("resStatus").textContent = `${response.status} ${response.statusText}`;
+	let newToken;
+	if (newToken = getUpdatedToken(response)) document.getElementById("token").value = newToken;
+	bodyText = await response.text();
+	document.getElementById("resBody").textContent = bodyText;
+}
+
+function getUpdatedToken(response) {
+	const info = response.headers.get('Authentication-Info');
+	if (!info) return;
+	for (let part of info.split(',')) {
+		part = part.trim();
+		eq = part.search('=');
+		if (eq < 0) continue;
+		let e = eq;
+		while (e > 0 && (part[e - 1] == ' ' || part[e - 1] == '\t')) --e;
+		if (e != 13 || part.substring(0, 13).toLowerCase() != 'bearer-update') continue;
+		return part.substring(eq + 1).trim();
+	}
+}
+
+function template_login() {
+	document.getElementById("verb").value = "POST";
+	document.getElementById("url").value = '/api/Login';
+	document.getElementById("body").value = '{\n  "username": "brandtr",\n  "password": ""\n}';
+}
+
+function template_dump() {
+    document.getElementById("verb").value = "GET";
+    document.getElementById("url").value = '/api/Dump';
+    document.getElementById("body").value = '';
+}
+	</script>
+		
+</body>
+</html>
