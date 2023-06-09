@@ -19,8 +19,8 @@
 	</p>
 	<form id="form" onsubmit="sendRequest(event)">
 		<label for="verb">Verb:</label> <select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select><br/>
-		<label for="url">URL:</label> <input id="url" name="url" type="text" /><br/>
-		<label for="token">Authorization: Bearer</label> <input id="token" name="token" type="text" style="width: 32em;" /><br />
+		<label for="url">URL:</label> <input id="url" name="url" type="text" style="width: 32em;" /><br/>
+		<label for="token">Authorization: Bearer</label> <input id="token" name="token" type="text" style="width: 34em;" /><br />
 		<textarea id="body" name="body" cols="80" rows="25"></textarea><br/>
 		<button type="submit">Send</button>
 	</form>
@@ -71,14 +71,25 @@ function getUpdatedToken(response) {
 
 function template_login() {
 	document.getElementById("verb").value = "POST";
-	document.getElementById("url").value = '/api/Login';
+	updateUrl('/api/Login');
 	document.getElementById("body").value = '{\n  "username": "brandtr",\n  "password": ""\n}';
 }
 
 function template_dump() {
     document.getElementById("verb").value = "GET";
-    document.getElementById("url").value = '/api/Dump';
+	updateUrl('/api/Dump');
     document.getElementById("body").value = '';
+}
+
+function updateUrl(newurl) {
+	const urlele = document.getElementById("url");
+	const existing = urlele.value;
+	if (existing.startsWith('http')) {
+	    urlele.value = new URL(newurl, existing);
+	}
+	else {
+		urlele.value = newurl;
+	}
 }
 	</script>
 		
