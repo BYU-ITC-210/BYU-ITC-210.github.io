@@ -17,7 +17,7 @@ Labs are created and maintained in GitHub. When you accept the lab through GitHu
 
 You must have Git installed on your computer before performing these steps. If you are running WSL2 then Git will be part of the Linux image. If you have installed Git for Windows then you can use a windows command line such as "Command Prompt" or PowerShell. On a Mac, you must have installed Git for macOS.
 
-![Clone-Screenshot](/images/Clone-Github.png)
+![Clone-Screenshot](/images/Clone-Github.png){: style="maxwidth: 5em; border: 1px solid black;"}
 
 1. On the GitHub repository page, click on the green "Code" button.
 2. Copy the repository link by clicking on the clipboard icon in the pop-up box.
