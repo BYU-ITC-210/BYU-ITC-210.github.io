@@ -37,7 +37,7 @@ This section gives a medium-high level view of the design. This should include t
 
 Label each screenshot and UML diagram with a useful caption. For example: "UML of Data Storage through JSON format" or "The Drop-Down Menu for the Carousel on the Main Page."
 
-See [UML Diagram Guidelines](UMLDiagrams) for more detail on our expectations regarding UML diagrams.
+See [UML Diagram Guidelines](UmlDiagrams) for more detail on our expectations regarding UML diagrams.
 
 ## IV. Questions (4 pts):
 
