@@ -62,5 +62,4 @@ The .zip folder should contain the following:
 * The external CSS file you created
 * Screenshots of the HTML and CSS validations showing no errors.
 
-> **Note:** If you add images or other media to your web page, be sure to include them in the zip file, so the page can be viewed with everything intact. 
-![image](https://user-images.githubusercontent.com/76703677/147513832-3be31fd9-9b31-4371-9e99-11daf7405788.png)
+> **Note:** If you add images or other media to your web page, be sure to include them in the zip file, so the page can be viewed with everything intact.
