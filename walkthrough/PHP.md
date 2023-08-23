@@ -32,7 +32,7 @@ Three basic principles:
 
 Let's put this to work. Open `hello.php` from your working directory. It should look like this:
 
-```
+```php
 <!DOCTYPE html>
 <html>
     <title>PHP Walkthrough</title>
@@ -47,7 +47,7 @@ Let's put this to work. Open `hello.php` from your working directory. It should 
 
 We will set a variable to the user's name and use it in the HTML. Add PHP code to `hello.php` like this:
 
-```
+```php
 <?php $my_name = "Susan"; ?>
 <!DOCTYPE html>
 <html>
@@ -73,7 +73,7 @@ At the beginning of your file, remove `<?php $my_name = "Susan"; ?>` and replace
 
 Create a file called `variables.php` and put the following in it:
 
-```
+```php
 <?php
 
 $my_name = 'Luna';
@@ -91,7 +91,7 @@ In your browser, refresh the page and see that Luna is now being greeted.
 
 Add this code to your `hello.php` file somewhere in the `<body>`.
 
-```
+```php
     <p>
     <? echo 'Single quoted: $my_name'; ?><br/>
     <? echo "Double quoted: $my_name"; ?><br/>
@@ -103,7 +103,7 @@ Refresh your page and you'll see that the first string gives the name of the var
 
 If you send multiple arguments, separated by commas, to the [echo](https://www.php.net/manual/en/function.echo.php) command it will write them out in sequence. This will have the same result as concatenation but it's slightly more efficient.
 
-```
+```php
     <? echo 'Multiple: ', $my_name, '<br/>'; ?>
 ```
 
@@ -115,7 +115,7 @@ Any HTML that appears within a [loop](https://www.php.net/manual/en/control-stru
 
 Add this code to your `hello.php` file somewhere within the `<body>`.
 
-```
+```php
     <p>
     <? for ($x = 0; $x<20; $x++) { ?>
         <? echo $x; ?>
@@ -133,7 +133,7 @@ Refresh the page and it will list the numbers from 0 to 19 indicating which ones
 
 In this example, each PHP section composes one line. However, PHP can span multiple lines and you can use `echo` to write HTML directly. the above example could be rewritten like this:
 
-```
+```php
     <p><?
     for ($x = 0; $x<20; $x++) {
         echo $x;
@@ -151,13 +151,13 @@ A numeric array contains values that are accessed by position. They are declared
 
 To your `variables.php` file, add this line. Make sure it appears between the `<?php` and `?>`:
 
-```
+```php
 $a = array("John", "Paul", "George", "Ringo");
 ```
 
 Now let's greet them all. Somewhere in the `<body>` of your `hello.php` file add the following:
 
-```
+```php
     <p><?
     for ($x=0; $x<count($a); $x++) {
         echo "$a[$x]!<br/>";
@@ -169,7 +169,7 @@ Refresh your page to "[Meet the Beatles!](https://en.wikipedia.org/wiki/Meet_the
 
 You can use [foreach](https://www.php.net/manual/en/control-structures.foreach.php) instead of a counter to enumerate the contents of a numeric array. Replace the previous code with this:
 
-```
+```php
     <p>
     <? foreach ($a as $value) {
         echo "$value!<br/>";
@@ -182,13 +182,13 @@ You can use [foreach](https://www.php.net/manual/en/control-structures.foreach.p
 
 An [associative array](https://www.php.net/manual/en/language.types.array.php) associates names with values. To your `variables.php` file add this line:
 
-```
+```php
 $car = array('make'=>'MINI', 'model'=>'Cooper', 'year'=>2004);
 ```
 
 Now, add the following somewhere in the `<body>` of your `hello.php` and refresh.
 
-```
+```php
     <p>
         Make: <? echo $car['make']; ?><br/>
         Model: <? echo $car['model']; ?><br/>
@@ -201,7 +201,7 @@ Keys to arrays can be of any native type, not just strings. Indeed, a numeric ar
 
 You can use `foreach` to enumerate an associative array and get both keys and values:
 
-```
+```php
     <p><?
     foreach ($car as $key => $value) {
         echo "$key: $value <br/>";
@@ -230,7 +230,7 @@ The built-in function `var_dump()` is a quick and easy way to output the content
 
 Add the following somewhere in the `<body>`:
 
-```
+```php
     <pre>
         <code><? var_dump($_SERVER); ?></code>
     </pre>
@@ -242,7 +242,7 @@ The [echo](https://www.php.net/manual/en/function.echo.php) command will send th
 
 In your `variables.php` file, change the value of `my_name` as follows:
 
-```
+```php
 $my_name = 'Luna<script>alert("XSS vulnerable!")</script>';
 ```
 
@@ -250,12 +250,12 @@ Refresh your page and see the alert pop up. It will appear multiple times - once
 
 The [htmlspecialchars()](https://www.php.net/manual/en/function.htmlspecialchars.php) function is built into PHP specifically for purposes like this. It encodes special HTML characters - `<` becomes `&lt;`, `>` becomes `&gt;` and `&` becomes `&amp;`. Sanitize your inputs by surrounding each use of `$my_name` with `htmlspecialchars()`. Here's an example:
 
-```
+```php
     <p><?php echo htmlspecialchars($my_name); ?>, my friend!</p>
 ```
 
 For the double-quoted example, you cannot embed `htmlspecialchars()` within the string. Instead, you can either encode the whole string or encode the variable contents before putting the variable in the string. For example:
-```
+```php
     <? $encoded = htmlspecialchars($my_name);
     echo "Double quoted: $encoded"; ?><br/>
 ```
@@ -268,7 +268,7 @@ Values placed in the `$_SESSION` superglobal array will be preserved between pag
 
 At the beginning of your `hello.php` page, even before the `include` statement insert the following:
 
-```
+```php
 <?
 begin_session();
 if (!isset($_SESSION['counter']))
@@ -284,7 +284,7 @@ else
 
 Anywhere in the body of the page add the following:
 
-```
+```php
     <p><?
         echo 'You have visited this page ' . $_SESSION['counter'] . ' times in this session.';
     ?></p>
@@ -298,13 +298,13 @@ PHP is object oriented with objects, classes, methods, and so forth. In this cla
 
 To call a method on an object *instance* use the `->` operator like this:
 
-```
+```php
 myobject->mymethod();
 ```
 
 To call a static method on an object class *class* use the `::` operator like this:
 
-```
+```php
 myclass::mystaticmethod();
 ```
 
