@@ -22,7 +22,7 @@ You must have Git installed on your computer before performing these steps. If y
 1. On the GitHub repository page, click on the green "Code" button.
 2. Copy the repository link by clicking on the clipboard icon in the pop-up box.
 3. Open a command line (WSL2, Windows Command Line, Mac Terminal, etc.)
-4. Create and navigate to the folder where you intend to keep your source code.
+4. Navigate to the *parent* folder of where you want this repo folder to appear (e.g. `source/ITC210`).
 5. Type `git clone` and paste the URL from step 2. For example:<br/>
 `git clone https://github.com/BYU-ITC-210/lab-1a-yourgithubname`
 6. Navigate to the cloned repo and start working!
