@@ -32,7 +32,7 @@ Describe in one paragraph (3-5 sentences) what you have accomplished in this lab
 This section gives a medium-high level view of the design. This should include the following:
 * 2-3 Paragraphs describing your technical design with a focus on how it works.
 * A UML Diagram appropriate to the lab. (Not required for the Lab 1 writeup.)
-* Two or three screenshots illustrating what the web site looks like.
+* 2-3 screenshots illustrating what the web site looks like.
 * Descriptions of each file that you created or modified as part of the lab. (index.html, etc).
 
 Label each screenshot and UML diagram with a useful caption. For example: "UML of Data Storage through JSON format" or "The Drop-Down Menu for the Carousel on the Main Page."
@@ -64,10 +64,16 @@ It is more professional to conjugate the verbs as if there is an invisible "I c
 * (I can) Pass data through the JSON format. (This is better!)
 * Passing data through the JSON format. (This feels awkward.)
 
-### UML Diagrams
+## V. References (required)
+
+List URLs or other reference information you used in the writeup. They don't have to follow any particular format. Bare URLs are acceptable.
+
+### About UML Diagrams
 
 For Lab 1, a UML diagram is not required or relevant. Our class discussion of UML diagrams will happen before the Lab 2 writeup.
 
 Make sure that your screenshots and UML diagrams display correctly on GitHub before submitting them. Also, ensure that the screenshots are clear and readable.
 
-For the UML diagrams, it is acceptable to submit a photos if the diagram was hand-drawn. All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG.
+Each lab indicates the type of UML diagram that should be included. Please pay attention and submit the right kind.
+
+For the UML diagrams, it is acceptable to submit a photo if the diagram was hand-drawn. All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG.
