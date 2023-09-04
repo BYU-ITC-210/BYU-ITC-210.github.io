@@ -24,33 +24,33 @@ __Step 2:__ Write a blog post of approximately 1,500 words (e.g., about 3-4 sing
 
 ## Submitting Your Blog
 
-You must submit your blog post in LearingSuite in one of the following formats:
+You must submit your blog post in LearningSuite in one of the following formats:
 * __.pdf__ (Save to this if you write it in Microsoft Word or Apple Pages)
 * __URL Link__ to your post on a cloud drive site such as Google Docs, OneDrive, Box.Com, iCloud, etc. If you use this option, be sure to set read permissions to "Everyone with this link."
 * __URL Link__ to your live post on a public site. (See Extra Credit below.)
 
-> Note: You may write the post in your favorite word processors like Microsoft Word, Apple Pages, or some such. But save to .pdf format before submitting. Pretty much any word processor can do that. In this class, we emphasize using web-compatible formats.
+> Note: You may write the post in your favorite word processor like Microsoft Word, Apple Pages, or some such. But save to .pdf format before submitting. Pretty much any word processor can do that. In this class, we emphasize using web-compatible formats.
 
 ## Grading Rubric
 
-Your assignment will be graded based on the following:
+Your assignment will be graded based on the following for a total of 50 points possible:
 
-* Clarity & accuracy of technical writing (25 points)
+* Comprehensiveness and accuracy of content (30 points)
+    * Introduction (5 points)
+    * Tutorial Content (20 points)
+    * Additional Resources (5 points)
+* Clarity & accuracy of technical writing (10 points)
     * avoid vague terms like “it” when stating what “it” is would be clearer
     * Make sure to introduce terminology that may be new.
     * make sure your statements are not ambiguous (e.g., “the JavaScript AJAX call, which is initiated by the browser, passes the XYZ array variable via the GET method to the Apache server” a is better than the vague and ambiguous “the client then sends the data to the server”)
     * Make sure your statements are accurate (e.g., “Store the JSON object in local storage” is not accurate, since only strings can be stored. Instead say “Store the ‘stringified’ JSON object in local storage”).
     * Use appropriate headers for subsections so people can quickly find where they want to go if they are only scanning the tutorial for certain information.
-* Style, grammar, and spelling (25 points)
+* Style, grammar, and spelling (10 points)
     * Avoid grammatical and spelling errors (e.g., changing tenses within a section; plural/singular agreement problems such as “the [singular] user did this, and then [the plural] they did that”)
     * Code snippets should be in a different font than the explanatory text. Use a monospace font (e.g., Courier New) that clearly differentiates between otherwise hard-to distinguish letters: l, 1, I, (l, 1, I).
     * All figures/screenshots should be labeled with appropriate titles (e.g., Figure 1: JSP “Hello World” code). Not all code fragments need to be labeled unless you want to refer to them more than once.
     * You are writing for your peers. Unlike the lab write-ups, this does not need to be a formal writing style. You can use first-person pronouns (“I like to…, because it…”) and refer to the reader as “you” (e.g., “you’ll want to make sure that you don’t…”). A bit of humor is even appropriate if it doesn’t distract, though it’s not required – I’d hate to be responsible for a bad joke just to get a good grade. 😬
     * Use appropriate formatting. Assume it’s a blog post style, so do things that are appropriate for that style such as embedding hyperlinks into sentences, not pasting in long, full URLs.
     * When writing for the web you’ll want to use hyperlinks to point to topics or resources that may help explain things in more detail. For example, the first time you use a technical term (e.g., “aspx” “tasksel”), you can link to a site that defines it and provides details about it.
-* Comprehensiveness and accuracy of content (50 points)
-    * Introduction (12 points)
-    * Tutorial Content (30 points)
-    * Additional Resources (8 points)
 * Extra credit (10 points)
     * Publish your blog post on a public website. This could be an [article on LinkedIn](https://www.linkedin.com/help/linkedin/answer/47538/publish-articles-on-linkedin?lang=en), a comprehensive answer on [StackOverflow](https://stackoverflow.com/), a [GitHub Gist](https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists), a post on your own blog, or a helpful article on numerous other blogging or content management systems.
