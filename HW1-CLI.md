@@ -9,11 +9,7 @@ title: "Homework 1: Linux-Git CLI"
 ***
 ## Completing and Submitting This Assignment
 
-To complete this assignment, first, download the [answer sheet](HW1-CLI-Answersheet.txt){: download="HW1-CLI-Answersheet.txt"}.
-
-For each of the exercises, compose a single CLI command. After verifying that the command works, paste the command used into the answer sheet.
-
-Once you have completed the assignment, upload it to LearningSuite as a txt file for grading. The file format MUST be a txt.
+For each of the exercises, compose a single CLI command. After verifying that the command works, paste the command used into the answer.
 
 Like most assignments in this class, you will likely use web sources to help you find answers. For example, you might use a Google or Bing search to find the right command-line for a particular task.
 
@@ -78,6 +74,7 @@ Use other online resources as needed to complete the assignment. For this assign
 2. Search for manual entries containing the word 'transfer'.
 3. Print the current directory
 4. Print the current IP address (and other network information)
+5. Use the echo command to print text on the console.
 
 ### 1.2 File and Directory Manipulation
 
