@@ -5,7 +5,7 @@ Labs are created and maintained in GitHub. When you accept the lab through GitHu
 
 ## Accept the Assignment
 
-**This should be done before Saturday of each week. It qualifies you for the "First commit is by Saturday" requirement of each lab which is worth 5 points.**
+**This should be done by Friday of each week. It qualifies you for the "First commit is on or before Friday" requirement of each lab which is worth 5 points.**
 
 1. Click on the `Accept this assignment through GitHub` link on the Lab Assignment in GitHub.
 2. Once the repo has been created for you, click on the assignment link. It will look something like this: <a href="about:blank" onclick="alert('This is not a real link.')">https://github.com/BYU-ITC-210/lab-1b-yourgithubname</a>
