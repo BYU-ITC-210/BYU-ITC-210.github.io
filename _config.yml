@@ -17,29 +17,6 @@ defaults:
       path: ""
     values:
       layout: "default"
-sass:
-  sass_dir: _sass  
-
-
-
-timezone: America/Los_Angeles
-encoding: utf-8
-markdown: kramdown
-#domain: www.matchmakeredlabs.net
-layout: default
-exclude:
-  - README.md
-  - LICENSE
-  - docker-compose.yml
-  - .gitignore
-  - .sass-cache/
-  - .jekyll-cache/
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
   -
     scope:
       path: ""
@@ -50,3 +27,5 @@ collections:
   welcome:
     output: true
     permalink: /welcome/:path.html
+sass:
+  sass_dir: _sass  
