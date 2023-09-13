@@ -129,7 +129,8 @@ The code above takes a JavaScript object and converts it into a JSON string. Ref
 Now, let's take a JSON string and convert it into an object.
 
 ```js
-let knight = JSON.parse('{"name": "Sir Lancelot", "favoriteColor": "blue"}');
+let jsonString = '{"name": "Sir Lancelot", "favoriteColor": "blue"}';
+let knight = JSON.parse(jsonString);
 
 addToArticle("Knight", knight.name);
 ```
