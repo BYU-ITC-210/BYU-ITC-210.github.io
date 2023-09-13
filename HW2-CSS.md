@@ -40,7 +40,7 @@ Download the [“Basic HTML Page”](/HW2/home.html){: download="home.html"} and
 
 Use an external CSS file to implement at least the following 14 CSS properties (you may use more if you would like):
 
-1. 2 different positioning elements other than those specified above (eg. absolute, relative, floating, fixed) **[4 points]**
+1. 2 different positioning elements other than those specified in "CSS Locations" above. (You can use absolute, relative, floating, fixed, etc.) **[4 points]**
 2. 1 property that changes an HTML element based on an ID (note that you'll have to add the id to the HTML file) **[2 points]**
 3. 1 property that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[2 points]**
 4. 1 CSS transition **[2 points]**
