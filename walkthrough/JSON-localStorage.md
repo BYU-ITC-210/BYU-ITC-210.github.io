@@ -204,3 +204,9 @@ Finally, we need to make that function run whenever the page is loaded. Remember
 loadFormFromStorage();
 
 ```
+
+Refresh the page, enter something into the form, and click `Submit`. It does just what the previous version did.
+
+Now, refresh the page again and you'll find that the form is pre-filled with the same values as you used last time. Close the browser entirely, open the browser, and go to the URL `http://localhost/page.html` and the data will be displayed in the form again. The data was saved even across browser sessions. In fact, you could close the browser, reboot your computer, and browse back to the page to find that the data are still there.
+
+Of course, if you reboot you'll have to start the docker server again before browsing to the page.
