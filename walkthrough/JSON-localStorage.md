@@ -1,5 +1,5 @@
 ---
-title: JSON and JavaScript
+title: JSON and localStorage
 ---
 JavaScript Object Notation (JSON) is a simple data format that works with any language and platform. It is particularly well-suited for use with web technologies and JavaScript.
 
@@ -23,7 +23,7 @@ In the object above, the main object has a member named `groupName` with the val
 
 ## Setup
 
-For this walkthrough, prepare a simple web page for JSON experimentation:
+For this walkthrough, prepare a simple web page for JSON experimentation. Call it "page.html" and put it in an empty folder:
 
 ```html
 <html>
@@ -41,6 +41,30 @@ For this walkthrough, prepare a simple web page for JSON experimentation:
 </body>
 </html>
 ```
+
+Web pages opened directly from the file system cannot access Browser localStorage (Window.localStorage). So, we need a minimal web server. Create a file named "docker-compose.yml" in the same folder as your "page.html" load it with the following contents:
+
+```yaml
+version: "3"
+services:
+    web:
+        image: httpd
+        container_name: apache
+        ports:
+            - 80:80
+        volumes:
+            - .:/usr/local/apache2/htdocs
+```
+
+> This `docker-compose.yml` file is slightly different from the one we used for Lab-1a and Lab-1b. Like the one used for the labs, loads the 'httpd' container which is a simple Apache web server. However, this one maps the current directory (represented by the dot) to the directory where Apache expects to find the contents of the website (`/usr/local/apache2/htdocs`);
+
+Open a console in the current folder and type the following command:
+
+```
+docker compose up -d
+```
+
+Verify that your page can be viewed by browsing to `http://localhost/page.html`
 
 ## JSON Embedded in JavaScript
 JSON is a proper subset of the JavaScript language. Because of that, you can simply embed JSON in JavaScript and assign it to a variable.
@@ -82,7 +106,7 @@ for (let entry of band.members) {
 
 Now, load the page into a browser and view the result.
 
-The `addToArticle()` function uses the [DOM](S05-JsAndDom) to add a paragraph to the `<article>` with a name and a value. We'll use it through the rest of this walkthrough to insert information into the page.
+The `addToArticle()` function uses the [DOM](/S05-JsAndDom) to add a paragraph to the `<article>` with a name and a value. We'll use it through the rest of this walkthrough to insert information into the page.
 
 ## Converting To and From JSON
 
@@ -100,7 +124,7 @@ let car = {
 addToArticle("Car", JSON.stringify(car));
 ```
 
-The code above takes a JavaScript object and converts it into a JSON string.
+The code above takes a JavaScript object and converts it into a JSON string. Refresh the page to see that.
 
 Now, let's take a JSON string and convert it into an object.
 
@@ -112,9 +136,9 @@ addToArticle("Knight", knight.name);
 
 ## Converting Form Contents into JSON
 
-For our last step, we'll let the user enter information into a form and convert the results into JSON.
+For the next step, we'll let the user enter information into a form and convert the results into JSON.
 
-First, create the form and add it to the body of the document right after the `<article>` element.
+First, create a form and add it to the body of the document right after the `<article>` element.
 
 ```html
 <form onsubmit="submitForm(event)">
@@ -124,14 +148,58 @@ First, create the form and add it to the body of the document right after the `<
 </form>
 ```
 
-Now, create an event handler that will convert the form data into JSON.
+Now, create an event handler that will convert the form data into JSON. Add this to the end of the `<script>` element:
 
 ```js
 function submitForm(event) {
+    event.preventDefault();
     let formData = new FormData(event.target);
     let json = JSON.stringify(Object.fromEntries(formData));
-    console.log(json);
     addToArticle("Form", json);
-    event.preventDefault();
 }
+```
+
+Refresh the page, enter something into the form, and click `Submit`.
+
+## localStorage
+
+Web browsers have a localStorage collection where you can store strings that will be retained between page refreshes and even between browser sessions. We'll store the form data in that collection and retrieve it when the page loads.
+
+Update the `submitForm` function like this:
+
+```js
+function submitForm(event) {
+    event.preventDefault();
+    let formData = new FormData(event.target);
+    let json = JSON.stringify(Object.fromEntries(formData));
+    addToArticle("Form", json);
+
+    localStorage.setItem("form", json);
+}
+```
+
+The `localStorage.setItem()` call will now store the form data in local storage whenever you click `Submit`.
+
+Now, lets set it up so that whenever the page loads, it retrieves the previously-submitted form data and puts it back into the form.
+
+Add this function to the `<script>`:
+
+```js
+function loadFormFromStorage() {
+    let json = localStorage.getItem("form");
+    console.log(json);
+    if (!json) return;
+    let data = JSON.parse(json);
+    console.log(data);
+    console.log(data.name);
+    document.getElementById("name").value = data.name;
+    document.getElementById("color").value = data.color;
+}
+```
+
+Finally, we need to make that function run whenever the page is loaded. Remember that the page will run all JavaScript from beginning to end, creating functions and doing things as it goes. So, we just need to put the call at the end of the `<script>`; being sure it comes after the function is defined.
+
+```js
+loadFormFromStorage();
+
 ```
