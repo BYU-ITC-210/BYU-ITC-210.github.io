@@ -94,13 +94,13 @@ Variables, even global ones, have the lifetime of a single page.
 
 This works:
 ```js
-function sample(useNumber) {
-    if (useNumber) {
+function sample(isNumber) {
+    if (typeof(isNumber) == "number") {
         var t = "Number";
     }
     else {
         // var can be redeclared
-        var t = "String";
+        var t = "Something Else";
     }
 
     // t is still in scope because of hoisting
@@ -110,8 +110,8 @@ function sample(useNumber) {
 
 This generates an error:
 ```js
-function sample(useNumber) {
-    if (useNumber) {
+function sample(isNumber) {
+    if (typeof(isNumber) == "number") {
         let t = "Number";
     }
     else {
@@ -125,6 +125,25 @@ function sample(useNumber) {
 ```
 
 > Using the newer keywords, `let` and `const` offers better protection against programming errors because they limit the scope of variables.
+
+If you simply assign a value to a variable, without defining it, JavaScript will create a global variable of that name and assign a value. Even if the assignment is inside a function it will still create a global variable.
+
+```
+function globalTest() {
+    globalValue = 42;
+}
+
+globalTest();
+console.log(globalValue);
+```
+
+This is usually not desireable behavior. More times than not, you didn't intend to create a global variable. You can put JavaScript in *strict* mode by placing the following at the beginning of your .js file:
+
+```
+"use strict";
+```
+
+Strict mode will throw an error rather than create a global variable. It also places a few more restrictions on your code intended to prevent bugs. Read more here: [Mozilla Strict Mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Boolean Interpretation
 
