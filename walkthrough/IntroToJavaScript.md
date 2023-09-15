@@ -81,25 +81,6 @@ index.html
 </body>
 ```
 
-### Module
-
-Modules are a relatively new feature, introduced in ECMAScript 6 (2015) and implemented in major browsers shortly thereafter. Modules let you isolate JavaScript code and only expose the parts you want. Thereby avoiding name collisions.
-
-module.mjs
-```js
-export function hello() {
-    return "Hello";
-}
-```
-
-script.js
-```
-import {hello} from "module";
-let val = hello();
-```
-
-We won't write modules in this class and we won't use modules until IT&C 210B.
-
 ## Variables in JavaScript
 
 Variables, even global ones, have the lifetime of a single page.
