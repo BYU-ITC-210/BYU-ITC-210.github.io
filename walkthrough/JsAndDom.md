@@ -26,7 +26,7 @@ Consider this page:
 
 When loaded into the browser it results in a DOM tree like this:
 
-![The DOM interpreted as a tree diagram](images/DomTree.png)
+![The DOM interpreted as a tree diagram](/images/DomTree.png)
 
 ## Setup
 
