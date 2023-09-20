@@ -188,21 +188,17 @@ Add this function to the `<script>`:
 ```js
 function loadFormFromStorage() {
     let json = localStorage.getItem("form");
-    console.log(json);
     if (!json) return;
     let data = JSON.parse(json);
-    console.log(data);
-    console.log(data.name);
     document.getElementById("name").value = data.name;
     document.getElementById("color").value = data.color;
 }
 ```
 
-Finally, we need to make that function run whenever the page is loaded. Remember that the page will run all JavaScript from beginning to end, creating functions and doing things as it goes. So, we just need to put the call at the end of the `<script>`; being sure it comes after the function is defined.
+Finally, we need to make that function run whenever the page is loaded. Since the page will run all JavaScript from beginning to end, we could just put `loadFormFromStorage()` at the end of the script. But if we really want to be sure that the script runs after the entire page is loaded then the best option is to attach to the window load event.
 
 ```js
-loadFormFromStorage();
-
+window.addEventListener("load", loadFormFromStorage)
 ```
 
 Refresh the page, enter something into the form, and click `Submit`. It does just what the previous version did.
