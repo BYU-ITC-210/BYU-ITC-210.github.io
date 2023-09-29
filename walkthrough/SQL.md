@@ -20,11 +20,9 @@ Open a command line terminal, change directories to the folder where you unpacke
 docker compose up
 ```
 
-The web server will be on port 4000 and the page you'll be working with is hello.php. So, browse to [http://localhost:4000/hello.php](http://localhost:4000/hello.php){:target="_blank"}.  You will see a simple starting page.
-
 Later, when it's time to shut the containers down. Return to that command line, press Ctrl-C to stop the server, and enter `docker compose down` to stop the server. If you want to erase the contents of the database and return the server to its original status, enter `docker compose down -v`.
 
-Docker will bring up two servers. **MariaDB** will be listening on it's default port, 3306. But you won't connect directly to that. **phpMyAdmin** is a web server that will be listening on port 8080. In you web browser, open [http://localhost:8080](http://localhost:8080).
+Docker will bring up two servers. **MariaDB** will be listening on it's default port, 3306. But you won't connect directly to that. **phpMyAdmin** is a web server that will be listening on port 8080. In your web browser, open [http://localhost:8080](http://localhost:8080).
 
 The default username and password are set in the **docker-compose.yml** file that's included in the .zip file. The username is "developer" and the password is "password". You may consider changing them in **docker-compose.yml** before launching the containers. Once you enter the username and password you will see the home screen of **phpMyAdmin**.
 
