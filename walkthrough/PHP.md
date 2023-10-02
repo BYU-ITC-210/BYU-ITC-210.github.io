@@ -173,7 +173,7 @@ You can use [foreach](https://www.php.net/manual/en/control-structures.foreach.p
     <p>
     <? foreach ($a as $value) {
         echo "$value!<br/>";
-    <? } ?>
+    } ?>
     </p>
 ```
 
