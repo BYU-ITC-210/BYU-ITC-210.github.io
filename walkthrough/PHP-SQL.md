@@ -166,11 +166,11 @@ The page has another function for adding cars to the database. Fill in all field
 The functional part is the following code:
 
 ```php
-    // Open a connection to the server and insert a new record
-    $sql = "INSERT INTO cars (make, model, year, plate, owner) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssiss', $_POST['make'], $_POST['model'], $_POST['year'], $_POST['plate'], $_POST['owner']);
-    $stmt->execute();
+// Open a connection to the server and insert a new record
+$sql = "INSERT INTO cars (make, model, year, plate, owner) VALUES (?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('ssiss', $_POST['make'], $_POST['model'], $_POST['year'], $_POST['plate'], $_POST['owner']);
+$stmt->execute();
 ```
 
 Hopefully this is looking somewhat familiar to you by now. First we create a SQL statement with `?` for the five values. We prepare the statement and the bind the five parameters to the values that came in by way of the HTTP post. Finally we execute the query which adds the data to the database. Just like `SELECT`, and `INSERT` statement is vulnerable to SQL injection. The use of a prepared statement and `bind_param()` prevents that from happening. The `'ssiss'` argument to `bind_param)()` indicates that the arguments are, respectively, string, string, integer, string, string.
