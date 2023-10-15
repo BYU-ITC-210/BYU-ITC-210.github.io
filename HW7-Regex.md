@@ -14,7 +14,6 @@ In this exercise, you will practice composing regular expressions. Make sure thi
 
 * Understand what Regular Expressions are and how to use them.
 * Practice using Regular Expressions to find and change textual strings.
-* Prepare for lab 5B which requires Regular Expressions.
 
 ### Resources
 
@@ -22,7 +21,7 @@ In this exercise, you will practice composing regular expressions. Make sure thi
 * [Regex 101 Regular Expression Tester](https://regex101.com)
 * [Cheatography Regular Expressions Cheat Sheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/)
 * [Microsoft Regular Expression Quick Reference](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
-* [Blank Answer Sheet](HW6-Regex-Answersheet.txt){: download="HW6-Regex-Answersheet.txt"} text file into which you will insert your answers.
+* [Blank Answer Sheet](HW7-Regex-Answersheet.txt){: download="HW7-Regex-Answersheet.txt"} text file into which you will insert your answers.
 
 ### Performing Regular Expression Searches
 
@@ -46,7 +45,7 @@ To use **Regex 101**:
 ### How to Complete and Submit the Homework
 *Please follow these instructions*
 
-1. Download the [answersheet](HW7-Regex-Answersheet.txt){: download="HW6-Regex-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW7-Regex-Answersheet.txt){: download="HW7-Regex-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Compose a Regular Expression that satisfies each question.
 3. Paste expressions into the answer sheet.
 4. Submit your answer sheet to LearningSuite for grading.

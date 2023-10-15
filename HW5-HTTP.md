@@ -16,11 +16,11 @@ title: "Homework 5: HTTP Network Traffic Analysis"
 * Computer with FireFox, Chrome, or Edge web browser. Other Chromium-based web browsers will probably also work.
 * [RFC 2616](https://www.rfc-editor.org/info/rfc2616) The IETF standard that defines HTTP 1.1
 * A [tutorial](http://www.steves-internet-guide.com/http-basics/) on how HTTP works.
-* [Blank Answer Sheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} text file into which you will insert your answers.
+* [Blank Answer Sheet](HW5-HTTP-Answersheet.txt){: download="HW5-HTTP-Answersheet.txt"} text file into which you will insert your answers.
 
 ## How to Complete and Submit the Homework
 *Please follow these instructions*
-1. Download the [answersheet](HW5-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW5-HTTP-Answersheet.txt){: download="HW5-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
 3. Submit your answer sheet to LearningSuite for grading.
 
