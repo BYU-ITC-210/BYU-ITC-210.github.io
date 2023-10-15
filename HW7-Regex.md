@@ -1,5 +1,5 @@
  ---
-title: "Homework 6: Regular Expressions"
+title: "Homework 7: Regular Expressions"
 ---
 
 ***

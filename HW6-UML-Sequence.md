@@ -1,5 +1,5 @@
 ---
-title: "Homework 5: UML Sequence Diagrams"
+title: "Homework 6: UML Sequence Diagrams"
 ---
 ***
 
@@ -9,7 +9,7 @@ title: "Homework 5: UML Sequence Diagrams"
 
 ## Introduction
 
-For this homework you will produce two UML sequence diagrams that will inform your development of Lab 4 and will be included in the Lab 4 writeup.
+For this homework you will produce two UML sequence diagrams that will inform your development of Lab 5 and will be included in the Lab 5 documentation.
 
 ## Objectives
 
@@ -39,11 +39,11 @@ If you choose to use a digital tool, here are some good options:
 
 ## Instructions
 
-Produce two careful UML Sequence Diagrams reflecting the data that gets passed between different components that are part of lab 4b.
+Produce two careful UML Sequence Diagrams reflecting the data that gets passed between different components that are part of lab 5.
 
-Each diagram should include the following columns: 1) client/browser, 2) database, and each of the 3) Model, 4) View, and 5) Controller parts on the server.
+Each diagram should include the following columns: 1) Client/Browser, 2) Endpoint (on the server) 3) Model (on the server) 4) Database.
 
-This will be graded as a homework assignment, though it will also need to be included in your lab write-up.
+This will be graded as a homework assignment, though it will also need to be included in your lab documentation.
 
 You will make two separate UMLs for this assignment: one for displaying a user's existing tasks and one for creating a new task. These UMLs will be similar, but pay attention to the queries made to the database in each scenario.
 

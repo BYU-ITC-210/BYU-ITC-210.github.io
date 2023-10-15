@@ -1,4 +1,4 @@
-BYU IT&C 210B Homework 6: Regular Expressions
+BYU IT&C 210B Homework 7: Regular Expressions
 ANSWER SHEET
 
 Your Name:
