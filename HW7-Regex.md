@@ -1,4 +1,4 @@
- ---
+---
 title: "Homework 7: Regular Expressions"
 ---
 
@@ -46,7 +46,7 @@ To use **Regex 101**:
 ### How to Complete and Submit the Homework
 *Please follow these instructions*
 
-1. Download the [answersheet](HW6-Regex-Answersheet.txt){: download="HW6-Regex-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW7-Regex-Answersheet.txt){: download="HW6-Regex-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Compose a Regular Expression that satisfies each question.
 3. Paste expressions into the answer sheet.
 4. Submit your answer sheet to LearningSuite for grading.

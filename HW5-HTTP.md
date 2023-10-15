@@ -20,7 +20,7 @@ title: "Homework 5: HTTP Network Traffic Analysis"
 
 ## How to Complete and Submit the Homework
 *Please follow these instructions*
-1. Download the [answersheet](HW7-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
+1. Download the [answersheet](HW5-HTTP-Answersheet.txt){: download="HW7-HTTP-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
 3. Submit your answer sheet to LearningSuite for grading.
 

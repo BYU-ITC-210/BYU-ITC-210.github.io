@@ -1,4 +1,4 @@
-BYU IT&C 210B Homework 7: HTTP Network Traffic Analysis
+BYU IT&C 210B Homework 5: HTTP Network Traffic Analysis
 ANSWER SHEET
 
 Your Name:
