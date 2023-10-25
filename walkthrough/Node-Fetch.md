@@ -8,13 +8,13 @@ But that's for a future lab. In this walkthrough we'll use Node.js to call a [We
 
 ## Setup
 
-Since this walkthrough leads into Lab 4, which uses Node.js, you should install Node.js. However, since we will be using javaScript exclusively in interactive mode, you can, in theory, perform this walkthrough from the JavaScript console in your favorite browser. You can install Node.js from this link: [Node.js Downloads](https://nodejs.org/en/download). Pick the latest LTS (Long-Term Support) version, *not* the "Current" version.
+Since this walkthrough leads into Lab 4, which uses Node.js, you should install Node.js. However, since we will be using javaScript exclusively in interactive mode, you can, in theory, perform this walkthrough from the JavaScript console in your favorite browser. Install Node.js from this link: [Node.js Downloads](https://nodejs.org/en/download). Pick the latest LTS (Long-Term Support) version, *not* the "Current" version.
 
 Open a terminal and launch node (type "node" at the terminal). Or, open the JavaScript console in your browser (Developer Tools > Console).
 
 ### Experimenting with the Node console
 
-Much like Python, Node offers an iteractive console for typing JavaScript. Try typing an expression:
+Much like Python, Node offers an interactive console for typing JavaScript. Try typing an expression:
 
 ```js
 2+2
@@ -31,7 +31,7 @@ You'll notice that Node prints "undefined" after "Hello, world!". That's because
 
 ## The API
 
-We will be using the BYU ITC210 Scripture of the Day API. The URL is [https://scripture.itc210.net/api/day](https://scripture.itc210.net/api/day). The service also offers scripture of the hour and scripture of the month. You can guess the URLs and experiment to determine whether there might be other related calls.
+We will be using the BYU ITC210 Scripture of the Day API. The URL is [https://scripture.itc210.net/api/day](https://scripture.itc210.net/api/day). The service also offers scripture of the hour and scripture of the month. You can guess the URLs for hour and month, and experiment to determine whether there might be other related calls.
 
 A call to the API returns a JSON object with `id`, `reference`, and `text` attributes like this:
 
@@ -148,7 +148,7 @@ Try it with good and bad URLs. We'll take advantage of this when we use anonymou
 
 ### Using Anonymous Functions
 
-All of these callbacks can make things complicated to follow. After all, we now have three callback functions and one call to `fetch()` just to get a result back. Sometimes it's nice to separate things out like that but most of the time it just gets confusing. To make things more concise, we can use [anonymous functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions).
+All of these callbacks can make things complicated to follow. After all, we now have three callback functions and one call to `fetch()` just to get a result back. Sometimes it's nice to separate things out like that but most of the time it just gets confusing. To make things more concise, we can use [anonymous functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions). An anonymous function is simply a function that's not assigned to a named variable. Instead, you pass it as an argument to another function such as `.then()` or `.catch()`.
 
 This uses anonymous functions and promise chaining to consolidate all of the above into one function:
 
@@ -190,7 +190,7 @@ You may notice that the responses print in a different order from how they were 
 
 ### Using Arrow Function Syntax
 
-[Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a concise way to write short, anonymous functions. You list the arguments, in parentheses if there are more than one, then an arrow in the form of ` => ` and then the expression the function should return. If the function needs more than one line you enclose them in braces `{}`.
+[Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a concise way to write short, anonymous functions. You list the arguments, in parentheses if there are more than one, then an arrow in the form of `=>` and then the expression the function should return. If the function needs more than one line you enclose them in braces `{}`.
 
 Here's `FetchUrlAndPrint()` using Arrow Function Syntax and the [`? :` ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator):
 
@@ -226,3 +226,11 @@ async function FetchUrlAndPrint(url) {
 ```
 
 Depending on how much you need to do at each step, this can result in easier-to-read code.
+
+### Exiting Node
+
+You can, of course close the terminal window but if you like using commands, type:
+
+```js
+process.exit()
+```
