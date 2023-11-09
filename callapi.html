@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Test</title>
+	<title>CallApi</title>
 	<style>
 .tlnk {
 	text-decoration: underline;
@@ -12,32 +12,35 @@
 </head>
 <body>
 	<h2>Request</h2>
-	<p>
+	<p id="templates">
 		<strong>Templates:</strong>
-		<a class="tlnk" onclick="template_login()">Login</a>
-		<a class="tlnk" onclick="template_dump()">Dump</a>
 	</p>
+	<p><button onclick="clearAll(event)">Clear</button></p>
 	<form id="form" onsubmit="sendRequest(event)">
 		<label for="verb">Verb:</label> <select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select><br/>
 		<label for="url">URL:</label> <input id="url" name="url" type="text" style="width: 32em;" /><br/>
 		<label for="token">Authorization: Bearer</label> <input id="token" name="token" type="text" style="width: 34em;" /><br />
-		<textarea id="body" name="body" cols="80" rows="25"></textarea><br/>
+		<textarea id="body" name="body" cols="80" rows="10"></textarea><br/>
 		<button type="submit">Send</button>
 	</form>
 	<hr/>
 	<h2>Response</h2>
 	<div id="resStatus"></div>
+	<div id="resHeaders"></div>
 	<pre id="resBody"></pre>
 	<script>
+"use strict";
 
 async function sendRequest(e) {
 	e.preventDefault();
+	const oldCookie = document.cookie;
 	const form = e.currentTarget;
 	const reqUrl = form.url.value;
     const verb = form.verb.value
 	const req = {
 		headers: { "Content-Type": "application/json" },
-		method: verb
+		method: verb,
+		credentials: "include"
 	};
 	const token = form.token.value;
 	if (token) {
@@ -47,11 +50,16 @@ async function sendRequest(e) {
 		req.body = form.body.value;
 	}
 
+	document.getElementById("resStatus").innerHTML = "";
+	document.getElementById("resHeaders").innerHTML = "";
+	document.getElementById("resBody").textContent = "";
+
 	const response = await fetch(reqUrl, req);
 	document.getElementById("resStatus").textContent = `${response.status} ${response.statusText}`;
 	let newToken;
 	if (newToken = getUpdatedToken(response)) document.getElementById("token").value = newToken;
-	bodyText = await response.text();
+	reportHeaders(response, oldCookie);
+	let bodyText = await response.text();
 	document.getElementById("resBody").textContent = bodyText;
 }
 
@@ -60,7 +68,7 @@ function getUpdatedToken(response) {
 	if (!info) return;
 	for (let part of info.split(',')) {
 		part = part.trim();
-		eq = part.search('=');
+		let eq = part.search('=');
 		if (eq < 0) continue;
 		let e = eq;
 		while (e > 0 && (part[e - 1] == ' ' || part[e - 1] == '\t')) --e;
@@ -69,28 +77,152 @@ function getUpdatedToken(response) {
 	}
 }
 
-function template_login() {
-	document.getElementById("verb").value = "POST";
-	updateUrl('/api/Login');
-	document.getElementById("body").value = '{\n  "username": "brandtr",\n  "password": ""\n}';
+function reportHeaders(response, oldCookie) {
+	var ele = document.getElementById("resHeaders");
+	ele.innerHTML = "";
+	for (let pair of response.headers) {
+		var div = document.createElement("div");
+		div.textContent = `${pair[0]}: ${pair[1]}`;
+		ele.appendChild(div);
+	}
+
+	// Report Cookies
+	const oldCookies = parseCookies(oldCookie);
+	const newCookies = parseCookies(document.cookie);
+	for (var key in newCookies) {
+		if (newCookies[key] != oldCookies[key]) {
+            var div = document.createElement("div");
+            div.textContent = `SetCookie:\u00A0${key}=${newCookies[key]}`;
+            ele.appendChild(div);
+		}
+	}
 }
 
-function template_dump() {
-    document.getElementById("verb").value = "GET";
-	updateUrl('/api/Dump');
-    document.getElementById("body").value = '';
+function parseCookies(cookieString) {
+	let cookies = {};
+	for (var cookie of cookieString.split(';')) {
+		let eq = cookie.indexOf('=');
+        cookies[cookie.substring(0, eq).trim()] = cookie.substring(eq + 1).trim();;
+	}
+	return cookies;
+}
+
+function deleteAllCookies() {
+	for (const key in parseCookies(document.cookie)) {
+		// Clear with and without path
+        document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+        document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	}
+}
+
+function clearAll(e) {
+	e.preventDefault();
+
+	// Clear Request
+	document.getElementById("verb").value = "GET";
+	updateUrl("/");
+	document.getElementById("token").value = "";
+	document.getElementById("body").value = "";
+	deleteAllCookies();
+
+	// Clear Response
+    document.getElementById("resStatus").innerHTML = "";
+    document.getElementById("resHeaders").innerHTML = "";
+    document.getElementById("resBody").textContent = "";
+}
+
+const templates = [
+	{
+		name: "Login",
+		verb: "POST",
+		url: "/api/login",
+		body: { username: "a", password: ""}
+	},
+	{
+		name: "Logout",
+		verb: "GET",
+		url: "/api/logout",
+	},
+	{
+		name: "Create",
+		verb: "POST",
+		url: "/api/items",
+		body: { make: "MINI", model: "Cooper", year: "2004"}
+	},
+	{
+		name: "Read",
+		verb: "GET",
+		url: "/api/items"
+	},
+	{
+		name: "ReadId",
+		verb: "GET",
+		url: "/api/items/1"
+	},
+    {
+        name: "Find",
+        verb: "GET",
+		url: "/api/items?make=MINI",
+	},
+    {
+        name: "Update",
+        verb: "PUT",
+		url: "/api/items/1",
+        body: {make: "Ferrari", model: "Barchetta", year: 1950 }
+    },
+    {
+        name: "Delete",
+        verb: "DELETE",
+        url: "/api/items/1"
+    }
+];
+
+function onTemplateClick(e) {
+	e.preventDefault();
+	const data = e.target.data;
+	document.getElementById("verb").value = data.verb;
+	updateUrl(data.url);
+	if (data.body) {
+		document.getElementById("body").value = JSON.stringify(data.body, null, 2);
+	}
+	else {
+		document.getElementById("body").value = "";
+	}
 }
 
 function updateUrl(newurl) {
-	const urlele = document.getElementById("url");
-	const existing = urlele.value;
-	if (existing.startsWith('http')) {
-	    urlele.value = new URL(newurl, existing);
-	}
-	else {
-		urlele.value = newurl;
+    const urlele = document.getElementById("url");
+    const existing = urlele.value;
+    if (existing.startsWith('http')) {
+        urlele.value = new URL(newurl, existing);
+    }
+    else {
+        urlele.value = newurl;
+    }
+}
+
+function setTemplates() {
+	const p = document.getElementById("templates");
+	for (let t of templates) {
+		p.appendChild(document.createTextNode(" "));
+		let a = document.createElement("a");
+		a.data = t;
+		a.classList.add("tlnk");
+		a.addEventListener("click", onTemplateClick);
+		a.textContent = t.name;
+		p.append(a);
+		console.log(t.name);
 	}
 }
+
+
+// Initialization
+{
+    // Default URL
+    document.getElementById("url").value = window.location.origin;
+    setTemplates();
+}
+
 	</script>
 		
 </body>
