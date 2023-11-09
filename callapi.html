@@ -39,7 +39,8 @@ async function sendRequest(e) {
     const verb = form.verb.value
 	const req = {
 		headers: { "Content-Type": "application/json" },
-		method: verb
+		method: verb,
+		credentials: "include"
 	};
 	const token = form.token.value;
 	if (token) {
