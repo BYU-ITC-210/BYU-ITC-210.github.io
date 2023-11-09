@@ -58,13 +58,18 @@ async function sendRequest(e) {
 	document.getElementById("resHeaders").innerHTML = "";
 	document.getElementById("resBody").textContent = "";
 
-	const response = await fetch(reqUrl, req);
-	document.getElementById("resStatus").textContent = `${response.status} ${response.statusText}`;
-	let newToken;
-	if (newToken = getUpdatedToken(response)) document.getElementById("token").value = newToken;
-	reportHeaders(response, oldCookie);
-	let bodyText = await response.text();
-	document.getElementById("resBody").textContent = bodyText;
+	try {
+		const response = await fetch(reqUrl, req);
+		document.getElementById("resStatus").textContent = `${response.status} ${response.statusText}`;
+		let newToken;
+		if (newToken = getUpdatedToken(response)) document.getElementById("token").value = newToken;
+		reportHeaders(response, oldCookie);
+		let bodyText = await response.text();
+		document.getElementById("resBody").textContent = bodyText;
+	}
+	catch(err) {
+		document.getElementById("resBody").textContent = `Error: ${err.message}\nSee console.`;
+	}
 }
 
 function getUpdatedToken(response) {
