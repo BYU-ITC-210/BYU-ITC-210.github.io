@@ -38,10 +38,12 @@ async function sendRequest(e) {
 	const reqUrl = form.url.value;
     const verb = form.verb.value
 	const req = {
-		headers: { "Content-Type": "application/json" },
 		method: verb,
 		credentials: "include"
 	};
+	if (verb == "POST" || verb == "PUT") {
+		req.headers = { "Content-Type": "application/json" }
+	}
 	const token = form.token.value;
 	if (token) {
 		req.headers["Authorization"] = "Bearer " + token;
