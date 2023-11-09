@@ -39,8 +39,7 @@ async function sendRequest(e) {
     const verb = form.verb.value
 	const req = {
 		headers: { "Content-Type": "application/json" },
-		method: verb,
-		credentials: "include"
+		method: verb
 	};
 	const token = form.token.value;
 	if (token) {
@@ -211,7 +210,6 @@ function setTemplates() {
 		a.addEventListener("click", onTemplateClick);
 		a.textContent = t.name;
 		p.append(a);
-		console.log(t.name);
 	}
 }
 
