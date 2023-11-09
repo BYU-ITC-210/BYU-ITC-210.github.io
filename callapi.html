@@ -38,18 +38,17 @@ async function sendRequest(e) {
 	const reqUrl = form.url.value;
     const verb = form.verb.value
 	const req = {
+		headers: {},
 		method: verb,
-		credentials: "include"
+		credentials: "include",
 	};
 	if (verb == "POST" || verb == "PUT") {
-		req.headers = { "Content-Type": "application/json" }
+		req.headers["Content-Type"] = "application/json";
+		req.body = form.body.value;
 	}
 	const token = form.token.value;
 	if (token) {
 		req.headers["Authorization"] = "Bearer " + token;
-	}
-	if (verb == "POST" || verb == "PUT") {
-		req.body = form.body.value;
 	}
 
 	document.getElementById("resStatus").innerHTML = "";
