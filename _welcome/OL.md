@@ -17,5 +17,5 @@ session: OL
     * Thursday, Dec 21: Take-Home Final Exam Due.
     * Thursday, Dec 21: Extra Credit Report Due.
 
-![Security Operations Center](/images/SOC.jpg){: style="width: 60%"}
+![Security Operations Center](images/SOC.jpg){: style="width: 60%"}
 Bing Image Creator
