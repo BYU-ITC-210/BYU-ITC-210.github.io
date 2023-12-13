@@ -1,15 +1,7 @@
 ---
 title: Final Exam Review
-session: RB
+session: XRB
 ---
-* Last day of classes. All assignments due!
-* Extra credit report is open.
-* Friday: Finals
-    * Special Final Exam Period: 11:00am - 2:00pm in CTB 365
-    * You will have 3 hours but it should take about one.
-    * Take-home final exam opens
-* Wednesday, Apr 26: Take-Home Final Exam and Extra Credit Report Due
-
 
 * Today: Take-Home Exam opens immediately after lab period.
 * Today: Extra credit report opens (this afternoon).
