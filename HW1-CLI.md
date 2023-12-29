@@ -157,5 +157,4 @@ Using git will extend further than usage in this class. In this class, we will u
 10. __Commit__ changes to your repository, with a description of what this commit does.
 11. __Push__ your newest commit to your `main` branch on Github.
 
-> Note: The first time you add a new remote origin, you need to use `git remote add origin https://github.com/MyUserName/MyRepo.git` and `git push -u origin main`. After the first time, you only need `git push`, and the remote origin is remembered, and the upstream branch is remembered. The general process after you have saved any changes is add, commit, push: `git add files_that_changed.txt`, `git commit -m 'description of change'`, `git push`.  
-![image](https://user-images.githubusercontent.com/76703677/147512959-3cdf9d33-c0e0-49a2-b51b-d1a7584a3fd6.png)
+> Note: The first time you add a new remote origin, you need to use `git remote add origin https://github.com/MyUserName/MyRepo.git` and `git push -u origin main`. After the first time, you only need `git push`, and the remote origin is remembered, and the upstream branch is remembered. The general process after you have saved any changes is add, commit, push: `git add files_that_changed.txt`, `git commit -m 'description of change'`, `git push`.
