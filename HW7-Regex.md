@@ -4,7 +4,7 @@ title: "Homework 7: Regular Expressions"
 
 ***
 
-*20 points possible. 4 questions, 5 points per question.*
+*20 points possible. 4 questions, 5 points per question. Score will be scaled to 30 points in LearningSuite*
 
 ***
 
