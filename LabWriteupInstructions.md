@@ -59,7 +59,7 @@ List the skills you've acquired, practiced or demonstrated in the lab. This is s
 * Communicate asynchronously with a server to get data
 * Dynamically change content on a web page
 
-It is more professional to conjugate the verbs as if there is an invisible "I can" in front of each, than to write in the gerund (words ending in -ing). For example:
+It is more professional to conjugate the verbs as if there is an invisible "I can" in front of each, than to write in the gerund (words ending in -ing). DO NOT include "I can" statements in your final product. For example:
 
 * (I can) Pass data through the JSON format. (This is better!)
 * Passing data through the JSON format. (This feels awkward.)
