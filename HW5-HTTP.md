@@ -2,7 +2,7 @@
 title: "Homework 5: HTTP Network Traffic Analysis"
 ---
 
-*40 points possible. 20 questions; 2 points per question.*
+*40 points possible. 20 questions; 2 points per question. Score will be scaled to 30 points in LearningSuite*
 
 ## Objectives
 
