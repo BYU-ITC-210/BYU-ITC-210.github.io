@@ -4,8 +4,8 @@ title: "Homework 7: Regular Expressions"
 
 ***
 
-*20 points possible. 4 questions, 5 points per question. Score will be scaled to 30 points in LearningSuite*
-
+*30 points possible. 4 questions, 7.5 points per question.*
+*-.5 points for every test case not passed.*
 ***
 
 In this exercise, you will practice composing regular expressions. Make sure this is your own work though you may share strategies with your peers.
