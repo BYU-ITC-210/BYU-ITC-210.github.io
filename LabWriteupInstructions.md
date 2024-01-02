@@ -9,7 +9,7 @@ For each writeup, you will be using a simple text formatting markup language cal
 * [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet)
 * [Markdown Crash Course (video 20min)](https://www.youtube.com/watch?v=HUBNt18RFbo)
 
-Please post your write-up as the README.md file for Lab B of the corresponding lab in GitHub, then submit a link to your repository in LearningSuite. Submitting your write up as the README.md file will make it appear on the primary page of your lab repo.
+Please post your write-up as the README.md file for Lab B of the corresponding lab in GitHub, then submit a direct link to your repository in LearningSuite. If you do not submit a link, your writup will not be graded. Submitting your write up as the README.md file will make it appear on the primary page of your lab repo.
 
 This [Lab Writeup Example](https://github.com/BYU-ITC-210/LabWriteupExample) should give you a good idea of what we expect. Since it's on an actual GitHub repository you can access the MarkDown source code and see how the ReadMe is presented by GitHub.
 
@@ -68,6 +68,8 @@ It is more professional to conjugate the verbs as if there is an invisible "I c
 
 List URLs or other reference information you used in the writeup. They don't have to follow any particular format. Bare URLs are acceptable.
 
+If this section is missing or incomplete, you will receive a 0 on the write-up until it is fixed. No late penalties will be applied.
+
 ### About UML Diagrams
 
 For Lab 1, a UML diagram is not required or relevant. Our class discussion of UML diagrams will happen before the Lab 2 writeup.
@@ -76,4 +78,4 @@ Make sure that your screenshots and UML diagrams display correctly on GitHub bef
 
 Each lab indicates the type of UML diagram that should be included. Please pay attention and submit the right kind.
 
-For the UML diagrams, it is acceptable to submit a photo if the diagram was hand-drawn. All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG.
+For the UML diagrams, it is acceptable to submit a photo if the diagram is hand-drawn and neat. Points will be deducated for messy diagrams and illegible handwriting. All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG.
