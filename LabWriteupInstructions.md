@@ -11,6 +11,8 @@ For each writeup, you will be using a simple text formatting markup language cal
 
 Please post your write-up as the README.md file for Lab B of the corresponding lab in GitHub, then submit a direct link to your repository in LearningSuite. If you do not submit a link, your writup will not be graded. Submitting your write up as the README.md file will make it appear on the primary page of your lab repo.
 
+If your writeup does not use markdown, it will not be accepted and will receive a 0.
+
 This [Lab Writeup Example](https://github.com/BYU-ITC-210/LabWriteupExample) should give you a good idea of what we expect. Since it's on an actual GitHub repository you can access the MarkDown source code and see how the ReadMe is presented by GitHub.
 
 All work must be your own, you may not copy and paste answers from any other sources. Please see **Academic Standards** in the Syllabus for details.
