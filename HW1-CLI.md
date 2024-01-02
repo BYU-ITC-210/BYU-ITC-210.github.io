@@ -4,7 +4,7 @@ title: "Homework 1: Linux-Git CLI"
 
 ***
 
-*28 points possible. 28 questions; 1 point per question.*
+*30 points possible. 29 questions; 1 point per question.*
 
 ***
 ## Completing and Submitting This Assignment
