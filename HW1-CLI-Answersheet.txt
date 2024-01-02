@@ -4,7 +4,7 @@ ANSWER SHEET
 Your Name:
 Date:
 
-28 points possible. 28 questions; 1 point per question.
+30 points possible. 29 questions; 1 point per question.
 
 Act as if you are entering each command on a Linux machine one after another, especially when changing which directory, you are in or are modifying.
 
