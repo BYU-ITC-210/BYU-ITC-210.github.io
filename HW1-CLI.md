@@ -14,7 +14,11 @@ For each of the exercises, compose a single CLI command. After verifying that th
 Like most assignments in this class, you will likely use web sources to help you find answers. For example, you might use a Google or Bing search to find the right command-line for a particular task.
 
 ***
+## Preparation
 
+To complete this assignment you will need a Linux/Bash command-line and Git to be installed. **Follow steps 1 and 2 of Lab 1 to get everything installed properly.** Then come back to complete this homework.
+
+***
 ## Part 1: Linux Command-Line
 
 The goal of this assignment is to have you learn and practice various Linux commands. Note that you may use these commands at different points in each term. Specifically, after this assignment you will be able to use the following commands:
@@ -37,21 +41,14 @@ The goal of this assignment is to have you learn and practice various Linux comm
 
 > An easy way to determine what a command does is to type `man` and then the name of the command you are trying to learn about. For instance, `man cp` in the command line interface (CLI) will bring up a page about the `cp` command. Simply press <kbd>q</kbd> to leave that screen.
 
-### Preparation
-
-To do this part, you need access to a Unix-style command line shell such as __Bash__ or __zsh__. The process is different for macOS and Windows systems.
-
-### macOS
-
-macOS is based on the Darwin core which, like Linux, is a Unix-derived operating system. Accordingly, the shell is built-in. It is called __Terminal__ and is found under `Applications - Utilities - Terminal`. You can also use Spotlight Search or Launchpad to bring it up.
-
-### Windows
-
-Windows includes the classic __DOS Command Line__ and the newer __PowerShell__. But, for this assignment, you will need to install the __Linux Subsystem for Windows 2 (LSW2)__ in order to get a Linux/Unix style command line. We will be using LSW2 and Docker through the rest of the semester so it's definitely worth the effort.
-
-If you are current on your Windows updates (build 21H1 or later) then the simple `wsl --install` command will work. Make sure you run it from an **administrator PowerShell** and that you reboot after the installation completes.
 
 ### Using the CLI
+
+For this assignment and throughout the class you will using a Linux/Unix style command line.
+
+__Mac__ The [macOS Terminal](https://support.apple.com/guide/terminal/welcome/mac) uses the same syntax as Linux so Mac users can complete this assignment using __Terminal__ which is found under `Applications > Utilities > Terminal` or you can use Spotlight Search or Launchpad to bring it up.
+
+__Windows__ includes the classic [Command Shell](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands) and the newer [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview). But those their own syntax which is distinct from Linux/Unix. Windows users should first __complete steps 1 and 2 of Lab 1__. Then you can either use the WSL command-line or the [Git Bash](https://www.git-tower.com/blog/git-bash/) shell which is included with your Git for Windows installation.
 
 Before this course, you should have been exposed to using a command line. But, whether you have or not, you should be able to complete this assignment. Using a command line allows you to perform necessary functions when operating a computer that are not available in the graphical interface.
 
