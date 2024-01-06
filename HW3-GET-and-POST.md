@@ -4,7 +4,7 @@ title: "Homework 3: HTML Forms, GET and POST"
 
 ***
 
-*27 points possible. 9 questions; 4 points per question.*
+*27 points possible. 9 questions; 4 points per question. Score will be scaled to 30 points in LearningSuite*
 
 ***
 
@@ -25,7 +25,7 @@ title: "Homework 3: HTML Forms, GET and POST"
 
 1. Download the [answersheet](HW3-GET-and-POST-Answersheet.txt){: download="HW3-GET-and-POST-Answersheet.txt"} and load it into a text editor such as VS Code.
 2. Perform each of the following steps. Write or paste your answers into the answer sheet.
-3. Submit your answer sheet to LearningSuite for grading.
+3. Submit your answer sheet as a .txt file to LearningSuite for grading.
 
 ## Steps: Do the Following
 

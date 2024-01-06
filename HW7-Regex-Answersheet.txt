@@ -4,7 +4,8 @@ ANSWER SHEET
 Your Name:
 Date:
 
-20 points possible. 4 questions; 5 points per question.
+30 points possible. 4 questions; 7.5 points per question.
+-.5 points for every test case not passed.
 
 Please write or paste your answers between the dashed lines after each question.
 Here's an example of a question with the correct answer:
@@ -15,17 +16,17 @@ Cosmo the Cougar
 -----
 
 =============================
-1. Usernames
+1. Usernames 
 
-Enter the regular expression:
+Enter the regular expression (7.5 points):
 -----
 
 -----
 
 =============================
-2. Social Security Numbers
+2. Social Security Numbers 
 
-Enter the regular expression:
+Enter the regular expression (7.5 points):
 -----
 
 -----
@@ -33,7 +34,7 @@ Enter the regular expression:
 =============================
 3. Email Addresses
 
-Enter the regular expression:
+Enter the regular expression (7.5 points):
 -----
 
 -----
@@ -42,12 +43,12 @@ Enter the regular expression:
 4. Data Cleanup
 
 
-Enter the regular expression:
+Enter the regular expression (5.5 points):
 -----
 
 -----
 
-Enter the replacement string:
+Enter the replacement string (2 points):
 -----
 
 -----
