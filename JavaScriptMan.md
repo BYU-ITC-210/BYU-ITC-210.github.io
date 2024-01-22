@@ -67,4 +67,4 @@ I hope you enjoy this creative content. 😊
 
 : JavaScript - MDN Web Docs : What is JavaScript? - W3Schools
 
-![JavaScript Man](/welcome/images/JavaScriptMan.jpeg)
+![JavaScript Man](/welcome/images/JavaScriptMan.jpeg){: style="width: 95%;"}

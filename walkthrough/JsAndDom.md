@@ -58,6 +58,8 @@ Add the following to the `<script>` element at the bottom of the page:
 document.getElementById("p1").textContent = "Hello, world!";
 ```
 
+_Open the page in your browser and see how it appears._
+
 The `textContent` *attribute* is the plain text of an element. In contrast, `innerHTML` contains formatted HTML.
 
 Change the previous code to this:
@@ -66,6 +68,8 @@ Change the previous code to this:
 document.getElementById("p1").innerHTML =
   "Click this <a href='http://byu.edu'>Link</a>.";
 ```
+
+_Refresh the page in your browser and see how it appears._
 
 ## Accessing Elements by Class
 
@@ -95,6 +99,8 @@ Then add the following to the script portion:
 }
 ```
 
+_Refresh the page in your browser and see how it appears._
+
 Notice that when the `+` operator is used with a string, it automatically converts `counter` to a string and then concatenates the other string.
 
 ## Accessing Elements by Tag Name
@@ -116,11 +122,29 @@ for (const li of document.getElementsByTagName("li")) {
 }
 ```
 
+_Refresh the page in your browser and see how it appears._
+
 Of course, sometimes you just want the first instance, or maybe there's only one of the element you care about. So, just pick the zero index of the array.
 
 ```js
 document.getElementsByTagName("h1")[0].style.fontStyle = "italic";
 ```
+
+_Refresh the page in your browser and see how it appears._
+
+## Accessing Elements with a CSS Selector
+
+`document.querySelector()` and `document.querySelectorAll()` work much like the "getElement" methods. However, they use CSS selectors instead of id, class name, or tag name. `querySelector()` returns the first element in the HTML document that matches the CSS selector passed to it while `querySelectorAll()` returns an array of all matching elements.
+
+Add the following to the `script` element:
+
+```js
+for (const ele of document.querySelectorAll("span.num")) {
+    ele.style.backgroundColor = "Aquamarine";
+}
+```
+
+_Refresh the page in your browser and see how it appears. (You probably figured this out by now.)_
 
 ## Adding New Elements to the DOM
 
