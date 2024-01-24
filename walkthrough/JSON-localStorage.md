@@ -56,7 +56,7 @@ services:
             - .:/usr/local/apache2/htdocs
 ```
 
-> This `docker-compose.yml` file is slightly different from the one we used for Lab-1a and Lab-1b. Like the one used for the labs, loads the 'httpd' container which is a simple Apache web server. However, this one maps the current directory (represented by the dot) to the directory where Apache expects to find the contents of the website (`/usr/local/apache2/htdocs`);
+> This `docker-compose.yml` file is slightly different from the one we used for Lab-1a and Lab-1b. Like the one used for the labs, it loads the 'httpd' container which is a simple Apache web server. However, this one maps the current directory (represented by the dot) to the directory where Apache expects to find the contents of the website (`/usr/local/apache2/htdocs`);
 
 Open a console in the current folder and type the following command:
 
