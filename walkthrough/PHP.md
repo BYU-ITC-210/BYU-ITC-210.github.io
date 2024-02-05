@@ -35,8 +35,8 @@ Let's put this to work. Open `hello.php` from your working directory. It should 
 ```php
 <!DOCTYPE html>
 <html>
-    <title>PHP Walkthrough</title>
 <head>
+    <title>PHP Walkthrough</title>
 </head>
 <body>
     <h1>Hi!</h1>
