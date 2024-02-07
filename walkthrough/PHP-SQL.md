@@ -139,7 +139,7 @@ While `real_escape_string()` works and prevents the exploit, it is not the prefe
 
 ```php
 // Compose the query and echo it to the page
-$sql = "SELECT make, model, year, plate, owner FROM cars WHERE $fieldName = '" . $conn->real_escape_string($value) . "'";
+$sql = "SELECT make, model, year, plate, owner FROM cars WHERE $fieldName = ?'";
 echo '<p>' . htmlspecialchars($sql) . '</p>';
 ```
 

@@ -270,7 +270,7 @@ At the beginning of your `hello.php` page, even before the `include` statement i
 
 ```php
 <?
-begin_session();
+session_start();
 if (!isset($_SESSION['counter']))
 {
     $_SESSION['counter'] = 1;
