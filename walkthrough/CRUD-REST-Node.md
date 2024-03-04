@@ -19,14 +19,14 @@ Open a terminal and launch node (type "node" at the terminal). Or, open the Java
 The API we will be using is located at `https://restspace.dicax.org/api`. It has a `login` function for opening a session. All of the CRUD calls use the `items` url. Here is the full set:
 
 <table>
-<tr><th>Operation</th><th>HTTP Verb></th><th>URL</th><th>Payload</th></tr>
-<tr><td>Login</td><td>POST</td><td>https://restspace.dicax.org/api/login</td><td>{"username": "myusername", "password": "mypassword"}</td></tr>
-<tr><td>Create</td><td>POST</td><td>https://restspace.dicax.org/api/items</td><td>{"make": "Pontiac", "model": "Firebird", "year": "1995"}</td></tr>
-<tr><td>Read All</td><td>GET</td><td>https://restspace.dicax.org/api/items</td><td>(None)</td></tr>
-<tr><td>Read By Id</td><td>GET</td><td>https://restspace.dicax.org/api/items/1</td><td>(None)</td></tr>
-<tr><td>Find</td><td>GET</td><td>https://restspace.dicax.org/api/items?make=Pontiac</td><td>(None)</td></tr>
-<tr><td>Update</td><td>PUT</td><td>https://restspace.dicax.org/api/items/1</td><td>{"make": "AMC", "model": "Gremlin", "year": "1976"}</td></tr>
-<tr><td>Delete</td><td>DELETE</td><td>https://restspace.dicax.org/api/items/1</td><td>(none)</td></tr>
+<tr><th>Operation</th><th>HTTP Verb></th><th>URL</th><th>Payload</th><th>Response</th></tr>
+<tr><td>Login</td><td>POST</td><td>https://restspace.dicax.org/api/login</td><td>{"username": "myusername", "password": "mypassword"}</td><td>{"authorizationToken": "tokenvalue"}</td></tr>
+<tr><td>Create</td><td>POST</td><td>https://restspace.dicax.org/api/items</td><td>{"make": "Pontiac", "model": "Firebird", "year": "1995"}</td><td>{"id": "1"}</td></tr>
+<tr><td>Read All</td><td>GET</td><td>https://restspace.dicax.org/api/items</td><td>(None)</td><td>A JSON list with all objects in it.</td></tr>
+<tr><td>Read By Id</td><td>GET</td><td>https://restspace.dicax.org/api/items/1</td><td>(None)</td><td>The JSON object value.</td></tr>
+<tr><td>Find</td><td>GET</td><td>https://restspace.dicax.org/api/items?make=Pontiac</td><td>(None)</td><td>A JSON list with all matching objects in it.</td></tr>
+<tr><td>Update</td><td>PUT</td><td>https://restspace.dicax.org/api/items/1</td><td>{"make": "AMC", "model": "Gremlin", "year": "1976"}</td><td>{"id": "1"}</td></tr>
+<tr><td>Delete</td><td>DELETE</td><td>https://restspace.dicax.org/api/items/1</td><td>(none)</td><td>{"id": "1"}</td></tr>
 </table>
 
 ## Calling the API
