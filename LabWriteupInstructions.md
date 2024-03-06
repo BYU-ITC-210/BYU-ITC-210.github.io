@@ -49,11 +49,11 @@ Be sure to answer questions from both A and B parts of the lab.
 
 ## V. Lessons Learned (6 pts):
 
-This is a record of at least 3 problems and/or learning experiences you ran into and their solutions. These should be formatted with a short heading (descriptive title of the problem) and a short paragraph describing how the problem was resolved. There should be three pieces of information in each: (1) what the problem or concern was, (2) why it happens, (3) the solution. *Please see the example writeup for suggested formatting.*
+This is a record of at least 3 problems and/or learning experiences you ran into and their solutions. These should be formatted with a short heading (descriptive title of the problem) and a short paragraph describing how the problem was resolved. There should be three pieces of information in each: (1) what the problem or concern was, (2) why it happens, (3) the solution. *Make sure you include all three parts! Please see the example writeup for suggested formatting.*
 
 The focus of this section is the problem and its solution, not necessarily your personal experience/story with it (though the problems should come from things you ran into yourself).
 
-## VI. Conclusions (6 pts):
+## VI. Skills Acquired (6 pts):
 
 List the skills you've acquired, practiced or demonstrated in the lab. This is slightly more descriptive than our list of technologies in the lab. Think of it as “now that I’ve done this lab, I can now do…” Please use bullet points for this. Here are some examples of the level of detail we would like you to have:
 
@@ -65,6 +65,8 @@ It is more professional to conjugate the verbs as if there is an invisible "I c
 
 * (I can) Pass data through the JSON format. (This is better!)
 * Passing data through the JSON format. (This feels awkward.)
+
+> While you typically leave the "I can" prefix off of these statements. It's still acceptable to use first person narrative in your writeup. For example, in the Design Overview you might say "I decided to..."
 
 ## V. References (required)
 
