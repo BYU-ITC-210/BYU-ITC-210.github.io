@@ -458,3 +458,15 @@ table.layout th, table.layout td {
     font-style: italic;
     margin-bottom: 0.5em;
 }
+
+/* === Print === */
+@media print {
+
+    body {
+        background: white;
+    }
+
+    code, pre {
+        background-color: var(--clr_code_bg);
+    }    
+}
