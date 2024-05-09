@@ -7,7 +7,7 @@ _**Warning:** Attempting to attack a website or computer system without authoriz
 
 [ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own message. This is to keep you from posting exploits that would affect some else.
 
-Browse to [https://scriptboard.dicax.org](https://scriptboard.dicax.org). You will see an empty message. Write a message and click `Post` to see how it works.
+Browse to [https://scriptboard.dicax.org](https://scriptboard.dicax.org){: target="_blank"}. You will see an empty message board. Write a message and click `Post` to see how it works.
 
 The message board supports HTML so that you can format text. (You will exploit that later.) For now, post something benign like bolding some text.
 
@@ -21,9 +21,9 @@ Create a simple exploit by putting a popup message on the screen. This sort of t
 <span onmouseover="alert('gotcha!')">My name is Scott!</span>
 ```
 
-Hover over the new message ahd you should get a message.
+Hover over the new message ahd you should get an alert popup.
 
-You can use some script to **deface** the site by changing text. A more sophisticated attack might even add photos. Compared to what's possible, this one is relatively mild:
+You can use some script to **deface** the site by changing text. A more sophisticated attack might even add images. Compared to what's possible, this one is relatively mild:
 
 ```
 <b>Show me.</b>
@@ -51,27 +51,27 @@ The page has a hidden element storing the `Session ID`. Retrieve that data and s
 
 ```
 <script>
-fetch("/Capture?id=" + document.getElementById("sessionId").textContent);
+fetch("/Capture?sessionId=" + document.getElementById("sessionId").textContent);
 </script>
 No exploit here. Nope, definitely not!
 ```
 
-Now look at the [ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) page to see what has been collected.
+Now look at the ViewCaptures page (by clicking `Captures` in the upper-right) to see what has been collected.
 
-Scripting doesn't have to be enabled to successfully apply an XSS attack. Here we deliberately fail to close quotes on an image link. The browser will treat everything up to the next quote as part of the query string. And, since the link is to the `Captures` URL the data will be captured. After putting this in a post, go check [ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) to see what it found.
+Scripting doesn't have to be enabled to successfully apply an XSS attack. In this example we deliberately fail to close quotes on an image link. The browser will treat everything following this post up to the next quote as part of the query string. And, since the link is to the `Captures` URL the data will be captured. After putting this in a post, go check [ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) to see what it found.
 
 ```
 Hello.<img src="/Capture?data=
 ```
 
-One common way to prevent XSS attacks is to HTML encode all user-provided content. While this method doesn't support rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
+One common way to prevent XSS attacks is to HTML encode all user-provided content. While this method doesn't support rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page that does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
 
 ## On Your Own
 
 You can experiment with other XSS exploits on the site. Try to do the following, or come up with your own exploits:
 
 * The page has some JavaScript that will unscramble a hidden message. Make that message appear somewhere or send it to the captures.
-* The page has a hidden `sessionId` capture or display that information.
+* Display the hidden `sessionId` value instead of capturing it.
 * Steal the session cookie and send it to the captures. (Note: The real session cookie is protected from JavaScript. The one you can find with an exploit is a simulated session cookie.)
 * Change colors or fonts.
 
