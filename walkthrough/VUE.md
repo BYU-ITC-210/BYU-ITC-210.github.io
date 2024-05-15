@@ -2,7 +2,7 @@
 title: VUE & Front-End Frameworks Walkthrough
 ---
 
-Vue is a flexible framework used to create user interfaces for websites. Unlike other frameworks that are all-or-nothing, Vue lets you start small and add more features as needed. It focuses on making the visual part of your website (the 'view') really good, but it can also handle complex, interactive websites when combined with other modern tools and libraries. 
+Vue is a flexible framework used to create user interfaces for websites. Unlike all-or-nothing frameworks, Vue lets you start small and add more features as needed. It focuses on making the visual part of your website (the `view`) good, but it can also handle complex, interactive websites when combined with other modern tools and libraries. 
 
 
 
