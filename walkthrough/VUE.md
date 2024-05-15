@@ -1,5 +1,5 @@
 ---
-title: VUEJs Walkthrough
+title: VUE & Front-End Frameworks Walkthrough
 ---
 
 Node.js is a runtime environment for running JavaScript applications on a desktop computer or a server. Like Python, it offers an interactive console.
