@@ -2,13 +2,13 @@
 title: VUE & Front-End Frameworks Walkthrough
 ---
 
-Node.js is a runtime environment for running JavaScript applications on a desktop computer or a server. Like Python, it offers an interactive console.
+Vue is a flexible framework for building website interfaces, allowing gradual adoption and integration with other tools. It emphasizes easy learning and can handle complex web projects when combined with modern tooling.
 
 Node.js is often thought of as a web server. That's because the popular [Node.js http](https://nodejs.org/api/http.html) module and [Express](https://expressjs.com/) modules are the basis for many high performance web sites.
 
 ## Resources
 
-* [Node.js Installation Page](https://nodejs.org/en/download/)
+* [Vue.js guide](https://v2.vuejs.org/v2/guide/#)
 * [Mozilla Express/Node Introduction](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
 
 
