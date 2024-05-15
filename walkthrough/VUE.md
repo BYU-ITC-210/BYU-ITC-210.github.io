@@ -8,13 +8,34 @@ title: VUE & Front-End Frameworks Walkthrough
 
 ## Resources
 
-* [Vue.js guide](https://v2.vuejs.org/v2/guide/#)
-* [Mozilla Express/Node Introduction](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
-
 
 ## Installation
 
-Browse to the [Node.js installation page](https://nodejs.org/en/download/) and download the appropriate installer for your platform (Windows, Mac, Linux, Docker, etc.). Run the installer to get things set up. For our work, you will not need the ability to build C++ modules or Chocolatey.
+### Setup
+
+1. Make sure node.js is installed
+   ```sh
+   node --version
+   ```
+2. Make sure npm is installed
+   ```sh
+   npm --version
+   ```
+3. 2. Install the VUE framework using this command: 
+
+   ```sh
+   npm install -g @vue/cli --force 
+   ```
+   After installing, run the following command in a terminal:
+
+   ```sh
+   vue ui
+   ```
+   
+   If your vue ui does not work execute the following command:
+   ```
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
 
 ## Experimenting with the Node console
 
