@@ -21,8 +21,8 @@ title: VUE & Front-End Frameworks Walkthrough
    ```sh
    npm --version
    ```
-3. 2. Install the VUE framework using this command: 
-
+3. Clone the lab-5A git-hub repo from Learning Suite onto your computer.
+4. Install the VUE framework using this command: 
    ```sh
    npm install -g @vue/cli --force 
    ```
