@@ -7,7 +7,7 @@ title: VUE & Front-End Frameworks Walkthrough
 [Front-end frameworks](https://en.wikipedia.org/wiki/Front-end_web_development) give pre-written code components to make interface building easier. It makes creating and maintaining well-organized online projects easy while working with HTML, CSS, and JavaScript.
 
 ## Resources
-
+[Vue guide](https://v2.vuejs.org/v2/guide/#)
 
 ## Installation
 
