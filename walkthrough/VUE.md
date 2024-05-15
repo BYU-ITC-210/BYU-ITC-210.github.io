@@ -2,9 +2,9 @@
 title: VUE & Front-End Frameworks Walkthrough
 ---
 
-Vue is a flexible framework for building website interfaces, allowing gradual adoption and integration with other tools. It emphasizes easy learning and can handle complex web projects when combined with modern tooling.
+Vue is a flexible framework used to create user interfaces for websites. Unlike other frameworks that are all-or-nothing, Vue lets you start small and add more features as needed. It focuses on making the visual part of your website (the 'view') really good, but it can also handle complex, interactive websites when combined with other modern tools and libraries. 
 
-Node.js is often thought of as a web server. That's because the popular [Node.js http](https://nodejs.org/api/http.html) module and [Express](https://expressjs.com/) modules are the basis for many high performance web sites.
+
 
 ## Resources
 
