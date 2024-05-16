@@ -55,7 +55,7 @@ In Vue.js, the view is the HTML that the user sees. Vue.js uses a template synta
   {{ message }}
 </div>
 ```
-## MVVM pattern
+## [MVVM pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 
 
 
