@@ -1,5 +1,5 @@
 ---
-title: VUE
+title: VUE Walkthrough
 ---
 
 ##Introducing Front-end Frameworks and Vue.js
