@@ -37,6 +37,7 @@ title: VUE & Front-End Frameworks Walkthrough
 In Vue.js, the data model is typically defined as a JavaScript object within the Vue instance. Here’s an example:
 
 ```JS
+//This line creates a new Vue instance and assigns it to the variable 'app'. 
 var app = new Vue({
   el: '#app',
   data: {
@@ -52,9 +53,7 @@ In Vue.js, the view is the HTML that the user sees. Vue.js uses a template synta
   {{ message }}
 </div>
 ```
-
-
-
 ## MVVM pattern
+
 
 
