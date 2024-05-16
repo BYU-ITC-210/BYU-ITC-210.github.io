@@ -31,6 +31,9 @@ title: VUE & Front-End Frameworks Walkthrough
    vue --version
    ```
 ## Creating a data model
+In Vue.js, the data model is typically defined as a JavaScript object within the Vue instance. Here’s an example:
+
+
 
 
 
