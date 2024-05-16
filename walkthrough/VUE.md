@@ -56,6 +56,6 @@ In Vue.js, the view is the HTML that the user sees. Vue.js uses a template synta
 </div>
 ```
 ## [MVVM pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
-
+Vue.js follows the Model-View-ViewModel (MVVM) architectural pattern. The model is the source of truth, and the view is a projection of the model. When the model changes, the view reflects the change, and vice versa. This is achieved through Vue.js’s reactive data binding system.
 
 
