@@ -10,9 +10,9 @@ title: VUE Walkthrough
 
 ## Resources
 
-* [Vue guide](https://v2.vuejs.org/v2/guide/#)
+* [VUE guide](https://v2.vuejs.org/v2/guide/#)
   
-* [Vue tutorial](https://www.educative.io/blog/vue-js-tutorial)
+* [VUE tutorial](https://www.educative.io/blog/vue-js-tutorial)
 
 ## Installation
 
