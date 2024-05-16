@@ -10,8 +10,8 @@ title: VUE & Front-End Frameworks Walkthrough
 
 ## Resources
 
-[Vue guide](https://v2.vuejs.org/v2/guide/#)
-[Vue tutorial](https://www.educative.io/blog/vue-js-tutorial)
+*[Vue guide](https://v2.vuejs.org/v2/guide/#)
+*[Vue tutorial](https://www.educative.io/blog/vue-js-tutorial)
 
 ## Installation
 
