@@ -37,9 +37,11 @@ title: VUE & Front-End Frameworks Walkthrough
 In Vue.js, the data model is typically defined as a JavaScript object within the Vue instance. Here’s an example:
 
 ```JS
-//This line creates a new Vue instance and assigns it to the variable `app`. 
+//This line creates a new Vue instance and assigns it to the variable app. 
 var app = new Vue({
+//This line tells Vue to bind this instance to the element in our HTML with the id of app. 
   el: '#app',
+//This is the data object, where we define all the data for our app.
   data: {
     message: 'Hello Vue!'
   }
