@@ -17,7 +17,7 @@ title: VUE & Front-End Frameworks Walkthrough
    ```sh
    node --version
    ```
-2. Make sure npm is installed
+2. Make sure [npm](https://kinsta.com/knowledgebase/what-is-npm/) is installed
    ```sh
    npm --version
    ```
