@@ -20,13 +20,13 @@ This is a handy page that lets us compose and call REST APIs sort of like a ligh
 * Click the `Create` template and create a car to add to the database. Edit the body of the request (to customize the car) and click `Send`. If you want, create another item for the database. It doesn't have to be a car, any valid JSON object will work.
 * Click `Read` to read all of your items from the database.
 
-So, everything works. What make this a naive server? Well, let's try calling this from a different host (a.k.a. origin)?
+So, everything works. What makes this a "naive" server? Well, let's try calling this from a different host (a.k.a. origin)?
 
 * Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace). This is the same page content as the one we were using, but it's hosted on a different server.
 * Like before, click on the `Login` template but change the URL to `login-n` to use the naive login mode.
 * Enter valid credentials (password is the same as the username but with a `-9455` suffix).
 * Click `Send` and ... you get an error.
-* Open the console to see what the error is.
+* Open the browser console to see what the error is.
 
 You see an error something like this:
 ```
@@ -44,7 +44,7 @@ An "Origin" to the browser is the first part of the URL, including the protocol,
 * Click on the `Network` tab in the developer tools.
 * Click `Send` again to see what the browser is actually doing.
 
-You will see that the browser sent an OPTIONS request to the server. This is known as a "CORS Preflight" request. When calling *cross-origin* the browser will first send a preflight request to find out if the server accepts such requests. In this naive case, the programmer didn't know about CORS and returned a 404 error. Without a valid response, the browser blocked JavaScript from completing the `fetch()`.
+You will see that the browser sent an OPTIONS request to the server. This is known as a "CORS Preflight" request. When calling *cross-origin* the browser will first send a preflight request to find out if the server accepts such requests. In this naive case, the programmer didn't know about CORS and the server returned a 404 error. Without a valid response, the browser blocked JavaScript from completing the `fetch()`.
 
 ## A Permissive REST Server
 
@@ -74,17 +74,17 @@ So, everything is OK, right? Wrong!
 * Click `Credentials: Include`
 * Click `Send`
 
-Whoah! An entirely different domain successfully called the API and got results back! How did that happen?
+Whoah! An entirely different domain successfully called the API, *without logging in* and got results back! How did that happen?
 
 * Try something else. Use the `Create` or `Update` templates to make changes to the database. Again, it succeeds!
 
 It seems that one site's connection to `restspace` got hijacked by the other.
 
-When the browser logged into `https://restspace.dicax.org` from the `https://byu-itc-210.github.io` origin, `restspace` dropped a cookie on the browser as a credential for the session. But, that cookie is tied to the server that created it, `restspace`. It's not connected in any way to the `https://byu-itc-210.github.io` origin. So, when another origin, `https://byujekylldemo.github.io` makes a request to that API, the browser goes ahead and sends the cookie right along.
+When the browser logged into `https://restspace.dicax.org` from the `https://byu-itc-210.github.io` origin, `restspace` dropped a cookie on the browser as a credential for the session. That cookie is tied to the server that created it, `restspace`. It's not connected in any way to the `https://byu-itc-210.github.io` origin. Nevertheless, when another origin, `https://byujekylldemo.github.io` makes a request to that API, the browser goes ahead and sends the cookie right along.
 
 This attack is known as **Cross-Origin Request Forgery (CSRF)** and it's serious! Imagine if you log into a bank. And then you browse to some other website unaware that the site is malicious. That other site could make API calls to your bank and retrieve sensitive information or transfer money.
 
-CORS is intended to protect against CSRF. But a naive implementation of CORS on the server can completely erase that protection.
+CORS is intended to protect against CSRF. But a permissive implementation of CORS on the server can completely erase that protection.
 
 ## A Secure Cross-Site REST Server
 
@@ -94,7 +94,7 @@ CORS is intended to protect against CSRF. But a naive implementation of CORS on 
 * Click on `Credentials: Include` (it's required for cross-origin requests)
 * Click `Send`
 
-Look at the cookie that was returned in the headers. At the beginning it includes "o=" and the name of an *origin*. The server has included the origin in the cookie and it will enforce that only requests from the same origin will be accepted.
+Look at the cookie that was returned in the headers. At the beginning it includes "o=" and the name of an *origin*. The server has included the origin in the cookie and it will require that only requests from the same origin will be accepted.
 
 You can also examine cookies in the Application tab of the developer tools.
 
@@ -116,7 +116,7 @@ This is a huge improvement. And it finally achieves the security level we were s
 * You can leave `Credentials: Include` off because header tokens don't require them.
 * Click `Send`
 
-This time the server doesn't send a cookie at all. The authentication token is returned in the JSON and also in a header labeled `Authentication-Info` with a value of `Bearer-Update` followed by the token. The `Authentication-Info` header is standardized as is the syntax of its contents. But my use of the `Bearer-Update` instruction is an enhancement, consistent with existing standards.
+This time the server doesn't send a cookie at all. The authentication token is returned in the JSON and also in a header labeled `Authentication-Info` with a value of `Bearer-Update` followed by the token. The `Authentication-Info` header is standardized as is the syntax of its contents. But my use of the `Bearer-Update` instruction is an enhancement. It's consistent with existing standards but not yet standardized.
 
 You'll see that the JavaScript of `callapi` is smart enough to pick up the token from the `Authentication-Info` header and put it in the `Authorization: Bearer` field in the upper part of the form.
 
@@ -135,6 +135,6 @@ The token is rejected because the origin doesn't match.
 
 The Authentication Token method has several advantages. Most important is that it enables secure cross-origin requests even when third-party cookies are disabled. Another advantage is that it doesn't use cookies. So, you don't need a cookie authorization banner even if you're developing for an international company.
 
-On the other hand, it requires that you manage the tokens yourself, in JavaScript while the browser will manage cookies for you. And if you want to maintain a session token across multiple browser tabs you have to manage that carefully. [This article](https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/) discusses that in detail.
+On the other hand, it requires that you manage the tokens yourself, in JavaScript, while the browser will manage cookies for you. And if you want to maintain a session token across multiple browser tabs you have to manage that carefully. [This article](https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/) discusses that in detail.
 
 In our labs, we are keeping both the REST API and the application on the same server. In that context, CORS headers aren't required and the existing of CORS on the browser will protect against Cross-Site Request Forgery. But for anything that involves cross-origin requests, Secure Browser Tokens are the best option.
