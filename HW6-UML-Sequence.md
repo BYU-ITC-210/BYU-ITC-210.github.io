@@ -41,7 +41,7 @@ If you choose to use a digital tool, here are some good options:
 
 Produce two careful UML Sequence Diagrams reflecting the data that gets passed between different components that are part of lab 5.
 
-Each diagram should include the following columns: 1) Browser, 2) Server Endpoint 3) Database 4) Google OAuth.
+Each diagram should include the following columns: 1) Browser, 2) Server Endpoint 3) Database 4) Google Auth.
 
 This will be graded as a homework assignment, though it will also need to be included in your lab documentation.
 
