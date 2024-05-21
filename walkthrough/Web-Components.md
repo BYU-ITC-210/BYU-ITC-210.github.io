@@ -4,11 +4,11 @@ title: Web Components Walkthrough
 
 Reusing code is beneficial, but complex custom HTML, styles, and scripts can make it challenging. [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_Components#concepts_and_usage) addresses this by offering three technologies to create versatile, encapsulated custom elements, enabling easy reuse without code conflicts.
 
-[Custom Elements](https://javascript.info/custom-elements) allow developers to define their own HTML tags, creating new DOM elements with custom behavior and properties. These elements can be reused across web applications, enabling more modular and maintainable code.
+A key feature of Web Components is the ability to create [custom elements](https://javascript.info/custom-elements), allowing developers to define new HTML elements with specific behaviors, extending the standard set available in the browser.
 
-[Shadow DOM](https://javascript.info/shadow-dom) provides encapsulation for DOM and CSS. It allows developers to create a separate, isolated DOM tree and style for a custom element, preventing styles and scripts from leaking out or affecting other parts of the document.
+Encapsulation is crucial for custom elements to ensure they work seamlessly when reused across different web pages.[Shadow DOM](https://javascript.info/shadow-dom) enables this by attaching a hidden DOM tree to an element, protecting its internal implementation from the page's JavaScript and CSS interference.
 
-[HTML Templates](https://javascript.info/template-element) define chunks of HTML that are inert until activated. They can be used to declare markup that is to be instantiated when needed, enabling the dynamic and efficient creation of custom elements and content without polluting the global scope.
+Reusing markup structures repeatedly is simplified by the HTML [templates element](https://javascript.info/template-element). This element's contents are not rendered in the DOM but can be referenced and instantiated via JavaScript, making the process more efficient and organized.
 
 ## Setup
 
