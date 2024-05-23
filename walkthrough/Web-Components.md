@@ -33,7 +33,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
   The `define()` method takes the following arguments:
 
   `name`
-  The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a valid    name.
+  The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a [valid    name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
 
   `constructor`
   The custom element's constructor function.
