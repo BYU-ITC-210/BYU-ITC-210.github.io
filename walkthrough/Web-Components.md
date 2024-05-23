@@ -45,5 +45,18 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
   // let the browser know that <my-element> is served by our new class
   customElements.define("my-element", MyElement);
   ```
+4. Apply to HTML file
+   ```html
+   <head>
+   <script src="myelement.js"></script>
+   </head>
+   ```
+
+5. Call the custom method
+   ```html
+     <body>
+      <my-element>Web Components</my-element>
+     </body>
+   ```
  
 
