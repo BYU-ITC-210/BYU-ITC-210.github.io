@@ -16,8 +16,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
   `myelement.js`
 
-2. Creating autonomous elements
-    A custom element is implemented as a class which extends HTMLElement (in the case      of autonomous elements)
+2. Creating autonomous elements: A custom element is implemented as a class which extends HTMLElement (in the case of autonomous elements).
 
   ```js
   // Create a class for the element
