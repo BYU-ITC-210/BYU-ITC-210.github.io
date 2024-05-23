@@ -14,36 +14,36 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
 1. Creating a JavaScript file
 
-`myelement.js`
+  `myelement.js`
 
 2. Creating autonomous elements
 
-```js
-// Create a class for the element
-class MyElement extends HTMLElement {
-  constructor() {
-    // Always call super first in the constructor
-    super();
-  }
-```
+  ```js
+  // Create a class for the element
+  class MyElement extends HTMLElement {
+    constructor() {
+      // Always call super first in the constructor
+      super();
+    }
+  ```
 3. Register the element:
 
-To make a `custom element` available in a page, call the `define()` method of `Window.customElements`.
+  To make a `custom element` available in a page, call the `define()` method of          `Window.customElements`.
 
-The `define()` method takes the following arguments:
+  The `define()` method takes the following arguments:
 
-`name`
-The name of the element. This must start with a lowercase letter, contain a hyphen, and satisfy certain other rules listed in the specification's definition of a valid name.
+  `name`
+  The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a valid    name.
 
-`constructor`
-The custom element's constructor function.
+  `constructor`
+  The custom element's constructor function.
 
-`options`
-Only included for customized built-in elements, this is an object containing a single property extends, which is a string naming the built-in element to extend.
+  `options`
+  Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
 
-```js
-// let the browser know that <my-element> is served by our new class
-customElements.define("my-element", MyElement);
-```
+  ```js
+  // let the browser know that <my-element> is served by our new class
+  customElements.define("my-element", MyElement);
+  ```
  
 
