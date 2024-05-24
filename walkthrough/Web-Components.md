@@ -14,7 +14,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
 1. Creating a JavaScript file
 
-  `myelement.js`
+`myelement.js`
 
 2. Creating autonomous elements: A custom element is implemented as a class which extends HTMLElement (in the case of autonomous elements).
 
@@ -27,16 +27,16 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
     }
   ```
 ## Custom element lifecycle callbacks: 
-* Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
+Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
 
-   Custom element lifecycle callbacks include:
+Custom element lifecycle callbacks include:
 
-      ** `connectedCallback()`: called each time the element is added to the document. The specification recommends that, as far as possible,               developers should implement custom element setup in this callback rather than the constructor.
-      **  `disconnectedCallback()`: called each time the element is removed from the document.
-      **  `adoptedCallback()`: called each time the element is moved to a new document.
-      **  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced.
-  
-   **Here's a minimal custom element that logs these lifecycle events**:
+* `connectedCallback()`: called each time the element is added to the document. The specification recommends that, as far as possible,               developers should implement custom element setup in this callback rather than the constructor.
+*  `disconnectedCallback()`: called each time the element is removed from the document.
+*  `adoptedCallback()`: called each time the element is moved to a new document.
+*  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced.
+
+ **Here's a minimal custom element that logs these lifecycle events**:
   
 ```js
   class MyElement extends HTMLElement {
@@ -69,19 +69,13 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 ```
 
 ## Register the element:
-
-  To make a `custom element` available in a page, call the `define()` method of          `Window.customElements`.
-
-  The `define()` method takes the following arguments:
-
-  `name`
-  The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a [valid    name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
-
-  `constructor`
-  The custom element's constructor function.
-
-  `options`
-  Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
+To make a `custom element` available in a page, call the `define()` method of `Window.customElements`.The `define()` method takes the following arguments:
+`name`
+The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a [valid    name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
+`constructor`
+The custom element's constructor function.
+`options`
+Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
 
   ```js
   // let the browser know that <my-element> is served by our new class
