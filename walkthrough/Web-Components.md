@@ -35,7 +35,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
       *  `adoptedCallback()`: called each time the element is moved to a new document.
       *  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced. 
   
-   ```js
+```js
   class MyElement extends HTMLElement {
   constructor() {
     super();
@@ -63,7 +63,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
   // there can be other element methods and properties
   }
-   ```
+```
 
 5. Register the element:
 
