@@ -64,6 +64,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
   // there can be other element methods and properties
   }
    ```
+
 5. Register the element:
 
   To make a `custom element` available in a page, call the `define()` method of          `Window.customElements`.
