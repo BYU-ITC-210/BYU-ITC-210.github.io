@@ -30,10 +30,10 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
    Custom element lifecycle callbacks include:
 
-      `connectedCallback()`: called each time the element is added to the document. The specification recommends that, as far as possible,               developers should implement custom element setup in this callback rather than the constructor.
-      `disconnectedCallback()`: called each time the element is removed from the document.
-     `adoptedCallback()`: called each time the element is moved to a new document.
-      `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced. See Responding to attribute changes for more        details about this callback.
+      * `connectedCallback()`: called each time the element is added to the document. The specification recommends that, as far as possible,               developers should implement custom element setup in this callback rather than the constructor.
+      *  `disconnectedCallback()`: called each time the element is removed from the document.
+      *  `adoptedCallback()`: called each time the element is moved to a new document.
+      *  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced. 
   
    
 5. Register the element:
