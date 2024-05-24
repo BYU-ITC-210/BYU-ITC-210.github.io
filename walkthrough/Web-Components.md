@@ -35,7 +35,35 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
       *  `adoptedCallback()`: called each time the element is moved to a new document.
       *  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced. 
   
-   
+   ```js
+  class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    // element created
+  }
+
+  connectedCallback() {
+    // browser calls this method when the element is added to the document
+    // (can be called many times if an element is repeatedly added/removed)
+  }
+
+  disconnectedCallback() {
+    // browser calls this method when the element is removed from the document
+    // (can be called many times if an element is repeatedly added/removed)
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // called when one of attributes listed above is modified
+  }
+
+  adoptedCallback() {
+    // called when the element is moved to a new document
+    // (happens in document.adoptNode, very rarely used)
+  }
+
+  // there can be other element methods and properties
+  }
+   ```
 5. Register the element:
 
   To make a `custom element` available in a page, call the `define()` method of          `Window.customElements`.
