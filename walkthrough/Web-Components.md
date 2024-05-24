@@ -70,11 +70,11 @@ Custom element lifecycle callbacks include:
 
 ## Register the element:
 To make a `custom element` available in a page, call the `define()` method of `Window.customElements`.The `define()` method takes the following arguments:
-`name`
+*`name`
 The name of the element. This must start with a lowercase letter, contain a hyphen,    and satisfy certain other rules listed in the specification's definition of a [valid    name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
-`constructor`
+*`constructor`
 The custom element's constructor function.
-`options`
+*`options`
 Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
 
   ```js
