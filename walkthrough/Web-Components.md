@@ -26,7 +26,8 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
       super();
     }
   ```
-3. Custom element lifecycle callbacks: Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
+## Custom element lifecycle callbacks: 
+* Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
 
    Custom element lifecycle callbacks include:
 
@@ -67,7 +68,7 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
   }
 ```
 
-5. Register the element:
+## Register the element:
 
   To make a `custom element` available in a page, call the `define()` method of          `Window.customElements`.
 
@@ -86,18 +87,14 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
   // let the browser know that <my-element> is served by our new class
   customElements.define("my-element", MyElement);
   ```
-5. Apply to HTML file
+## Using a custom element
+
    ```html
    <head>
    <script src="myelement.js"></script>
-   </head>
-   ```
 
-6. Call the custom method
-   ```html
-     <body>
+    <body>
       <my-element>Web Components</my-element>
      </body>
+   </head>
    ```
- 
-
