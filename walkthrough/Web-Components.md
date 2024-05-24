@@ -92,9 +92,9 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
    ```html
    <head>
    <script src="myelement.js"></script>
-
+   </head>
     <body>
       <my-element>Web Components</my-element>
      </body>
-   </head>
+   
    ```
