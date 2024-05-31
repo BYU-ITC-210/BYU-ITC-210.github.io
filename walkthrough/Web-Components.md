@@ -18,14 +18,42 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
 2. Creating autonomous elements: A custom element is implemented as a class which extends HTMLElement (in the case of autonomous elements).
 
-  ```js
-  // Create a class for the element
-  class MyElement extends HTMLElement {
-    constructor() {
-      // Always call super first in the constructor
-      super();
-    }
-  ```
+```js
+// Create a class for the element
+class MyElement extends HTMLElement {
+  constructor() {
+    // Always call super first in the constructor
+    super();
+    
+    // Create a shadow root
+    this.attachShadow({ mode: 'open' });
+
+    // Create wrapper element
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class', 'wrapper');
+
+    // Create input element
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Enter text';
+
+    // Create button element
+    const button = document.createElement('button');
+    button.textContent = 'Submit';
+
+    // Append elements to the shadow root
+    this.shadowRoot.append(wrapper);
+    wrapper.append(input, button);
+
+    // Attach event listener to the button
+    button.addEventListener('click', () => {
+      this.dispatchEvent(new CustomEvent('submit', {
+        detail: input.value,
+      }));
+    });
+  }
+}
+```
 ## Custom element lifecycle callbacks: 
 Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
 
