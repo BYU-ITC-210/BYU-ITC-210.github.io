@@ -129,13 +129,12 @@ The custom element's constructor function.
 * `options`
 Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
 
-  ```js
-  // let the browser know that <my-element> is served by our new class
-  customElements.define("my-element", MyElement);
-  ```
+```js
+// let the browser know that <my-element> is served by our new class
+customElements.define("my-element", MyElement);
+```
 ## Using a custom element
 ```html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,7 +176,4 @@ Only included for customized built-in elements, this is an object containing a  
   </script>
 </body>
 </html>
-
-
-
 ```
