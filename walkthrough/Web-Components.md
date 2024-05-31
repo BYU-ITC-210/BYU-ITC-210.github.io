@@ -70,30 +70,26 @@ Custom element lifecycle callbacks include:
   class MyElement extends HTMLElement {
   constructor() {
     super();
+    this.attachShadow({ mode: 'open' });
     // element created
   }
 
   connectedCallback() {
-    // browser calls this method when the element is added to the document
-    // (can be called many times if an element is repeatedly added/removed)
+    console.log('Element added to the page.');
   }
 
   disconnectedCallback() {
-    // browser calls this method when the element is removed from the document
-    // (can be called many times if an element is repeatedly added/removed)
+    console.log('Element removed from the page.');
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    // called when one of attributes listed above is modified
+    console.log(`Attribute ${name} changed from ${oldValue} to ${newValue}`);
   }
 
   adoptedCallback() {
-    // called when the element is moved to a new document
-    // (happens in document.adoptNode, very rarely used)
+    console.log('Element moved to a new page.');
   }
-
-  // there can be other element methods and properties
-  }
+}
 ```
 
 ## Register the element:
