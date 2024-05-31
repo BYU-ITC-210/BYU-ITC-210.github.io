@@ -19,73 +19,68 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 2. Creating autonomous elements: A custom element is implemented as a class which extends HTMLElement (in the case of autonomous elements).
 
 ```js
-
-
-// myelement.js
-
 class MyElement extends HTMLElement {
-  constructor() {
-    super();
-
-    // Create a shadow root
-    this.attachShadow({ mode: 'open' });
-
-    // Create wrapper element
-    const wrapper = document.createElement('div');
-    wrapper.setAttribute('class', 'wrapper');
-
-    // Create input element
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.placeholder = 'Enter text';
-
-    // Create submit button
-    const submitButton = document.createElement('button');
-    submitButton.textContent = 'Submit';
-    submitButton.setAttribute('class', 'submit-button');
-
-    // Create clear button
-    const clearButton = document.createElement('button');
-    clearButton.textContent = 'Clear';
-    clearButton.setAttribute('class', 'clear-button');
-
-    // Create style element
-    const style = document.createElement('style');
-    style.textContent = `
-      .submit-button {
-        background-color: white;
-      }
-      .submit-button:hover {
-        background-color: lightblue;
-      }
-      .clear-button {
-        background-color: white;
-      }
-      .clear-button:hover {
-        background-color: lightcoral;
-      }
-    `;
-
-    // Append elements to the shadow root
-    this.shadowRoot.append(style, wrapper);
-    wrapper.append(input, submitButton, clearButton);
-
-    // Attach event listener to the submit button
-    submitButton.addEventListener('click', () => {
-      submitButton.style.backgroundColor = 'blue';
-      this.dispatchEvent(new CustomEvent('submit', {
-        detail: input.value,
-      }));
-    });
-
-    // Attach event listener to the clear button
-    clearButton.addEventListener('click', () => {
-      input.value = '';
-      clearButton.style.backgroundColor = 'red';
-    });
+    constructor() {
+      super();
+  
+      // Create a shadow root
+      this.attachShadow({ mode: 'open' });
+  
+      // Create wrapper element
+      const wrapper = document.createElement('div');
+      wrapper.setAttribute('class', 'shadow-wrapper');
+  
+      // Create input element
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = 'Enter text';
+  
+      // Create submit button
+      const submitButton = document.createElement('button');
+      submitButton.textContent = 'Submit';
+      submitButton.setAttribute('class', 'submit-button');
+  
+      // Create clear button
+      const clearButton = document.createElement('button');
+      clearButton.textContent = 'Clear';
+      clearButton.setAttribute('class', 'clear-button');
+  
+      // Create style element
+      const style = document.createElement('style');
+      style.textContent = `
+        .submit-button {
+          background-color: white;
+        }
+        .submit-button:hover {
+          background-color: lightblue;
+        }
+        .clear-button {
+          background-color: white;
+        }
+        .clear-button:hover {
+          background-color: lightcoral;
+        }
+      `;
+  
+      // Append elements to the shadow root
+      this.shadowRoot.append(style, wrapper);
+      wrapper.append(input, submitButton, clearButton);
+  
+      // Attach event listener to the submit button
+      submitButton.addEventListener('click', () => {
+        submitButton.style.backgroundColor = 'blue';
+        this.dispatchEvent(new CustomEvent('submit', {
+          detail: input.value,
+        }));
+      });
+  
+      // Attach event listener to the clear button
+      clearButton.addEventListener('click', () => {
+        input.value = '';
+        clearButton.style.backgroundColor = 'red';
+      });
+    }
   }
-}
-
 ```
 ## Custom element lifecycle callbacks: 
 Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
@@ -147,6 +142,22 @@ Only included for customized built-in elements, this is an object containing a  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom Element Demo</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    my-element {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .shadow-wrapper {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
   <script src="myelement.js" defer></script>
 </head>
 <body>
@@ -166,6 +177,7 @@ Only included for customized built-in elements, this is an object containing a  
   </script>
 </body>
 </html>
+
 
 
 ```
