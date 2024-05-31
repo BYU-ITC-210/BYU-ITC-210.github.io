@@ -108,11 +108,30 @@ Only included for customized built-in elements, this is an object containing a  
 ## Using a custom element
 
    ```html
-   <head>
-   <script src="myelement.js"></script>
-   </head>
-    <body>
-      <my-element>Web Components</my-element>
-     </body>
-   
-   ```
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Element Demo</title>
+  <script src="myelement.js" defer></script>
+</head>
+<body>
+  <form id="custom-form">
+    <my-element></my-element>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    document.getElementById('custom-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const myElement = document.querySelector('my-element');
+      myElement.addEventListener('submit', function(e) {
+        alert('Submitted value: ' + e.detail);
+      });
+    });
+  </script>
+</body>
+</html>
+
+```
