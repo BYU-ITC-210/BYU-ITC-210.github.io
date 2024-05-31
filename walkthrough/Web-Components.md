@@ -19,12 +19,14 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 2. Creating autonomous elements: A custom element is implemented as a class which extends HTMLElement (in the case of autonomous elements).
 
 ```js
-// Create a class for the element
+
+
+// myelement.js
+
 class MyElement extends HTMLElement {
   constructor() {
-    // Always call super first in the constructor
     super();
-    
+
     // Create a shadow root
     this.attachShadow({ mode: 'open' });
 
@@ -37,22 +39,53 @@ class MyElement extends HTMLElement {
     input.type = 'text';
     input.placeholder = 'Enter text';
 
-    // Create button element
-    const button = document.createElement('button');
-    button.textContent = 'Submit';
+    // Create submit button
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    submitButton.setAttribute('class', 'submit-button');
+
+    // Create clear button
+    const clearButton = document.createElement('button');
+    clearButton.textContent = 'Clear';
+    clearButton.setAttribute('class', 'clear-button');
+
+    // Create style element
+    const style = document.createElement('style');
+    style.textContent = `
+      .submit-button {
+        background-color: white;
+      }
+      .submit-button:hover {
+        background-color: lightblue;
+      }
+      .clear-button {
+        background-color: white;
+      }
+      .clear-button:hover {
+        background-color: lightcoral;
+      }
+    `;
 
     // Append elements to the shadow root
-    this.shadowRoot.append(wrapper);
-    wrapper.append(input, button);
+    this.shadowRoot.append(style, wrapper);
+    wrapper.append(input, submitButton, clearButton);
 
-    // Attach event listener to the button
-    button.addEventListener('click', () => {
+    // Attach event listener to the submit button
+    submitButton.addEventListener('click', () => {
+      submitButton.style.backgroundColor = 'blue';
       this.dispatchEvent(new CustomEvent('submit', {
         detail: input.value,
       }));
     });
+
+    // Attach event listener to the clear button
+    clearButton.addEventListener('click', () => {
+      input.value = '';
+      clearButton.style.backgroundColor = 'red';
+    });
   }
 }
+
 ```
 ## Custom element lifecycle callbacks: 
 Once the `custom element` is registered, the browser will invoke specific methods of your class when the element is interacted with in certain ways.
@@ -106,9 +139,9 @@ Only included for customized built-in elements, this is an object containing a  
   customElements.define("my-element", MyElement);
   ```
 ## Using a custom element
+```html
 
-   ```html
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -118,7 +151,7 @@ Only included for customized built-in elements, this is an object containing a  
 </head>
 <body>
   <form id="custom-form">
-    <my-element>My button</my-element>
+    <my-element></my-element>
     <button type="submit">Send</button>
   </form>
 
@@ -133,5 +166,6 @@ Only included for customized built-in elements, this is an object containing a  
   </script>
 </body>
 </html>
+
 
 ```
