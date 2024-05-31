@@ -118,7 +118,7 @@ Only included for customized built-in elements, this is an object containing a  
 </head>
 <body>
   <form id="custom-form">
-    <my-element></my-element>
+    <my-element>My button</my-element>
     <button type="submit">Send</button>
   </form>
 
