@@ -16,7 +16,8 @@ Reusing markup structures repeatedly is simplified by the HTML [templates elemen
 
 `myelement.js`
 
-### Creating autonomous elements: A custom element is implemented as a class that extends HTMLElement (in the case of autonomous elements).
+### Creating autonomous elements: 
+A custom element is implemented as a class that extends HTMLElement (in the case of autonomous elements). It defines a new class called MyElement that extends HTMLElement, which means it inherits all the properties and methods of an HTMLElement. `constructor` is the constructor method for the class. It gets called when a new instance of the class is created. `super` calls the constructor of the parent class (HTMLElement).
 ```js
 class MyElement extends HTMLElement {
     constructor() {
