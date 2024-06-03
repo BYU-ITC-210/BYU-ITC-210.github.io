@@ -34,11 +34,9 @@ Custom element lifecycle callbacks include:
 *  `disconnectedCallback()`: called each time the element is removed from the document.
 *  `adoptedCallback()`: called each time the element is moved to a new document.
 *  `attributeChangedCallback()`: called when attributes are changed, added, removed, or replaced.
-
- **Here's a minimal custom element that logs these lifecycle events**:
   
 ```js
-  class MyElement extends HTMLElement {
+class MyElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -76,6 +74,74 @@ Only included for customized built-in elements, this is an object containing a  
 // let the browser know that <my-element> is served by our new class
 customElements.define("my-element", MyElement);
 ```
+
+### Creating Reusable UI Components with JavaScript and Shadow DOM
+
+```js
+class MyElement extends HTMLElement { 
+    constructor() { 
+      super(); 
+  
+      // Create a shadow root
+      this.attachShadow({ mode: 'open' }); // This creates a shadow root for this element. The 'open' mode means that the shadow root can be accessed from JavaScript outside the element.
+  
+      // Create wrapper element
+      const wrapper = document.createElement('div'); 
+      wrapper.setAttribute('class', 'shadow-wrapper'); 
+  
+      // Create input element
+      const input = document.createElement('input'); 
+      input.type = 'text'; 
+      input.placeholder = 'Enter text'; 
+  
+      // Create submit button
+      const submitButton = document.createElement('button'); 
+      submitButton.textContent = 'Submit'; 
+      submitButton.setAttribute('class', 'submit-button');
+  
+      // Create clear button
+      const clearButton = document.createElement('button'); 
+      clearButton.textContent = 'Clear'; 
+      clearButton.setAttribute('class', 'clear-button'); 
+  
+      // Create style element
+      const style = document.createElement('style'); // This creates a new style element.
+      style.textContent = ` // This sets the text content of the style element to the CSS rules inside the backticks.
+        .submit-button {
+          background-color: white;
+        }
+        .submit-button:hover {
+          background-color: lightblue;
+        }
+        .clear-button {
+          background-color: white;
+        }
+        .clear-button:hover {
+          background-color: lightcoral;
+        }
+      `;
+  
+      // Append elements to the shadow root
+      this.shadowRoot.append(style, wrapper); // This appends the style and wrapper elements to the shadow root.
+      wrapper.append(input, submitButton, clearButton); // This appends the input, submitButton, and clearButton elements to the wrapper.
+  
+      // Attach event listener to the submit button
+      submitButton.addEventListener('click', () => { // This adds an event listener to the submitButton that listens for click events.
+        submitButton.style.backgroundColor = 'blue'; // When the button is clicked, this changes the background color of the button to blue.
+        this.dispatchEvent(new CustomEvent('submit', { // This dispatches a new custom event called 'submit'.
+          detail: input.value, // The detail property of the event is set to the current value of the input.
+        }));
+      });
+  
+      // Attach event listener to the clear button
+      clearButton.addEventListener('click', () => { // This adds an event listener to the clearButton that listens for click events.
+        input.value = ''; // When the button is clicked, this clears the value of the input.
+        clearButton.style.backgroundColor = 'red'; // This changes the background color of the button to red.
+      });
+    }
+  }
+```
+
 ### Using a custom element
 ```html
 <!DOCTYPE html>
