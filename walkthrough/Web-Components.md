@@ -68,7 +68,7 @@ The name of the element. This must start with a lowercase letter, contain a hyph
 * `constructor`
 The custom element's constructor function.
 * `options`
-Only included for customized built-in elements, this is an object containing a         single property extends, which is a string naming the built-in element to extend.
+Only included for customized built-in elements, this is an object containing a         single property extends, a string naming the built-in element to extend.
 
 ```js
 // let the browser know that <my-element> is served by our new class
