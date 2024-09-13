@@ -206,6 +206,8 @@ This is usually not desireable behavior. More times than not, you didn't intend 
 
 Strict mode will throw an error rather than create a global variable. It also places a few more restrictions on your code intended to prevent bugs. Read more here: [Mozilla Strict Mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
 
+In my own programming I (your professor) prefer "use strict" and I use `let` when declaring variables (never `var`).
+
 ## Boolean Interpretation
 
 Any variable can be interpreted as a boolean.
