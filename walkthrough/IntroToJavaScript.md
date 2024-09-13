@@ -29,7 +29,19 @@ index.html
 </html>
 ```
 
-## Basics
+Open that page in your browser. Also in your browser, open the developer tools `... > more tools > developer tools` and switch to the Console tab. Many of the JavaScript operations we do in this walkthrough will write information to the console so you will only see the output if the console is open.
+
+> There are several ways to open developer tools. On an PC, press F12. Right-click on the page and select "Inspect". Press Ctrl+Shift+J (PC) or Cmd+Option+J (Mac). [Check this link](https://developer.chrome.com/docs/devtools/open/) for more options.
+
+Once you have the console open, you can type JavaScript directly. For example, enter this:
+
+```js
+2+2
+```
+
+Press enter and it gives the answer.
+
+## JavaScript Basics
 
 * Statements end with semicolon `;`
 * Code blocks are delimited with curly braces `{` and `}`.
@@ -44,13 +56,19 @@ There are four ways to add JavaScript to your HTML page:
 
 ### Inline
 
+Enter this in the `<body>` of your (index.html) page.
+
 ```html
 <span onmouseover="alert('You moused over.')">Hover here.</span>
 ```
 
-Just like with inline CSS, you should have a good reason for this. Otherwise, choose a different option.
+Refresh the page and move your mouse across `Hover here.`
+
+Just like with inline CSS, you should have a good reason for inline HTML. Otherwise, choose a different option.
 
 ### Embedded
+
+Add the following to your HTML page somewhere within the `<body>`.
 
 ```html
 <script>
@@ -59,10 +77,16 @@ Just like with inline CSS, you should have a good reason for this. Otherwise, ch
 </script>
 ```
 
-Script elements can be placed anywhere in the `<head>` or `<body>`. The code is executed or compiled when it is encountered as the page is processed from top to bottom.
+Refresh the page and you'll see the messages appear in the webpage and in the console.
+
+Script elements can be placed anywhere in the `<head>` or `<body>`. The code is executed or compiled when it is encountered as the page is processed from top to bottom. By putting your script in the body, it executes partway through processing the HTML of the page.
+
+> In the `<script>` tag you can use the `defer` property to defer running the JavaScript until after the page has been loaded. [Click here for details.](https://www.w3schools.com/tags/att_script_defer.asp)
 
 ### External File
 Script that is placed in an external file may be used in multiple HTML pages.
+
+Create a new file called `script.js` and enter the following:
 
 script.js
 ```js
@@ -70,6 +94,8 @@ function buttonPopup() {
     alert("Hello, Button!");
 }
 ```
+
+Then add the following to your page:
 
 index.html
 ```html
@@ -80,6 +106,8 @@ index.html
     <button onclick="buttonPopup()">Click here!</button>
 </body>
 ```
+
+Refresh the page and then click on the button.
 
 ## Variables in JavaScript
 
@@ -92,10 +120,12 @@ Variables, even global ones, have the lifetime of a single page.
 <tr><td>const</td><td>Function</td><td>No</td><td>No</td><td>No</td></tr>
 </table>
 
+**For each of the following scripts, enter the script into your `script.js` file and then refresh the page to see the output in the console.**
+
 This works:
 ```js
-function sample(isNumber) {
-    if (typeof(isNumber) == "number") {
+function isNumber(sample) {
+    if (typeof(sample) == "number") {
         var t = "Number";
     }
     else {
@@ -106,12 +136,15 @@ function sample(isNumber) {
     // t is still in scope because of hoisting
     console.log(t);
 }
+
+isNumber(5);
+isNumber("comb");
 ```
 
 This generates an error:
 ```js
-function sample(isNumber) {
-    if (typeof(isNumber) == "number") {
+function isNumber(sample) {
+    if (typeof(sample) == "number") {
         let t = "Number";
     }
     else {
@@ -122,13 +155,41 @@ function sample(isNumber) {
     // Error because "t" is out of scope
     console.log(t);
 }
+
+isNumber(5);
+isNumber("comb");
 ```
+
+When JavaScript generates an error, the browser stops executing at that point. So, we must the fix the code before proceeding.
+
+This is better:
+```js
+function isNumber(sample) {
+    let t;
+    if (typeof(sample) == "number") {
+        t = "Number";
+    }
+    else {
+        // OK because different scope
+        t = "String";
+    }
+
+    // Error because "t" is out of scope
+    console.log(t);
+}
+
+isNumber(5);
+isNumber("comb");
+```
+
 
 > Using the newer keywords, `let` and `const` offers better protection against programming errors because they limit the scope of variables.
 
 If you simply assign a value to a variable, without defining it, JavaScript will create a global variable of that name and assign a value. Even if the assignment is inside a function it will still create a global variable.
 
-```
+Try this:
+
+```js
 function globalTest() {
     globalValue = 42;
 }
@@ -250,7 +311,7 @@ let myObject = {};
 
 An object with contents.
 ```js
-myObject = { 
+let myObject = { 
     name: "Lancelot",
     favoriteColor: "Blue",
 
@@ -258,12 +319,16 @@ myObject = {
         console.log(this.favoriteColor);
     }
 };
+
+myObject.reportColor();
 ```
 
 You can add properties to an existing object.
 
 ```js
 myObject.slogan = "The Brave";
+
+console.log(myObject);
 ```
 
 You can add methods to existing objects.
@@ -279,13 +344,21 @@ myObject.changeColor = function() {
 }
 ```
 
+Now test that:
+
+```js
+myObject.reportColor();
+myObject.changeColor();
+myObject.reportColor();
+```
+
 ## Global Objects
 The browser defines several global objects. The most important are:
 
 * [window](https://www.w3schools.com/js/js_window.asp): The browser window in which your page is displayed.
 * [document](https://www.w3schools.com/js/js_htmldom_document.asp): The HTML document represented by your page.
 
-Each of these has properties, methods and events that are useful to access from JavaScript.
+Each of these has properties, methods and events that are useful to access from JavaScript. In the next lesson and walkthrough we will use `window` and `document` a lot.
 
 ## Events
 
