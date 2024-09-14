@@ -1,0 +1,25 @@
+<svg viewBox="0 0 400 300" width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        rect {
+            stroke: black;
+            fill: darkblue;
+        }
+
+        text {
+            font: 30px sans-serif;
+            fill: white;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+    </style>
+    <rect x="10" y="10" width="380" height="50" />
+    <text x="190" y="35">Header</text>
+    <rect x="10" y="70" width="80" height="160" />
+    <text x="50" y="150">Nav</text>
+    <rect x="100" y="70" width="200" height="160" />
+    <text x="190" y="150">Body</text>
+    <rect x="310" y="70" width="80" height="160" />
+    <text x="350" y="150">Side</text>
+    <rect x="10" y="240" width="380" height="50" />
+    <text x="190" y="265">Footer</text>
+</svg>
