@@ -178,7 +178,7 @@ The HTML parser treats all sequences of whitespace characters as a single space.
 
 You can fix the space problem by editing the HTML to put no breaks between the elements. But that violates the principle of keeping design in the CSS and the content in the HTML. There are many articles [like this one](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) that describe workarounds like setting font size to zero, but they are all pretty kludgey. That lead to people calling on the CSS standards folks to create some kind of `suppress-spaces` property. Instead, they invented [flexbox](https://www.w3schools.com/csS/css3_flexbox.asp) which does that and a lot more.
 
-# Method 3: Flexbox
+## Method 3: Flexbox
 
 [Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) is a more advanced form of the same method you used with `inline-block`. Create a new stylesheet called "flexbox.css":
 

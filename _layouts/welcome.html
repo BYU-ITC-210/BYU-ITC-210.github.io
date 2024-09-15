@@ -29,6 +29,10 @@
         padding: 1em;
     }
 
+    .col2 {
+        margin: auto 0;
+    }
+
     .vertborder {
         background-image: linear-gradient(white, #808080, #808080, white);
         flex: 0 0 0.1in;
@@ -87,6 +91,27 @@
         margin: 1em auto 0 auto;
     }
 
+    .col1img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 17rem);
+        margin: 1em auto 0 auto;
+    }
+
+    .imgcredit {
+        font-size: 0.5em;
+    }
+
+{% if page.image %}
+    .title {
+        margin-top: 2rem;
+    }
+
+    .countdown {
+        margin-top: 0.5em;
+    }
+{% endif %}
+
 </style>
 </head>
 
@@ -95,6 +120,13 @@
         <div class="title">{{ page.title }}</div>
         <div class="subtitle">IT&C 210 - {{ page.session }}</div>
         <div class="countdown" id="countdown" onclick="startCountdown()">Start</div>
+        {% if page.image %}
+        <img class="col1img" src="{{ page.image }}" />
+        {% if page.imgcredit %}
+        <div class="imgcredit">{{ page.imgcredit }}</div>
+        {% endif %}
+        {% endif %}
+        {% if page.quiz %}
         <div class="hidden" id="quiz">
             <div>Quiz</div>
             <ul>
@@ -104,6 +136,7 @@
             <div>Password:</div>
             <div class="quizpw">{{ page.quiz }}</div>
         </div>
+        {% endif %}
     </div>
     <div class="vertborder">
     </div>
@@ -148,9 +181,15 @@
             timer = window.setInterval(tick, 100);
         }
 
-
+{% if page.quiz %}
         function showQuizInfo() {
             document.getElementById('countdown').className = 'hidden';
+            for (const ele of document.getElementsByClassName('col1img')) {
+                ele.className = 'hidden';
+            }
+            for (const ele of document.getElementsByClassName('imgcredit')) {
+                ele.className = 'hidden';
+            }
             document.getElementById('quiz').className = 'quiz';
         }
 
@@ -165,6 +204,7 @@
         }
 
         document.addEventListener('keydown', onKeyDown);
+{% endif %}
 
     </script>
 
