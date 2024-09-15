@@ -15,18 +15,18 @@ Consider this page:
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My title></title>
+        <title>A Document</title>
     </head>
     <body>
-        <a href="url">My link</a>
-        <h1>My header</h1>
+        <h1>Header 1</h1>
+        <a href="url">Some link</a>
     </body>
 </html>
 ```
 
 When loaded into the browser it results in a DOM tree like this:
 
-![The DOM interpreted as a tree diagram](/images/DomTree.png)
+![The DOM interpreted as a tree diagram](DomTree.svg)
 
 ## Setup
 
