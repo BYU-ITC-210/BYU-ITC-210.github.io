@@ -165,16 +165,18 @@ Add the following to your `<script>` element and refresh.
 
 ## Some Useful HTML DOM Properties
 
-* x.innerHTML - the HTML value of x
-* x.textContent - the plain text value of x
-* x.tagName - the tag name of an element
-* x.parentNode - the parent of a node
-* x.childNodes - the collection of child nodes
-* x.attributes - the collection of attributes of an element
+* [element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) - the HTML value of an HTML element
+* [node.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) - the plain text value of an HTML node
+* [element.tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName) - the tag name of an HTML element
+* [node.parentNode](https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode) - the parent of an HTML node
+* [node.childNodes](https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes) - the collection of child nodes
+* [element.attributes](https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes) - the collection of attributes of an element
 
 ## Some Useful HTML DOM Methods
-* x.getElementById(id)
-* x.getElementsByTagName(name)
-* x.getElementsByClassName(names)
-* x.appendChild(element)
-* x.removeChild(element)
+* [document.getElementById(id)](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+* [document.getElementsByTagName(name)](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)
+* [document.getElementsByClassName(names)](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+* [document.querySelector(selector)](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+* [document.querySelectorAll(selector)](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+* [node.appendChild(element)](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+* [node.removeChild(element)](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
