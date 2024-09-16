@@ -136,4 +136,4 @@ The [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event) object, whic
 * `timeStamp` - the time when the event was triggered.
 * `type` - name of the event.
 
-Events also have methods. For example, `preventDefault()` prevents other handlers (including build-in ones) from being called.
+Events also have methods. For example, `preventDefault()` prevents other handlers (including built-in ones) from being called.
