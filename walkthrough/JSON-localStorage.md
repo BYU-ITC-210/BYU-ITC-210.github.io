@@ -42,29 +42,7 @@ For this walkthrough, prepare a simple web page for JSON experimentation. Call i
 </html>
 ```
 
-Web pages opened directly from the file system cannot access Browser localStorage (Window.localStorage). So, we need a minimal web server. Create a file named "docker-compose.yml" in the same folder as your "page.html" load it with the following contents:
-
-```yaml
-version: "3"
-services:
-    web:
-        image: httpd
-        container_name: apache
-        ports:
-            - 80:80
-        volumes:
-            - .:/usr/local/apache2/htdocs
-```
-
-> This `docker-compose.yml` file is slightly different from the one we used for Lab-1a and Lab-1b. Like the one used for the labs, it loads the 'httpd' container which is a simple Apache web server. However, this one maps the current directory (represented by the dot) to the directory where Apache expects to find the contents of the website (`/usr/local/apache2/htdocs`);
-
-Open a console in the current folder and type the following command:
-
-```
-docker compose up -d
-```
-
-Verify that your page can be viewed by browsing to `http://localhost/page.html`
+Open the page in your browser and see your empty page.
 
 ## JSON Embedded in JavaScript
 JSON is a proper subset of the JavaScript language. Because of that, you can simply embed JSON in JavaScript and assign it to a variable.
@@ -104,9 +82,9 @@ for (let entry of band.members) {
 }
 ```
 
-Now, load the page into a browser and view the result.
+Now, refresh the page and view the result.
 
-The `addToArticle()` function uses the [DOM](/S05-JsAndDom) to add a paragraph to the `<article>` with a name and a value. We'll use it through the rest of this walkthrough to insert information into the page.
+The `addToArticle()` function uses the [DOM](JsAndDom) to add a paragraph to the `<article>` with a name and a value. We'll use it through the rest of this walkthrough to insert information into the page.
 
 ## Converting To and From JSON
 
@@ -160,13 +138,15 @@ function submitForm(event) {
 }
 ```
 
+This event handler does three things when you submit a form. First, it calls `event.preventDefault()`. That's because the default action for a form is to send the form data to the server and then reload the page. We don't want action. Next, it converts the data into JSON form in two steps. Finally, it writes the JSON version of the form data out to the page using the `addToArticle()` function we were using before.
+
 Refresh the page, enter something into the form, and click `Submit`.
 
 ## localStorage
 
 Web browsers have a localStorage collection where you can store strings that will be retained between page refreshes and even between browser sessions. We'll store the form data in that collection and retrieve it when the page loads.
 
-Update the `submitForm` function like this:
+Update the `submitForm` function with one more line like this:
 
 ```js
 function submitForm(event) {
@@ -181,7 +161,7 @@ function submitForm(event) {
 
 The `localStorage.setItem()` call will now store the form data in local storage whenever you click `Submit`.
 
-Now, lets set it up so that whenever the page loads, it retrieves the previously-submitted form data and puts it back into the form.
+Now, set up the page so that whenever the page loads, it retrieves the previously-submitted form data and puts it back into the form.
 
 Add this function to the `<script>`:
 
@@ -203,6 +183,4 @@ window.addEventListener("load", loadFormFromStorage)
 
 Refresh the page, enter something into the form, and click `Submit`. It does just what the previous version did.
 
-Now, refresh the page again and you'll find that the form is pre-filled with the same values as you used last time. Close the browser entirely, open the browser, and go to the URL `http://localhost/page.html` and the data will be displayed in the form again. The data was saved even across browser sessions. In fact, you could close the browser, reboot your computer, and browse back to the page to find that the data are still there.
-
-Of course, if you reboot you'll have to start the docker server again before browsing to the page.
+Now, refresh the page again and you'll find that the form is pre-filled with the same values as you used last time. Close the browser entirely, open the page in your browser and the data will be displayed in the form again. The data was saved even across browser sessions. In fact, you could close the browser, reboot your computer, and browse back to the page to find that the data are still there.
