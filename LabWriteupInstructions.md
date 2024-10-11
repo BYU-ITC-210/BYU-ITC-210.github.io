@@ -70,7 +70,8 @@ It is more professional to conjugate the verbs as if there is an invisible "I c
 
 ## V. References (required)
 
-List URLs or other reference information you used in the writeup. They don't have to follow any particular format. Bare URLs are acceptable.
+List URLs or other reference information you used in the writeup. They don't have to follow any particular format. Bare URLs are acceptable. 
+At least 3 references are required. 
 
 If this section is missing or incomplete, you will receive a 0 on the write-up until it is fixed. No late penalties will be applied.
 
