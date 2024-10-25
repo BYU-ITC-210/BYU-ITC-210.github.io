@@ -349,6 +349,42 @@ Session tokens expire after 90 minutes. But every request with a valid token wil
 
 Much of the code in each of the calls is similar. Consider how to create a more abstract function that encapsulates all or much of the common code.
 
+### Using Async - Await syntax
+
+In these functions we used anonymous functions to handle the asynchronous responses from fetch calls. ECMAScript 8 (version 8 of the standard for JavaScript) introduced the `async` - `await` syntax for working with promises. Here is a version of `CreateCar()` rewritten to use `async` - `await`.
+
+For more information, see [this article](https://javascript.info/async-await).
+```
+async function CreateCar(make, model, year) {
+    const body = {
+        make: make,
+        model: model,
+        year: year
+    };
+    const options = {
+        method: "POST",
+        headers: {
+            "Authorization": "Bearer " + authToken, 
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    };
+    try {
+        response = await fetch("https://restspace.dicax.org/api/items", options);
+        if (response.ok) {
+            json = await response.json()
+            console.log(json);
+        }
+        else {
+            console.log(response.status, response.statusText);
+        }
+    }
+    catch(error) {
+        console.error(error);
+    }
+}
+```
+
 ## A Note on Security
 
 It's a well-known principle that any online service that stores data will be misused. As noted before, the `RestSpace` service uses a password that's derived from the username. That's deliberately weak to facilitate experiential learning. To prevent abuse, the service has some deliberate limitations:
