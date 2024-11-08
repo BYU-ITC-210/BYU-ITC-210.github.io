@@ -30,7 +30,13 @@ So, everything works. What makes this a "naive" server? Well, let's try calling 
 
 You see an error something like this:
 ```
-Access to fetch at 'https://restspace.dicax.org/api/login-n' from origin 'https://byu-itc-210.github.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+Access to fetch at 'https://restspace.dicax.org/api/login-n'
+from origin 'https://byu-itc-210.github.io' has been blocked
+by CORS policy: Response to preflight request doesn't pass
+access control check: No 'Access-Control-Allow-Origin' header
+is present on the requested resource. If an opaque response
+serves your needs, set the request's mode to 'no-cors' to
+fetch the resource with CORS disabled.
 
 Failed to load resource: net::ERR_FAILED
 ```
@@ -48,7 +54,7 @@ You will see that the browser sent an OPTIONS request to the server. This is kno
 
 ## A Permissive REST Server
 
-> Important! For this segment of the walkthrough to work, you must enable third-party cookies. As of 2024, most browser still permit third-party cookies by default but an increasing number are disabling them and nearly all browsers allow the user to disable third-party cookies. If want to selectively enable third-party cookies, this demo requires them to be enabled on `restspace.dicax.org`, `byu-itc-210.github.io` and `byujekylldemo.github.io`.
+> Important! For this segment of the walkthrough to work, you must enable third-party cookies. As of 2024, most browsers still permit third-party cookies by default but an increasing number are disabling them and nearly all browsers allow the user to disable third-party cookies. If want to selectively enable third-party cookies, this demo requires them to be enabled on `restspace.dicax.org`, `byu-itc-210.github.io` and `byujekylldemo.github.io`.
 
 * Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace).
 * Click on the `Login` template. This time change the URL to "login-p" for "permissive."
