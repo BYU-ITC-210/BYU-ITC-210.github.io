@@ -33,7 +33,7 @@ Describe in one paragraph (3-5 sentences) what you have accomplished in this lab
 
 This section gives a medium-high level view of the design. This should include the following:
 * 2-3 Paragraphs describing your technical design with a focus on how it works.
-* A UML Diagram appropriate to the lab. (Not required for the Lab 1 writeup.)
+* A UML Diagram appropriate to the lab. (Not required for the Lab 1 writeup.) This will be specified in the Lab Instructions.
 * 2-3 screenshots illustrating what the web site looks like.
 * Descriptions of each file that you created or modified as part of the lab. (index.html, etc).
 
