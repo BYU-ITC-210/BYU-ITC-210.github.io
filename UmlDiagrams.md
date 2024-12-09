@@ -1,9 +1,9 @@
 ---
 title: UML Diagram Guidelines
 ---
-[Unified Modeling Language (UML)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) is a standard notation for diagrams used primarily for software design. It is an approved [ISO Standard](https://www.iso.org/). In IT&C 210A we use UML Activity diagrams and UML Class diagrams. In IT&C 210B we will add UML Sequence Diagrams.
+[Unified Modeling Language (UML)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) is a standard notation for diagrams used primarily for software design. It is an approved [ISO Standard](https://www.iso.org/). In IT&C 210A we use UML Activity diagrams. In IT&C 210B we will add UML Sequence Diagrams.
 
-For this class, you can create your UML diagrams using the graphical tool of your choice. Microsoft PowerPoint and Visio have some UML symbols built-in. [LucidChart](https://www.lucidchart.com/) has specific support for UML diagrams of various sorts. [DrawIo](https://www.drawio.com/) is another good choice. You can even hand-draw your diagram and simply take a photo of it. Regardless of source, you should generate an image file in .png, .svg, or .jpeg format to include with your writeup.
+For this class, you can create your UML diagrams using the graphical tool of your choice. Microsoft PowerPoint and Visio have some UML symbols built-in. [LucidChart](https://www.lucidchart.com/) has specific support for UML diagrams of various sorts. [DrawIo](https://www.drawio.com/) is another good choice. Regardless of source, you should generate an image file in .png, .svg, or .jpeg format to include with your writeup.
 
 ## UML Activity Diagrams
 UML Activity Diagrams are also known as *Flow Charts*. They describe a sequence of operations typically performed by a computer or system of computers. Here is an example:
