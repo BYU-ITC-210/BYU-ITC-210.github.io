@@ -6,7 +6,7 @@ For this walkthrough we'll be using the **RestSpace** server. The same one we us
 
 ## A Naive REST Server
 
-* Browse to [https://restspace.dicax.org/c/callapi](https://restspace.dicax.org/c/callapi).
+* Browse to [https://restspace.dicax.org/callapi](https://restspace.dicax.org/c/callapi){: target="_blank"}.
 
 This is a handy page that lets us compose and call REST APIs sort of like a lightwight version of [Postman](https://www.postman.com/).
 
@@ -22,7 +22,7 @@ This is a handy page that lets us compose and call REST APIs sort of like a ligh
 
 So, everything works. What makes this a "naive" server? Well, let's try calling this from a different host (a.k.a. origin)?
 
-* Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace). This is the same page content as the one we were using, but it's hosted on a different server.
+* Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace){: target="_blank"}. This is the same page content as the one we were using, but it's hosted on a different server.
 * Like before, click on the `Login` template but change the URL to `login-n` to use the naive login mode.
 * Enter valid credentials (password is the same as the username but with a `-9455` suffix).
 * Click `Send` and ... you get an error.

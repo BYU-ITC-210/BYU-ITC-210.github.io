@@ -10,9 +10,11 @@ The two concepts work together as representations of objects are typically Creat
 
 ## Setup
 
-Since this walkthrough leads into Lab 4, which uses Node.js, you should install Node.js from this link: [Node.js Downloads](https://nodejs.org/en/download). However, since we will be using javaScript exclusively in interactive mode, you can, in theory, perform this walkthrough from the JavaScript console in your favorite browser.
+Since this walkthrough leads into Lab 4, which uses Node.js, you should install Node.js from this link: [Node.js Downloads](https://nodejs.org/en/download). 
 
-Open a terminal and launch node (type "node" at the terminal). Or, open the JavaScript console in your browser (Developer Tools > Console).
+Open a terminal and launch node (type "node" at the terminal).
+
+> **Note:** Since this walkthrough uses JavaScript exclusively in interactive mode, you can, in theory, perform this walkthrough from the JavaScript console in your favorite browser without installing Node. To do so, open your browser and browse to any web page (a blank page won't work). Then, open the JavaScript console in your browser (Developer Tools > Console). Ignore the web page and just enter the code from this walkthrough at the console.
 
 ## The API
 
@@ -31,7 +33,7 @@ The API we will be using is located at `https://restspace.dicax.org/api`. It has
 
 ## Calling the API
 
-Each of these operations involves multiple lines of code. It's unusual to do such things from the JavaScript console but it works and it's convenient to do so when experimenting with an API like this. For most things, you can just copy the code from this walkthrough and paste it into your console. In some cases you'll want to paste the code into a text editor (e.g. VS Code), modify it, and then paste it into the console.
+Each of these operations involves multiple lines of code. It's unusual to do such things from the Node.js console but it works and it's convenient to do so when experimenting with an API like this. For most things, you can just copy the code from this walkthrough and paste it into your console. You may get a warning about pasting multiple lines. If so, just click "Paste Anyway." In some cases you'll want to paste the code into a text editor (e.g. VS Code), modify it, and then paste it into the console.
 
 The use of `fetch()` in these calls should be familiar from the previous walkthrough. If it looks confusing, please do the Node.js Fetch walkthrough first.
 
@@ -232,7 +234,7 @@ function ReadById(id) {
         })
         .catch(error => console.error(error));
 }
-ReadById(1);
+ReadById(0);
 ```
 
 If you get a 404 error you need to change the ID from `1` to the ID of something that's actually in the database. Look at the IDs in the items returned from `ReadAll()`.
@@ -299,7 +301,7 @@ function UpdateCar(id, make, model, year) {
         })
         .catch(error => console.error(error));
 }
-UpdateCar(1, "MINI", "Cooper", 2008);
+UpdateCar(0, "MINI", "Cooper", 2008);
 ```
 
 In a real application, `Update` is generally preceded by a call to `ReadById` (or its equivalent) and the existing value is modified before sending it back through the `Update` call.
@@ -390,7 +392,7 @@ async function CreateCar(make, model, year) {
 It's a well-known principle that any online service that stores data will be misused. As noted before, the `RestSpace` service uses a password that's derived from the username. That's deliberately weak to facilitate experiential learning. To prevent abuse, the service has some deliberate limitations:
 
 1. Data in the database are tied to a login *session*, not to a particular *username*. If two people log in using the same username, they will still get different sessions with different sets of items.
-2. Data are only stored in memory and this is a serverless application. After a certain period of idleness, the application is taken down, all data goes away, and it starts fresh with the next request.
-3. The database is limited to 1000 items. Once the that many items are in the database, older items are deleted (without notice) when new items are added.
+2. Data are stored temporarily. After 24 hours of idleness, the data from a session are deleted.
+3. The database is limited to 1000 items. Once the that many items are in the database it will report errors.
 
 With these limits in place, the service is only useful for practice.
