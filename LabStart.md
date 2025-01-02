@@ -1,11 +1,9 @@
 ---
 title: How to Start Labs
 ---
-Labs are created and maintained in GitHub. When you accept the lab through GitHub Classroom you will get your own copy of the lab repo including the instructions folder. As you develop your lab solution you should commit and push frequently. Doing so will ensure that you don't lose your progress if something bad happens.
+IT&C 210 Labs are created and maintained in GitHub. When you accept the lab through GitHub Classroom you will get your own copy of the lab repo including the instructions folder. As you develop your lab solution you should commit and push frequently. Doing so will ensure that you don't lose your progress if something bad happens.
 
 > **Important!** The first five points of your lab credit come from accepting the lab and making your first commit *by end-of-day Friday* before the lab is due. You must do all of these steps including committing at least one change by that time. When passing off your lab, the TAs will check your commit history in GitHub to verify that five-point credit.
-
-## Install VS Code and Git
 
 If you are using your own computer to complete the lab assignments you must install [Visual Studio Code](https://code.visualstudio.com) and [Git](https://git-scm.com/) on your computer. [Follow these instructions](InstallCodeAndGit) to install these essential tools.
 
@@ -21,9 +19,9 @@ As the semester progresses, you will need other tools such as [Docker](https://w
 
 You can clone the repo using the Command-Line Interface (CLI) or using the built-in Git support in [VS Code](https://code.visualstudio.com/). It's valuable to learn both methods. The Git support in VS Code is convenient and only involves a click or two. The Git CLI has more options for handling complicated matters.
 
-### Option 1: Clone the Repo Using CLI
-
 ![Clone-Screenshot](/images/Clone-Github.png){: style="max-width: 40em; border: 1px solid black;"}
+
+### Option 1: Clone the Repo Using CLI
 
 1. On the GitHub repository page, click on the green "Code" button.
 2. Copy the repository link by clicking on the clipboard icon in the pop-up box.
@@ -33,7 +31,7 @@ You can clone the repo using the Command-Line Interface (CLI) or using the built
 `git clone https://github.com/BYU-ITC-210/lab-1a-yourgithubname`
     1. If this is the first time you are using Git from this computer, you will be prompted to log into GitHub. Git should save your credentials and you won't have to log in for future operations.
 6. Navigate to the cloned repo and start working!
-    1. Tip: you can type "code" and VS Code will open the folder in which you are located.
+    1. Tip: you can type `code` from the CLI and VS Code will open the folder in which you are located.
 
 ### Option 2: Clone the Repository to Your Computer Using Visual Studio Code
 
@@ -58,7 +56,7 @@ It's best to view the lab instructions on GitHub.com in the `instructions` folde
 
 ## Commit and Push Your Changes
 
-Commit and push your changes to GitHub before end-of-day Friday so that you earn the first five points on your lab assignment. You can do this from the command-line or within VS Code.
+Commit and push your at least one change to GitHub before end-of-day Friday so that you earn the first five points on your lab assignment. You can do this from the command-line or within VS Code.
 
 ### Option 1: Commit and Push With the CLI
 
@@ -75,7 +73,7 @@ Commit and push your changes to GitHub before end-of-day Friday so that you earn
 3. Enter a commit message in the box above the blue `Commit` button.
 4. Click the `Commit` button.
     1. If you forgot to enter a commit message, VS code will open a new window for you to enter the commit message. Enter the message there and click the checkbox in the upper-right corner.
-5. Click the `Push` button that replaced the `Commit` button.
+5. Click the `Sync Changes` button that replaced the `Commit` button.
 
 ## Get to Work
 
