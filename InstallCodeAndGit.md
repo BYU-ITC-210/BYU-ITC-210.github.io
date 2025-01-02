@@ -46,7 +46,7 @@ The installer has tons of options that you may adjust according to your preferen
 |------|-------|---|
 |Icons on the desktop|Off|My desktop is too cluttered. I don't like app shortcuts there.|
 |Windows Explorer: "Open Git Bash here"|Off|Just my preference. I launch Bash from the Windows Terminal. But many people like this option.|
-|windows Explorer: "Open Git GUI here"|Off|Again, just my preference.|
+|Windows Explorer: "Open Git GUI here"|Off|Again, just my preference.|
 |Git LFS (Large File Support)|On|Valuable when including images and video in your repo.|
 |Associate .git* configuration files with the default text editor.|On|This handy for editing files like `.gitignore`|
 |Associate .sh files to be run with Bash|On|This lets you launch .sh shell scripts on Git Bash.|
@@ -55,20 +55,20 @@ The installer has tons of options that you may adjust according to your preferen
 |(NEW!) Scalar (Git add-on to manage large-scale repositories)|Off|It's a very new feature that runs background processes to manage extremely large repositories. I don't have repos big enough to warrant its use and I don't want the extra background baggage.|
 |**Later Pages**|||
 |Start Menu Folder|Git|The default works well.|
-|Default Editor|Use Visual Studio Code|VS Code works really well with Git. The alternatives include `Nano` and `Vim` which, unless you're familiar with them, are hard to use.<br/><br/>**Note:** To choose this option and have it work you must instal VS Code *before* Git. If you instal Git first, you must use the "Git config" command to change the "core.editor" setting. (Look up details online.) |
+|Default Editor|Use Visual Studio Code|VS Code works really well with Git. The alternatives include `Nano` and `Vim` which, unless you're familiar with them, are hard to use.<br/><br/>**Note:** To choose this option and have it work you must instal VS Code *before* Git. If you instal Git first, you must use the `git config` command to change the "core.editor" setting. (Look up details online.) |
 |Name of the initial branch in new repositories.|Override... "main"|Historically the default branch of a new repository was named "master" but over the last eight years or so the trend is to use "main" instead.|
-|Adjusting your PATH environment|Use Git and optional Unix tools from the Command Prompt|This will enable Linux commands like `ls`, `grep`, `touch`, and `tail` work from the Windows [CMD](https://en.wikipedia.org/wiki/Cmd.exe) and [PowerShell](https://en.wikipedia.org/wiki/PowerShell) shells in addition to **Git Bash**. I still use the CMD shell a lot and so having these Unix-style additions is handy. But the Unix-style commands replace some similar (but different) Windows commands like `find` and `sort`. If you're not a heavy user of CMD then the second option, "Git from the command line and also from 3rd-party software" is the best choice.|
+|Adjusting your PATH environment|Use Git and optional Unix tools from the Command Prompt|This will enable Linux commands like `ls`, `grep`, `touch`, and `tail` work from the Windows [CMD](https://en.wikipedia.org/wiki/Cmd.exe) and [PowerShell](https://en.wikipedia.org/wiki/PowerShell) shells in addition to **Git Bash**. I still use the CMD shell a lot and so having these Unix-style additions is handy. But the Unix-style commands replace some similar (but different) Windows commands like `find` and `sort`. If you're not a heavy user of CMD then the second option is your best choice: "Git from the command line and also from 3rd-party software."|
 |Choosing the SSH executable|Use external OpenSSH|This doesn't really matter much. I simply chose the external OpenSSH which comes bundled with Windows to save complexity.|
 |HTTPS Transport Backend|Use the native Windows Secure Channel Library|You won't notice a difference whichever choice you make. I chose to use the Windows secure channel simply to spread risk across multiple vendors.|
 |Line Ending Conventions|Checkout Windows-style, commit Unix-style|This is a historic difference that will continue haunting us for years. Unix uses `\n` to end lines while Windows uses `\r\n`. Most contemporary editors and all code compilers will tolerate either. This default setting ensures maximum compatibility but the other options should also work well.|
 |Terminal to use with Git Bash|Use Windows' default console window|Since Microsoft introduced the new [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/) a few years back this has been the best choice.|
 |Default behavior of 'git pull'|Rebase|This is a complex topic about which there are many tutorials and YouTube videos. It really only becomes an issue when multiple people are working on the same project which won't happen in this class. Suffice it to say that I prefer 'rebase'.|
 |Choose a credential helper|Git Credential Manager|The credential manager retains your login credentials to [GitHub](https://github.com/) so that you don't have to enter your passcode constantly.|
-|Enable file system caching|On|Because it 'provides a significant performance boost.|
+|Enable file system caching|On|Because it "provides a significant performance boost."|
 |Enable symbolic links|Off|Not needed and setting the permissions right may be complicated.|
 
 ## Conclusion
 
-With VS Code and Git installed you are ready for your first lab. Continue with the instructions there.
+With VS Code and Git installed you are ready for your first lab. Continue with [the LabStart Instructions](LabStart).
 
 
