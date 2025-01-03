@@ -1,4 +1,4 @@
-﻿/* ==== Declare Constants ==== */
+/* ==== Declare Constants ==== */
 :root {
     --clr_background: white;
     --clr_foreground: black;
@@ -10,22 +10,6 @@
     --clr_code_bg: #C0C0C0; /* (light gray) */
     --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
     --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%)
-}
-
-/* === Dark Mode === */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --clr_background: black;
-        --clr_foreground: rgb(220, 245, 230);
-        --clr_accent1: #b03737; /* Directory, Subtitle, Heading 1 (burgundy) */
-        --clr_accent2: #278DCC; /* Title, Heading 2 (Light turquoise)*/
-        --clr_link: #278DCC; /* (blue) */
-        --clr_link_visited: #336cce;
-        --clr_link_hover_bg: #303030;
-        --clr_code_fg: #a0a0a0;
-        --clr_code_bg: #505050; /* (dark gray) */
-            --gradient_bg: linear-gradient(to right, black, #101010, black, black, #101010, black 100%)
-    }
 }
 
 /* ==== Import Fonts ==== */
