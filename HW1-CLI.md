@@ -16,7 +16,7 @@ Like most assignments in this class, you will likely use web sources to help you
 ***
 ## Preparation
 
-To complete this assignment you will need a Linux/Bash command-line and Git to be installed. **Follow steps 1 and 2 of Lab 1 to get everything installed properly.** Then come back to complete this homework.
+To complete this assignment you will need a Linux/Bash command-line and Git to be installed. [Follow these steps to get them installed properly.](https://byu-itc-210.github.io/InstallCodeAndGit)
 
 ***
 ## Part 1: Linux Command-Line
