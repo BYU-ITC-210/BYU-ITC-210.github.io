@@ -1,9 +1,9 @@
 ---
 title: Introduction to JavaScript (Walkthrough)
 ---
-JavaScript is syntactically similar to Java or C++ but it is functionally quite different. It is interpreted or Just-In-Time compiled.
+JavaScript is syntactically similar to Java or C++ but it is functionally quite different. It is interpreted while Java and C++ are complied.
 
-It's primary use is as a browser-side language for web applications. Using [Node.js](https://nodejs.org/), JavaScript may be used on the desktop or on a server.
+It's primary use is as a browser-side language for web applications. Using [Node.js](https://nodejs.org/), JavaScript may be also be used on the desktop or on a server as we will do in IT&C 210B.
 
 ## JavaScript is _NOT:_
 
@@ -165,7 +165,7 @@ When JavaScript generates an error, the browser stops executing at that point. S
 This is better:
 ```js
 function isNumber(sample) {
-    let t;
+    let t; // The scope of t is the whole function
     if (typeof(sample) == "number") {
         t = "Number";
     }
@@ -174,7 +174,6 @@ function isNumber(sample) {
         t = "String";
     }
 
-    // Error because "t" is out of scope
     console.log(t);
 }
 
@@ -198,9 +197,9 @@ globalTest();
 console.log(globalValue);
 ```
 
-This is usually not desireable behavior. More times than not, you didn't intend to create a global variable. You can put JavaScript in *strict* mode by placing the following at the beginning of your .js file:
+This is usually not desirable behavior. More times than not, you didn't intend to create a global variable. You can put JavaScript in *strict* mode by placing the following at the beginning of your .js file:
 
-```
+```js
 "use strict";
 ```
 
@@ -393,3 +392,5 @@ window.addEventListener('load', function whenWindowLoads() {
 ```
 
 You can create custom events and raise events. However, that is an advanced subject beyond the scope of this class.
+
+All of this is interesting but, aside from the `alert()` and the `document.write()` we haven't done anything that changes how the page looks on the screen. In the next walkthrough you will learn how to take input from and make changes to the web page.
