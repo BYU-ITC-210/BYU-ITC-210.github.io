@@ -26,6 +26,10 @@ h2 {
 				<td><select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select></td>
 			</tr>
 			<tr>
+				<td><label for="contenttype">Content-Type:</label></td>
+				<td><select id="contenttype" name="contenttype"><option value="application/json">application/json</option><option value="text/plain">text/plain</option><option value="text/html">text/html</option><option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option><option value="multipart/form-data">multipart/form-data</option></select></td>
+			</tr>
+			<tr>
 				<td><label for="url">URL:</label></td></td>
 				<td><input id="url" name="url" type="text" style="width: 32em;" /></td>
 			</tr>
@@ -64,7 +68,7 @@ async function sendRequest(e) {
 		method: verb
 	};
 	if (verb == "POST" || verb == "PUT") {
-		req.headers["Content-Type"] = "application/json";
+		req.headers["Content-Type"] = form.contenttype.value;
 		req.body = form.body.value;
 	}
 	const token = form.token.value;
@@ -170,12 +174,14 @@ const templates = [
 		name: "Login",
 		verb: "POST",
 		url: "/api/login",
+		contenttype: "application/json",
 		body: { username: "a", password: ""}
 	},
 	{
 		name: "Logout",
 		verb: "GET",
 		url: "/api/logout",
+		contenttype: "application/json"
 	},
 	{
 		name: "Create",
@@ -183,52 +189,62 @@ const templates = [
 		{
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Chevrolet", model: "Bel Air", year: "2004" }
 			},
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "DMC", model: "DeLorean", year: "1981" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Toyota", model: "Hilux", year: "1997" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Jeep", model: "CJ-7", year: "1982" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Subaru", model: "WRX", year: "2016" }
             }
 /*
 			{
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "MINI", model: "Cooper", year: "2004" }
 			},
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Subaru", model: "Forester", year: "2010" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Willys", model: "Jeep", year: "1944" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "Ferrari", model: "Testarossa", year: "1984" }
             },
             {
                 verb: "POST",
                 url: "/api/items",
+				contenttype: "application/json",
                 body: { make: "AMC", model: "Gremlin", year: "1977" }
             }
 */
@@ -237,17 +253,20 @@ const templates = [
 	{
 		name: "Read",
 		verb: "GET",
-		url: "/api/items"
+		url: "/api/items",
+		contenttype: "application/json"
 	},
 	{
 		name: "ReadId",
 		verb: "GET",
-		url: "/api/items/0"
+		url: "/api/items/0",
+		contenttype: "application/json"
 	},
     {
         name: "Find",
         verb: "GET",
 		url: "/api/items?make=MINI",
+		contenttype: "application/json"
 	},
     {
 		name: "Update",
@@ -255,52 +274,62 @@ const templates = [
 			{
 				verb: "PUT",
 				url: "/api/items/0",
+				contenttype: "application/json",
 				body: { make: "Toyota", model: "Land Cruiser FJ40", year: 1980 }
 			},
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Ford", model: "Pinto", year: 1976 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Tucker", model: "48", year: 1948 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Plymouth", model: "Prowler", year: 1998 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Cadillac", model: "Fleetwood 75", year: 1973 }
             },
 /*
 			{
 				verb: "PUT",
 				url: "/api/items/0",
+				contenttype: "application/json",
 				body: { make: "Ferrari", model: "Barchetta", year: 1950 }
 			},
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "MINI", model: "Countryman", year: 2011 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Unimog", model: "408", year: 1994 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "AMC", model: "Pacer", year: 1975 }
             },
             {
                 verb: "PUT",
                 url: "/api/items/0",
+				contenttype: "application/json",
                 body: { make: "Toyota", model: "MR2 Spyder", year: 2006 }
             },
 */
@@ -309,7 +338,8 @@ const templates = [
     {
         name: "Delete",
         verb: "DELETE",
-        url: "/api/items/0"
+        url: "/api/items/0",
+		contenttype: "application/json"
     }
 ];
 
@@ -324,6 +354,9 @@ function onTemplateClick(e) {
 	}
 	document.getElementById("verb").value = data.verb;
 	updateUrl(data.url);
+	if (data.contenttype) {
+		document.getElementById("contenttype").value = data.contenttype;
+	}
 	if (data.body) {
 		document.getElementById("body").value = JSON.stringify(data.body, null, 2);
 	}
