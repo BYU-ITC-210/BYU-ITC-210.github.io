@@ -18,7 +18,7 @@ This is a handy page that lets us compose and call REST APIs sort of like a ligh
 
 * Click `Send` and you will successfully log in using a cookie. You can see that cookie in the "SetCookie" response header.
 * Click the `Create` template and create a car to add to the database. Edit the body of the request (to customize the car) and click `Send`. If you want, create another item for the database. It doesn't have to be a car, any valid JSON object will work.
-* Click `Read` to read all of your items from the database.
+* Click the `Read` template and then click `send` to read all of your items from the database.
 
 So, everything works. What makes this a "naive" server? Well, let's try calling this from a different host (a.k.a. origin)?
 
@@ -144,3 +144,6 @@ The Authentication Token method has several advantages. Most important is that i
 On the other hand, it requires that you manage the tokens yourself, in JavaScript, while the browser will manage cookies for you. And if you want to maintain a session token across multiple browser tabs you have to manage that carefully. [This article](https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/) discusses that in detail.
 
 In our labs, we are keeping both the REST API and the application on the same server. In that context, CORS headers aren't required and the existing of CORS on the browser will protect against Cross-Site Request Forgery. But for anything that involves cross-origin requests, Secure Browser Tokens are the best option.
+
+## Additional Resources
+* [Common no-cors misconceptions](https://evertpot.com/no-cors/)

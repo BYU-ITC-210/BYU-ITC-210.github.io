@@ -20,10 +20,28 @@ h2 {
 	</p>
 	<p><button onclick="clearAll(event)">Clear</button></p>
 	<form id="form" onsubmit="sendRequest(event)">
-		<label for="verb">Verb:</label> <select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select><br/>
-		<label for="url">URL:</label> <input id="url" name="url" type="text" style="width: 32em;" /><br/>
-		<label for="token">Authorization: Bearer</label> <input id="token" name="token" type="text" style="width: 34em;" /><br/>
-		<label for="authcookie">Credentials: Include</label> <input id="credinclude" name="credinclude" type="checkbox"/><br/>
+		<table class="layout">
+			<tr>
+				<td><label for="verb">Verb:</label></td>
+				<td><select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select></td>
+			</tr>
+			<tr>
+				<td><label for="url">URL:</label></td></td>
+				<td><input id="url" name="url" type="text" style="width: 32em;" /></td>
+			</tr>
+			<tr>
+				<td><label for="token">Authorization:</label></td>
+				<td><label for="token" style="display:inline-block; border: 1px solid black;">Bearer&nbsp;</label><input id="token" name="token" type="text" style="width: 34em;" /></td>
+			</tr>
+			<tr>
+				<td><label for="credinclude">credentials:</label></td>
+				<td><input id="credinclude" name="credinclude" type="checkbox" checked="checked"/><label for="credinclude">include</label></td>
+			</tr>
+			<tr>
+				<td><label for="nocors">mode:</label></td>
+				<td><input id="nocors" name="nocors" type="checkbox"/><label for="nocors">no-cors</label></td>
+			</tr>
+		</table>
 		<textarea id="body" name="body" cols="80" rows="10"></textarea><br/>
 		<button type="submit">Send</button>
 	</form>
@@ -55,6 +73,9 @@ async function sendRequest(e) {
 	}
 	if (form.credinclude.checked) {
 		req.credentials = "include";
+	}
+	if (form.nocors.checked) {
+		req.mode = "no-cors";
 	}
 
 	document.getElementById("resStatus").innerHTML = "";
@@ -158,9 +179,60 @@ const templates = [
 	},
 	{
 		name: "Create",
-		verb: "POST",
-		url: "/api/items",
-		body: { make: "MINI", model: "Cooper", year: "2004"}
+		alt: [
+		{
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Chevrolet", model: "Bel Air", year: "2004" }
+			},
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "DMC", model: "DeLorean", year: "1981" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Toyota", model: "Hilux", year: "1997" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Jeep", model: "CJ-7", year: "1982" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Subaru", model: "WRX", year: "2016" }
+            }
+/*
+			{
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "MINI", model: "Cooper", year: "2004" }
+			},
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Subaru", model: "Forester", year: "2010" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Willys", model: "Jeep", year: "1944" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "Ferrari", model: "Testarossa", year: "1984" }
+            },
+            {
+                verb: "POST",
+                url: "/api/items",
+                body: { make: "AMC", model: "Gremlin", year: "1977" }
+            }
+*/
+		]
 	},
 	{
 		name: "Read",
@@ -170,7 +242,7 @@ const templates = [
 	{
 		name: "ReadId",
 		verb: "GET",
-		url: "/api/items/1"
+		url: "/api/items/0"
 	},
     {
         name: "Find",
@@ -178,21 +250,78 @@ const templates = [
 		url: "/api/items?make=MINI",
 	},
     {
-        name: "Update",
-        verb: "PUT",
-		url: "/api/items/1",
-        body: {make: "Ferrari", model: "Barchetta", year: 1950 }
+		name: "Update",
+		alt: [
+			{
+				verb: "PUT",
+				url: "/api/items/0",
+				body: { make: "Toyota", model: "Land Cruiser FJ40", year: 1980 }
+			},
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Ford", model: "Pinto", year: 1976 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Tucker", model: "48", year: 1948 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Plymouth", model: "Prowler", year: 1998 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Cadillac", model: "Fleetwood 75", year: 1973 }
+            },
+/*
+			{
+				verb: "PUT",
+				url: "/api/items/0",
+				body: { make: "Ferrari", model: "Barchetta", year: 1950 }
+			},
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "MINI", model: "Countryman", year: 2011 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Unimog", model: "408", year: 1994 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "AMC", model: "Pacer", year: 1975 }
+            },
+            {
+                verb: "PUT",
+                url: "/api/items/0",
+                body: { make: "Toyota", model: "MR2 Spyder", year: 2006 }
+            },
+*/
+		]
     },
     {
         name: "Delete",
         verb: "DELETE",
-        url: "/api/items/1"
+        url: "/api/items/0"
     }
 ];
 
+let templateIndex = 0;
+
 function onTemplateClick(e) {
 	e.preventDefault();
-	const data = e.target.data;
+	let data = e.target.data;
+	if (data.alt) {
+		data = data.alt[templateIndex % data.alt.length];
+		templateIndex++;
+	}
 	document.getElementById("verb").value = data.verb;
 	updateUrl(data.url);
 	if (data.body) {
