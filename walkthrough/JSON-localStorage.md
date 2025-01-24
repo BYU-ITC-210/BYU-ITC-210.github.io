@@ -88,7 +88,7 @@ The `addToArticle()` function uses the [DOM](JsAndDom) to add a paragraph to the
 
 ## Converting To and From JSON
 
-JavaScript has a built-in JSON object with methods to convert between objects and JSON strings. When in string form. JSON can be sent to a server, received from a server, or stored in [Browser Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+JavaScript has a built-in [JSON namespace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) with methods to convert between objects and JSON strings. When in string form. JSON can be sent to a server, received from a server, or stored in [Browser Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 Add the following to the end of the `<script>` element:
 
@@ -103,6 +103,8 @@ addToArticle("Car", JSON.stringify(car));
 ```
 
 The code above takes a JavaScript object and converts it into a JSON string. Refresh the page to see that.
+
+> Notice that the JavaScript object, `car`, doesn't have quotes around the property names `make`, `model`, and `year`. In JSON, all property names must be quoted. In JavaScript, property names don't require quotes so long as they are composed of letters, digits, and underscore and they don't start with a digit.
 
 Now, let's take a JSON string and convert it into an object.
 
@@ -138,13 +140,13 @@ function submitForm(event) {
 }
 ```
 
-This event handler does three things when you submit a form. First, it calls `event.preventDefault()`. That's because the default action for a form is to send the form data to the server and then reload the page. We don't want action. Next, it converts the data into JSON form in two steps. Finally, it writes the JSON version of the form data out to the page using the `addToArticle()` function we were using before.
+This event handler does three things when you submit a form. First, it calls `event.preventDefault()`. That's because the default action for a form is to send the form data to the server and then reload the page. We don't want action. Next, it converts the data into JSON form in two steps, `Object.fromEntries()` and `JSON.stringify()`. Finally, it writes the JSON version of the form data out to the page using the `addToArticle()` function we were using before.
 
 Refresh the page, enter something into the form, and click `Submit`.
 
-## localStorage
+## window.localStorage
 
-Web browsers have a localStorage collection where you can store strings that will be retained between page refreshes and even between browser sessions. We'll store the form data in that collection and retrieve it when the page loads.
+Web browsers have a [window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) collection where you can store strings that will be retained between page refreshes and even between browser sessions. We'll store the form data in that collection and retrieve it when the page loads.
 
 Update the `submitForm` function with one more line like this:
 
