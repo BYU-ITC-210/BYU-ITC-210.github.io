@@ -22,6 +22,10 @@ h2 {
 	<form id="form" onsubmit="sendRequest(event)">
 		<table class="layout">
 			<tr>
+				<td><label for="url">URL:</label></td>
+				<td><input id="url" name="url" type="text" style="width: 32em;" /></td>
+			</tr>
+			<tr>
 				<td><label for="verb">Verb:</label></td>
 				<td><select id="verb" name="verb"><option value="GET">GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option></select></td>
 			</tr>
@@ -30,20 +34,16 @@ h2 {
 				<td><select id="contenttype" name="contenttype"><option value="application/json">application/json</option><option value="text/plain">text/plain</option><option value="text/html">text/html</option><option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option><option value="multipart/form-data">multipart/form-data</option></select></td>
 			</tr>
 			<tr>
-				<td><label for="url">URL:</label></td></td>
-				<td><input id="url" name="url" type="text" style="width: 32em;" /></td>
-			</tr>
-			<tr>
-				<td><label for="token">Authorization:</label></td>
-				<td><label for="token" style="display:inline-block; border: 1px solid black;">Bearer&nbsp;</label><input id="token" name="token" type="text" style="width: 34em;" /></td>
+				<td><label for="authorization">Authorization:</label></td>
+				<td><input id="authorization" name="authorization" type="text" style="width: 40em;" /></td>
 			</tr>
 			<tr>
 				<td><label for="credinclude">credentials:</label></td>
 				<td><input id="credinclude" name="credinclude" type="checkbox" checked="checked"/><label for="credinclude">include</label></td>
 			</tr>
 			<tr>
-				<td><label for="nocors">mode:</label></td>
-				<td><input id="nocors" name="nocors" type="checkbox"/><label for="nocors">no-cors</label></td>
+				<td><label for="mode">mode:</label></td>
+				<td><select id="mode" name="mode"><option value="">(default)</option><option value="no-cors">no-cors</option><option value="cors">cors</option><option value="same-origin">same-origin</option><option value="navigate">navigate</option></select></td>
 			</tr>
 		</table>
 		<textarea id="body" name="body" cols="80" rows="10"></textarea><br/>
@@ -71,15 +71,15 @@ async function sendRequest(e) {
 		req.headers["Content-Type"] = form.contenttype.value;
 		req.body = form.body.value;
 	}
-	const token = form.token.value;
-	if (token) {
-		req.headers["Authorization"] = "Bearer " + token;
+	const authorization = form.authorization.value;
+	if (authorization) {
+		req.headers["Authorization"] = authorization;
 	}
 	if (form.credinclude.checked) {
 		req.credentials = "include";
 	}
-	if (form.nocors.checked) {
-		req.mode = "no-cors";
+	if (form.mode.value) {
+		req.mode = form.mode.value;
 	}
 
 	document.getElementById("resStatus").innerHTML = "";
@@ -89,8 +89,8 @@ async function sendRequest(e) {
 	try {
 		const response = await fetch(reqUrl, req);
 		document.getElementById("resStatus").textContent = `${response.status} ${response.statusText}`;
-		let newToken;
-		if (newToken = getUpdatedToken(response)) document.getElementById("token").value = newToken;
+		let newAuthorization;
+		if (newAuthorization = getUpdatedAuthorization(response)) document.getElementById("authorization").value = newAuthorization;
 		reportHeaders(response, oldCookie);
 		let bodyText = await response.text();
 		document.getElementById("resBody").textContent = bodyText;
@@ -100,7 +100,7 @@ async function sendRequest(e) {
 	}
 }
 
-function getUpdatedToken(response) {
+function getUpdatedAuthorization(response) {
 	const info = response.headers.get('Authentication-Info');
 	if (!info) return;
 	for (let part of info.split(',')) {
@@ -110,7 +110,7 @@ function getUpdatedToken(response) {
 		let e = eq;
 		while (e > 0 && (part[e - 1] == ' ' || part[e - 1] == '\t')) --e;
 		if (e != 13 || part.substring(0, 13).toLowerCase() != 'bearer-update') continue;
-		return part.substring(eq + 1).trim();
+		return "Bearer " + part.substring(eq + 1).trim();
 	}
 }
 
@@ -168,6 +168,65 @@ function clearAll(e) {
     document.getElementById("resHeaders").innerHTML = "";
     document.getElementById("resBody").textContent = "";
 }
+
+
+let templateIndex = 0;
+
+function onTemplateClick(e) {
+	e.preventDefault();
+	let data = e.target.data;
+	if (data.alt) {
+		data = data.alt[templateIndex % data.alt.length];
+		templateIndex++;
+	}
+	document.getElementById("verb").value = data.verb;
+	updateUrl(data.url);
+	if (data.contenttype) {
+		document.getElementById("contenttype").value = data.contenttype;
+	}
+	if (data.body) {
+		document.getElementById("body").value = JSON.stringify(data.body, null, 2);
+	}
+	else {
+		document.getElementById("body").value = "";
+	}
+}
+
+function updateUrl(newurl) {
+    const urlele = document.getElementById("url");
+    const existing = urlele.value;
+    if (existing.startsWith('http')) {
+        urlele.value = new URL(newurl, existing);
+    }
+    else {
+        urlele.value = newurl;
+    }
+}
+
+function setTemplates() {
+	const p = document.getElementById("templates");
+	for (let t of templates) {
+		p.appendChild(document.createTextNode(" "));
+		let a = document.createElement("a");
+		a.data = t;
+		a.classList.add("tlnk");
+		a.addEventListener("click", onTemplateClick);
+		a.textContent = t.name;
+		p.append(a);
+	}
+}
+
+
+// Initialization
+function initCallapi() {
+    // Default URL
+    document.getElementById("url").value = defaultUrl;
+    setTemplates();
+}
+
+window.addEventListener("load", initCallApi);
+
+const defaultUrl = "https://restspace.dicax.org";  // window.location.origin;
 
 const templates = [
 	{
@@ -342,61 +401,6 @@ const templates = [
 		contenttype: "application/json"
     }
 ];
-
-let templateIndex = 0;
-
-function onTemplateClick(e) {
-	e.preventDefault();
-	let data = e.target.data;
-	if (data.alt) {
-		data = data.alt[templateIndex % data.alt.length];
-		templateIndex++;
-	}
-	document.getElementById("verb").value = data.verb;
-	updateUrl(data.url);
-	if (data.contenttype) {
-		document.getElementById("contenttype").value = data.contenttype;
-	}
-	if (data.body) {
-		document.getElementById("body").value = JSON.stringify(data.body, null, 2);
-	}
-	else {
-		document.getElementById("body").value = "";
-	}
-}
-
-function updateUrl(newurl) {
-    const urlele = document.getElementById("url");
-    const existing = urlele.value;
-    if (existing.startsWith('http')) {
-        urlele.value = new URL(newurl, existing);
-    }
-    else {
-        urlele.value = newurl;
-    }
-}
-
-function setTemplates() {
-	const p = document.getElementById("templates");
-	for (let t of templates) {
-		p.appendChild(document.createTextNode(" "));
-		let a = document.createElement("a");
-		a.data = t;
-		a.classList.add("tlnk");
-		a.addEventListener("click", onTemplateClick);
-		a.textContent = t.name;
-		p.append(a);
-	}
-}
-
-
-// Initialization
-{
-    // Default URL
-    document.getElementById("url").value = "https://restspace.dicax.org" // window.location.origin;
-    setTemplates();
-}
-
 	</script>
 		
 </body>

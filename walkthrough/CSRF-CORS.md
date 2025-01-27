@@ -147,3 +147,5 @@ In our labs, we are keeping both the REST API and the application on the same se
 
 ## Additional Resources
 * [Common no-cors misconceptions](https://evertpot.com/no-cors/)
+* [OWASP Cross-Site Request Forgery Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+
