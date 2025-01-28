@@ -2,35 +2,34 @@
 title: Cross-Site Request Forgery (CSRF) Walkthrough
 ---
 
-For this walkthrough we'll be using the **RestSpace** server. The same one we used to demonstrate REST interfaces in a previous walkthrough. In addition to the regular login, **RestSpace** has alternative logins that are either limited or vulnerable in various ways.
+For this walkthrough we'll be using the **RestSpace** server. The same one we used to demonstrate REST interfaces in a previous walkthrough. In addition to the regular, mostly secure, form, **RestSpace** has three alternative domain thames that are limited or vulnerable in various ways.
 
 ## A Naive REST Server
 
-* Browse to [https://restspace.dicax.org/callapi](https://restspace.dicax.org/c/callapi){: target="_blank"}.
+* Browse to [https://n.restspace.dicax.org/callapi](https://restspace.dicax.org/c/callapi){: target="_blank"}.
 
-This is a handy page that lets us compose and call REST APIs sort of like a lightwight version of [Postman](https://www.postman.com/).
+This is a handy page that lets us compose and call REST APIs sort of like a lightweight version of [Postman](https://www.postman.com/) or [BurpSuite](https://portswigger.net/burp).
 
 * Click on the `Login` template.
-* Change the URL to `https://restspace.dicax.org/api/login-n`. This gives you the **naive** login method.
-* Set the username to some name and the password to that same name plus `-9455`.
+* In the request body, set the `username` to some name (make one up) and the password to that same name plus `-9455`. For example, username: `jorg`, password: `jorg-9455`.
 
-> **RestSpace** lets you create new accounts on the fly so long as the password follows that pattern. Using such a pattern would not be secure on a real website. But **RestSpace** makes accounts expire with the session so there's not a real risk here.
+> **RestSpace** lets you create new accounts on the fly so long as the password is the username plus `-9455`. Using such a pattern would not be secure on a real website. But **RestSpace** makes accounts expire with the session so there's not a real risk here. Also, each session gets a new account so even if you login using the same username, you'll get a different account.
 
 * Click `Send` and you will successfully log in using a cookie. You can see that cookie in the "SetCookie" response header.
 * Click the `Create` template and create a car to add to the database. Edit the body of the request (to customize the car) and click `Send`. If you want, create another item for the database. It doesn't have to be a car, any valid JSON object will work.
-* Click the `Read` template and then click `send` to read all of your items from the database.
+* Click the `Read` template and then click `Send` to read all of your items from the database.
 
 So, everything works. What makes this a "naive" server? Well, let's try calling this from a different host (a.k.a. origin)?
 
-* Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace){: target="_blank"}. This is the same page content as the one we were using, but it's hosted on a different server.
-* Like before, click on the `Login` template but change the URL to `login-n` to use the naive login mode.
-* Enter valid credentials (password is the same as the username but with a `-9455` suffix).
+* Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace){: target="_blank"}. This is the same `callapi` page as the one we were using, but it's hosted on a different *domain*. That's important because we are experimenting with cross-origin requests.
+* Like before, click on the `Login` template but change the URL to `https://n.restspace.dicax.org/login` to use the same naive instance.
+* Enter valid credentials, with a different name from the one you used before. (Remember, the password is the username plus a `-9455` suffix).
 * Click `Send` and ... you get an error.
 * Open the browser console to see what the error is.
 
 You see an error something like this:
 ```
-Access to fetch at 'https://restspace.dicax.org/api/login-n'
+Access to fetch at 'https://n.restspace.dicax.org/api/login'
 from origin 'https://byu-itc-210.github.io' has been blocked
 by CORS policy: Response to preflight request doesn't pass
 access control check: No 'Access-Control-Allow-Origin' header
@@ -43,9 +42,9 @@ Failed to load resource: net::ERR_FAILED
 
 This happens way too often. You create a server, it works, then you try it cross-origin and you suddenly get CORS errors. "What is CORS? And why should I care?"
 
-CORS stands for Cross-Origin Request Security. It's a web standard intended to prevent unauthorized access. Since it's enforced by the browser, other applications such as **Postman** or **curl** don't generate CORS errors so it can be a surprise, late in the development process when a CORS error arises.
+CORS stands for Cross-Origin Request Security. It's a web standard intended to enable authorized access while preventing unauthorized access. Since it's enforced by the browser, other applications such as **BurpSuite**, **Postman** and **curl** don't generate CORS errors. Therefore, you may be surprised by such an error when CORS problems arise late in the development process.
 
-An "Origin" to the browser is the first part of the URL, including the protocol, the host name, and the port (if any). In this case we are dealing with two orgins. The origin of the server is `https://restspace.dicax.org`. The origin of the client is `https://byu-itc-210.github.io`. Since the origins aren't the same, the browser determines that this is a *cross-origin* request.
+An "Origin" to the browser is the first part of the URL; including the scheme, the host name, and the port (if any). In this case we are dealing with two orgins. The origin of the server is `https://n.restspace.dicax.org`. The origin of the client is `https://byu-itc-210.github.io`. Since the origins aren't the same, the browser determines that this is a *cross-origin* request.
 
 * Click on the `Network` tab in the developer tools.
 * Click `Send` again to see what the browser is actually doing.
@@ -54,13 +53,15 @@ You will see that the browser sent an OPTIONS request to the server. This is kno
 
 ## A Permissive REST Server
 
-> Important! For this segment of the walkthrough to work, you must enable third-party cookies. As of 2024, most browsers still permit third-party cookies by default but an increasing number are disabling them and nearly all browsers allow the user to disable third-party cookies. If want to selectively enable third-party cookies, this demo requires them to be enabled on `restspace.dicax.org`, `byu-itc-210.github.io` and `byujekylldemo.github.io`.
+> Important! For this segment of the walkthrough to work, you must enable third-party cookies. As of 2024, most browsers still permit third-party cookies by default but an increasing number are disabling them and nearly all browsers have an option that allows users to disable third-party cookies. If you (like me) are the type that disables third-party cookies either enable them in general, or selectively enable them for the following domains: `n-restspace.dicax.org`, `p-restspace.dicax.org`, and `c-restspace.dicax.org`. This is only necessary for the demo. Later in this walkthrough, I will explain how to make cross-site requests work even with third-party cookies disabled.
 
 * Browse to [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace).
-* Click on the `Login` template. This time change the URL to "login-p" for "permissive."
+* Click on the `Login` template. This time change the URL to `https://p.restspace.dicax.org/login`. This is the "permissive" instance of the RestSpace server.
 * Enter a username and password. (Remember the `-9455` password suffix.)
-* Click on `Credentials: Include` to cause the `fetch()` to include cookies and other credentials.
+* Make sure "credentials: include" is checked.
 * Click `Send`
+
+--- Ended here --- The permissive server isn't working right.
 
 The login was successful, But notice that there are limited headers that are displayed. That's because the browser limits the headers that are visible in a cross-origin request.
 
