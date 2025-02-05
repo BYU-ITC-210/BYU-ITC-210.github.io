@@ -43,7 +43,7 @@ h2 {
 			</tr>
 			<tr>
 				<td><label for="mode">mode:</label></td>
-				<td><select id="mode" name="mode"><option value="">(default)</option><option value="no-cors">no-cors</option><option value="cors">cors</option><option value="same-origin">same-origin</option><option value="navigate">navigate</option></select></td>
+				<td><select id="mode" name="mode"><option value="">(default)</option><option value="no-cors">no-cors</option><option value="cors">cors</option><option value="same-origin">same-origin</option></select></td>
 			</tr>
 		</table>
 		<textarea id="body" name="body" cols="80" rows="10"></textarea><br/>
@@ -129,7 +129,7 @@ function reportHeaders(response, oldCookie) {
 	for (var key in newCookies) {
 		if (newCookies[key] != oldCookies[key]) {
             var div = document.createElement("div");
-            div.textContent = `SetCookie:\u00A0${key}=${newCookies[key]}`;
+            div.textContent = `Set-Cookie:\u00A0${key}=${newCookies[key]}`;
             ele.appendChild(div);
 		}
 	}
@@ -249,31 +249,31 @@ const templates = [
                 verb: "POST",
                 url: "/api/items",
 				contenttype: "application/json",
-                body: { make: "Chevrolet", model: "Bel Air", year: "2004" }
+                body: { make: "Chevrolet", model: "Bel Air", year: 2004 }
 			},
             {
                 verb: "POST",
                 url: "/api/items",
 				contenttype: "application/json",
-                body: { make: "DMC", model: "DeLorean", year: "1981" }
+                body: { make: "DMC", model: "DeLorean", year: 1981 }
             },
             {
                 verb: "POST",
                 url: "/api/items",
 				contenttype: "application/json",
-                body: { make: "Toyota", model: "Hilux", year: "1997" }
+                body: { make: "Toyota", model: "Hilux", year: 1997 }
             },
             {
                 verb: "POST",
                 url: "/api/items",
 				contenttype: "application/json",
-                body: { make: "Jeep", model: "CJ-7", year: "1982" }
+                body: { make: "Jeep", model: "CJ-7", year: 1982 }
             },
             {
                 verb: "POST",
                 url: "/api/items",
 				contenttype: "application/json",
-                body: { make: "Subaru", model: "WRX", year: "2016" }
+                body: { make: "Subaru", model: "WRX", year: 2016 }
             }
 /*
 			{
