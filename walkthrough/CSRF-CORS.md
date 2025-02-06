@@ -114,15 +114,15 @@ Look at the cookie that was returned in the headers. At the beginning it include
 
 * Create and read objects to show that the API works as expected.
 
-Now let's switch to the alternate domain, [https://misc.dicax.org/callapi-RestSpace](https://misc.dicax.org/callapi-RestSpace). Set the URL to `https://c.restspace.dicax.org` Try reading content and you get a "Failed to Fetch" error.
+Now switch to the alternate domain in a different tab: [https://misc.dicax.org/callapi-RestSpace](https://misc.dicax.org/callapi-RestSpace){: target="_blank"}. Set the URL to `https://c.restspace.dicax.org` Try reading content (by using the *Read* template) and you get a "401 Unauthorized" error.
 
-You can use the `network` tab in the developer tools to examine the requests and responses. In doing so you'll find that the browser did present the cookie. But, since the origin didn't match the server rejected the cookie.
+You can use the `network` tab in the developer tools to examine the requests and responses. In doing so you'll find that the browser did present the cookie. But, since the origin didn't match, the server rejected the cookie.
 
-To really push things, you could go to [https://c.restspace.dicax.org/](https://c.restspace.dicax.org/) in another browser tab, use the developer tools `application` tab to edit the cookie and change the origin in the cookie to `https://misc.dicax.org`. If you do so, you'll find that it still fails because now the digital signature that's on the cookie doesn't match.
+To really push things, you could go to [https://c.restspace.dicax.org](https://c.restspace.dicax.org) in another browser tab, use the developer tools `application` tab to edit the cookie and change the origin in the cookie to `https://misc.dicax.org`. If you do so, you'll find that it still fails because now the digital signature that's on the cookie doesn't match.
 
 This is a huge improvement. And it finally achieves the security level we were seeking. Indeed, this was state of the art as of roughly 2019. But it still has two problems.
 
-First, there's only one cookie regardless of how many applications use the API. Go back to your tab that's on [https://misc.dicax.org/callapi-RestSpace](https://misc.dicax.org/callapi-RestSpace){: target="_blank"}. Use the `Login` template and log in. Add an item or two using the `Create` template and read them out using the `Read` template. All is well. Now go back to your original tab at [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace){: target="_blank"}. A `Read` fails. When you logged in at the new origin, the new origin's cookie replaced the old one and the previous origin was logged out. This could be solved with some clever coding. For example, you could add the origin to the name of the cookie. But there's another problem.
+First, there's only one cookie for `https://c.restspace.dicax.org` regardless of how many applications use the API. Go back to your tab that's on [https://misc.dicax.org/callapi-RestSpace](https://misc.dicax.org/callapi-RestSpace){: target="_blank"}. Use the `Login` template and log in. Add an item or two using the `Create` template and read them out using the `Read` template. All is well. Now go back to your original tab at [https://byu-itc-210.github.io/callapi-RestSpace](https://byu-itc-210.github.io/callapi-RestSpace){: target="_blank"}. A `Read` fails. When you logged in at the new origin, the new origin's cookie replaced the old one and the previous origin was logged out. This could be solved with some clever coding. For example, you could add the origin to the name of the cookie. But there's another problem.
 
 Second, is that this solution relies on [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Third-party_cookies). Many browsers are beginning to block third-party cookies for privacy reasons. 
 
@@ -139,7 +139,7 @@ You'll see that the JavaScript of `callapi` is smart enough to pick up the token
 
 * Create, Read, and Update items in the database to make sure everything works.
 
-Notice that as you perform operations, the token gets updated through the `Authentication-Info: Bearer-Update` header. Each time it updates the expiration date embedded in the token to extend the session timeout.
+Notice that as you perform operations, the token gets updated through the `Authentication-Info: Bearer-Update` header. Each update extends the expiration date embedded in the token.
 
 Now lets see if it is protected against cross-origin use.
 
@@ -153,17 +153,44 @@ The token is rejected because the origin doesn't match.
 
 The Authentication Token method has several advantages. Most important is that it enables secure cross-origin requests even when third-party cookies are disabled. Another advantage is that it doesn't use cookies. So, you don't need a cookie authorization banner even if you're developing for an international company.
 
-If you log in from different tabs, whether the same or different domains, each has its own Authorization token and so they each get their own session. If you want to preserve the session across tabs you can store the token in [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). That's how many of my applications including the DNS Registrar work.
+If you log in from different tabs, whether the from the same or different domains, each has its own Authorization token and so they each get their own session. If you want to share the session across tabs you can store the token in [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). That's how many of my applications including the DNS Registrar work.
 
-On the other hand, this requires that you manage the tokens in the front end using JavaScript. And if you want to maintain a session token across multiple browser tabs you have to manage that carefully. [This article](https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/) discusses that in detail.
+On the other hand, this requires that you manage the tokens in the front end using JavaScript. And if you want to share a session token across multiple browser tabs you have to manage that carefully. [This article](https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/) discusses that in detail.
+
+## Other Ways to Prevent CRSF
+
+If you read up on Cross-Site Request Forgery you will find that the most common recommendation is to use [Token-Based Mitigation](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#token-based-mitigation). In this method, your frontend retrieves one or more single-use tokens from the server. A token must be sent with each call that makes changes and tokens may not be reused. This is a proven system and, prior to browser implementation of CORS, this and the [Double-Submit](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#alternative-using-a-double-submit-cookie-pattern) pattern were the only options.
+
+The trouble with Token-Based Mitigation and Double-Submit is that the server must keep track of issued tokens in a database of some sort thereby recognizing issued tokens and prohibiting reuse. It's very complicated and consumes extra server resources. If you choose one of these methods I strongly recommend that you adopt a tested and reliable library.
+
+In contrast, the methods used in the secure-cookie and authentication methods in this demo both rely on storing the origin of the login in the authentication token. Thus, calls from other origins are rejected. It is much simpler and equally secure as other methods. However, this method relies on browsers providing the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) header which [only became broadly available in 2015](https://caniuse.com/mdn-http_headers_origin). As of 2024 it remains unsupported on 3% of browsers in use. Due to a fail-safe implementation, this application will simply not work on older browsers without Origin headers.
 
 ## Additional Resources
 * [Common no-cors misconceptions](https://evertpot.com/no-cors/)
 * [OWASP Cross-Site Request Forgery Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 
+# More Information
+
+The following is not but it's important background if you plan to build a secure back end.
+
+## Security Considerations
+
+While creating a server that manifests CSRF vulnerabilities I have taken care to ensure that it cannot be exploited in dangerous ways. The main protection is that each session gets its own new database. Even if you log in with the same credentials that you or someone else used previously, you will get a new session with a new database. Thus, the CSRF vulnerability is limited to accessing data you entered - not data entered by anyone else.
+
+A second precaution is that data are only retained for 24 hours. This prevents the server from being exploited as a data storage service.
+
+## Token Format
+According to the [Authentication: Bearer](https://datatracker.ietf.org/doc/html/rfc6750) specification, the format of a bearer token is opaque to the client. The server can generate any kind of string as it will be the only service to interpret it. Very important, however, is that the token must be secure against tampering or forgery.
+
+The authentication tokens issued by this application are based on [x-www-form-urlencoded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) (urlencoded) encoding. More common, and more standardized, are [JWT Tokens](https://jwt.io/). I started using x-www-form-urlencoded tokens when I built the Central Authentication Service for Ancestry.com in 1999. The first official JSON spec was in 2006 and it wasn't standardized until 2013. So, yeah, JWT wasn't an option when I first started generating secure tokens.
+
+**Similarities:** Both tokens use [HMAC](https://en.wikipedia.org/wiki/HMAC) authentication codes to prevent forgery or tampering. Both let you embed arbitrary data such as user IDs, and session information. Both usually have a creation date/time or an expiration date/time. Both are encoded to prevent use of characters that are disallowed in cookies and http headers. Both can be easily parsed and decoded in JavaScript. JWT using [Uint8Array](https://developer.mozilla.org/en-US/docs/Glossary/Base64) and [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) classes; urlencoded using [URISearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams).
+
+**Differences:** urlencoded tokens use [URL query string encoding](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams#percent_encoding) whereas JWTs use [Base64](https://en.wikipedia.org/wiki/Base64) encoding. That makes urlencoded tokens easier for humans to read without the assistance of a decoder but they are no less secure. Urlencoded tokens are more compact. JWTs can use signature algorithms other than HMAC.
+
 ## Things I discovered along the way
 
-The CORS standards [as documented in MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) are detailed and specific. And yet, there are inconsistent pieces. For example, the [Sec-Fetch-Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site) header is among the newer features, only generally implemented since 2020. ([See current browser support](https://caniuse.com/?search=Sec-Fetch-Site)) Nevertheless, it's quite handy. In RestSpace I originally used it to determine whether an updated cookie (with a new expiration time) should have [Samesite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) set to `none` or `strict`.
+The CORS standards [as documented in MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) are detailed and specific. And yet, there are nuanced and surprising pieces. For example, the [Sec-Fetch-Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site) header is among the newer features, only generally implemented since 2020. ([See current browser support](https://caniuse.com/?search=Sec-Fetch-Site)) Nevertheless, it's quite handy. In RestSpace I originally used it to determine whether an updated cookie (with a new expiration time) should have [Samesite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) set to `none` or `strict`.
 
 The documentation for `Sec-Fetch-Site` give four possible values:
 * cross-site
@@ -171,6 +198,6 @@ The documentation for `Sec-Fetch-Site` give four possible values:
 * same-site
 * none
 
-The weird value is `same-site`. What constitutes the same site? I assumed that `restspace.dicax.org` and `misc.dicax.org` would be different sites and several less-reliable websites implied this. But [digging deep here](https://developer.mozilla.org/en-US/docs/Glossary/Site) I found that the distinguishing feature between sites is the "registrable domain" which is just "dicax.org."
+The weird value is `same-site`. What constitutes the same site? I assumed that `restspace.dicax.org` and `misc.dicax.org` would be different sites and several less-reliable sources implied this. But [digging deep here](https://developer.mozilla.org/en-US/docs/Glossary/Site) I found that the distinguishing feature between sites is the "registrable domain" which is just "dicax.org."
 
 Despite that definition of *site* my experiments found that setting a cookie to `SameSite=strict` prevents that cookie from being shared between `restspace.dicax.org` and `misc.dicax.org`. In that case, it seems that both addresses must have the *same-origin* which means that the scheme, host name, and port must all match. Thus, I changed my test to check whether origins are the same.
