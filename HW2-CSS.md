@@ -3,7 +3,7 @@ title: "Homework 2: CSS"
 ---
 ***
 
-*40 points possible (will be scaled to 30 points in LearningSuite)*
+*30 points possible*
 
 ***
 
