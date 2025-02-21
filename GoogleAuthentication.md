@@ -1,7 +1,6 @@
 ---
 title: Setting Up Google Authentication
 ---
-
 The Google Authentication API lets you delegate authentication services to Google. To use this API, you first need to register your application. In return you will get a **Client ID** and a **Client Secret** with which to identify your application to Google and enable your application to receive information from their servers.
 
 Google changes things all too frequently. The following steps are correct as of 2025 but they may change a bit. If so, just poke around and you'll find the right buttons and links.
