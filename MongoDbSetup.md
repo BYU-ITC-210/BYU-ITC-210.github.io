@@ -1,6 +1,7 @@
 ---
-Mongo DB Atlas Setup
+title: Mongo DB Atlas Setup
 ---
+
 **MongoDB** is a "NoSQL" document database that we will use in this lab. MongoDB **Atlas** is a cloud-hosted MongoDB service that is free for development purposes. Using a cloud service avoids having to install a database server and lets you share the same database between your local development instance and your AWS hosted instance.
 
 In Atlas, we will set up a new database, create a new collection, add some data, and finally create a user that has access to it to be able to read and write data to the database.
