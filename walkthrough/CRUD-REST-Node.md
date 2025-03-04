@@ -237,7 +237,7 @@ function ReadById(id) {
 ReadById(0);
 ```
 
-If you get a 404 error you need to change the ID from `1` to the ID of something that's actually in the database. Look at the IDs in the items returned from `ReadAll()`.
+If you get a 404 error you need to change the ID from `0` to the ID of something that's actually in the database. Look at the IDs in the items returned from `ReadAll()`.
 
 The only difference between this function and `ReadAll()` is that the `id` argument is added to the end of the URL path.
 
@@ -339,18 +339,6 @@ Delete(1);
 
 If you get a 404 error you need to change the ID from `1` to the ID of something that's actually in the database. Use `ReadAll()` to find those IDs.
 
-### Experiment
-
-And that's it! You've called all four CRUD functions plus Find and a variation on Read. By now the CRUD and REST patterns should be making sense plus the syntax of how to call Fetch.
-
-Before leaving this walkthrough, experiment a bit. You'll find that `RestSpace` will store more than just cars. Try storing other items. Or add properties to the car such as Owner or Price. Try automating the creation of ten cars at a time and other interesting stuff. But please don't overload the database. It has a fixed capacity of 1000 items shared between all concurrent users. Once you exceed that, it will purge older items.
-
-### Enhancements (left to the reader)
-
-Session tokens expire after 90 minutes. But every request with a valid token will have an `Authentication-Info` response header containing an updated token refreshed for another 90 minutes. This code ignores that update. A more advanced client would update the `authToken` global variable with the new value thereby allowing sessions of indefinite length.
-
-Much of the code in each of the calls is similar. Consider how to create a more abstract function that encapsulates all or much of the common code.
-
 ### Using Async - Await syntax
 
 In these functions we used anonymous functions to handle the asynchronous responses from fetch calls. ECMAScript 8 (version 8 of the standard for JavaScript) introduced the `async` - `await` syntax for working with promises. Here is a version of `CreateCar()` rewritten to use `async` - `await`.
@@ -386,6 +374,18 @@ async function CreateCar(make, model, year) {
     }
 }
 ```
+
+### Experiment
+
+And that's it! You've called all four CRUD functions plus Find and a variation on Read. By now the CRUD and REST patterns should be making sense plus the syntax of how to call Fetch.
+
+Before leaving this walkthrough, experiment a bit. You'll find that `RestSpace` will store more than just cars. Try storing other items. Or add properties to the car such as Owner or Price. Try automating the creation of ten cars at a time and other interesting stuff. But please don't overload the database. It has a fixed capacity of 1000 items shared between all concurrent users. Once you exceed that, it will purge older items.
+
+### Enhancements (left to the reader)
+
+Session tokens expire after three hours. But every request with a valid token will have an `Authentication-Info` response header containing an updated token refreshed for another three hours. This code ignores that update. A more advanced client would update the `authToken` global variable with the new value thereby allowing sessions of indefinite length.
+
+Much of the code in each of the calls is similar. Consider how to create a more abstract function that encapsulates all or much of the common code.
 
 ## A Note on Security
 
