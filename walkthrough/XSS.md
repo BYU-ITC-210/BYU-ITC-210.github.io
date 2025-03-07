@@ -5,7 +5,7 @@ title: Cross-Site Scripting (XSS) Walkthrough
 
 > **Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions.
 
-[ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own message. This is to keep you from posting exploits that would affect someone else.
+[ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own messages. This is to keep you from posting exploits that would affect someone else.
 
 Browse to [https://scriptboard.dicax.org](https://scriptboard.dicax.org){: target="_blank"}. You will see an empty message board. Write a message and click `Post` to see how it works.
 
