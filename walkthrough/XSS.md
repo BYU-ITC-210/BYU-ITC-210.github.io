@@ -1,9 +1,9 @@
 ---
 title: Cross-Site Scripting (XSS) Walkthrough
 ---
-Cross-Site Scripting (XSS) is a type of injection attack where scripts, links, or other malicious code are inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a misnomer since not all attacks involve more than one website. Nevertheless, it is the industry-accepted name for this type of attack.
+[Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) is a type of injection attack where scripts, links, or other malicious code are inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a misnomer since not all XSS attacks involve more than one website. Nevertheless, it is the industry-accepted name for this type of attack.
 
-> **Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web server or its host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions.
+> **Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions.
 
 [ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own message. This is to keep you from posting exploits that would affect someone else.
 
@@ -21,7 +21,7 @@ Create a simple exploit by putting a popup message on the screen. This sort of t
 <span onmouseover="alert('gotcha!')">My name is Scott!</span>
 ```
 
-Hover over the new message ahd you should get an alert popup.
+Hover over the new message and you should get an alert popup.
 
 You can use some script to **deface** the site by changing text. A more sophisticated attack might even add images. Compared to what's possible, this one is relatively mild:
 
@@ -64,7 +64,7 @@ Scripting doesn't have to be enabled to successfully apply an XSS attack. In the
 Hello.<img src="/Capture?data=
 ```
 
-One common way to prevent XSS attacks is to HTML encode all user-provided content. While this method doesn't support using HTML tags for rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page that does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
+One common way to prevent XSS attacks is to HTML encode all user-provided content. While doing so doesn't support using HTML tags for rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page that does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
 
 ## On Your Own
 
@@ -76,3 +76,35 @@ You can experiment with other XSS exploits on the site. Try to do the following,
 * Change colors or fonts.
 
 > **Remember:** You are authorized to experiment with exploits on your own ScriptBoard session. While the server doesn't have known cross-session vulnerabilities we still don't authorize you to attempt breaking into the server or accessing other sessions.
+
+## Protecting Against XSS Attacks
+
+There are three direct ways to protect against Cross-Site Scripting Attacks:
+* Do not accept user-supplied content.
+* Encode user-supplied content
+* Sanitize user-supplied content
+* Make use of protections in your web framework
+
+The simplest approach is to design your application in such a way that no user-supplied content is accepted. Of course, that eliminates any kind of social media site not to mention tools like the task list we build in this class.
+
+User-supplied content can be HTML encoded on the server side. On the browser side you can the `textContent` or `innerText` properties to ensure that user-supplied content is treated as plain text and not interpreted as HTML. This is a common method but it does not allow rich text such as bold, font changes, colors, and so forth.
+
+A more difficult approach is to sanitize user-supplied content to allow some HTML while prohibiting embedded scripts, ensuring that all tags are closed, and so forth. Doing so requires some sophisticated code that can parse and validate HTML and then remove prohibited tags and properties. If you want to take that approach, it is best to use an existing and tested sanitizing library. Careful implementations can even allow embedded content like the Scripture of the Day example while still protecting against exploits. This can be done by using an [<iframe>](https://www.w3schools.com/tags/tag_iframe.asp) element with settings that keep the embedded content within an isolated sandbox.
+
+Most web frameworks have built-in tools to help combat XSS vulnerabilities. You should be aware of the XSS protections afforded by your framework and use them properly. For example, PHP is notorious for not HTML encoding by default (most other frameworks encode by default). Nevertheless, it offers the [htmlspecialchars()](https://www.geeksforgeeks.org/how-to-prevent-xss-with-html-php/) function which should be used liberally.
+
+### Second Lines of Defense
+
+Tools that provide secondary protection include:
+* Content-Security-Policy Header
+* HttpOnly Cookie Setting
+
+The [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) HTTP header controls what the browser will allow a page to do. It can restrict the domains from which images and scripts can be retrieved, control the domains that can be accessed by [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), disable scripts altogether, and much more. It is often used with [<iframe>](https://www.w3schools.com/tags/tag_iframe.asp) to create a restricted sandbox for user-supplied content.
+
+The [HttpOnly](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#httponly) cookie setting prevents JavaScript from having access to a particular cookie. In this demo, we used `HttpOnly` to protect the real session cookie while exposing a fake sample to JavaScript.
+
+## Other Resources
+* [OWASP Cross-Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) (An excellent, authoritative source.)
+* [OWASP Cross-Site Scripting Page](https://owasp.org/www-community/attacks/xss/)
+* [Preventing Cross-Site Scripting in PHP](https://www.geeksforgeeks.org/how-to-prevent-xss-with-html-php/)
+* [MDN Cross-Site Scripting](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS)
