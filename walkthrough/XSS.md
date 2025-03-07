@@ -1,11 +1,11 @@
 ---
 title: Cross-Site Scripting (XSS) Walkthrough
 ---
-Cross-Site Scripting (XSS) is a type of injection attack where scripts, links, or other malicious code is inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a misnomer since not all attacks involve more than one website. Nevertheless, it is the industry-accepted name for this type of attack.
+Cross-Site Scripting (XSS) is a type of injection attack where scripts, links, or other malicious code are inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a misnomer since not all attacks involve more than one website. Nevertheless, it is the industry-accepted name for this type of attack.
 
-_**Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web server or its host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions._
+> **Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web server or its host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions.
 
-[ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own message. This is to keep you from posting exploits that would affect some else.
+[ScriptBoard](https://scriptboard.dicax.org) simulates an online forum or message board with two special characteristics. First, it is vulnerable to XSS type exploits. Second, each session is restricted to viewing the messages posted from that session. In other words, you can only see your own message. This is to keep you from posting exploits that would affect someone else.
 
 Browse to [https://scriptboard.dicax.org](https://scriptboard.dicax.org){: target="_blank"}. You will see an empty message board. Write a message and click `Post` to see how it works.
 
@@ -56,15 +56,15 @@ fetch("/Capture?sessionId=" + document.getElementById("sessionId").textContent);
 No exploit here. Nope, definitely not!
 ```
 
-Now look at the ViewCaptures page (by clicking `Captures` in the upper-right) to see what has been collected.
+Now look at the ViewCaptures page (by clicking `Captures` in the upper-right) to see what has been collected. Of course, a real exploit would send captured data to a different server that is controlled by the attacker.
 
-Scripting doesn't have to be enabled to successfully apply an XSS attack. In this example we deliberately fail to close quotes on an image link. The browser will treat everything following this post up to the next quote as part of the query string. And, since the link is to the `Captures` URL the data will be captured. After putting this in a post, go check [ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) to see what it found.
+Scripting doesn't have to be enabled to successfully apply an XSS attack. In the following example we deliberately fail to close quotes on an image link. The browser will treat everything following this post up to the next quote as part of the query string. And, since the link is to the `Captures` URL the data will be captured. After putting this in a post, go check [ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) to see what it found.
 
 ```
 Hello.<img src="/Capture?data=
 ```
 
-One common way to prevent XSS attacks is to HTML encode all user-provided content. While this method doesn't support rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page that does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
+One common way to prevent XSS attacks is to HTML encode all user-provided content. While this method doesn't support using HTML tags for rich text, it ensures that no malicious code can be injected. ScriptBoard has a "safe" version of the main page that does just that; HTML Encode all user-supplied data. Click the `Safe` link in the upper-right menu to see all of the posts without exploits.
 
 ## On Your Own
 
@@ -72,7 +72,7 @@ You can experiment with other XSS exploits on the site. Try to do the following,
 
 * The page has some JavaScript that will unscramble a hidden message. Make that message appear somewhere or send it to the captures.
 * Display the hidden `sessionId` value instead of capturing it.
-* Steal the session cookie and send it to the captures. (Note: The real session cookie is protected from JavaScript. The one you can find with an exploit is a simulated session cookie.)
+* Steal the cookie and send it to the captures. (Note: The real session cookie is protected from JavaScript. The one you can find with an exploit is a simulated session cookie.)
 * Change colors or fonts.
 
-_**Remember:** You are authorized to experiment with exploits on your own ScriptBoard session. While the server doesn't have known cross-session vulnerabilities we still don't authorize you to attempt breaking into the server or accessing other sessions._
+> **Remember:** You are authorized to experiment with exploits on your own ScriptBoard session. While the server doesn't have known cross-session vulnerabilities we still don't authorize you to attempt breaking into the server or accessing other sessions.
