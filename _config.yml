@@ -1,6 +1,9 @@
 timezone: America/Denver
 encoding: utf-8
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 exclude:
   - README.md
   - LICENSE

@@ -80,7 +80,7 @@ This should log you in and print the response. It will also store the authorizat
 
 You can verify the value of `authToken` by just typing it at the console:
 
-```js
+```bash
 authToken
 ```
 
@@ -344,7 +344,7 @@ If you get a 404 error you need to change the ID from `1` to the ID of something
 In these functions we used anonymous functions to handle the asynchronous responses from fetch calls. ECMAScript 8 (version 8 of the standard for JavaScript) introduced the `async` - `await` syntax for working with promises. Here is a version of `CreateCar()` rewritten to use `async` - `await`.
 
 For more information, see [this article](https://javascript.info/async-await).
-```
+```js
 async function CreateCar(make, model, year) {
     const body = {
         make: make,
