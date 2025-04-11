@@ -69,7 +69,7 @@
         text-align: center;
     }
 
-    .hidden {
+    .disappear {
         display: none;
     }
 
@@ -121,7 +121,7 @@
     <div class="col1">
         <div class="title">{{ page.title }}</div>
         <div class="subtitle">IT&C 210 - {{ page.session }}</div>
-        <div class="countdown" id="countdown" onclick="startCountdown()">Start</div>
+        <div class="countdown" style="visibility: hidden;" id="countdown" onclick="startCountdown()">&nbsp;</div>
         {% if page.image %}
         <img class="col1img" src="{{ page.image }}" />
         {% if page.imgcredit %}
@@ -129,7 +129,7 @@
         {% endif %}
         {% endif %}
         {% if page.quiz %}
-        <div class="hidden" id="quiz">
+        <div class="disappear" id="quiz">
             <div>Quiz</div>
             <ul>
                 <li>10 Minutes (though you can continue after we start the lecture)</li>
@@ -151,28 +151,32 @@
 
     <script>
 
-        // Offset of the bell from UTC in milliseconds.
-        const bellOffset = 0 * 60000;
-        
         let eleCountdown = document.getElementById("countdown");
         let timer;
+        let sounded = false;
+
+        const offset = 0; //(Date.now() % 3600000)+10000; // for testing
 
         function tick()
         {
-            let remaining = Math.floor((3600000 - ((Date.now()-bellOffset) % 3600000)) / 100);
+            let remaining = Math.floor((3600000 - ((Date.now()-offset) % 3600000)) / 100);
             const tenths = remaining % 10;
             remaining = (remaining - tenths) / 10
             const seconds = remaining % 60;
             const minutes = (remaining - seconds) / 60;
-            if (minutes < 40)
+            if (remaining < 2400) // 40 minutes
             {
                 eleCountdown.textContent = minutes.toString().padStart(2,'0') + ":" + seconds.toString().padStart(2,'0') + "." + tenths.toString();
             }
-            else
-            {
+            else if (!sounded) {
                 eleCountdown.textContent = "00:00.0";
                 let sound = new Audio('/res/timpani.mp3');
                 sound.play();
+                sounded = true;
+            }
+            else if (remaining < 3598)
+            {
+                eleCountdown.style.visibility = "hidden";
                 window.clearInterval(timer);
             }
         }
@@ -180,20 +184,22 @@
         function startCountdown() {
             let eleCountdown = document.getElementById("countdown");
             eleCountdown.onclick = undefined;
+            eleCountdown.style.visibility = 'visible';
             timer = window.setInterval(tick, 100);
         }
 
 {% if page.quiz %}
         function showQuizInfo() {
-            document.getElementById('countdown').className = 'hidden';
+            document.getElementById('countdown').className = 'disappear';
             for (const ele of document.getElementsByClassName('col1img')) {
-                ele.className = 'hidden';
+                ele.className = 'disappear';
             }
             for (const ele of document.getElementsByClassName('imgcredit')) {
-                ele.className = 'hidden';
+                ele.className = 'disappear';
             }
             document.getElementById('quiz').className = 'quiz';
         }
+{% endif %}
 
         function onKeyDown(e)
         {
@@ -206,7 +212,6 @@
         }
 
         document.addEventListener('keydown', onKeyDown);
-{% endif %}
 
     </script>
 
