@@ -11,8 +11,6 @@
     --clr_link_visited: #278DCC;
     --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
     --clr_code_border: black;
-    --clr_code_fg: black;
-    --clr_code_bg: #E0E0E0; /* (light gray) */
     --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
     --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%)
 }
