@@ -1,4 +1,7 @@
-﻿/* ==== Declare Constants ==== */
+﻿/* Syntax highlighting rules */
+@import url(rouge.css);
+
+/* ==== Declare Constants ==== */
 :root {
     --clr_background: white;
     --clr_foreground: black;
@@ -7,7 +10,7 @@
     --clr_link: #18577e; /* (blue) */
     --clr_link_visited: #278DCC;
     --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
-    --clr_code_bg: #C0C0C0; /* (light gray) */
+    --clr_code_border: black;
     --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
     --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%)
 }
@@ -22,9 +25,8 @@
         --clr_link: #278DCC; /* (blue) */
         --clr_link_visited: #336cce;
         --clr_link_hover_bg: #303030;
-        --clr_code_fg: #a0a0a0;
-        --clr_code_bg: #505050; /* (dark gray) */
-            --gradient_bg: linear-gradient(to right, black, #101010, black, black, #101010, black 100%)
+        --clr_code_border: white;
+        --gradient_bg: linear-gradient(to right, black, #101010, black, black, #101010, black 100%)
     }
 }
 
@@ -424,7 +426,7 @@ pre {
     border-width: 1px;
     border-style: ridge;
     border-radius: 5px;
-    border-color: black;
+    border-color: var(--clr_code_border);
     margin-bottom: 1em;
 }
 
@@ -480,88 +482,6 @@ table.layout th, table.layout td {
     color: darkred;
     font-style: italic;
     margin-bottom: 0.5em;
-}
-
-/* === Syntax Highlighting with Rouge */
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #586e75;
-}
-.highlight .err {
-  color: #002b36;
-  background-color: #dc322f;
-}
-.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #657b83;
-}
-.highlight .cp {
-  color: #b58900;
-}
-.highlight .nt {
-  color: #b58900;
-}
-.highlight .o, .highlight .ow {
-  color: #93a1a1;
-}
-.highlight .p, .highlight .pi {
-  color: #93a1a1;
-}
-.highlight .gi {
-  color: #859900;
-}
-.highlight .gd {
-  color: #dc322f;
-}
-.highlight .gh {
-  color: #268bd2;
-  background-color: #002b36;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #6c71c4;
-}
-.highlight .kc {
-  color: #cb4b16;
-}
-.highlight .kt {
-  color: #cb4b16;
-}
-.highlight .kd {
-  color: #cb4b16;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #859900;
-}
-.highlight .sa {
-  color: #6c71c4;
-}
-.highlight .sr {
-  color: #2aa198;
-}
-.highlight .si {
-  color: #d33682;
-}
-.highlight .se {
-  color: #d33682;
-}
-.highlight .nn {
-  color: #b58900;
-}
-.highlight .nc {
-  color: #b58900;
-}
-.highlight .no {
-  color: #b58900;
-}
-.highlight .na {
-  color: #268bd2;
-}
-.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #859900;
-}
-.highlight .ss {
-  color: #859900;
 }
 
 /* === Print === */
