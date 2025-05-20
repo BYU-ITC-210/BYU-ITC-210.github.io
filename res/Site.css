@@ -5,11 +5,13 @@
 :root {
     --clr_background: white;
     --clr_foreground: black;
+    --clr_title: black;
     --clr_accent1: #8A1515; /* Directory, Subtitle, Heading 1 (burgundy) */
     --clr_accent2: #085170; /* Title, Heading 2 (dark turquoise)*/
     --clr_link: #18577e; /* (blue) */
     --clr_link_visited: #278DCC;
     --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
+    --clr_code_bg: #D8D8FD;
     --clr_code_border: black;
     --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
     --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%)
@@ -19,12 +21,14 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --clr_background: black;
-        --clr_foreground: rgb(220, 245, 230);
+        --clr_foreground: #DCF5E6;
+        --clr_title: white;
         --clr_accent1: #b03737; /* Directory, Subtitle, Heading 1 (burgundy) */
         --clr_accent2: #278DCC; /* Title, Heading 2 (Light turquoise)*/
         --clr_link: #278DCC; /* (blue) */
         --clr_link_visited: #336cce;
         --clr_link_hover_bg: #303030;
+        --clr_code_bg: #404040;
         --clr_code_border: white;
         --gradient_bg: linear-gradient(to right, black, #101010, black, black, #101010, black 100%)
     }
@@ -170,7 +174,7 @@ div.siteblock {
     font-size: 2.6em;
     letter-spacing: -0.03em;
     font-weight: 300;
-    color: black;
+    color: var(--clr_title);
     font-style: normal;
     font-variant: normal;
     margin-top: 0;
@@ -182,7 +186,7 @@ div.siteblock {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 1.4em;
     font-weight: 400;
-    color: black;
+    color: var(--clr_foreground);
     font-style: normal;
     font-variant: normal;
     margin-top: 0;
@@ -479,7 +483,7 @@ table.layout th, table.layout td {
 
 /* === Special classes for IT210 === */
 .question {
-    color: darkred;
+    color: var(--clr_accent1);
     font-style: italic;
     margin-bottom: 0.5em;
 }
