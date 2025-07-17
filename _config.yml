@@ -28,6 +28,11 @@ defaults:
       type: "welcome"
     values:
       layout: "welcome"
+  -
+    scope:
+      path: "slides/*.pptx"
+    values:
+      viewer: ppt
 collections:
   welcome:
     output: true
