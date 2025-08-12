@@ -1,0 +1,480 @@
+﻿/* GitHub Pages Sytlesheet Intended to Imitate US Chamber Foundation Website. See https://www.uschamberfoundation.org */
+
+/* ==== Declare Constants ==== */
+:root {
+	--max_width: 65em;
+	
+    --clr_text: #454a56; /* Primary Text */
+	
+	--clr_accent1: #E75845; /* Primary Button (Orange) */
+    
+	--clr_link: #3876AB; /* (blue) */
+    --clr_link_visited: #3876B4;
+    --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
+    --clr_code_bg: #E8E8E8; /* (light gray) */
+	--clr_footer_bg: #2A2C38; /* (dark bluish gray) */
+	--clr_footer_fg: #7F796F; /* (light gray) */
+    --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
+}
+
+/* ==== Import Fonts ==== */
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI5wq_Gwft.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ==== CSS Reset ==== */
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* Images */
+img {
+    border-style: none;
+}
+
+/* ==== Body Defaults ==== */
+body {
+    margin: 0;
+    color: var(--clr_text);
+    font-family: 'proxima-nova', arial, sans-serif;
+    font-size: 100%; /* For pages, we allow sensitivity to browser font size settings */
+    line-height: 1.4;
+    background: white;
+}
+/* All other font sizes should be relative to the base (e.g. 1.5em or 150%) */
+
+/* Main frame for pages - should sit just inside body */
+#frame {
+    margin: 0;
+    padding: 0;
+}
+
+/* Manage floating layout */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ==== Extra header ===== */
+.chamber-header-frame {
+	color: white;
+	background-color: rgb(70, 81, 88);
+}
+
+.chamber-header {
+    max-width: var(--max_width);
+    margin: 0 auto 0.5em auto;
+    padding: 5px;
+}
+
+.chamber-header-frame a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.chamber-header-frame a:hover {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: inherit;
+}
+.chamber-header-frame a:visited {
+    color: inherit;
+}
+
+/* ==== Header including site title and nav menu ==== */
+.header-frame {
+}
+
+header {
+    max-width: var(--max_width);
+    margin: 0 auto 0.5em auto;
+    padding: 5px;
+}
+header::after {
+    /* Keeps float items from overflowing the block */
+    content: "";
+    clear: both;
+    display: table;
+    /* Border rule */
+    background-image: var(--gradient_hr);
+    height: 2px;
+    width: 100%;
+    margin-top: 1em;
+}
+
+/* siteblock should be a DIV that frames up the sitetitle and sitesubtitle */
+div.siteblock {
+}
+/* Site title or logo */
+.siteblock h1 {
+    float: left;
+    margin-bottom: 0.2em;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.6em;
+    font-weight: 400;
+    color: black;
+    font-style: normal;
+    font-variant: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+}
+/* Site subtitle or slogan */
+.siteblock h2 {
+    float: left;
+    margin-bottom: 0.2em;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: black;
+    font-style: normal;
+    font-variant: normal;
+    margin-top: 1em;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* Manage Links in the siteblock */
+.siteblock a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.siteblock a:hover {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: inherit;
+}
+.siteblock a:visited {
+    color: inherit;
+}
+
+/* ==== Main Menu ==== */
+
+/* nav frames up the main menu which is typically a list of links */
+nav {
+    float: right;
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    color: var(--clr_accent1);
+}
+nav li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+nav li a:hover {
+    background-color: var(--clr_link_hover_bg);
+    color: inherit;
+    text-decoration: inherit;
+}
+nav li a:visited {
+    color: inherit;
+}
+
+/* ==== Footer ==== */
+.footer-frame {
+	color: var(--clr_footer_fg);
+	background-color: var(--clr_footer_bg);
+}
+
+footer {
+    max-width: var(--max_width);
+    margin: 0 auto;
+    padding: 1em; 5px;
+    text-align: left;
+}
+
+footer::after {
+    /* Keep float items from overflowing the block */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ==== Main Section - where articles appear */
+.main-frame {
+}
+
+main {
+    max-width: var(--max_width);
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+/* ==== General text formatting ==== */
+
+/* Core document/content. Comes after the header and before the footer. */
+article {
+    /* This particular stylesheet doesn't modify anything in the article space. Placeholder only. */
+    /* Other styles may have a background within which the article sits. */
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 3em;
+    margin-bottom: 1em;
+}
+
+ol {
+    list-style: decimal;
+    margin-left: 3em;
+    margin-bottom: 1em;
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+blockquote {
+    quotes: none;
+    border-left: darkred solid 0.25em;
+    margin-left: 2em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+}
+
+q {
+    quotes: '“' '”'
+}
+
+/* Links */
+a {
+    text-decoration: underline;
+    color: var(--clr_link);
+}
+a:hover {
+    background-color: var(--clr_link_hover_bg);
+}
+a:visited, .linkvisited {
+    color: var(--clr_link_visited);
+}
+
+/* Page or document Title */
+.title {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--clr_text);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: 1;
+}
+
+.subtitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--clr_text);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: 1;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.0em;
+    font-weight: normal;
+    color: var(--clr_text);
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--clr_text);
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--clr_text);
+    margin-top: 0.2em;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h5 {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h6 {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin-top: 0.2em;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 h:visited {
+    color: inherit;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h5 a:hover, h6 a:hover {
+    color: var(--clr_link);
+    text-decoration: underline;
+}
+
+/* horizontal rule */
+hr {
+    border: 0;
+    height: 2px;
+    background-image: var(--gradient_hr);
+    width: 100%;
+}
+
+/* code blocks */
+code {
+    font: 0.9em "Lucida Console", Monaco, monospace;
+    color: black;
+    background-color: var(--clr_code_bg);
+    padding: 0 3px 0 3px;
+}
+
+pre {
+    font: 0.9em "Lucida Console", Monaco, monospace;
+    color: black;
+    background-color: var(--clr_code_bg);
+    padding: 8px;
+    border-width: 1px;
+    border-style: ridge;
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 1em;
+}
+
+pre code {
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+    padding: 0;
+}
+
+kbd {
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    border: black solid 1px;
+    border-radius: 0.3em;
+    padding: 0 0.2em;
+    background-color: #424242;
+    color: white; 
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 0 1em 0;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th, table td {
+    border: 1px solid black;
+    padding: 6px 13px;
+}
+
+/* Layout Tables (have no borders, padding, or margins) */
+table.layout {
+    margin: 0;
+}
+
+table.layout th, table.layout td {
+    border: 0 none white;
+    padding: 0 0.25em;
+}
+
+/* Streamlining is sometimes used in tables. */
+.streamline p {
+	display: inline;
+}

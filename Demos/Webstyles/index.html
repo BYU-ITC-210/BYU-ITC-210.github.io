@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>WebStyles Sample</title>
+	<meta charset="utf-8">
+	<link id="pagestyle" rel="stylesheet" type="text/css" href="FileMeta.css">
+    
+    <!-- This script is NOT part of the sample. It supports switching sample stylesheets. -->
+    <script>
+
+// The stylesheets that can be selectively applied to this sample. Add yours here.
+var stylesheets = ["FileMeta.css", "Block.css", "EdMatrix.css", "BrandtRedd.css", "OfThat.css", "BrowserDefault.css", "ThatWhichUnitesUs.css", "WorkInProgress.css"];
+
+function setStyleSheet(sheet) {
+    document.getElementById("pagestyle").setAttribute("href", sheet);
+}
+
+function init() {
+    var cb = document.getElementById("styleselectbar");
+    for (var i = 0; i < stylesheets.length; ++i) {
+        var b = document.createElement("button");
+        b.setAttribute("onclick", "setStyleSheet(\"" + stylesheets[i] + "\");");
+        b.innerHTML = stylesheets[i];
+        cb.appendChild(document.createTextNode(" "));
+        cb.appendChild(b);
+    }
+}
+
+window.onload = init;
+
+    </script>
+
+    <!-- These styles are exclusively for the stylesheet selection bar and not part of the sample content. -->
+    <style>
+
+.styleselectbar {
+    color: black;
+    background-color: skyblue;
+    padding: 0 11pt;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 11pt;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 20pt;
+}
+
+.styleselectbar button {
+    color: black;
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 11pt;
+    border: thin solid green;
+    border-radius: 4px;
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- Not part of the sample. This control bar allows swapping styles. -->
+<div id="styleselectbar" class="styleselectbar">Select StyleSheet:</div>
+<div style="height: 20pt">&nbsp;</div>
+
+<div id="frame">
+
+	<div class="header-frame">
+		<header>
+
+			<!-- logo -->
+			<div class="siteblock">
+				<h1>
+					<a href="/">SiteLogo</a>
+				</h1>
+				<h2>
+					<a href="/">Subtitle or slogan.</a>
+				</h2>
+			</div>
+
+			<!-- main navigation -->
+			<nav>
+				<ul>
+					<li><a href="http://brandtredd.org">Menu Item 1</a></li>
+					<li><a href="http://brandtredd.org">Menu Item 2</a></li>
+					<li>Menu 3 is not a link.</li>
+				</ul>
+			</nav>
+		</header>
+	</div> <!-- header-frame -->
+
+    <!-- Content -->
+	<div class="main-frame">
+		<main>
+
+		<!-- Only one article, but there could be multiple within <main> -->
+		<article>
+			<div class="title">Document Title</div>
+			<div class="subtitle">Document Subtitle</div>
+			<h1>Heading 1</h1>
+			<p>Paragraph 1. <q>This is an inline quote.</q> Lorem ipsum dolor  sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>
+				<a href="http://google.com">This is a link</a><br />
+				<a href="http://google.com" class="linkvisited">This is a visited link</a><br />
+				<em>This is 'em' italic.</em><br />
+				<strong>This is 'strong' bold.</strong><br />
+				<i>This is 'i' italic.</i><br />
+				<b>This is 'b' bold.</b><br />
+			</p>
+			<p>Paragraph 2. Press <kbd>q</kbd> to exit. Type <kbd>Fly</kbd> to experience weightlessness. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p>
+			<p>Paragraph 3 immediately follows. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p>
+			<p>This paragraph is followed by a Horizontal Rule</p>
+			<hr />
+			<p>Paragraph 4 preceded by a horizontal rule. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</p>
+			<ul>
+				<li>This</li>
+				<li>is an</li>
+				<li>unordered</li>
+				<li>list.</li>
+			</ul>
+			<p>Paragraph. Qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum.</p>
+			<ol>
+				<li>This</li>
+				<li>is an</li>
+				<li>ordered</li>
+				<li>list.</li>
+			</ol>
+			<h2>Heading 2</h2>
+			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			<blockquote>BlockQuote Text: Sed dictum turpis id risus maximus, quis faucibus lacus commodo. Donec malesuada tellus vel quam hendrerit posuere. Cras sed urna orci. Vestibulum efficitur, metus quis molestie euismod, tortor dolor vulputate metus, in sagittis augue tortor id tortor. Vivamus porta dui ut urna aliquam, nec dignissim tortor commodo. Vivamus ornare, risus dapibus condimentum sollicitudin, odio diam malesuada justo, facilisis auctor felis risus non purus.</blockquote>
+			<p>Regular paragraph. Et harum quidem rerum facilis est et expedita distinctio.</p>
+			<pre><code>void WriteText()
+	{
+		Console.WriteLine("This is a sample of a code block.");
+		for (int i=0; i&lt;8; ++i)
+		{
+			Console.Write("Na ");
+		}
+		for (int i=0; i&lt;3; ++i)
+		{
+			Console.Write("Hey ");
+		}
+		Console.WriteLine("Goodbye.");
+	}</code></pre>
+			<p>Last paragraph under this heading. <code>WriteLine("Inline code block);</code> Curabitur gravida velit vel diam hendrerit, sed auctor lacus finibus. Sed convallis nulla in diam fringilla, eget tincidunt nisi faucibus. Suspendisse vestibulum diam at quam maximus ultricies. Suspendisse ullamcorper tortor dui, eget mollis sapien tempor id.</p>
+			<h3>Heading 3</h3>
+			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+			<p>Cras porttitor sodales augue eget dapibus. In rutrum scelerisque magna, quis posuere urna viverra non. Maecenas vitae pellentesque elit, dictum molestie nisi. Donec faucibus fermentum augue et semper. Nullam blandit felis id arcu vestibulum sagittis. Suspendisse quis nisl faucibus diam consectetur lacinia.</p>
+			<h4>Heading 4</h4>
+			<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<h5>Heading 5</h5>
+			<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<h6>Heading 6</h6>
+			<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<h1>Tables</h1>
+			<p>The following is an embedded table (layout tables are also occasionally used).</p>
+			<table>
+				<tr><th>One</th><th>Two</th><th>Three<br />Wrap</th></tr>
+				<tr><td>123</td><td>234</td><td>345</td></tr>
+				<tr><td>555-1212</td><td>A longer piece of text.</td><td>Numa numa dance.</td></tr>
+			</table>
+			<p>Text following the table.</p>
+
+			<h3>Another heading 3</h3>
+			Non-paragraph text.
+			<h3>Another heading 3</h3>
+			<p>Paragraph text.</p>
+			<h3>One more heading 3</h3>
+			<hr />
+			<p>The following headings are also links. Depending on the style, they may look like standard headings until a mouse hover.</p>
+			<h1><a href="http://brandtredd.org">Heading 1</a></h1>
+			<h2><a href="http://brandtredd.org">Heading 2</a></h2>
+			<h3><a href="http://brandtredd.org">Heading 3</a></h3>
+			<h4><a href="http://brandtredd.org">Heading 4</a></h4>
+			<h5><a href="http://brandtredd.org">Heading 5</a></h5>
+			<h6><a href="http://brandtredd.org">Heading 6</a></h6>
+
+		</article>
+
+		</main>
+	</div> <!-- main-frame -->
+    <!-- End Content -->
+
+	<div class="footer-frame">
+		<footer>
+			<p>This is the footer to the page.</p>
+		</footer>
+	</div> <!-- footer-frame -->
+
+</div> <!-- end div id="frame" -->
+</body>
+</html>
