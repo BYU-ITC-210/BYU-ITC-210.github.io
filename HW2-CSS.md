@@ -28,7 +28,7 @@ Even though it is best practice to use an external file, in this assignment we w
 
 ## Procedures
 
-Download the [“Basic HTML Page”](/HW2/home.html){: download="home.html"} and save a copy to your computer. Then edit the html file to do the following:
+Download the [“Basic HTML Page”](/HW2/home.html){: download="home.html"} and save a copy to your computer. (Right-click the link and select "Save Link As.") Then edit the html file to do the following:
 
 ### CSS Locations **[8 Points]**
 
