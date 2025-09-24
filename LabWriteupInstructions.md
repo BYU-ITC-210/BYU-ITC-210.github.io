@@ -83,4 +83,4 @@ Make sure that your screenshots and UML diagrams display correctly on GitHub bef
 
 Each lab indicates the type of UML diagram that should be included. Please pay attention and submit the right kind.
 
-UMLs must be created using a digital program. Hand-drawn UMLs will not be accepted. All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG. Recommended online programs include [Lucidchart](https://www.lucidchart.com/pages/?) and [Draw.io](https://app.diagrams.net/).
+All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG. Recommended online programs include [Lucidchart](https://www.lucidchart.com/pages/?) and [Draw.io](https://app.diagrams.net/).
