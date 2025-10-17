@@ -51,7 +51,7 @@ Be sure to answer questions from both A and B parts of the lab.
 
 This is a record of at least 3 problems and/or learning experiences you ran into and their solutions. These should be formatted with a short heading (descriptive title of the problem) and a short paragraph describing how the problem was resolved. There should be three pieces of information in each: (1) what the problem or concern was, (2) why it happens, (3) the solution. *Make sure you include all three parts! Please see the example writeup for suggested formatting.*
 
-The focus of this section is the problem and its solution, not necessarily your personal experience/story with it (though the problems should come from things you ran into yourself).
+Avoid writing them in the first person voice - i.e., using pronouns and possessives such as I, we, my, or our. Remember: the focus of this section is the problem and its solution, not necessarily your personal experience/story with it (though the problems should come from things you ran into yourself).
 
 ## VI. Skills Acquired (6 pts):
 
