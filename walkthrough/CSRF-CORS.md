@@ -44,14 +44,14 @@ If you want, try changing the `mode` to "no-cors" and try again. This time you g
 
 This happens way too often. You create a server, it works, then you try it cross-origin and you suddenly get CORS errors. "What is CORS? And why should you care?"
 
-CORS stands for [Cross-Origin Request Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). It is a web standard intended to enable authorized access while preventing unauthorized access. Since it is enforced by the browser, other applications such as **BurpSuite**, **Postman** and **curl** don't generate CORS errors. Neither does Python `http.request()`, `fetch()` in Node.js doesn't have CORS security. Only browsers. Therefore, you may be surprised by such an error when CORS problems arise late in the development process.
+CORS stands for [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) but it could, just as well, mean *Cross-Origin Request Security*. It is a web standard intended to enable authorized access while preventing unauthorized access. Since it is enforced by the browser, other applications such as **BurpSuite**, **Postman** and **curl** don't generate CORS errors. Neither does `http.request()` in Python or `fetch()` in Node.js. Only browsers implement CORS security. Therefore, you may be surprised by such an error when CORS problems arise late in the development process.
 
 An **Origin** to the browser is the first part of the URL; including the scheme, the host name, and the port number (if any). In this case we are dealing with two origins. The origin of the server is `https://n.restspace.dicax.org`. The origin of the client is `https://byu-itc-210.github.io`. Since the origins aren't the same, the browser determines that this is a *cross-origin* request.
 
 * Click on the `Network` tab in the developer tools.
 * Click `Send` again to see what the browser is actually doing.
 
-You can try the Send with different `mode` settings. Flip between the `Console` and the `Network` tabs to get all of the information. Use the &#x2298; button to clear results between tests so you can better understand what's happening. With the naive server,of the `mode` settings work but the error patterns are different. 
+You can try the Send with different `mode` settings. Flip between the `Console` and the `Network` tabs in developer tools to get all of the information. Use the &#x2298; button to clear results between tests so you can better understand what's happening. With the naive server, none of the `mode` settings works but the error patterns are different. 
 
 In `(default)` and `cors` modes you will see that the browser sent an OPTIONS request to the server. This is known as a "CORS Preflight" request. When calling *cross-origin* the browser will first send a preflight request to find out if the server accepts such requests. In this naive case, the programmer didn't know about CORS and the server returned a 404 error. Without a valid response, the browser blocked JavaScript from completing the `fetch()`.
 
@@ -67,13 +67,13 @@ Suppose you *want* to be able to access your [REST API](https://www.geeksforgeek
 * Make sure "credentials: include" is checked.
 * Click `Send`
 
-The login was successful, You may notice that it displays fewer headers than the naive server. And, even though it set a cookie it doesn't show that in the response. The browser limits the headers that are visible in a cross-origin request and, while it stored the cookie, it blocks JavaScript from other origins from accessing it.
+The cross-origin login was successful, You may notice that it displays fewer headers than the naive server. And, even though it set a cookie it doesn't show that in the response. The browser limits the headers that are visible in a cross-origin request and, while it stored the cookie, it blocks JavaScript from accessing cross-origin cookies.
 
 > Even the `Application` tab in the developer tools doesn't show the cookie. You would have to open another browser tab at [https://p.restspace.dicax.org/](https://p.restspace.dicax.org/){: target="_blank"} and open the `Application` developer tool to view the cookie.
 
 * Open the `Network` tab in the developer tools and click on `Send` again so that you can see the requests and responses.
 
-Because this is a cross-origin call there are two calls to `login`. The preflight request with the `OPTIONS` verb and the actual request that performed the login. The preflight request returned `204 No Content` meaning that the request was successful but all returned information is in the headers. There is no body.
+Because this is a cross-origin call there are two calls to `login`. The preflight request with the `OPTIONS` verb and the actual request that performed the login. The preflight request returned `204 No Content` meaning that the request was successful but all of the returned information is in the headers. There is no body.
 
 > Even though the preflight request always goes first, the Network tab often shows the requests in reverse order. This is just a strange quirk of the developer tool.
 
@@ -161,9 +161,11 @@ On the other hand, this requires that you manage the tokens in the front end usi
 
 If you read up on Cross-Site Request Forgery you will find that the most common recommendation is to use [Token-Based Mitigation](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#token-based-mitigation). In this method, your frontend retrieves one or more single-use tokens from the server. A token must be sent with each call that makes changes and tokens may not be reused. This is a proven system and, prior to browser implementation of CORS, this and the [Double-Submit](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#alternative-using-a-double-submit-cookie-pattern) pattern were the only options.
 
-The trouble with Token-Based Mitigation and Double-Submit is that the server must keep track of issued tokens in a database of some sort thereby recognizing issued tokens and prohibiting reuse. It's very complicated and consumes extra server resources. If you choose one of these methods I strongly recommend that you adopt a tested and reliable library.
+The trouble with Token-Based Mitigation and Double-Submit is that the server must keep track of issued tokens in a database of some sort thereby recognizing issued tokens and prohibiting reuse. It is very complicated and consumes extra server resources. If you choose one of these methods, you should adopt a tested and reliable library rather than implement it yourself.
 
-In contrast, the methods used in the secure-cookie and authentication methods in this demo both rely on storing the origin of the login in the authentication token. Thus, calls from other origins are rejected. It is much simpler and equally secure as other methods. However, this method relies on browsers providing the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) header which [only became broadly available in 2015](https://caniuse.com/mdn-http_headers_origin). As of 2024 it remains unsupported on 3% of browsers in use. Due to a fail-safe implementation, this application will simply not work on older browsers without Origin headers.
+Of course, you can still ignore the CSRF/CORS issue entirely which is what the Naive server does. Since browsers have had CORS protection in place since the early 2000s, you can rely on browser protection against without any server-side CORS work so long as all calls to your server will come from the same origin. [As of 2025, 96.4% of browsers in use have baseline CORS protection](https://caniuse.com/?search=CORS).
+
+In contrast, the methods used in the secure-cookie and token authentication methods in this demo both rely on storing the origin of the login in the authentication token. Thus, calls from other origins are rejected. It is much simpler and equally secure as other methods. However, this method relies on browsers providing the [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) header which [only became broadly available in 2015](https://caniuse.com/mdn-http_headers_origin). As of 2024 it remains unsupported on 3% of browsers in use. Due to a fail-safe implementation, this application will simply not work on older browsers without Origin headers.
 
 ## Additional Resources
 * [Common no-cors misconceptions](https://evertpot.com/no-cors/)
@@ -171,7 +173,7 @@ In contrast, the methods used in the secure-cookie and authentication methods in
 
 # More Information
 
-The following is not but it's important background if you plan to build a secure back end.
+The following is not essential information but it's valuable background if you plan to build a secure back end.
 
 ## Security Considerations
 
@@ -180,13 +182,13 @@ While creating a server that manifests CSRF vulnerabilities I have taken care to
 A second precaution is that data are only retained for 24 hours. This prevents the server from being exploited as a data storage service.
 
 ## Token Format
-According to the [Authentication: Bearer](https://datatracker.ietf.org/doc/html/rfc6750) specification, the format of a bearer token is opaque to the client. The server can generate any kind of string as it will be the only service to interpret it. Very important, however, is that the token must be secure against tampering or forgery.
+According to the [Authentication: Bearer](https://datatracker.ietf.org/doc/html/rfc6750) specification, the format of a bearer token is opaque to the browser/client. The server can generate any kind of string as it will be the only service to interpret it. Very important, however, is that the token must be secure against tampering or forgery.
 
-The authentication tokens issued by this application are based on [x-www-form-urlencoded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) (urlencoded) encoding. More common, and more standardized, are [JWT Tokens](https://jwt.io/). I started using x-www-form-urlencoded tokens when I built the Central Authentication Service for Ancestry.com in 1999. The first official JSON spec was in 2006 and it wasn't standardized until 2013. So, yeah, JWT wasn't an option when I first started generating secure tokens.
+The authentication tokens issued by this application are based on [x-www-form-urlencoded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) (urlencoded) format. More common, and more standardized, are [JWT Tokens](https://jwt.io/). I started using x-www-form-urlencoded tokens when I built the Central Authentication Service for Ancestry.com in 1999. The first official JSON spec was in 2006 and it wasn't standardized until 2013. So, yeah, JWT wasn't an option when I first started generating secure tokens. Urlencoded tokens are equally secure, and more compact than JWT tokens.
 
 **Similarities:** Both tokens use [HMAC](https://en.wikipedia.org/wiki/HMAC) authentication codes to prevent forgery or tampering. Both let you embed arbitrary data such as user IDs, and session information. Both usually have a creation date/time or an expiration date/time. Both are encoded to prevent use of characters that are disallowed in cookies and http headers. Both can be easily parsed and decoded in JavaScript. JWT using [Uint8Array](https://developer.mozilla.org/en-US/docs/Glossary/Base64) and [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) classes; urlencoded using [URISearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams).
 
-**Differences:** urlencoded tokens use [URL query string encoding](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams#percent_encoding) whereas JWTs use [Base64](https://en.wikipedia.org/wiki/Base64) encoding. That makes urlencoded tokens easier for humans to read without the assistance of a decoder but they are no less secure. Urlencoded tokens are more compact. JWTs can use signature algorithms other than HMAC.
+**Differences:** urlencoded tokens use [URL query string encoding](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams#percent_encoding) whereas JWTs use [Base64](https://en.wikipedia.org/wiki/Base64) encoding. That makes urlencoded tokens easier for humans to read without the assistance of a decoder but they are no less secure. Urlencoded tokens are more compact. JWTs can use signature algorithms other than HMAC. However, a known vulnerability is that [you can set the JWT signature algorithm to none](https://www.valencynetworks.com/kb/jwt-alg-none-vulnerability-authentication-bypass-prevention-guide.html). If the server doesn't check for that then JWT tokens can be forged.
 
 ## Things I discovered along the way
 
