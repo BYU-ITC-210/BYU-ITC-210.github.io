@@ -120,7 +120,7 @@
 <body>
     <div class="col1">
         <div class="title">{{ page.title }}</div>
-        <div class="subtitle">IT&C 101 - {{ page.session }}</div>
+        <div class="subtitle">{{ page.course }} - {{ page.session }}</div>
         <div class="countdown" style="visibility: hidden;" id="countdown" onclick="startCountdown()">&nbsp;</div>
         {% if page.image %}
         <img class="col1img" src="{{ page.image }}" />

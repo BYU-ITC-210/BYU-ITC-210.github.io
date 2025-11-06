@@ -28,6 +28,7 @@ defaults:
       type: "welcome"
     values:
       layout: "welcome"
+      course: "IT&C 210"
   -
     scope:
       path: "slides/*.pptx"
