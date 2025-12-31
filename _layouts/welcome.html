@@ -35,12 +35,13 @@
         align-items: center;
     }
 
-    .graphic {
+    aside {
+        grid-area: gr;
         height: 100%;
         padding: 0 0.5em;
     }
 
-    .announcements {
+    main {
         grid-area: ann;
         margin: auto 0;
         padding: 1em;
@@ -85,26 +86,26 @@
         display: none;
     }
 
-    .announcements ul {
+    main ul {
         margin-left: 0.5em;
     }
 
-    .announcements ul>li>ul {
+    main ul>li>ul {
         margin-bottom: 0;
     }
 
-    .announcements img {
-        display: block;
-        max-width: 100%;
-        max-height: 25em;
-        margin: 1em auto 0 auto;
-    }
-
-    .graphic img {
+    aside img {
         display: block;
         width: 100%;
         max-height: calc(100vh - 20rem);
         object-fit: contain;
+        margin: 1em auto 0 auto;
+    }
+
+    main img {
+        display: block;
+        max-width: 100%;
+        max-height: 25em;
         margin: 1em auto 0 auto;
     }
 
@@ -137,22 +138,19 @@
     <div class="vertborder">
     </div>
     {% if page.image %}
-    <div class="graphic">
+    <aside>
         <img class="col1img" src="{{ page.image }}" />
         {% if page.imgcredit %}
         <div class="imgcredit">{{ page.imgcredit }}</div>
         {% endif %}
-    </div>
-    <div class="announcements">
+    </aside>
+    <main>
         <h2>Announcements:</h2>
-        <article>
-            {{ content }}
-        </article>
-    </div>
+        {{ content }}
+    </main>
     {% else %}
     {{ content }}
     {% endif %}
-
 
     <script>
 
