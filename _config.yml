@@ -29,6 +29,7 @@ defaults:
     values:
       layout: "welcome"
       course: "IT&C 210"
+      quizminutes: 2
   -
     scope:
       path: "slides/*.pptx"
@@ -38,6 +39,7 @@ collections:
   welcome:
     output: true
     permalink: /welcome/:path.html
+
 sass:
   sass_dir: _sass
   
