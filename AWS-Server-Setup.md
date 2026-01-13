@@ -58,6 +58,8 @@ To serve your website we will need to install apache2.
 
 ## Clone your code
 
+> You will repeat this part of the instructions each time you deploy a new lab to your server. The first time you do step 4 you will be deleting the default website that came with Apache. When you repeat these instructions with future labs, the `rm` instruction on Step 4 will remove the symbolic link to the web site from the prior lab.
+
 1. On GitHub.com, look at your repo and click the button that says "Clone or download" and then copy the URL in the box.
 2. Navigate to the Apache WebRoot:
     ```sh
@@ -91,6 +93,7 @@ To serve your website we will need to install apache2.
     In future labs, you will need to clone more repos to your live server and point apache to the right directory. This involves `rm`ing the old symbolic link and making a new one using this command. This is so you don't have to make another `sites-available` file (which we'll cover next) and make Apache reload.
     
 ## Change Default Config
+
 Apache comes with a default configuration file, and as of the time of writing this, it should be called `000-default.conf`.
 You'll create your own new site config.
 
