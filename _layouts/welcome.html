@@ -78,7 +78,7 @@
         margin: 0 0 0 1.5em;
     }
 
-    .quizpw {
+    #quizpw {
         font-size: 1.5em;
     }
 
@@ -130,7 +130,7 @@
             </ul>
             <div style="position: relative; text-align: center;">
                 <div style="position:absolute; top: 0; left: 0;">Password:</div>
-                <span class="quizpw">{{ page.quiz }}</span>
+                <span id="quizpw"></span>
             </div>
         </div>
         {% endif %}
@@ -227,7 +227,36 @@
 
         document.addEventListener('keydown', onKeyDown);
 
-    </script>
+        {% if page.quiz %}
+
+        function getQuizPw() {
+            let quizPw = null;
+            try {
+                const quizKey = "{{ page.quiz }}";
+                const quizIndex = Number(quizKey);
+                if (Number.isNaN(quizIndex)) {
+                    quizPw = quizKey;
+                }
+                else {
+                    const passwordsRaw = localStorage.getItem("passwords");
+                    if (!passwordsRaw) throw new Error("No passwords in localStorage.");
+                    const passwords = JSON.parse(passwordsRaw)?.passwords;
+                    quizPw = passwords[quizIndex];
+                }
+            }
+            catch (err) {
+                console.error(err);
+            }
+            if (quizPw) {
+                document.getElementById("quizpw").textContent = quizPw;
+            }
+        }
+
+        window.addEventListener("load", getQuizPw);
+
+        {% endif %}
+
+</script>
 
 </body>
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploader</title>
+</head>
+<body>
+    <form>
+        <label for="file">Select file:</label> <input type="file" id="file" name="file"/><br/>
+        <input type="submit" onclick="UploadFile(event); return false;"/>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        
+function UploadFile(event) {
+    event.preventDefault();
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        localStorage.setItem("passwords", reader.result);
+        document.getElementById("message").textContent = "Loaded file into LocalStorage[\"passwords\"]";
+    }
+
+    const input = document.getElementById("file");
+    reader.readAsText(input.files[0]);
+}
+    </script>
+    
+</body>
+</html>
