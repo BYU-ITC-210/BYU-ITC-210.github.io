@@ -5,10 +5,21 @@ title: AWS Server Setup
 Your Production Environments (Live Servers) will be hosted on Amazon Web Services(AWS) a popular online cloud hosting platform. 
 
 ## Using AWS Academy
-1. You should have already received an email to join an AWS Academy classroom. If you have not received an email reach out to an IT210 TA. 
-2. Follow the instructions in the [AWS Academy Learner Lab Student Guide PDF](AWS-Academy-Learner-Lab.pdf)
+1. You should have already received an email to join an AWS Academy classroom. If you have not received an email reach out to an IT210 TA.
+2. Click the **Get Started** link in the invitation email that you received or browse to [https://awsacademy.instructure.com](https://awsacademy.instructure.com). This is an instance of Instructure Canvas that is operated by AWS Academy. If you have used canvas for any other class, this is a different instance and you must create a new account here.
+3. In the future, after you have created an account, you will simply browse to [https://awsacademy.instructure.com](https://awsacademy.instructure.com) and log in.
+> Even though Canvas is a full-blown Learning Management System. All we use it for is to gain access to the AWS LearnerLab which gives you a $50 credit to use on AWS servers for the semester.
+4. Once logged in, you be directed to the Canvas dashboard. Click on the **AWS Academy Learner Lab** course.
+5. Within the course, click on  **Modules** and then on **Launch AWS Academy Learner Lab**. You will see a loading icon for "Vocareum" and then the LearnerLab page comes up. It should look something like this:
+[![AWS Academy Learner Lab Screenshot](/images/AwsLearnerLab.png){: style="width: 100%;"}](/images/AwsLearnerLab.png)
+    * The panel in the middle is an AWS command-line. *We will not use it for this class.*
+    * The links down the right are guides for using AWS features. *You can ignore them for now.*
+    * Instead, continue with the steps below.
+6. Click the **Start Lab** button in the upper right. (It is outlined in the screenshot.)
+7. Wait for the AWS indicator above the CLI panel to turn green. (It is also outlined in the screenshot.)
+8. Click the green AWS indicator to open the **AWS Management Console.**
 
-> Note: If you do not have a Canvas account you will need to create one. Your BYU Canvas account will not work. 
+*Yes, we know that wasn't terribly intuitive. But, hey, $50 of credit on Amazon Web Services!*
 
 ## Setting Up Your EC2 Instance
 1. On the AWS Management Console, go to the top left `Services` drop down and select `Compute` > `EC2`.
