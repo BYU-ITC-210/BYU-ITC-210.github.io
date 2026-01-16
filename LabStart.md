@@ -13,7 +13,7 @@ If you are using your own computer to complete the lab assignments you must inst
 2. Once the repo has been created for you, click on the assignment link. It will look something like this: <a href="about:blank" onclick="alert('This is not a real link.')">https://github.com/BYU-ITC-210/lab-1b-yourgithubname</a>
 3. Click on the `instructions` folder to view the instructions for the lab.
 
-> **If you get an error message:**{: style="font-size: 2em"}<br/>
+> **If you get an error message:**{: style="font-size: 1.5em"}<br/>
     For reasons we haven't yet identified, you sometimes get a "Repository Access Issue" error or something similar when trying to accept the lab and access the cloned repository. If this happens to you then do the following to fix the error:<br/>
     <br/>
     1. Open [GitHub](https://github.com) and log in.<br/>
