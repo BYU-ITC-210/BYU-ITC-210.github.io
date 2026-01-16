@@ -13,15 +13,15 @@ If you are using your own computer to complete the lab assignments you must inst
 2. Once the repo has been created for you, click on the assignment link. It will look something like this: <a href="about:blank" onclick="alert('This is not a real link.')">https://github.com/BYU-ITC-210/lab-1b-yourgithubname</a>
 3. Click on the `instructions` folder to view the instructions for the lab.
 
-> **If you get an error message:**<br/>
-    For reasons we haven't yet identified, you sometimes get an error when trying to accept the lab and access the cloned repository. If this happens to you then do the following to fix the error:<br/>
+> **If you get an error message:**{: style="font-size: 2em"}<br/>
+    For reasons we haven't yet identified, you sometimes get a "Repository Access Issue" error or something similar when trying to accept the lab and access the cloned repository. If this happens to you then do the following to fix the error:<br/>
     <br/>
     1. Open [GitHub](https://github.com) and log in.<br/>
     2. Click on your profile image in the upper-right corner of the page (any page).<br/>
     3. Click on **Organizations**.<br/>
     4. You should see an invitation to the `BYU-ITC-210-Students` organization. Click there to accept the invitation and you should have access to your lab repo.<br/>
     <br/>
-    *If this happens to you, and you get the chance, please grab a screenshot of the error message and send it to a TA or the instructor along with your best memory of how it happened. We are trying to isolate the pattern that causes this problem.*
+    *If this happens to you, and you get the chance, please grab a screenshot of the error message and also of the organizations list with the "Accept Invitation" button. Then send it to your instructor or a TA along with your best memory of how it happened. We are trying to isolate the pattern that causes this problem.*
 
 ## Clone the Repository to Your Computer
 
