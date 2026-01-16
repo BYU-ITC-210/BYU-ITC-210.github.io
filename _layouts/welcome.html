@@ -239,9 +239,13 @@
                 }
                 else {
                     const passwordsRaw = localStorage.getItem("passwords");
-                    if (!passwordsRaw) throw new Error("No passwords in localStorage.");
-                    const passwords = JSON.parse(passwordsRaw)?.passwords;
-                    quizPw = passwords[quizIndex];
+                    if (!passwordsRaw) {
+                        quizPw = "ctf210{welcome-" + quizKey + "}";
+                    }
+                    else {
+                        const passwords = JSON.parse(passwordsRaw)?.passwords;
+                        quizPw = passwords[quizIndex];
+                    }
                 }
             }
             catch (err) {
