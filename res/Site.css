@@ -13,8 +13,9 @@
     --clr_link_hover_bg: #D0D0D0; /* (medium-light gray) */
     --clr_code_bg: #D8D8FD;
     --clr_code_border: black;
+    --clr_img_background: inherit;
     --gradient_hr: linear-gradient(to right, white, #808080, #808080, white);
-    --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%)
+    --gradient_bg: linear-gradient(to right, white, #F0F0F0, white, white, #F0F0F0, white 100%);
 }
 
 /* === Dark Mode === */
@@ -30,6 +31,7 @@
         --clr_link_hover_bg: #303030;
         --clr_code_bg: #404040;
         --clr_code_border: white;
+        --clr_img_background: #E0E0E0;
         --gradient_bg: linear-gradient(to right, black, #101010, black, black, #101010, black 100%)
     }
 }
@@ -119,6 +121,7 @@ footer, header, hgroup, menu, nav, section {
 /* Images */
 img {
     border-style: none;
+    background-color: var(--clr_img_background);
 }
 
 /* ==== Body Defaults ==== */
