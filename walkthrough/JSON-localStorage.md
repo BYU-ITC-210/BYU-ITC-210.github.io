@@ -88,7 +88,7 @@ The `addToArticle()` function uses the [DOM](JsAndDom) to add a paragraph to the
 
 ## Converting To and From JSON
 
-JavaScript has a built-in [JSON namespace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) with methods to convert between objects and JSON strings. When in string form. JSON can be sent to a server, received from a server, or stored in [Browser Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+JavaScript has a built-in [JSON object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) with methods to convert between objects and JSON strings. When in string form. JSON can be sent to a server, received from a server, or stored in [Browser Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 Add the following to the end of the `<script>` element:
 
@@ -96,7 +96,7 @@ Add the following to the end of the `<script>` element:
 let car = {
     make: "MINI",
     model: "Cooper",
-    year: "2004"
+    year: 2004
 }
 
 addToArticle("Car", JSON.stringify(car));
@@ -105,6 +105,8 @@ addToArticle("Car", JSON.stringify(car));
 The code above takes a JavaScript object and converts it into a JSON string. Refresh the page to see that.
 
 > Notice that the JavaScript object, `car`, doesn't have quotes around the property names `make`, `model`, and `year`. In JSON, all property names must be quoted. In JavaScript, property names don't require quotes so long as they are composed of letters, digits, and underscore and they don't start with a digit.
+
+> Also notice that the year is not in quotes. In both JSON and JavaScript, numbers are not quoted. Likewise, the Boolean constants `true` and `false` are not quoted.
 
 Now, let's take a JSON string and convert it into an object.
 
