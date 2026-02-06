@@ -4,10 +4,6 @@ title: PHP-SQL Walkthrough Including SQL Injection and XSS Attacks
 
 By now you should know the [basics of PHP](PHP-SQL). In this walkthrough we'll use PHP to access a SQL database. We'll see some common security pitfalls and learn to remedy them.
 
-## TL;DR
-
-If you just want to examine the source code we used in class, it's all in the `src` directory of the [PHP-SQL-Walkthrough.zip](PHP-SQL-Walkthrough.zip) package. `index.php` contains the original, insecure code and `secured.php` contains the version with protection against SQL injection ad cross-site scripting (XSS).
-
 ## Setup
 
 You will need a web server with a PHP interpreter. The PHP interpreter must have the [mysquli](https://www.php.net/manual/en/book.mysqli.php) package installed so that it can access a SQL database. You will also need a SQL server. As usual, we will use [Docker Desktop](https://www.docker.com/products/docker-desktop/) to host prebuilt containers with everything needed thereby simplifying setup and operation.
@@ -209,4 +205,5 @@ Search for your exploitative cars and see what happens.
 
 ## On Your Own
 
-If you search for a car without entering anything in the fields, you get an error. Find a way to return all cars in that situation.
+* If you search for a car without entering anything in the fields, you get an error. Find a way to return all cars in that situation.
+* The code as-written only lets you search for one field at a time (e.g. *Make* or *Model* but not both). Enhance the page to allow searching by more than one field.
