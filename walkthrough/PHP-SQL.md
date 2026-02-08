@@ -106,7 +106,7 @@ Following that, each result is retrieved using `$stmt->fetch()`. The fetch loads
 
 ## SQL Injection Vulnerability
 
-Imagine this cars database is being used for parking enforcement. A truck is driving through the parking lot with license plate reading cameras and it comes across this:
+Imagine this cars database is being used for parking enforcement. An enforcement truck is driving through the parking lot with license plate reading cameras and it comes across this:
 ![Car with SQL injection license plate](/images/InjectionCar.png){:style="width: 30em;"}
 
 Our application has a SQL injection vulnerability. In the "License plate" field enter `' OR 0='0`. Make sure you get the quotes just right and click `Find`. It returns every car in the database. Potentially the law enforcement computer would be issuing tickets to everyone!
