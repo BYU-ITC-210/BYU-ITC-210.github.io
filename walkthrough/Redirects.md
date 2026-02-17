@@ -14,7 +14,7 @@ In this walkthrough you will use three forms of redirect:
 
 In order to do HTTP redirects, you need a server-side language. For this walkthrough we will use PHP but, Python, C#, or server-side JavaScript would work equally well. Here, you will use a prebuilt Linux Docker container running Apache and PHP -- the same one we used for the PHP walkthrough. You should already have Docker Desktop installed on your computer. If not, the Docker setup instructions are [here](/InstallWsl2AndDocker).
 
-Create an empty folder for your workspace. Download [Redirect-Walkthrough.zip](Redirect-Walkthrough.zip) and unpack it into that folder.
+Create an empty folder for your workspace. Download [Redirect-Walkthrough.zip](Redirect-Walkthrough.zip){: download="Redirect-Walkthrough.zip"} and unpack it into that folder.
 
 Open a command line, change directories to the folder where you unpacked the .zip and enter the following command:
 
@@ -64,11 +64,11 @@ Now browse to [http://localhost:4001/start.php](http://localhost:4001/start.php)
 
 *What difference does permanent redirect make?*
 
-In `start.php` change `307` to `308` and try it again. You won't notice any difference immediately. The difference has to do with caching. A `308` permanent redirect can be cached by your browser. If you bring up the network tab in *developer tools* and turn caching on you will find that a repeat visit to `start.php` will redirect to `target.html` without sending any information to the server.
+In `start.php` change `307` to `308` and try it again. You won't notice any difference immediately. The difference has to do with caching. A `308` permanent redirect can be cached by your browser. If you bring up the network tab in **developer tools** and *turn caching on* you will find that a repeat visit to `start.php` will redirect to `target.html` without sending any information to the server.
 
 *Why is there not a permanent redirect that changes the request to `GET`?*
 
-Practically, a `301` might do that but the specification is ambiguous. Suppose that a redirect was cached and the method changed from `POST` to `GET`. Then the data to be sent by the `POST` would not be sent anywhere. That is not useful so they did not include it in the updated specification.
+Practically, a `301` might do that but the specification is ambiguous and `301` is deprecated. Suppose that a redirect was cached and the method changed from `POST` to `GET`. Then the data to be sent by the `POST` would not be sent anywhere. That is not useful so they did not include it in the updated specification.
 
 ## Collect Data and Redirect
 
@@ -79,12 +79,14 @@ Open `form.php` in your code editor. It already has a form for collecting a "sta
 At the beginning of the page add the following:
 
 ```php
+<?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['statement'] = $_POST['statement'];
     header('Location: home.php', true, 303);
     exit();
 }
+?>
 ```
 
 The first line initiates session management as we discussed in the [PHP Walkthrough](PHP). Then, if the method was `POST` the code takes the statement that was posted and inserts it into the session data. Finally the `header` line redirects to `home.php`.
@@ -100,7 +102,7 @@ $statement = $_SESSION['statement'] ?? "";
 ?>
 ```
 
-This code initiates session handling and copies the statement from the session data into the `$statement` variable.
+This code initiates session handling and copies the statement from the session data into the `$statement` variable. The special `?? ""` syntax says that if `$_SESSION['statement']` is `null` (has not been set) then an empty string will be substituted.
 
 Now edit the `<p>` element to read as follows:
 
@@ -110,7 +112,7 @@ Now edit the `<p>` element to read as follows:
 
 Note the use of `htmlspecialchars()` which prevents an [XSS vulnerability](https://owasp.org/www-community/attacks/xss/).
 
-With this in place, browse to [http://localhost:4001/form.php](http://localhost:4001/form.php), enter something in the form, and click `Submit`.
+With this in place, browse to [http://localhost:4001/form.php](http://localhost:4001/form.php){: target="_blank"}, enter something in the form, and click `Submit`.
 
 ## HTML Redirects
 
@@ -124,23 +126,28 @@ In your code editor, open `togoogle.html`. In the `<head>` element add the follo
 
 The first number in `content` indicates the number of seconds to wait before redirecting to the specified URL. Zero means redirect immediately. Browse to [http://localhost:4001/togoogle.html](http://localhost:4001/togoogle.html) and see that you end up at Google.
 
-You might notice that the page flashes up momentarily before the redirect. To prevent that, HTML redirects typically use a blank page unless the wait time is greater than zero. Try setting the number to `5` and run it again.
+You might notice that the page flashes up momentarily before the redirect. To prevent that, HTML redirects typically use a blank page unless the wait time is greater than zero. Try setting the wait number to `5` and run it again.
 
 ## JavaScript Redirects
 
-Sometimes you need to customize the redirect URL. In this case, redirecting from JavaScript is the most effective. Like HTML redirects, JavaScript redirects work without any server-side code. In your code editor, open `tobing.html`. You'll see that it has a form in which the user can enter a query. The attribute, `onsubmit="dosearch(event);"` should call a `dosearch()` JavaScript function.
+Sometimes you need to customize the redirect URL. In this case, redirecting from JavaScript is the most effective approach. Like HTML redirects, JavaScript redirects work without any server-side code. In your code editor, open `tobing.html`. You'll see that it has a form in which the user can enter a query. The attribute, `onsubmit="dosearch(event);"` should call a `dosearch()` JavaScript function.
 
 To the `<script>` element, add the following function:
 
-```js
+```html
+<script>
 function dosearch(event) {
     event.preventDefault();
-    let url = "https://www.bing.com/search?q=" + encodeURIComponent(document.getElementById('query').value);
+    let url = "https://www.bing.com/search?q="
+        + encodeURIComponent(document.getElementById('query').value);
     window.location.assign(url);
 }
+</script>
 ```
 
 The method, `window.location.assign()` causes the browser to open the specified URL. You can also use `window.location.replace()`. The difference is that `assign()` includes the previous page in the history, so if the user clicks the **back** button they will return to it whereas `replace()` leaves the prior page out of the history.
+
+Try it out by browsing to [http://localhost:4001/tobing.html](http://localhost:4001/tobing.html){: target="_blank"}.
 
 ## HTTP Redirects through server configuration
 
@@ -158,7 +165,7 @@ Now, you need to change the docker-compose.yml file to incorporate the new confi
     - ./redirects.conf:/etc/apache2/conf-enabled/redirects.conf
 ```
 
-Here is how the whole docker-compose.yml should look:
+Here is how the whole docker-compose.yml should look. Make sure you get the indentation right because [YAML](https://en.wikipedia.org/wiki/YAML) is sensitive to that.
 
 ```yml
 services:
