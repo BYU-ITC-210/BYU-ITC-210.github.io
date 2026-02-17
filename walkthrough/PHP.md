@@ -2,7 +2,7 @@
 title: PHP Walkthrough
 ---
 
-PHP is a popular language for developing web applications. As of 2023, there are [more websites built](https://w3techs.com/technologies/overview/programming_language) using PHP than all other frameworks combined. It forms the basis of popular content management systems like MediaWiki, WordPress, Moodle, and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
+PHP is a popular language for developing web applications. As of 2026, there are [more websites built](https://w3techs.com/technologies/overview/programming_language) using PHP than all other frameworks combined. It forms the basis of popular content management systems like MediaWiki, WordPress, Moodle, and Drupal and it's a core piece of the Linux-Apache-MySQL-PHP (LAMP) stack. Newer frameworks may scale better or be more efficient to program but PHP will remain important for a long time.
 
 This walkthrough will get you started with the basic features of the PHP language. For more details you can consult [the official PHP Manual](https://www.php.net/manual/en/).
 

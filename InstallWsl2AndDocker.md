@@ -1,6 +1,8 @@
 ---
 title: Installing WSL2 and Docker on Windows
 ---
+> For MacOS, follow [these instructions](https://docs.docker.com/docker-for-mac/install/).
+
 ## Installing WSL2
 The Windows Subsystem for Linux 2 enables you to install a Linux distro such as Ubuntu on Windows without the overhead of a virtual machine. It's also the platform on which Docker Desktop runs Linux containers. So, you need to install LSW2 before installing Docker.
 
