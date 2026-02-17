@@ -2,7 +2,7 @@
 title: Redirect Walkthrough
 ---
 
-Redirects are a way of telling the browser, "Not here, over there." In response to an HTTP request you can send the browser to a different URL. There are many uses for redirects. The most common is alternate domain names. For example, if you browse to [http://google.com](http://google.com) you end up at [https://www.google.com](https://www.google.com). Another common use, which you apply in Lab 3, is to accept POST data through one URL and then send the browser to another URL to display information. Single-sign-on systems like the BYU Central Authentication Service ([https://cas.byu.edu][https://cas.byu.edu]) also rely on redirects.
+Redirects are a way of telling the browser, "Not here, over there." In response to an HTTP request you can send the browser to a different URL. There are many uses for redirects. The most common is alternate domain names. For example, if you browse to [http://google.com](http://google.com) you end up at [https://www.google.com](https://www.google.com). Another common use, which you apply in Lab 3, is to accept POST data through one URL and then send the browser to another URL to display information. Single-sign-on systems like the BYU Central Authentication Service ([https://cas.byu.edu](https://cas.byu.edu)) also rely on redirects.
 
 In this walkthrough you will use three forms of redirect:
 
@@ -14,7 +14,7 @@ In this walkthrough you will use three forms of redirect:
 
 In order to do HTTP redirects, you need a server-side language. For this walkthrough we will use PHP but, Python, C#, or server-side JavaScript would work equally well. Here, you will use a prebuilt Linux Docker container running Apache and PHP -- the same one we used for the PHP walkthrough. You should already have Docker Desktop installed on your computer. If not, the Docker setup instructions are [here](/InstallWsl2AndDocker).
 
-Create an empty folder for your workspace. Download [Redirect-Walkthrough.zip](PHP-Walkthrough.zip) and unpack it into that folder.
+Create an empty folder for your workspace. Download [Redirect-Walkthrough.zip](Redirect-Walkthrough.zip) and unpack it into that folder.
 
 Open a command line, change directories to the folder where you unpacked the .zip and enter the following command:
 
@@ -26,7 +26,7 @@ The web server will be on port 4001 so URLs will start with [http://localhost:40
 
 Later, when it's time to shut the container down. Return to that command line, press Ctrl-C to stop the server, and enter `docker compose down` to stop the server.
 
-## HTTP Redirects
+## HTTP 3xx Redirects
 
 An HTTP server can redirect the browser using a `3xx` response code and a `Location:` header. The response code tells the browser that it is being redirected and the `Location:` header gives the URL of where the browser should look for the page. There are five redirect response codes. `301` and `302` are legacy values which still work but you should avoid in new code. The new values, `303`, `307`, and `308` each has a specific purpose. Here is the full set:
 
@@ -42,7 +42,7 @@ An HTTP server can redirect the browser using a `3xx` response code and a `Locat
 
 An early question was whether to preserve the HTTP method on a redirect or switch to `GET`. A common scenario is an HTTP `<form>` that sends data to the server with a `POST`. The server stores the data and then redirects to another page for the user to view. Should the data be POSTed to the new page or should the browser just do a GET. The [original HTTP 1.1 spec](https://www.rfc-editor.org/rfc/rfc2616) was ambiguous on this issue. In practice, most browsers changed the method to `GET` regardless of whether the code was `301` or `302`. But what if your intention is that a browser should submit the data to a different URL?
 
-The issue was resolved in an [update to HTTP 1.1](https://www.rfc-editor.org/rfc/rfc7231). That spec specifically indicated that browser MAY change to `GET` on `301` and `302` and then introduced `303` which says browsers MUST change to `GET`, and `307` and `308` both of which MUST preserve the method.
+The issue was resolved in an [update to HTTP 1.1](https://www.rfc-editor.org/rfc/rfc7231). The new spec specifically indicated that browser MAY change to `GET` on `301` and `302` and then introduced `303` which says browsers MUST change to `GET`, and `307` and `308` both of which MUST preserve the method.
 
 *Let's do it:*
 
@@ -55,12 +55,12 @@ exit();
 ?>
 ```
 
-The [header](https://www.php.net/manual/en/function.header.php) function sets an HTTP header to be sent to the browser. It must appear before any contents because all headers must be sent to the browser before any page content. In this example, there is no page content anyway but it's worth noting that constraint.
+The [header](https://www.php.net/manual/en/function.header.php) function sets an HTTP header to be sent to the browser. It must appear before any contents because all headers must be sent to the browser before any page content. In this example, there is no page content anyway but it's important to know that constraint.
 
 The `true` parameter indicates that this should replace any previously set `Location` header.
 The `307` parameter indicates that the status code returned to the browser should be `307 Temporary Redirect`.
 
-Now browse to [http://localhost:4001/start.php](http://localhost:4001/start.php). Your browser will be redirected. You will see `target.html` in the address bar and the contents of `target.html` appear in the body of the browser.
+Now browse to [http://localhost:4001/start.php](http://localhost:4001/start.php){: target="_blank"}. Your browser will be redirected. You will see `target.html` in the address bar and the contents of `target.html` appear in the body of the browser.
 
 *What difference does permanent redirect make?*
 
