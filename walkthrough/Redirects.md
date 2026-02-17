@@ -22,7 +22,7 @@ Open a command line, change directories to the folder where you unpacked the .zi
 docker compose up
 ```
 
-The web server will be on port 4001 so URLs will start with [http://localhost:4001/](http://localhost:4001/)
+The web server will be on port 4001 so URLs will start with [http://localhost:4001/](http://localhost:4001/){: target="_blank"}.
 
 Later, when it's time to shut the container down. Return to that command line, press Ctrl-C to stop the server, and enter `docker compose down` to stop the server.
 
@@ -186,7 +186,7 @@ You have to restart the container for Apache to recognize the new config file. S
  docker compose up
  ```
 
-Now browse to [http://localhost:4001/server](http://localhost:4001/server) and you will be redirected to `http://localhost:4001/target.html`.
+Now browse to [http://localhost:4001/server](http://localhost:4001/server){: target="_blank"} and you will be redirected to `http://localhost:4001/target.html`.
 
 In a real server, you would not put configuration files in the same directory as content files. In this case we just simplified things. A more secure solution would be to have separate folders for content and configuration. So the docker-compose file would look like this:
 
