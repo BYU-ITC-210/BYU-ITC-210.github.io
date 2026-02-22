@@ -1,6 +1,6 @@
 ---
 title: Welcome
 layout: redirect
-redirect: https://byu-itc-210.github.io/welcome/X2
+redirect: https://byu-itc-210.github.io/welcome/S18
 ---
 Redirect
