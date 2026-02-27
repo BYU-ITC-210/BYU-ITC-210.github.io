@@ -210,17 +210,15 @@ An [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 ```js
 async function FetchUrlAndPrint(url) {
   try {
-    response = await fetch(url);
-    if (response.ok) {
-      obj = await response.json();
-      console.log(obj);
+    let response = await fetch(url);
+    if (!response.ok) {
+      throw Error(`Error: ${response.status} ${response.statusText}`);
     }
-    else {
-      console.log(`Error: ${response.status} ${response.statusText}`);
-    }
+    obj = await response.json();
+    console.log(`${obj.reference} | ${obj.text}`);
   }
   catch (err) {
-    console.log(`Rejected: ${err.message} | ${err.cause.message}`);
+    console.log(`Err: ${err.message}`);
   }
 }
 ```
