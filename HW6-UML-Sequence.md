@@ -3,7 +3,7 @@ title: "Homework 6: UML Sequence Diagrams"
 ---
 ***
 
-*30 points possible. 15 points for each UML diagram.*
+*40 points possible. 20 points for each UML diagram.*
 
 ***
 

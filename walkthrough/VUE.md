@@ -2,6 +2,8 @@
 title: VUE Walkthrough
 ---
 
+# Vue Walkthrough (Under Construction)
+
 ##Introducing Front-end Frameworks and Vue.js
 
 [Vue](https://v2.vuejs.org/v2/guide/#) is a versatile framework for creating website user interfaces. Vue allows you to start small and add new features as needed. It concentrates on improving the visual aspect of your website (the `view`). Still, it can also manage complex, interactive web pages when used with other modern tools and libraries. 
@@ -64,3 +66,33 @@ In Vue.js, the `view` is the HTML that the user sees. Vue.js uses a template syn
 Vue.js follows the `Model-View-ViewModel` (MVVM) architectural pattern. The model is the source of truth, and the `view` is a projection of the model. When the model changes, the `view` reflects the change, and vice versa. This is achieved through Vue.js’s reactive data binding system.
 
 
+### Ref Prop Emit Model
+**Ref:** A Vue `ref` variable can notify code and components when its value changes. In JavaScript, you access the value of a `ref` variable through `.value`. For example, I might declare a variable as follows: `const count = ref(4);`. Then I could update the value like this: `count.value = 6;`. Or I could increment the value like this: `count.value++`;
+
+**Prop:** A Vue `prop` is a *property* passed into a Vue component. Typically it is a value that affects how the component looks or behaves. A `prop` can be a simple value such as a number or a string. When a `ref` variable is assigned to a `prop` then the component can react when the value of the variable changes.
+
+Here is how a component would declare two props:
+
+```js
+const props = defineProps({
+    count: Number,
+    text: String
+});
+```
+
+And here is how an owning component would specify simple values for those props:
+
+```html
+<some-component count="5" text="Hello"></some-component>
+```
+
+Suppose the owning component needed to update the count value periodically, it would do this:
+
+* A Vue `emit` is a value or event that a component can send to its owner. Components use emits to indicate when something has happened or when a value has changed. Here is how a component would declare an emit
+
+```js
+const emit = defineEmits(['text']);
+```
+
+* An owning component
+* A Vue `model` combines the 

@@ -3,7 +3,7 @@ title: "Homework 2: CSS"
 ---
 ***
 
-*30 points possible*
+*40 points possible*
 
 ***
 
@@ -30,27 +30,28 @@ Even though it is best practice to use an external file, in this assignment we w
 
 Download the [“Basic HTML Page”](/HW2/home.html){: download="home.html"} and save a copy to your computer. (Right-click the link and select "Save Link As.") Then edit the html file to do the following:
 
-### CSS Locations **[8 Points]**
+### CSS Locations **10 Points]**
 
-1. Float the image to the right-hand side using *inline* CSS. **[2 points]**
+1. Float the image to the right-hand side using *inline* CSS. **[3 points]**
 2. Use embedded CSS within the HTML `<head>` of the page to fix the position of the page `<header>` so that it stays at the top of the browser view even if the user scrolls through the page. You may need to add more text to make the page scrollable; [lipsum.com](https://lipsum.com) is a good source of filler text. **[4 points]**
-3. Link to an external CSS page that includes the rest of the CSS code (see points below) **[2 points for linking to the external file correctly]**
+3. Link to an external CSS page that includes the rest of the CSS code (see points below) **[3 points for linking to the external file correctly]**
 
-### External CSS **[16 Points]**
+### External CSS **[20 Points]**
 
-Use an external CSS file to implement at least the following 14 CSS properties (you may use more if you would like):
+Use an external CSS file to implement at least the following CSS properties (you may use more if you would like):
 
 1. 2 different positioning elements other than those specified in "CSS Locations" above. (You can use absolute, relative, floating, fixed, etc.) **[2 points]**
-2. 1 property that changes an HTML element based on an ID (note that you'll have to add the id to the HTML file) **[1 point]**
-3. 1 property that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[1 point]**
-4. 1 CSS [transition](https://www.w3schools.com/css/css3_transitions.asp) **[2 points]**
+2. 1 rule that changes HTML elements based on tag name **[1 point]**
+2. 1 rule that changes an HTML element based on an ID (note that you'll have to add the id to the HTML file) **[1 point]**
+3. 1 rule that changes an HTML element based on a class (note that you'll have to add the class to the HTML file) **[1 point]**
+4. 1 CSS [transition](https://www.w3schools.com/css/css3_transitions.asp) **[4 points]**
 5. 1 different font **[1 point]**
-6. Make image(s) bigger on hover **[2 points]**
+6. Make image(s) bigger on hover **[3 points]**
 7. Any other 7 CSS properties you’d like (please list them on your HTML page) **[7 points]**
 
-### Code Validation **[6 Points]**
+### Code Validation **[10 Points]**
 
-Use the [W3C HTML Validator](https://validator.w3.org/#validate_by_upload) and the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) to check for errors. Fix all errors **and** warnings for full credit. **[6 points]**
+Use the [W3C HTML Validator](https://validator.w3.org/#validate_by_upload) and the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) to check for errors. Fix all errors **and** warnings for full credit. **[10 points]**
 
 > **Note:** Feel free to add additional HTML tags and content to the original "Basic HTML Page" to fulfill the above requirements. Having more content to work with may make it easier and more interesting.
 
