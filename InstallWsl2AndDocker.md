@@ -17,7 +17,4 @@ You must reboot your computer after installation before WSL2 will function.
 ## Installing Docker Desktop
 Docker Desktop will enable you to quickly and easily use pre-configured Linux containers such as the Apache web server, MySQL, and more.
 
-Follow these instructions: [Get Started with Docker on WSL2](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers#install-docker-desktop)
-
-* You can skip the prerequisites because you already took care of that when installing WSL2.
-* The "Develop in Remote Containers using VS Code" steps are optional.
+Follow these instructions: [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
