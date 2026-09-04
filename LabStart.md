@@ -9,7 +9,7 @@ If you are using your own computer to complete the lab assignments you must inst
 
 ## Accept the Assignment
 
-1. Click on the `Fork this lab to GitHub` link on the Lab Assignment in LearningSuite.
+1. Click on the `Accept Lab` link on the Lab Assignment in LearningSuite.
 2. GitHub will present an "Accept invitation" page like the example below. Click the `Accept invitation` button.
 3. You will be taken to the main page of your new repo.
 
