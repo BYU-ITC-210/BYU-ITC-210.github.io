@@ -1,27 +1,23 @@
 ---
 title: How to Start Labs
 ---
-IT&C 210 Labs are created and maintained in GitHub. When you accept the lab through GitHub Classroom you will get your own copy of the lab repo including the instructions folder. As you develop your lab solution you should commit and push frequently. Doing so will ensure that you don't lose your progress if something bad happens.
+IT&C 210 Labs are created and maintained in GitHub. When you click on the *Accept Lab* link you will get your own copy of the lab repo including the instructions folder. As you develop your lab solution you should commit and push frequently. Doing so will ensure that you don't lose your progress if something bad happens.
 
-> **Important!** The first five points of your lab credit come from accepting the lab and making your first commit *by end-of-day Friday* before the lab is due. You must do all of these steps including committing at least one change by that time. When passing off your lab, the TAs will check your commit history in GitHub to verify that five-point credit.
+> **Important!** The first five points of your lab credit come from accepting the lab and making your first commit *by end-of-day Friday* before the lab is due. You must do all of these steps including committing at least one change by that time. When passing off your lab, the TAs may check your commit history in GitHub to verify that five-point credit.
 
 If you are using your own computer to complete the lab assignments you must install [Visual Studio Code](https://code.visualstudio.com) and [Git](https://git-scm.com/) on your computer. [Follow these instructions](InstallCodeAndGit) to install these essential tools. You will also need [Docker](https://www.docker.com/). [Follow these instructions](InstallWsl2AndDocker) to install WSL2 (if on Windows) and Docker (regardless of MacOS or Windows).
 
 ## Accept the Assignment
 
-1. Click on the `Accept this assignment through GitHub` link on the Lab Assignment in LearningSuite.
-2. Once the repo has been created for you, click on the assignment link. It will look something like this: <a href="about:blank" onclick="alert('This is not a real link.')">https://github.com/BYU-ITC-210/lab-1b-yourgithubname</a>
-3. Click on the `instructions` folder to view the instructions for the lab.
+1. Click on the `Fork this lab to GitHub` link on the Lab Assignment in LearningSuite.
+2. GitHub will present an "Accept invitation" page like the example below. Click the `Accept invitation` button.
+3. You will be taken to the main page of your new repo.
 
-> **If you get an error message:**{: style="font-size: 1.5em"}<br/>
-    For reasons we haven't yet identified, you sometimes get a "Repository Access Issue" error or something similar when trying to accept the lab and access the cloned repository. If this happens to you then do the following to fix the error:<br/>
-    <br/>
-    1. Open [GitHub](https://github.com) and log in.<br/>
-    2. Click on your profile image in the upper-right corner of the page (any page).<br/>
-    3. Click on **Organizations**.<br/>
-    4. You should see an invitation to the `BYU-ITC-210-Students` organization. Click there to accept the invitation and you should have access to your lab repo.<br/>
-    <br/>
-    *If this happens to you, and you get the chance, please grab a screenshot of the error message and also of the organizations list with the "Accept Invitation" button. Then send it to your instructor or a TA along with your best memory of how it happened. We are trying to isolate the pattern that causes this problem.*
+![Clone-Screenshot](/images/Invite-GitHub.png){: style="max-width: 30em; border: 1px solid black;"}
+
+> **If you get an error message or if you accidentally clicked the `Decline` button:**{: style="font-size: 1.5em"}<br/>
+    Just try again. The repo has been created and the custom link we prepared should grant you access on the second try.
+    If you get repeated problems, check with Prof. Redd. This is a new solution we are testing this semester.
 
 ## Clone the Repository to Your Computer
 
