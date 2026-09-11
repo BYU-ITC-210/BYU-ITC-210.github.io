@@ -3,7 +3,7 @@ title: Introduction to JavaScript (Walkthrough)
 ---
 JavaScript is syntactically similar to Java or C++ but it is functionally quite different. It is interpreted while Java and C++ are complied.
 
-It's primary use is as a browser-side language for web applications. Using [Node.js](https://nodejs.org/), JavaScript may be also be used on the desktop or on a server as we will do in IT&C 210B.
+It's primary use is as a browser-side language for web applications. Using [Node.js](https://nodejs.org/), JavaScript may be also be used on the desktop or on a server as we will do in Lab 4.
 
 ## JavaScript is _NOT:_
 
