@@ -1,5 +1,5 @@
 ﻿/* Syntax highlighting rules */
-@import url(rouge.css);
+@import url("rouge.css");
 
 /* ==== Declare Constants ==== */
 :root {
