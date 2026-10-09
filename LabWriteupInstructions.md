@@ -29,7 +29,7 @@ If this section is missing or incomplete, you will receive a 0 on the write-up u
 
 Describe in one paragraph (3-5 sentences) what you have accomplished in this lab. Use a professional voice, appropriate terminology, and be succinct. Think of this as what you might say during a job interview when describing a project you've completed.
 
-## III. Design Overview (6 pts):
+## III. Design Overview (8 pts):
 
 This section gives a medium-high level view of the design. This should include the following:
 * 2-3 Paragraphs describing your technical design with a focus on how it works.
@@ -41,7 +41,7 @@ Label each screenshot and UML diagram with a useful caption. For example: "UML o
 
 See [UML Diagram Guidelines](UmlDiagrams) for more detail on our expectations regarding UML diagrams.
 
-## IV. Questions (8 pts):
+## IV. Questions (15 pts):
 
 In this section, please paste the questions found at the bottom of the lab instructions and include your answers underneath. Each answer should be anywhere from one to three complete sentences. If a question has multiple parts, make sure to answer each part thoroughly. Act as if these questions were asked during a job interview and you are trying to get a job with the responses that you give.
 
@@ -53,7 +53,7 @@ This is a record of at least 3 problems and/or learning experiences you ran into
 
 Avoid writing them in the first person voice - i.e., using pronouns and possessives such as I, we, my, or our. Remember: the focus of this section is the problem and its solution, not necessarily your personal experience/story with it (though the problems should come from things you ran into yourself).
 
-## VI. Skills Acquired (6 pts):
+## VI. Skills Acquired (5 pts):
 
 List the skills you've acquired, practiced or demonstrated in the lab. This is slightly more descriptive than our list of technologies in the lab. Think of it as “now that I’ve done this lab, I can now do…” Please use bullet points for this. Here are some examples of the level of detail we would like you to have:
 
@@ -68,12 +68,10 @@ It is more professional to conjugate the verbs as if there is an invisible "I c
 
 > While you typically leave the "I can" prefix off of these statements. It's still acceptable to use first person narrative in your writeup. For example, in the Design Overview you might say "I decided to..."
 
-## V. References (required)
+## V. References (2 points)
 
 List URLs or other reference information you used in the writeup. They don't have to follow any particular format. Bare URLs are acceptable. 
-At least 3 references are required. 
-
-If this section is missing or incomplete, you will receive a 0 on the write-up until it is fixed. No late penalties will be applied.
+At least 2 references are required. 
 
 ### About UML Diagrams
 
@@ -84,3 +82,12 @@ Make sure that your screenshots and UML diagrams display correctly on GitHub bef
 Each lab indicates the type of UML diagram that should be included. Please pay attention and submit the right kind.
 
 All UMLs made on a computer should be exported to an appropriate image format such as PNG, JPEG, or SVG. Recommended online programs include [Lucidchart](https://www.lucidchart.com/pages/?) and [Draw.io](https://app.diagrams.net/).
+
+## Scoring Summary
+
+* (4 Points) Executive Summary
+* (8 Points) Design Overview
+* (15 Points) Questions
+* (6 Points) Lessons Learned
+* (5 Points) Skills Acquired
+* (2 Points) References
