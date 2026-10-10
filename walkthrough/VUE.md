@@ -1,5 +1,5 @@
 ---
-title: VUE Walkthrough
+title: Vue Walkthrough
 ---
 
 # Vue Walkthrough (Under Construction)
@@ -13,7 +13,6 @@ title: VUE Walkthrough
 ## Resources
 
 * [VUE guide](https://v2.vuejs.org/v2/guide/#)
-  
 * [VUE tutorial](https://www.educative.io/blog/vue-js-tutorial)
 
 ## Installation
