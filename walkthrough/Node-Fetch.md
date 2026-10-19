@@ -214,7 +214,7 @@ async function FetchUrlAndPrint(url) {
     if (!response.ok) {
       throw Error(`Error: ${response.status} ${response.statusText}`);
     }
-    obj = await response.json();
+    let obj = await response.json();
     console.log(`${obj.reference} | ${obj.text}`);
   }
   catch (err) {
