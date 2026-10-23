@@ -1,5 +1,5 @@
 ---
-title: "Writing (210A): Tutorial Blog"
+title: "Writing (210): Tutorial Blog"
 ---
 ## Objective
 

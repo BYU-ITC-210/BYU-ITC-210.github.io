@@ -15,6 +15,8 @@ If your writeup does not use markdown, it will not be accepted and will receive 
 
 This [Lab Writeup Example](https://github.com/BYU-ITC-210/LabWriteupExample) should give you a good idea of what we expect. Since it's on an actual GitHub repository you can access the MarkDown source code and see how the ReadMe is presented by GitHub.
 
+Since you are writing about your own experience, using first person voice ("I", "we", etc.) is appropriate.
+
 All work must be your own, you may not copy and paste answers from any other sources. Please see **Academic Standards** in the Syllabus for details.
 
 Lab Write-Ups should follow this outline:
@@ -50,8 +52,6 @@ Be sure to answer questions from both A and B parts of the lab.
 ## V. Lessons Learned (6 pts):
 
 This is a record of at least 3 problems and/or learning experiences you ran into and their solutions. These should be formatted with a short heading (descriptive title of the problem) and a short paragraph describing how the problem was resolved. There should be three pieces of information in each: (1) what the problem or concern was, (2) why it happens, (3) the solution. *Make sure you include all three parts! Please see the example writeup for suggested formatting.*
-
-Avoid writing them in the first person voice - i.e., using pronouns and possessives such as I, we, my, or our. Remember: the focus of this section is the problem and its solution, not necessarily your personal experience/story with it (though the problems should come from things you ran into yourself).
 
 ## VI. Skills Acquired (5 pts):
 
