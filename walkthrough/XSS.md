@@ -1,7 +1,7 @@
 ---
 title: Cross-Site Scripting (XSS) Walkthrough
 ---
-[Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) is a type of injection attack where scripts, links, or other malicious code are inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a misnomer since not all XSS attacks involve more than one website. Nevertheless, it is the industry-accepted name for this type of attack.
+[Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) is a type of injection attack where scripts, links, or other malicious code are inserted into user-supplied content on a website. [OWASP](https://owasp.org/) considers "cross-site scripting" to be a [misnomer](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) since not all XSS attacks involve more than one website. A better name would be **"HTML Injection."** Nevertheless, it is the industry-accepted term for this type of attack.
 
 > **Warning:** Attempting to attack a website or computer system without authorization is illegal. While doing this walkthrough and experimenting with the website, you have permission to practice XSS exploits on [ScriptBoard.dicax.org](https://scriptboard.dicax.org). Nevertheless, you are **not** permitted to attack or seek vulnerabilities on the web host. You should use the knowledge you gain from these activities to make your own applications more secure. You should not use the knowledge and skills you gain to attack other sites without permission from the owners. ScriptBoard is designed to restrict your exploits to your own computer and session. You should not attempt to break into other users' sessions.
 
@@ -18,10 +18,10 @@ Rise and <b>shout!</b>
 Create a simple exploit by putting a popup message on the screen. This sort of thing is a quick way to test whether a site has XSS vulnerabilities.
 
 ```
-<span onmouseover="alert('gotcha!')">My name is Scott!</span>
+<span onmouseover="alert('Gotcha!')">My name is Scott!</span>
 ```
 
-Hover over the new message and you should get an alert popup.
+Pass your mouse over the new message and you should get an alert popup.
 
 You can use some script to **deface** the site by changing text. A more sophisticated attack might even add images. Compared to what's possible, this one is relatively mild:
 
@@ -32,7 +32,7 @@ document.getElementById("sitename").textContent = "Freefall Experience";
 </script>
 ```
 
-Notice that the title has changed. Of course, this walkthrough gave away that the needed element ID is `sitename` Suppose you didn't know the ID. You could find it by opening the inspector in the browser and locating the appropriate element in the HTML tree.
+Notice that the title has changed. Of course, this walkthrough gave away that the needed element ID is `sitename`. Suppose you didn't know the ID. You could find it by opening the inspector in browser developer tools and locating the appropriate element in the HTML tree.
 
 You can retrieve data from other sites and insert it. Here's an example that gets a scripture from our [Scripture of the Day service](https://scripture.dicax.org) and inserts it into the message board.
 
@@ -45,7 +45,9 @@ fetch("https://scripture.dicax.org/api/second")
 </script>
 ```
 
-More damaging would be to steal data from a site and post it somewhere else. ScriptBoard has a URL for capturing information at [https://scriptboard.dicax.org/Capture](https://scriptboard.dicax.org/Capture). Anything you put in the query string or the POST data will be captured and you can view all captures by browsing to [https://scriptboard.dicax.org/ViewCaptures](https://scriptboard.dicax.org/ViewCaptures). (A `Captures` link is in the upper-right.)
+More damaging would be to steal data from a site and post it somewhere else. A common XSS exploit is to create a capture website that records anything that is sent or posted to it. ScriptBoard has such a capture URL at [https://scriptboard.dicax.org/Capture](https://scriptboard.dicax.org/Capture). Anything you put in the query string or the POST data will be captured and you can view all captures by browsing to [https://scriptboard.dicax.org/ViewCaptures](https://scriptboard.dicax.org/ViewCaptures) or by clicking the `Captures` link the upper-right.
+
+> Like the messages in ScriptBoard, you are limited to viewing captures from your own session.
 
 The page has a hidden element storing the `Session ID`. Retrieve that data and send it to the capture URL like this:
 
@@ -87,7 +89,7 @@ There are three direct ways to protect against Cross-Site Scripting Attacks:
 
 The simplest approach is to design your application in such a way that no user-supplied content is accepted. Of course, that eliminates any kind of social media site not to mention tools like the task list we build in this class.
 
-User-supplied content can be HTML encoded on the server side. On the browser side you can the `textContent` or `innerText` properties to ensure that user-supplied content is treated as plain text and not interpreted as HTML. This is a common method but it does not allow rich text such as bold, font changes, colors, and so forth.
+User-supplied content can be HTML encoded on the server side. On the browser side you can the [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or [innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) properties while avoiding the [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) property. Doing so ensures that user-supplied content is treated as plain text and not interpreted as HTML. This is a common method but it does not allow rich text such as bold, font changes, colors, and so forth.
 
 A more difficult approach is to sanitize user-supplied content to allow some HTML while prohibiting embedded scripts, ensuring that all tags are closed, and so forth. Doing so requires some sophisticated code that can parse and validate HTML and then remove prohibited tags and properties. If you want to take that approach, it is best to use an existing and tested sanitizing library. Careful implementations can even allow embedded content like the Scripture of the Day example while still protecting against exploits. This can be done by using an [<iframe>](https://www.w3schools.com/tags/tag_iframe.asp) element with settings that keep the embedded content within an isolated sandbox.
 
