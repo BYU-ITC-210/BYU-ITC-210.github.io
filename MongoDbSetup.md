@@ -41,7 +41,8 @@ In Atlas, we will set up a new database, create a new collection, add some data,
     - Under **Security** on the left side click **Network Access**
     - It should show one network address that is authorized to access the cluster. It is the address you used when creating the cluster. To make development easier, we will allow access from any IP address. This means security will rely entirely on having the proper passwords and keys. A commercial deployment might lock things down more tightly.
     - Click **Add IP Address** in the upper-right.
-    - Click **Allow Access From Anywhere**.
+    - Set the address to `0.0.0.0/0`
+    - You should see a warning, "This access list entry potentially allows access to all IPv4 addresses". Since that is your intention, it is OK.
     - Click **Confirm**.
 8. Get your connection string
     - Click **Overview** in the upper-left.
