@@ -1,5 +1,5 @@
 ---
-title: Test Page
+title: Vue Walkthrough
 ---
 
 [Vue](https://vuejs.org) is a versatile [Front-end framework](https://en.wikipedia.org/wiki/Front-end_web_development) for creating website user interfaces. Vue allows you to start small and add new features as needed. It concentrates on improving the visual aspect of your website (the `view`) while managing manage complex, interactive web pages when used with other modern tools and libraries. 
