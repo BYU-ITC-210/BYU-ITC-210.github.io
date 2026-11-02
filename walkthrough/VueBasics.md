@@ -124,7 +124,7 @@ So far you have only run the starter app. Now you'll build something of your own
 A component is a reusable piece of the user interface. In Vue, components are usually written as *single-file components*, which are files ending in `.vue`. Each file can hold a `<script>` section (logic), a `<template>` section (HTML), and a `<style>` section (CSS).
 
 Create a new file named `GroceryList.vue` inside the `src/components` folder, and paste in the following contents:
-
+{% raw %}
 ```vue
 <script setup>
 defineProps({
@@ -153,6 +153,7 @@ defineProps({
 }
 </style>
 ```
+{% endraw %}
 
 Here is what each part does:
 
