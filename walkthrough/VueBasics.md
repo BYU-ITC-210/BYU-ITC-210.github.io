@@ -14,11 +14,11 @@ Before starting this walkthrough, you must have already installed [node.js](http
 
 ### Vue.js Setup
 
-1. Make sure node.js is installed
+* Make sure node.js is installed
   ```sh
   node --version
   ```
-2. Make sure npm is installed
+* Make sure npm is installed
   ```sh
   npm --version
   ```
@@ -27,25 +27,23 @@ Before starting this walkthrough, you must have already installed [node.js](http
 
 ## Step 1: Create a New Vue Project
 
-In your terminal, navigate to the parent folder where you want your project to live, then run:
-
+* In your terminal, navigate to the parent folder where you want your project to live, then run:
 ```sh
 npm create vue@latest
 ```
 
-The first time you run this, npm may ask permission to install the `create-vue` package. Type `y` and press Enter.
+> The first time you run this, npm may ask permission to install the `create-vue` package. Type `y` and press Enter.
 
-You will then be asked a series of questions. The first is the project name:
-
+* You will then be asked a series of questions. The first is the project name:
 ```
 Project name: › vue-walkthrough
 ```
 
-Type a name (for example, `vue-walkthrough`) and press Enter. The remaining prompts ask which optional features you want, such as TypeScript, Vue Router, Pinia, Vitest, and ESLint. Use the arrow keys and spacebar to select options, and press Enter to continue.
+* The remaining prompts ask which optional features you want, such as TypeScript, Vue Router, Pinia, Vitest, and ESLint. Use the arrow keys and spacebar to select options, and press Enter to continue.
 
 > **Tip:** For your first project, you should leave every optional *feature* unselected (choose **No**). You can always add features later.
 
-When it asks "Skip all example code and start with a blank Vue project?" select **No**. We will use the example code in this walkthrough.
+* When it asks "Skip all example code and start with a blank Vue project?" select **No**. We will use the example code in this walkthrough.
 
 When the tool finishes, it creates a new folder, named after your project, that contains a ready-to-use starter app.
 
@@ -53,13 +51,13 @@ When the tool finishes, it creates a new folder, named after your project, that 
 
 ## Step 2: Install the Dependencies
 
-Move into the new project folder:
+* Move into the new project folder:
 
 ```sh
 cd vue-walkthrough
 ```
 
-Then install everything the project needs:
+* Then install everything the project needs:
 
 ```bash
 npm install
@@ -71,21 +69,19 @@ This reads the project's `package.json` file and downloads all required packages
 
 ## Step 3: Run the Project in Development Mode
 
-Start the development server:
-
+* Start the development server:
 ```bash
 npm run dev
 ```
 
 You should see output similar to this:
-
 ```
   VITE v7.x.x  ready in 300 ms
 
   ➜  Local:   http://localhost:5173/
 ```
 
-Open the **Local** address (usually `http://localhost:5173/`) in your web browser. You should see the Vue welcome page.
+* Open the **Local** address (usually `http://localhost:5173/`) in your web browser. You should see the Vue welcome page.
 
 The development server uses *hot reloading*: if you edit a file such as `src/App.vue` and save it, the browser updates automatically with no need to refresh.
 
@@ -123,7 +119,7 @@ So far you have only run the starter app. Now you'll build something of your own
 
 A component is a reusable piece of the user interface. In Vue, components are usually written as *single-file components*, which are files ending in `.vue`. Each file can hold a `<script>` section (logic), a `<template>` section (HTML), and a `<style>` section (CSS).
 
-Create a new file named `GroceryList.vue` inside the `src/components` folder, and paste in the following contents:
+* Create a new file named `GroceryList.vue` inside the `src/components` folder, and paste in the following contents:
 {% raw %}
 ```vue
 <script setup>
@@ -169,9 +165,9 @@ Notice that the component contains no grocery data of its own. It simply display
 
 ## Step 6: Add a Grocery List to App.vue
 
-Now, create the data. `App.vue` (in the `src` folder) is the root component of your application, so it's a natural place to keep it. In a real application you might `fetch` the data from a web API. 
+Now, create the data. `App.vue` (in the `src` folder) is the root component of your application, so it's a natural place to place your data. In a real application you might `fetch` the data from a web API. 
 
-Open `src/App.vue`. The starter file contains a `<script setup>` section near the top. Replace it with the following:
+* Open `src/App.vue`. The starter file contains a `<script setup>` section near the top. Replace it with the following:
 
 ```vue
 <script setup>
@@ -198,13 +194,12 @@ The array is wrapped in **`ref()`**, which makes it *reactive*. That means if th
 
 ## Step 7: Bind the Component to the List
 
-Add the following at the beginning of `<script setup>` section of `src/App.vue`:
-
+* Add the following at the beginning of `<script setup>` section of `src/App.vue`:
 ```vue
 import GroceryList from './components/GroceryList.vue'
 ```
 
-Replace the `<template>` section of `src/App.vue` with the following:
+* Replace the `<template>` section of `src/App.vue` with the following:
 
 ```vue
 <template>
@@ -217,9 +212,35 @@ There are two new things here:
 - **`import GroceryList from './components/GroceryList.vue'`** makes the component available in this file. Because the file uses `<script setup>`, no extra registration is needed.
 - **`v-bind:items="groceries"`** *binds* the `groceries` array to the component's `items` prop. This tells Vue to treat the value as a JavaScript expression (the `groceries` variable) rather than plain text.
 
-Save the file (or let it auto-save). If your development server is still running from Step 3, the browser updates automatically. If you stopped it, start it again with `npm run dev`. You should now see a "Grocery List" heading with your five items and their quantities.
+* Save the file (or let it auto-save). If your development server is still running from Step 3, the browser updates automatically. If you stopped it, start it again with `npm run dev`. You should now see a "Grocery List" heading with your five items and their quantities.
 
 **Try it:** change a quantity or add a new `{ name: ..., quantity: ... }` entry to the `groceries` array in `App.vue`, save, and watch the page update without a refresh.
+
+---
+
+## Step 8: Build the Site for Hosting
+
+When you ran `npm run dev` it set up a local server for you to test the website. While the server is running, it also auto-rebuilds the site each time you make a change. In this step you will build a static website from your Vue sources.
+
+* If your server is still running, exit it with `Ctrl-C`.
+* Use this command to build your site:
+```sh
+npm run build
+```
+
+This will create a subdirectory called `dist` which contains the built version of your website suitable for static hosting.
+
+> You could load the static site onto your AWS server as you will do in Lab 5. Other popular options for static web sites are [GitHub Pages](https://docs.github.com/en/pages), [AWS S3 + CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/), [CloudFlare Pages](https://www.cloudflare.com/products/pages/), [Netlify](https://www.netlify.com/), and [Azure Static Web Apps](https://azure.microsoft.com/en-us/products/app-service/static).
+
+In this case, we will use Node to run a local static web server.
+
+* Make sure your current directory is your project directory (typically `vue-walkthrough`)
+* Execute this command to launch a static web server on the `dist` directory.
+```sh
+npx serve -s dist
+```
+
+* Browse to the URL the server indicates (typically [http://localhost:3000](http://localhost:3000)) and view your website.
 
 ---
 
