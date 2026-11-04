@@ -123,11 +123,9 @@ A component is a reusable piece of the user interface. In Vue, components are us
 {% raw %}
 ```vue
 <script setup>
-defineProps({
-  items: {
-    type: Array,
-    required: true
-  }
+const items = defineModel({
+  type: Array,
+  required: true
 })
 </script>
 
@@ -153,7 +151,7 @@ defineProps({
 
 Here is what each part does:
 
-* `defineProps` declares that this component accepts one input, called `items`, which must be an array. A *prop* is how a parent component passes data down to a child.
+* `defineModel` declares that this component accepts one input, called `items`, which must be an array. A [model](https://vuejs.org/guide/components/v-model.html) is one way a parent component passes data down to a child. The other way is with a [prop](https://vuejs.org/guide/components/props.html). The difference is that a prop goes one-way, from parent to child while a model goes both ways. If a change is made to the data in the child then the data in the parent will match.
 * `v-for="item in items"` repeats the `<li>` element once for every entry in the array.
 * `:key="item.name"` gives Vue a unique identifier for each list entry so it can update the list efficiently. (This assumes each item name is unique.)
 * {% raw %}`{{ item.name }}` and `{{ item.quantity }}`{% endraw %} insert each entry's values into the page.
@@ -203,14 +201,14 @@ import GroceryList from './components/GroceryList.vue'
 
 ```vue
 <template>
-  <GroceryList v-bind:items="groceries" />
+  <GroceryList v-model:items="groceries" />
 </template>
 ```
 
 There are two new things here:
 
 - **`import GroceryList from './components/GroceryList.vue'`** makes the component available in this file. Because the file uses `<script setup>`, no extra registration is needed.
-- **`v-bind:items="groceries"`** *binds* the `groceries` array to the component's `items` prop. This tells Vue to treat the value as a JavaScript expression (the `groceries` variable) rather than plain text.
+- **`v-model:items="groceries"`** *binds* the `groceries` array to the component's `items` prop. This tells Vue to treat the value as a JavaScript expression (the `groceries` variable) rather than plain text.
 
 * Save the file (or let it auto-save). If your development server is still running from Step 3, the browser updates automatically. If you stopped it, start it again with `npm run dev`. You should now see a "Grocery List" heading with your five items and their quantities.
 
