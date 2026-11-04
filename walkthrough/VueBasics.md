@@ -151,7 +151,7 @@ const items = defineModel({
 
 Here is what each part does:
 
-* `defineModel` declares that this component accepts one input, called `items`, which must be an array. A [model](https://vuejs.org/guide/components/v-model.html) is one way a parent component passes data down to a child. The other way is with a [prop](https://vuejs.org/guide/components/props.html). The difference is that a prop goes one-way, from parent to child while a model goes both ways. If a change is made to the data in the child then the data in the parent will match.
+* `defineModel` declares that this component accepts one input which must be an array. A [model](https://vuejs.org/guide/components/v-model.html) is one way a parent component passes data down to a child. The other way is with a [prop](https://vuejs.org/guide/components/props.html). The difference is that a prop goes one-way, from parent to child while a model goes both ways. If a change is made to the data in the child then the data in the parent will match. A component may have multiple models and/or props in which case you give them names.
 * `v-for="item in items"` repeats the `<li>` element once for every entry in the array.
 * `:key="item.name"` gives Vue a unique identifier for each list entry so it can update the list efficiently. (This assumes each item name is unique.)
 * {% raw %}`{{ item.name }}` and `{{ item.quantity }}`{% endraw %} insert each entry's values into the page.
@@ -201,7 +201,7 @@ import GroceryList from './components/GroceryList.vue'
 
 ```vue
 <template>
-  <GroceryList v-model:items="groceries" />
+  <GroceryList v-model="groceries" />
 </template>
 ```
 
